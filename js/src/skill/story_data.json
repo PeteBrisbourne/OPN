@@ -1,0 +1,785 @@
+{
+  "intro": {
+    "name": "intro",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "start",
+          "nextNode": "outside_the_abbey"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "intro_help"
+        }
+      ]
+    },
+    "script": "<<set $sisterAnnaCell = 0>>\n<<set $talkToSisters = 0>>\n<<set $talkToCatherina = 0>>\n<<set $talkToCecilia = 0>>\n<<set $talkToElena = 0>>\n<<set $travelToInfirmary = 0>>\n<<set $talkToValerio = 0>>\n<<set $recruitRoom = 0>>\n<<set $continueClockTower = 0>>\nOne Piercing Note. A RuneScape quest.\nIn this audio adventure you will explore the mystery that lurks within the Abbey of St. Elspeth Citharede.\nAnytime you feel stuck during your adventure, just say \"help\".\nWhen you're ready to begin, simply say 'start’."
+  },
+  "intro_help": {
+    "name": "intro_help",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "Placeholder intro help message."
+  },
+  "outside_the_abbey": {
+    "name": "outside_the_abbey",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "yes",
+          "nextNode": "will_help"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "wont_help"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "will_help"
+        },
+        {
+          "utterance": "sure",
+          "nextNode": "will_help"
+        },
+        {
+          "utterance": "okay",
+          "nextNode": "will_help"
+        }
+      ]
+    },
+    "script": "NARRATOR\nThe abbey stood in a sea of hazy hot desert, with its single clock tower jutting towards the blue sky like a lighthouse.\nThe relentless sun beat down upon its stone white walls and you, as you approached the front gate.\nYou had overheard that the Abbey of St. Elspeth Citharede was looking for an adventurer.\nTo what end you did not know, but the unusual request had been more than enough to capture your interest.\nApproaching the front gate, a person clothed in white robes shuffles to her feet. Perhaps this was one of the Abbey Sisters.\nSISTER CATHERINA:\n(with relief)\nThank Saradomin! You must be the adventurer the abbess prayed for!\nMy name is Sister Catherina. Our abbess asked me to wait here for you to arrive.\nWill you help us, adventurer?\nNARRATOR\nSister Catherine looks at you expectantly. What do you do? Do you say; yes, or, no?"
+  },
+  "outside_the_abbey_help": {
+    "name": "outside_the_abbey_help",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "Placeholder outside the abbey help message."
+  },
+  "will_help": {
+    "name": "will_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "follow sister catherina",
+          "nextNode": "office_of_abbess"
+        }
+      ]
+    },
+    "script": "NARRATOR\nSister Catherine looks immediately relieved. Her face breaking into a joyous smile.\nSISTER CATHERINA:\n(with joy)\nSaradomin be praised! Please, follow me. I will take you to our Abbess who will explain more.\nNARRATOR\nWhat do you do? You may; follow Sister Catherina."
+  },
+  "wont_help": {
+    "name": "wont_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "follow sister catherina",
+          "nextNode": "office_of_abbess"
+        }
+      ]
+    },
+    "script": "SISTER CATHERINA:\n(disappointed)\nOh. I see…\nNARRATOR\nSister Catherine's hopeful gaze drops to the desert sand. The sister gives you one last look of pleading help with desperate eyes.\nSISTER CATHERINA:\n(hopeful)\nAre you...certain you can’t help us?\nNARRATOR\nYou chose poorly. Every bad option will minus and affect your final score at the end of the game.\nWhat do you do? You may; follow Sister Catherina."
+  },
+  "office_of_abbess": {
+    "name": "office_of_abbess",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "the details of the murder",
+          "nextNode": "ask_murder"
+        },
+        {
+          "utterance": "her favourite food",
+          "nextNode": "ask_food"
+        }
+      ]
+    },
+    "script": "NARRATOR\nSister Catherina leads you through the ornate front gate of the abbey and into its paved courtyard where a flowing fountain\nstands in midst of the dry desert. The abbey certainly has a humble air about it, from its worn white walls to the lack of\nany fanciful decoration; the whole place is a testament to the simple and devoted lifestyle the Sisters must lead within and their dedication of worship to their god, Saradomin.\nOff to the side of the courtyard, Sister Catherina stops outside a dark wooden door before knocking.\nSOUND EFFECT: KNOCKING\nABBESS BENITA\n(from behind the door)\nCome in.\nSOUND EFFECT: DOOR CREAKING OPEN\nNARRATOR\nYou enter the room. A small room which appears to be more of an office than a place of worship.\nBehind a large desk sits an older woman, dressed in the same white robes as Sister Catherina.\nHer face has much more of a serious gaze, and wrinkled lines suggest a lifetime of devotion. Her looks are one of authority if not, something weighing heavily on her mind.\nABBESS BENITA\n(seriously)\nAh. You must be an adventurer who has heard our call. Thank Saradomin you’ve come. I’m the Abbess; Abbess Benita.\nI've called you here for a sensitive task - one that I would prefer to deal with quietly, without involving the Church authorities.\nSister Catherina, please leave us.\nSOUND EFFECT: DOOR CLOSING\nNARRATOR\nThe Abbess pauses for a second. Somewhat hesitant to continue.\nABBESS BENITA\n(with slight apprehension)\nOne of our sisters, Sister Anna, has been, I believe, murdered. Murdered quite brutally. I need you to investigate,\nfor I fear the killer may still be in the abbey. I’m sure you must have some questions so please, ask, and I will try and tell you all I know.\nNARRATOR\nThe Abbess waits for your question.\nWhat do you do? Do you ask about; details of the murder, OR, her favourite food?"
+  },
+  "ask_murder": {
+    "name": "ask_murder",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "the cell",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "go to infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "talk to sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "office of abbess help",
+          "nextNode": "office_of_abbess_help"
+        }
+      ]
+    },
+    "script": "NARRATOR\nShe nods in agreement and continues.\nABBESS BENITA\n(with slight hesitation)\nSister Anna was one of our most devoted sisters, and, a trusted friend. She was exactly what we should aspire to be;\nhumble and committed to our worship of Saradomin.\nI last saw her at Vespers…it’s a prayer service, yesterday. When she wasn't present at Compline later in the evening however,\nI went to her cell and there found her body.\nIt was…horrific. The injuries were so severe that I had to stop myself from screaming. It wouldn’t be right to scare the other Sisters\nso…I moved the body to the infirmary and cleaned and wrapped it myself. I’ve forbidden the other sisters from seeing it.\nNARRATOR\nThe Abbess clears her throat as she recounts the details. Despite her stern composure, she is trembling.\nIt must have been a harrowing experience.\nABBESS BENITA\n(more determinedly)\nPlease. The whole abbey is open for you to investigate. I will accompany you so you don’t get lost.\nSOUND EFFECT: SOUND OF CHAIR BEING PUSHED BACK. THE ABBESS IS STANDING UP.\nI don’t mean to tell you how to proceed. But what will you do? Would you like to; go to Sister Anna’s cell,\nOR, go to the infirmary, OR talk to the Sisters?"
+  },
+  "ask_food": {
+    "name": "ask_food",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "the details of the murder",
+          "nextNode": "ask_murder"
+        }
+      ]
+    },
+    "script": "NARRATOR\nThe Abbess looks at you with a look of confusion.\nABBESS BENITA\n(with surprise)\nThat…isn’t relevant at all.\nNARRATOR\nThis was the wrong question to ask.\nWhat do you do? You may ask about; details of the murder"
+  },
+  "office_of_abbess_help": {
+    "name": "office_of_abbess_help",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "Placeholder"
+  },
+  "travel_to_infirmary": {
+    "name": "travel_to_infirmary",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "<<set $travelToInfirmary = 1>>\nNARRATOR\nThe Abbess leads you through the abbey towards the infirmary. Around you, the life of worship seems to be continuing unabated.\nThe sisters unaware of the threat of a murderer that still perhaps lingers within the abbey itself. Eventually the abbess stops at a wooden door.\nSOUND EFFECT: CLINKING OF KEYS. DOOR BEING UNLOCKED THEN OPENED.\nABBESS BENITA\nI shall wait here so as to ensure you’re not disturbed. Please be, respectful.\nNARRATOR\nYou enter the infirmary and approach the body, lifting the white sheet which covers it.\nIndeed, the body has been cleaned and put in burial robes.\nYou take a look at the face; it has been horribly mutilated. The front of the skull has been bludgeoned in,\nand the skin of the face has been removed. On the back of the head you find a blunt force wound, as if she was hit by a heavy object.\nThere is a row of three deep stab wounds in the victim's chest, one of them piercing her heart.\nThe victim's feet have been heavily mutilated. Several toes have been cut off.\nTaking a moment to ensure you haven't missed anything you pull the sheet back over the body and return to the Abbess.\n<<if $sisterAnnaCell is 0 and $talkToSisters is 0>>\n[[travel_to_infirmary_choice_one]]\n<<endif>>\n<<if $sisterAnnaCell is 0 and $talkToSisters is 1>>\n[[travel_to_infirmary_choice_two]]\n<<endif>>\n<<if $sisterAnnaCell is 1 and $talkToSisters is 0>>\n[[travel_to_infirmary_choice_three]]\n<<endif>>\n<<if $sisterAnnaCell is 1 and $talkToSisters is 1>>\n[[summing_up]]"
+  },
+  "travel_to_infirmary_choice_one": {
+    "name": "travel_to_infirmary_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to sister anna's cell",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        }
+      ]
+    },
+    "script": "ABBESS BENITA\nVery well. Where would you like to go next?\nYou may; go to Sister Anna’s cell, OR, talk to the sisters."
+  },
+  "travel_to_infirmary_choice_two": {
+    "name": "travel_to_infirmary_choice_two",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to sister anna's cell",
+          "nextNode": "sister_anna_cell"
+        }
+      ]
+    },
+    "script": "ABBESS BENITA\nVery well. Where would you like to go next?\nYou may; go to Sister Anna’s cell"
+  },
+  "travel_to_infirmary_choice_three": {
+    "name": "travel_to_infirmary_choice_three",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        }
+      ]
+    },
+    "script": "ABBESS BENITA\nVery well. Where would you like to go next?\nYou may; talk to the sisters."
+  },
+  "sister_anna_cell": {
+    "name": "sister_anna_cell",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "<<set $sisterAnnaCell = 1>>\nABBESS BENITA\nSister Anna’s cell is this way. Please follow me.\nNARRATOR\nThe two of you walk through the abbey into the residence wing.  You stop at a door with the name ‘Sister Anna’ painted across it.\nThe Abbess takes an iron key from her robes and turns it in the lock, pushing the door open to let you enter.\nSOUND EFFECT: DOOR BEING UNLOCKED AND OPENED. ABBEY AMBIENCE FADES OUT\nINT. SISTER ANNA CELL – DAY\nThe room is small and sparse of furniture apart from an uncomfortable looking bed and a shelf of books.\nThe bare stone walls are without decoration. A warm breeze hits you drawing your attention to the one solitary window.\nABBESS BENITA\nI’ve kept the room locked since I found the body. Nobody has been in here since, not even to clean.\nNARRATOR:\nWalking towards the small window you notice that it is smashed, however there appears to be no glass in the room itself suggesting,\nperhaps, it was broken from the inside.\nNoting this, you take a look through the shelf of books however nothing seems to be out of the ordinary there.\nLastly you look at the bed. It is neatly made, though looks extremely uncomfortable. Kneeling down you reach around underneath\nuntil…your fingers touch upon something soft.\nPulling it out you reveal a piece of cloth.\nABBESS BENITA\n(curiously)\nThat looks like a piece of clothing, but it doesn't match any of the robes the Sisters wear. How strange.\nNARRATOR:\nThe Abbess looks puzzled by this find, while you take one last glance around the room. There doesn’t seem to be anything else out of the ordinary.\n<<if $travelToInfirmary is 0 and $talkToSisters is 0>>\n[[sister_anna_cell_choice_one]]\n<<endif>>\n<<if $travelToInfirmary is 0 and $talkToSisters is 1>>\n[[sister_anna_cell_choice_two]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $talkToSisters is 0>>\n[[sister_anna_cell_choice_three]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $talkToSisters is 1>>\n[[summing_up]]"
+  },
+  "sister_anna_cell_choice_one": {
+    "name": "sister_anna_cell_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        }
+      ]
+    },
+    "script": "ABBESS BENITA\nIt doesn’t look like there is anything else here out of place.\nWhat would you like to do? You may; talk to the sisters, OR, go to the infirmary."
+  },
+  "sister_anna_cell_choice_two": {
+    "name": "sister_anna_cell_choice_two",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        }
+      ]
+    },
+    "script": "ABBESS BENITA\nIt doesn’t look like there is anything else here out of place.\nWhat would you like to do? You may; go to the infirmary."
+  },
+  "sister_anna_cell_choice_three": {
+    "name": "sister_anna_cell_choice_three",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        }
+      ]
+    },
+    "script": "ABBESS BENITA\nIt doesn’t look like there is anything else here out of place.\nWhat would you like to do? You may; talk to the sisters."
+  },
+  "talk_to_sisters": {
+    "name": "talk_to_sisters",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to sister catherina",
+          "nextNode": "talk_to_sister_catherina"
+        },
+        {
+          "utterance": "talk to sister cecilia",
+          "nextNode": "talk_to_sister_cecilia"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "talk_to_sisters_help"
+        }
+      ]
+    },
+    "script": "<<set $talkToSisters = 1>>\nNARRATOR:\nThe Abbess nods, agreeing this is a sensible course of action.\nABBESS BENITA\nYou should certainly ask them relevant questions which may help shed some light on this mystery.\nI’ve told them of the death of course, but, as I said, I haven’t mentioned the fact I believe it was murder.\nWho would you care to talk to first?\nYou may choose; Sister Catherina, OR, Sister Cecilia."
+  },
+  "talk_to_sisters_helper": {
+    "name": "talk_to_sisters_helper",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "Placeholder"
+  },
+  "talk_to_sister_catherina": {
+    "name": "talk_to_sister_catherina",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "the manuscript",
+          "nextNode": "the_manuscript"
+        },
+        {
+          "utterance": "the applicant",
+          "nextNode": "the_applicant"
+        }
+      ]
+    },
+    "script": "<<set $talkToCatherina = 1>>\nNARRATOR\nLeading you through the Abbey, the Abbess approaches one of the sisters who is sat at a wooden desk, writing.\nAs she gets up to walk towards you, you recognise her as Sister Catherina, who met you at the abbey front gate.\nSISTER CATHERINA\n(politely)\nOh, adventurer. It is good to see you again. The Abbess says you would like to speak to me in regards to what I was doing last night?\nNARRATOR\nThe Sister looks a bit uncertain, but continues.\nSISTER CATHERINA\nWell, I was in the scriptorium – in the basement - copying a manuscript from the Book of Saradomin. There’s quite a lot, and,\nwell, I think I’ve gotten quite good at it. It makes me feel somewhat proud, although I know that’s not a feeling I should indulge.\nIt was quite hard though what with the music coming from outside the abbey. Not that I dislike what Valerio is doing outside,\nbut I so used to love dancing before I joined the abbey. It’s certainly tempting to join in. Sister Anna wouldn’t be impressed by me saying that.\nShe was quite strict and at first frightened me.\nI’m not surprised the applicant who was here yesterday left without a word.\nNARRATOR\nWhat do you do? Do you ask about; the manuscript, or, the applicant?"
+  },
+  "the_applicant": {
+    "name": "the_applicant",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "SISTER CATHERINA\nOh! You probably don't know. An applicant came to the abbey yesterday. Her name was Isabella.\nI heard Sister Anna forced her to sing but wasn’t impressed that she couldn’t do it well.\nShe disappeared yesterday noon. She probably went home. A lot of applicants realise the life here isn't for them and leave.\nIf it’s ok, I should return to my writing. I hope I have helped you in some way adventurer.\nNARRATOR\nSister Catherina gives you a smile, then turns and walks back to her desk.\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 0>>\n[[the_applicant_choice_two]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 0>>\n[[the_applicant_choice_three]]\n<<endif>>\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 1>>\n[[the_applicant_choice_four]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 1 and $talkToCecilia is 1>>\n[[summing_up]]\n<<endif>>\n<<if $talkToCecilia is 0>> \n[[the_applicant_choice_one]] "
+  },
+  "the_applicant_choice_one": {
+    "name": "the_applicant_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to cecilia",
+          "nextNode": "talk_to_sister_cecilia"
+        }
+      ]
+    },
+    "script": "NARRATOR\nWhat would you like to do? You may; talk to Sister Cecilia."
+  },
+  "the_applicant_choice_two": {
+    "name": "the_applicant_choice_two",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to anna's cell",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "go to infirmary",
+          "nextNode": "travel_to_infirmary"
+        }
+      ]
+    },
+    "script": "NARRATOR\nWhat would you like to do? You may; go to Sister Anna’s cell, OR, go to the infirmary."
+  },
+  "the_applicant_choice_three": {
+    "name": "the_applicant_choice_three",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to anna's cell",
+          "nextNode": "sister_anna_cell"
+        }
+      ]
+    },
+    "script": "NARRATOR\nWhat would you like to do? You may; go to Sister Anna’s cell."
+  },
+  "the_applicant_choice_four": {
+    "name": "the_applicant_choice_four",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to infirmary",
+          "nextNode": "travel_to_infirmary"
+        }
+      ]
+    },
+    "script": "NARRATOR\nWhat would you like to do? You may; go to the infirmary."
+  },
+  "the_manuscript": {
+    "name": "the_manuscript",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "the applicant",
+          "nextNode": "the_applicant"
+        }
+      ]
+    },
+    "script": "SISTER CATHERINA\n(enthusiastically)\nOh, well! It’s a little project of mine transcribing the Book of Saradomin. It’s a beautiful book which captures all\nthat is holy and it’s nothing but an honour to study it. I’m really starting to get the hang of illuminating the text.\nThere are so many pages, all beautifully scribed...\nSOUND EFFECT: PERHAPS HAVE THE DIALOGUE FADE OUT BEHIND THE NARRATOR SO IT SOUNDS LIKE SHE IS STILL TALKING REALLY ENTHUSIASTICALLY\nNARRATOR\nThis was the wrong question to ask.\nWhat do you do? You may ask about; the applicant."
+  },
+  "talk_to_sister_cecilia": {
+    "name": "talk_to_sister_cecilia",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "story",
+          "nextNode": "the_story"
+        },
+        {
+          "utterance": "musical chords",
+          "nextNode": "the_musical_chords"
+        }
+      ]
+    },
+    "script": "<<set $talkToCecilia = 1>>\nNARRATOR\nYou follow the Abbess up a white stone staircase and venture into the chapel hall. Unlike the rest of the abbey,\nthe large hall is finely decorated; coloured marble covering the floor and pillars that stretch up to the arched ceiling.\nThe abbess ventures over to a sister, who surrounded by sheets of musical notation, appears to be leading the choir,\nwaving her arms and conducting. The abbess beckons her to talk with you.\nSISTER CECILIA\nLook at me...look at me... Okay, that's good. Remember to look at me so you can keep in time. Oh! I'm sorry,\nI didn't, er...Ladies, keep rehearsing. I need to talk to someone.\nSOUND EFFECT: THE CHOIR FADE OUT BUT CONTINUE IN THE BACKGROUND\nNARRATOR\nThe Sister comes over and the Abbess introduces her as Sister Cecilia. The abbess asks her where she was yesterday evening.\nSISTER CECILIA\nI was here. Leading the choir in practice of a new hymn to Saint Elspeth. I wrote the music, and might I add it's better\nmusic than those…dancers outside the abbey. I have no idea why they are here, but I detest dancing. Singing is much more holy.\nDo you know the story of Saint Elspeth and the Ripper Demon? I’d be happy to tell you. It’s a very important story to all the sisters here.\nNARRATOR\nWhat do you do?\nDo you ask about; the story, or, musical chords?"
+  },
+  "the_story": {
+    "name": "the_story",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "NARRATOR\nSister Cecilia nods and starts to relate the story behind her hymn.\nSISTER CECILIA\nThe Ripper was an assassin demon. It would strike without warning and leave its victims horribly mutilated.\nStab them through the heart with terrible claws, tear off their faces...\nZamorak, the god of chaos, sent the Ripper to attack a village where Saint Elspeth was staying.\nBut, it couldn't approach while she was singing. Her voice and singing was so holy.\nSo it waited on the edge of the village. She sang for days, but eventually she was too weak to go on.\nShe went out of the village to face the demon alone - she thought it might just kill her and spare the villagers. A noble sacrifice.\nShe fought the demon and it mortally wounded her; but, as she was dying, Saradomin granted her the strength to sing one\npiercing note so perfect that it struck the demon dead. Her remains lay unburied until the present age. Then, seventy years ago,\na group of holy women found them and built this abbey in her memory. That's why music is such an important part of our worship.\nNow if you’ll excuse me, I really must get back to helping the choir.\nNARRATOR\nYou thank Sister Cecilia. She smiles and returns to conducting the choir leaving you with the Abbess.\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 0>>\n[[the_story_choice_two]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 0>>\n[[the_story_choice_three]]\n<<endif>>\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 1>>\n[[the_story_choice_four]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 1 and $talkToCatherina is 1>>\n[[summing_up]]\n<<endif>>\n<<if $talkToCatherina is 0>>\n[[the_story_choice_one]]"
+  },
+  "the_story_choice_one": {
+    "name": "the_story_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to catherina",
+          "nextNode": "talk_to_sister_catherina"
+        }
+      ]
+    },
+    "script": "NARRATOR\nWhat would you like to do? You may; talk to Sister Catherina."
+  },
+  "the_story_choice_two": {
+    "name": "the_story_choice_two",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to anna's cell",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "go to infirmary",
+          "nextNode": "travel_to_infirmary"
+        }
+      ]
+    },
+    "script": "NARRATOR\nWhat would you like to do? You may; go to Sister Anna’s cell, OR, go to the infirmary."
+  },
+  "the_story_choice_three": {
+    "name": "the_story_choice_three",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to anna's cell",
+          "nextNode": "sister_anna_cell"
+        }
+      ]
+    },
+    "script": "NARRATOR\nWhat would you like to do? You may; go to Sister Anna’s cell."
+  },
+  "the_story_choice_four": {
+    "name": "the_story_choice_four",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to infirmary",
+          "nextNode": "travel_to_infirmary"
+        }
+      ]
+    },
+    "script": "NARRATOR\nWhat would you like to do? You may; go to the infirmary."
+  },
+  "the_musical_chords": {
+    "name": "the_musical_chords",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "the story",
+          "nextNode": "the_story"
+        }
+      ]
+    },
+    "script": "NARRATOR\nSister Cecilia looks surprised, not expecting the question.\nSISTER CECILIA\n(uncertain & surprised)\nMusical chords? They’re just a collection of notes but I don’t see what that has to do with anything.\nNARRATOR\nThis was the wrong question to ask.\nWhat do you do? You may ask about; the story."
+  },
+  "summing_up": {
+    "name": "summing_up",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "valerio",
+          "nextNode": "go_to_valerio"
+        },
+        {
+          "utterance": "applicant room",
+          "nextNode": "recruit_room"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "summing_up_help"
+        }
+      ]
+    },
+    "script": "NARRATOR\nYou explain to the abbess that after investigating and talking to some of the Sisters that two new facts have come to your attention;\na person called Valerio and an applicant who was in the abbey yesterday.\nABBESS BENITA\nIndeed. You are right to want to investigate these further. Very well.\nWhere would you like to go? Go to Valerio, OR, go to the applicant room?"
+  },
+  "go_to_valerio": {
+    "name": "go_to_valerio",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "why he is here",
+          "nextNode": "why_he_is_here"
+        },
+        {
+          "utterance": "what is life like",
+          "nextNode": "what_is_life_like"
+        }
+      ]
+    },
+    "script": "<<set $talkToValerio = 1>>\nNARRATOR\nThe abbess' face flashes a look of disapproval at the mention of this name, before she leads you towards the main gates\nof the abbey and points over to the troubadour and his camp.\nABBESS BENITA\nVery well. I don’t know why they are here outside the Abbey. He and his party seem to come and go quite often.\nIt’s not that I don’t respect their choice of...lifestyle, but I don’t want the sisters being distracted at this time.\nNARRATOR\nLeaving the Abbess at the gate, you walk over to the colorful tent where a number of people are dancing.\nAmongst them a brightly dressed man is playing a mandolin and singing.\nEXT. VALERIO CAMP – DAY\nSOUND EFFECT: VALERIO SINGING & MUSIC FOR A WHILE\nNARRATOR\nFrom his wide hat, sun kissed skin and open waistcoat the man has a very carefree air about him. He ceases his singing as you near,\ngreeting you with an infectious smile.\nVALERIO\n(happily)\nGreetings, traveller! The name’s Valerio.\nI do hope we’re not causing any trouble. We just thought we’d help liven the desert up a bit.\nEveryone should enjoy dancing once in awhile, especially if there is some coin to be made!\nNARRATOR\nWhat do you do?\nDo you; ask why he is here, or, what is life like?"
+  },
+  "why_he_is_here": {
+    "name": "why_he_is_here",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "NARRATOR\nValerio’s wide smile slowly disappears, the musician looking very forlorn. The facade fading away.\nVALERIO\n(stark honesty / sadly)\nAh. I guess, it is more than a little strange that we would be here, outside an abbey huh?\nVery well...one of the sisters here, Sister Anna, she passed away recently. I knew her before she joined the abbey, so I've come to pay my respects.\nI knew her before she joined the abbey. I tried to talk her out of coming here, but when she made her mind up about something, there was nothing that could stop her.\nNARRATOR\nValerio falls silent for a moment, his gaze falling to the sand, as if recalling some distant memory before with a shake of his head he returns.\nVALERIO\n(sounding a little more determined)\nThat is the truth of why I’m here. Even a religious order isn't completely cut off from the world. Word gets around.\nNow, if you’ll excuse me I think some music is required to lift the mood.\nNARRATOR\nYou return to the Abbess who is waiting by the front gate.\nSOUND EFFECT: THE BELL FROM THE CLOCK TOWER RINGS OUT. CUTTING THE ABBESS OFF.\nABBESS BENITA\n(almost to herself)\nThe bells shouldn’t be ringing at this time. What is Sister Debora up to…\n<<if $recruitRoom is 0>>\n[[go_to_valerio_choice_one]]\n<<else>>\n[[go_to_valerio_choice_two]]"
+  },
+  "go_to_valerio_choice_one": {
+    "name": "go_to_valerio_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to applicant room",
+          "nextNode": "recruit_room"
+        }
+      ]
+    },
+    "script": "ABBESS BENITA\nAh, Adventurer. Where would you like to go? You may; go to the applicant room"
+  },
+  "go_to_valerio_choice_two": {
+    "name": "go_to_valerio_choice_two",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to clock tower",
+          "nextNode": "clock_tower"
+        }
+      ]
+    },
+    "script": "ABBESS BENITA\nAh, Adventurer. Where would you like to go? You may; go to the clock tower."
+  },
+  "recruit_room": {
+    "name": "recruit_room",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "<<set $recruitRoom = 1>>\nNARRATOR\nLeading the way, the abbess takes you through the abbey to a room near the front gate.\nFinding a iron key on her busy keychain, she unlocks the door and pushes it open for you.\nSOUND EFFECT: METAL KEYS MOVING. DOOR BEING UNLOCKED THEN OPENED.\nABBESS BENITA\n(uncertain)\nI’m not sure what help this will be. The applicant who was here must have left yesterday, though I didn’t see her leave.\nThis is the room where all the applicants come and are interviewed by the sisters. I do know Sister Anna conducted the interview yesterday.\nNARRATOR\nYou walk into a simple room with a few desks and wooden benches within, set out like a classroom.\nSearching around there doesn't seem to be anything amiss but, as you turn to leave, you notice something just behind the door.\nReaching round you retrieve a piece of cloth, the colour and feel of which is immediately familiar.\nABBESS BENITA\nA moment. Let me take a look at that.\nNARRATOR\nThe abbess takes the cloth and examines it further.\nABBESS BENITA\nThis is most peculiar. Again, not something the sisters of the Abbey would wear and it seems....it seems to match the one you found in Sister Anna's cell. I wonder if-\nSOUND EFFECT: THE BELL FROM THE CLOCK TOWER RINGS OUT. CUTTING THE ABBESS OFF.\nABBESS BENITA\n(annoyed)\nWhat in the name of Saradomin... What is Sister Deborah doing up there? The bell shouldn’t be sounding at this time! Though, that does remind me. It wouldn’t hurt to go talk to her as well at some point.\n<<if $talkToValerio is 0>>\n[[recruit_room_choice_one]]\n<<else>>\n[[recruit_room_choice_two]]"
+  },
+  "recruit_room_choice_one": {
+    "name": "recruit_room_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to see valerio",
+          "nextNode": "go_to_valerio"
+        }
+      ]
+    },
+    "script": "ABBESS BENITA\nWhere would you like to go? You may; go to see Valerio."
+  },
+  "recruit_room_choice_two": {
+    "name": "recruit_room_choice_two",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "clock tower",
+          "nextNode": "clock_tower"
+        }
+      ]
+    },
+    "script": "ABBESS BENITA\nWhere would you like to go? You may; go to the clock tower."
+  },
+  "what_is_life_like": {
+    "name": "what_is_life_like",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "why he is here",
+          "nextNode": "why_he_is_here"
+        }
+      ]
+    },
+    "script": "VALERIO\n(teasingly)\nAh, are you interested in a change of career perhaps? Is that it?\n(happily)\nMy life is rarely boring. Always on the road. Town after town...I’ve seen a lot of this world and it’s made even nicer by the company I keep.\nWhy, there aren’t many women I’ve met who don’t like to be serenaded by my mandolin.\nSOUND EFFECT: HAPPY MANDOLIN RIFF\nNARRATOR\nThis was the wrong question to ask.\nWhat do you do? You may; ask why he is here."
+  },
+  "clock_tower": {
+    "name": "clock_tower",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "continue clock tower",
+          "nextNode": "continue_clock_tower"
+        },
+        {
+          "utterance": "talk to sister elena",
+          "nextNode": "talk_to_sister_elena"
+        }
+      ]
+    },
+    "script": "NARRATOR\nThe abbess leads you deeper into the abbey, down it’s bare stone corridors towards the clock tower.\nAs you pass an open doorway the potent smell of cabbages suddenly hits you. You peer back around and into what must be the abbey kitchens.\nThere, a lady in abbey robes, red faced and in an apron, is busily stirring various pots while steam billows up and slides around the ceiling.\nABBESS BENITA\nThat’s Sister Elena. She’s in charge of the kitchens here. You may talk to her if you like.\nWhat do you do?\nDo you; continue to the clock tower, OR, talk to Sister Elena."
+  },
+  "talk_to_sister_elena": {
+    "name": "talk_to_sister_elena",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "sister anna",
+          "nextNode": "ask_sister_anna"
+        },
+        {
+          "utterance": "make cabbage soup",
+          "nextNode": "make_cabbage_soup"
+        }
+      ]
+    },
+    "script": "<<set $talkToElena = 1>>\nNARRATOR\nYou enter the kitchen.\nSOUND EFFECT: KITCHEN AMBIENCE (BOILING WATER, CLATTERING UTENSILS & POTS\nSISTER ELENA\n(annoyed / impatient)\nYes? What is it?\nNARRATOR\nThe abbess goes over to Sister Elena and explains that you have a few questions about her whereabouts yesterday evening,\nand about Sister Anna. She waits outside, leaving the two of you to talk.\nSISTER ELENA\n(annoyed / impatient)\nI was here, in the kitchen. Why, where should I have been? I went down to the cellar to get some supplies at one point,\nbut the rest of the time I was here. Actually, I noticed something while I was down there. I think someone's been stealing food from the cellar.\nI bet it was Sister Catherina. I've seen her sneaking an extra cup of wine at meals, and I bet she’s just the sort to want to flirt with that rabble outside.\nAs for Sister Anna...she's with Saradomin now. It doesn't matter what I thought of her, and it does no good to speak ill of the dead.\nNARRATOR\nWhat do you do?\nDo you ask; about Sister Anna, or, how to make cabbage soup?"
+  },
+  "ask_sister_anna": {
+    "name": "ask_sister_anna",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "SISTER ELENA\n(annoyed / impatient)\nNow, I know what you might be thinking. I didn’t say I didn’t like her. But she did cause conflict. Most of the sisters didn't see it,\nbut I did. She was always arguing with the abbess.\nSister Anna thought Sister Benita was too lenient with the order's rules. Anna would have enforced silence outside of services.\nShe'd have stopped Sister Cecilia composing - prescribed melodies only. Maybe it's Saradomin's will that Sister Anna never got to become abbess.\nNow. I need to head to the basement for some ingredients. Out with you!\nNARRATOR\nYou leave the kitchen by the threatening flick of a tea-towel at your back.\nABBESS BENITA\nYou’ll have to excuse Sister Elena, she isn’t the most...accommodating when busy.\n<<if $continueClockTower is 0>>\n[[ask_sister_anna_choice_one]]\n<<else>>\n[[meeting_with_the_abbess]]"
+  },
+  "ask_sister_anna_choice_one": {
+    "name": "ask_sister_anna_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "continue the clock tower",
+          "nextNode": "continue_clock_tower"
+        }
+      ]
+    },
+    "script": "ABBESS BENITA\nWhat would you like to do? You may; continue the clock tower."
+  },
+  "make_cabbage_soup": {
+    "name": "make_cabbage_soup",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "ask about sister anna",
+          "nextNode": "ask_sister_anna"
+        }
+      ]
+    },
+    "script": "SISTER ELENA\n(energetic – Jamie Oliver mode)\nYou want to know how I make my cabbage soup? Well, let me tell you!\nSOUND EFFECT: RANDOM FOOD PREPARATION NOISES (CHOPPING, SCRAPING…ETC)\nFirst you need some onions and carrots, just to help take the edge off a bit. Slice and dice them, see? Then take your cabbage.\nWe grow all our own you know. Right here in the abbey. Get rid of the outer leaves then cut the whole thing into bite sized pieces like this…\nNARRATOR\nThe abbess tries to interrupt, unsuccessfully.\nSISTER ELENA\nThrow it all in a pot. Then you have to add the water. How much will depend on how many you’re cooking for.\nCover it. Just like that, and then put it on a low heat. Low, did you hear me? People think they can cook food faster by\njust whacking it on the hottest thing they have. No no. We respect patience in this abbey and more so in this kitchen…\nNARRATOR\nThis was the wrong question to ask.\nWhat do you do? You may; ask about Sister Anna."
+  },
+  "continue_clock_tower": {
+    "name": "continue_clock_tower",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "use the lever",
+          "nextNode": "use_the_lever"
+        },
+        {
+          "utterance": "say done",
+          "nextNode": "say_done"
+        }
+      ]
+    },
+    "script": "<<set $continueClockTower = 1>>\nNARRATOR\nClimbing some wooden stairs, you head up into the stone clock tower which raises above the abbey. Stopping at a\nfloor housing all the clock machinery, obscured by large cogs and metal beams, are two feet. Could this be, another bod-\nSISTER DEBORAH\n(loud, a call out)\nSister Catherina? Is that you?\nNARRATOR\nThe feet wriggle.\nSISTER DEBORAH\nIt's no good, Catherina, I just can't hear you. I'll be out of here in a minute, just need to get the, uh...\nCould you do me a favour, Catherina? That lever over there. Could you pull it until you hear the right sound.\nWhat was it now...oh yes, it'll be like two crunches followed by a CLUNK!\nTell me when you've heard that please!\nNARRATOR\nDo you; use the lever, OR, say done?"
+  },
+  "say_done": {
+    "name": "say_done",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "use the lever",
+          "nextNode": "use_the_lever"
+        },
+        {
+          "utterance": "say done",
+          "nextNode": "say_done"
+        }
+      ]
+    },
+    "script": "SISTER DEBORA\nNope. Nope that doesn't seem right.\nPull the lever again would you. Remember, it should sound like two crunches followed by a CLUNK!\nNARRATOR\nDo you; use the lever, OR, say done?"
+  },
+  "use_the_lever": {
+    "name": "use_the_lever",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "use lever",
+          "nextNode": "use_the_lever"
+        },
+        {
+          "utterance": "say done",
+          "nextNode": "talk_to_sister_debora"
+        }
+      ]
+    },
+    "script": "NARRATOR\nPulling the lever, the cogs suddenly start to turn…\nSOUND EFFECT: CLOCK SOUND EFFECT\nNARRATOR\nDo you; use the lever, OR, say done?"
+  },
+  "talk_to_sister_debora": {
+    "name": "talk_to_sister_debora",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "why the crypt response",
+          "nextNode": "why_the_crypt_response"
+        },
+        {
+          "utterance": "what she did before abbey",
+          "nextNode": "what_she_did_before_abbey"
+        }
+      ]
+    },
+    "script": "NARRATOR\nSuddenly the cogs begin to whurr in seamless unison, theinner workings of the clock tower coming alive around you with mechanical glory.\nSISTER DEBORA\nYep! That’s it! Let me just get out here…\nNARRATOR\nThe feet begin to wriggle towards you revealing an abbey robeuntil an elderly woman with white hair and thick brimmed glasses,\nher eyes magnified, stands up in front of you.\nSISTER DEBORA\n(surprised)\nThere! Oh. I'm terribly sorry. I thought you were Sister Catherina. She's normally the one who comes up here. Oh and Abbess Benita. What can I do for you?\nNARRATOR\nThe Abbess explains how you are helping her with a matter of importance, and that you wish to know where Sister\nDebora was yesterday and her impressions of Sister Anna. She then turns to walk back down the stairs.\nSISTER DEBORA\n(mishearing - think Madame Fanny La Fan from ‘Allo ‘Allo)\nSister Ban-ana? No no. You must mean Sister Anna. Well, a part breaks that you'd expected to hold for years...but that\ndoesn't stop the whole mechanism, it just sets it in a different direction. Saradomin is a better clock-maker than us.\n As for yesterday I was here, repairing the clock. As you can see it’s been playing up a bit.\nNARRATOR\nWhat do you do?\nDo you ask; why the crypt response, or, what she did before the abbey?"
+  },
+  "why_the_crypt_response": {
+    "name": "why_the_crypt_response",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "NARRATOR\nSister Debora’s eyes blink at you through her huge glasses.\nSISTER DEBORA\nSister Benita was planning to retire as abbess next year. Everyone expected Sister Anna to become the new abbess.\nBut it seems that wasn't Saradomin's plan, so he's taken her away. The clock runs, just not as we'd expected.\nSOUND EFFECT: THE BELL RINGS INCREDIBLY LOUDLY, ENDING WITH EAR RINGING.\nNARRATOR\nThe wall of sound hits you with such force it blacks out your vision for a moment, disorientating you.\nSister Debora on the other hand stands there unaffected, like nothing has happened.\nSISTER DEBORA\n(completely normal)\nAre you listening? I said, I need to do some work. Can you hear it? One of these cogs needs some oil.\nNARRATOR\nCarefully, descending back down the wooden staircase you rejoin with the Abbess.\n<<if $talkToElena is 0>>\n[[why_the_crypt_response_choice_one]]\n<<else>>\n[[meeting_with_the_abbess]]"
+  },
+  "why_the_crypt_response_choice_one": {
+    "name": "why_the_crypt_response_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to sister elena",
+          "nextNode": "talk_to_sister_elena"
+        }
+      ]
+    },
+    "script": "ABBESS BENITA\nWhat would you like to do now? You may; talk to Sister Elena."
+  },
+  "what_she_did_before_abbey": {
+    "name": "what_she_did_before_abbey",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "why the crypt response",
+          "nextNode": "why_the_crypt_response"
+        }
+      ]
+    },
+    "script": "SISTER DEBORA\nI’ve always been a clockmaker. Before I came here I used to live in a city called Ardougne and\nworked for...what’s the name, you know, a man with the hat. Oh yes. The King. But then rumour began that there was a plague.\nSo I left and joined the abbey, here.\nNARRATOR\nThis was the wrong question to ask.\nWhat do you do? You may ask; why the cryptic response?"
+  },
+  "meeting_with_the_abbess": {
+    "name": "meeting_with_the_abbess",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "one of the sisters",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "sister anna",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "sister cecilia",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "someone else",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "i am not sure",
+          "nextNode": "end"
+        }
+      ]
+    },
+    "script": "NARRATOR\nYou return to the office of the abbess and she sits, drawing up a chair behind her desk.\nSOUND EFFECT: CHAIR BEING SLID ACROSS THE STONE FLOOR\nABBESS BENITA\nSo, you've explored a lot of the abbey and talked to many of the Sisters here. I have to ask; do you think you know who the murderer is?\nNARRATOR\nYou consider your options. What do you say?\nIs it; one of the sisters? Someone else?, OR, are you not sure?"
+  },
+  "end": {
+    "name": "end",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "NARRATOR\nThe Abbess sits back in her chair, steepling her fingers while considering your response.\nShe moves forward to speak, when just at that moment-\nSOUND EFFECT: A SCREAM ECHOS FROM OUTSIDE THE ROOM\nNARRATOR\nThe Abbess’ eyes go wide. A silent shock drawing across her face.\nABBESS BENITA\n(urgently)\nDid you hear that? Quick! Follow the sound of that scream!\nSOUND EFFECT: URGENT PUSHING BACK OF A CHAIR AND THE OPENING OF A DOOR. THE SCREAM OCCASIONALLY CONTINUES.\nNARRATOR\nLeaving the office, you and the Abbess both run in the direction of the scream. Its desperate wails getting louder and\nlouder the deeper you go into the abbey. You come to a room where the wooden hatch to the basement is open.\nThundering down the stairs you enter into the dim light of the basement and are met with a horrific sight.\nA body lays stretched out, blood pooling about the stone floor, and staining the white robes along with an apron.\nThe apron of Sister Elena.\nSister Cecilia stands nearby, her hand to her mouth in a silent scream.\nSISTER CECILIA\n(hysterical & panicked)\nI saw it! It was the demon! It was the Ripper!\nNARRATOR\nYou have reached the end of Act 1. The next act will be added shortly."
+  }
+}

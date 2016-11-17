@@ -1,0 +1,22 @@
+{
+  "intents": [
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "EverythingElseIntent",
+      "slots": [
+        {
+          "name": "PlayerDialog",
+          "type": "PLAYER_DIALOG"
+        }
+      ]
+    }
+  ]
+}

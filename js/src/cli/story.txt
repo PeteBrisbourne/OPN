@@ -1,0 +1,915 @@
+:: intro
+<<set $sisterAnnaCell = 0>>
+<<set $talkToSisters = 0>>
+<<set $talkToCatherina = 0>>
+<<set $talkToCecilia = 0>>
+<<set $talkToElena = 0>>
+<<set $travelToInfirmary = 0>>
+<<set $talkToValerio = 0>>
+<<set $recruitRoom = 0>>
+<<set $continueClockTower = 0>>
+One Piercing Note. A RuneScape quest.
+In this audio adventure you will explore the mystery that lurks within the Abbey of St. Elspeth Citharede.
+Anytime you feel stuck during your adventure, just say "help".
+When you're ready to begin, simply say 'start’.
+<<choice [[start|outside_the_abbey]]>> |\
+<<choice [[help|intro_help]]>>
+
+
+:: intro_help
+Placeholder intro help message.
+
+
+:: outside_the_abbey
+NARRATOR
+The abbey stood in a sea of hazy hot desert, with its single clock tower jutting towards the blue sky like a lighthouse.
+The relentless sun beat down upon its stone white walls and you, as you approached the front gate.
+You had overheard that the Abbey of St. Elspeth Citharede was looking for an adventurer.
+To what end you did not know, but the unusual request had been more than enough to capture your interest.
+Approaching the front gate, a person clothed in white robes shuffles to her feet. Perhaps this was one of the Abbey Sisters.
+
+SISTER CATHERINA:
+(with relief)
+Thank Saradomin! You must be the adventurer the abbess prayed for!
+My name is Sister Catherina. Our abbess asked me to wait here for you to arrive.
+Will you help us, adventurer?
+
+NARRATOR
+Sister Catherine looks at you expectantly. What do you do? Do you say; yes, or, no?
+<<choice [[yes|will_help]]>> |\
+<<choice [[no|wont_help]]>> |\
+<<choice [[help|will_help]]>> |\
+<<choice [[sure|will_help]]>> |\
+<<choice [[okay|will_help]]>>
+
+
+:: outside_the_abbey_help
+Placeholder outside the abbey help message.
+
+
+:: will_help
+NARRATOR
+Sister Catherine looks immediately relieved. Her face breaking into a joyous smile.
+
+SISTER CATHERINA:
+(with joy)
+Saradomin be praised! Please, follow me. I will take you to our Abbess who will explain more.
+
+NARRATOR
+What do you do? You may; follow Sister Catherina.
+<<choice [[follow sister catherina|office_of_abbess]]>>
+
+
+:: wont_help
+SISTER CATHERINA:
+(disappointed)
+Oh. I see…
+
+NARRATOR
+Sister Catherine's hopeful gaze drops to the desert sand. The sister gives you one last look of pleading help with desperate eyes.
+
+SISTER CATHERINA:
+(hopeful)
+Are you...certain you can’t help us?
+
+NARRATOR
+You chose poorly. Every bad option will minus and affect your final score at the end of the game.
+What do you do? You may; follow Sister Catherina.
+<<choice [[follow sister catherina|office_of_abbess]]>>
+
+
+:: office_of_abbess
+NARRATOR
+Sister Catherina leads you through the ornate front gate of the abbey and into its paved courtyard where a flowing fountain
+stands in midst of the dry desert. The abbey certainly has a humble air about it, from its worn white walls to the lack of
+any fanciful decoration; the whole place is a testament to the simple and devoted lifestyle the Sisters must lead within and their dedication of worship to their god, Saradomin.
+Off to the side of the courtyard, Sister Catherina stops outside a dark wooden door before knocking.
+
+SOUND EFFECT: KNOCKING
+
+ABBESS BENITA
+(from behind the door)
+Come in.
+
+SOUND EFFECT: DOOR CREAKING OPEN
+
+NARRATOR
+You enter the room. A small room which appears to be more of an office than a place of worship.
+Behind a large desk sits an older woman, dressed in the same white robes as Sister Catherina.
+Her face has much more of a serious gaze, and wrinkled lines suggest a lifetime of devotion. Her looks are one of authority if not, something weighing heavily on her mind.
+
+ABBESS BENITA
+(seriously)
+Ah. You must be an adventurer who has heard our call. Thank Saradomin you’ve come. I’m the Abbess; Abbess Benita.
+I've called you here for a sensitive task - one that I would prefer to deal with quietly, without involving the Church authorities.
+Sister Catherina, please leave us.
+
+SOUND EFFECT: DOOR CLOSING
+NARRATOR
+The Abbess pauses for a second. Somewhat hesitant to continue.
+
+ABBESS BENITA
+(with slight apprehension)
+One of our sisters, Sister Anna, has been, I believe, murdered. Murdered quite brutally. I need you to investigate,
+for I fear the killer may still be in the abbey. I’m sure you must have some questions so please, ask, and I will try and tell you all I know.
+
+NARRATOR
+The Abbess waits for your question.
+What do you do? Do you ask about; details of the murder, OR, her favourite food?
+<<choice [[the details of the murder|ask_murder]]>> |\
+<<choice [[her favourite food|ask_food]]>>
+
+
+:: ask_murder
+NARRATOR
+She nods in agreement and continues.
+
+ABBESS BENITA
+(with slight hesitation)
+Sister Anna was one of our most devoted sisters, and, a trusted friend. She was exactly what we should aspire to be;
+humble and committed to our worship of Saradomin.
+I last saw her at Vespers…it’s a prayer service, yesterday. When she wasn't present at Compline later in the evening however,
+I went to her cell and there found her body.
+It was…horrific. The injuries were so severe that I had to stop myself from screaming. It wouldn’t be right to scare the other Sisters
+so…I moved the body to the infirmary and cleaned and wrapped it myself. I’ve forbidden the other sisters from seeing it.
+
+NARRATOR
+The Abbess clears her throat as she recounts the details. Despite her stern composure, she is trembling.
+It must have been a harrowing experience.
+
+ABBESS BENITA
+(more determinedly)
+Please. The whole abbey is open for you to investigate. I will accompany you so you don’t get lost.
+
+SOUND EFFECT: SOUND OF CHAIR BEING PUSHED BACK. THE ABBESS IS STANDING UP.
+
+I don’t mean to tell you how to proceed. But what will you do? Would you like to; go to Sister Anna’s cell,
+OR, go to the infirmary, OR talk to the Sisters?
+<<choice [[the cell|sister_anna_cell]]>> |\
+<<choice [[infirmary|travel_to_infirmary]]>> |\
+<<choice [[talk to sisters|talk_to_sisters]]>> |\
+<<choice [[office of abbess help|office_of_abbess_help]]>>
+
+
+:: ask_food
+NARRATOR
+The Abbess looks at you with a look of confusion.
+
+ABBESS BENITA
+(with surprise)
+That…isn’t relevant at all.
+
+NARRATOR
+This was the wrong question to ask.
+What do you do? You may ask about; details of the murder
+<<choice [[the details of the murder|ask_murder]]>>
+
+
+:: office_of_abbess_help
+Placeholder
+
+:: travel_to_infirmary
+<<set $travelToInfirmary = 1>>
+NARRATOR
+The Abbess leads you through the abbey towards the infirmary. Around you, the life of worship seems to be continuing unabated.
+The sisters unaware of the threat of a murderer that still perhaps lingers within the abbey itself. Eventually the abbess stops at a wooden door.
+
+SOUND EFFECT: CLINKING OF KEYS. DOOR BEING UNLOCKED THEN OPENED.
+
+ABBESS BENITA
+I shall wait here so as to ensure you’re not disturbed. Please be, respectful.
+
+NARRATOR
+You enter the infirmary and approach the body, lifting the white sheet which covers it.
+Indeed, the body has been cleaned and put in burial robes.
+You take a look at the face; it has been horribly mutilated. The front of the skull has been bludgeoned in,
+and the skin of the face has been removed. On the back of the head you find a blunt force wound, as if she was hit by a heavy object.
+There is a row of three deep stab wounds in the victim's chest, one of them piercing her heart.
+The victim's feet have been heavily mutilated. Several toes have been cut off.
+
+Taking a moment to ensure you haven't missed anything you pull the sheet back over the body and return to the Abbess.
+<<if $sisterAnnaCell is 0 and $talkToSisters is 0>>
+[[travel_to_infirmary_choice_one]]
+<<endif>>
+<<if $sisterAnnaCell is 0 and $talkToSisters is 1>>
+[[travel_to_infirmary_choice_two]]
+<<endif>>
+<<if $sisterAnnaCell is 1 and $talkToSisters is 0>>
+[[travel_to_infirmary_choice_three]]
+<<endif>>
+<<if $sisterAnnaCell is 1 and $talkToSisters is 1>>
+[[summing_up]]
+<<endif>>
+
+:: travel_to_infirmary_choice_one
+ABBESS BENITA
+Very well. Where would you like to go next?
+You may; go to Sister Anna’s cell, OR, talk to the sisters.
+<<choice [[go to sister anna's cell|sister_anna_cell]]>> |\
+<<choice [[talk to the sisters|talk_to_sisters]]>>
+
+:: travel_to_infirmary_choice_two
+ABBESS BENITA
+Very well. Where would you like to go next?
+You may; go to Sister Anna’s cell
+<<choice [[go to sister anna's cell|sister_anna_cell]]>>
+
+:: travel_to_infirmary_choice_three
+ABBESS BENITA
+Very well. Where would you like to go next?
+You may; talk to the sisters.
+<<choice [[talk to the sisters|talk_to_sisters]]>>
+
+:: sister_anna_cell
+<<set $sisterAnnaCell = 1>>
+ABBESS BENITA
+Sister Anna’s cell is this way. Please follow me.
+
+NARRATOR
+The two of you walk through the abbey into the residence wing.  You stop at a door with the name ‘Sister Anna’ painted across it.
+The Abbess takes an iron key from her robes and turns it in the lock, pushing the door open to let you enter.
+
+SOUND EFFECT: DOOR BEING UNLOCKED AND OPENED. ABBEY AMBIENCE FADES OUT
+INT. SISTER ANNA CELL – DAY
+
+The room is small and sparse of furniture apart from an uncomfortable looking bed and a shelf of books.
+The bare stone walls are without decoration. A warm breeze hits you drawing your attention to the one solitary window.
+
+ABBESS BENITA
+I’ve kept the room locked since I found the body. Nobody has been in here since, not even to clean.
+
+NARRATOR:
+Walking towards the small window you notice that it is smashed, however there appears to be no glass in the room itself suggesting,
+perhaps, it was broken from the inside.
+Noting this, you take a look through the shelf of books however nothing seems to be out of the ordinary there.
+Lastly you look at the bed. It is neatly made, though looks extremely uncomfortable. Kneeling down you reach around underneath
+until…your fingers touch upon something soft.
+Pulling it out you reveal a piece of cloth.
+
+ABBESS BENITA
+(curiously)
+That looks like a piece of clothing, but it doesn't match any of the robes the Sisters wear. How strange.
+
+NARRATOR:
+The Abbess looks puzzled by this find, while you take one last glance around the room. There doesn’t seem to be anything else out of the ordinary.
+<<if $travelToInfirmary is 0 and $talkToSisters is 0>>
+[[sister_anna_cell_choice_one]]
+<<endif>>
+<<if $travelToInfirmary is 0 and $talkToSisters is 1>>
+[[sister_anna_cell_choice_two]]
+<<endif>>
+<<if $travelToInfirmary is 1 and $talkToSisters is 0>>
+[[sister_anna_cell_choice_three]]
+<<endif>>
+<<if $travelToInfirmary is 1 and $talkToSisters is 1>>
+[[summing_up]]
+<<endif>>
+
+:: sister_anna_cell_choice_one
+ABBESS BENITA
+It doesn’t look like there is anything else here out of place.
+What would you like to do? You may; talk to the sisters, OR, go to the infirmary.
+<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
+<<choice [[talk to the sisters|talk_to_sisters]]>>
+
+:: sister_anna_cell_choice_two
+ABBESS BENITA
+It doesn’t look like there is anything else here out of place.
+What would you like to do? You may; go to the infirmary.
+<<choice [[go to the infirmary|travel_to_infirmary]]>>
+
+:: sister_anna_cell_choice_three
+ABBESS BENITA
+It doesn’t look like there is anything else here out of place.
+What would you like to do? You may; talk to the sisters.
+<<choice [[talk to the sisters|talk_to_sisters]]>>
+
+
+:: talk_to_sisters
+<<set $talkToSisters = 1>>
+NARRATOR:
+The Abbess nods, agreeing this is a sensible course of action.
+
+ABBESS BENITA
+You should certainly ask them relevant questions which may help shed some light on this mystery.
+I’ve told them of the death of course, but, as I said, I haven’t mentioned the fact I believe it was murder.
+Who would you care to talk to first?
+You may choose; Sister Catherina, OR, Sister Cecilia.
+<<choice [[talk to sister catherina|talk_to_sister_catherina]]>> |\
+<<choice [[talk to sister cecilia|talk_to_sister_cecilia]]>> |\
+<<choice [[help|talk_to_sisters_help]]>>
+
+:: talk_to_sisters_helper
+Placeholder
+
+:: talk_to_sister_catherina
+<<set $talkToCatherina = 1>>
+NARRATOR
+Leading you through the Abbey, the Abbess approaches one of the sisters who is sat at a wooden desk, writing.
+As she gets up to walk towards you, you recognise her as Sister Catherina, who met you at the abbey front gate.
+
+SISTER CATHERINA
+(politely)
+Oh, adventurer. It is good to see you again. The Abbess says you would like to speak to me in regards to what I was doing last night?
+
+NARRATOR
+The Sister looks a bit uncertain, but continues.
+
+SISTER CATHERINA
+Well, I was in the scriptorium – in the basement - copying a manuscript from the Book of Saradomin. There’s quite a lot, and,
+well, I think I’ve gotten quite good at it. It makes me feel somewhat proud, although I know that’s not a feeling I should indulge.
+
+It was quite hard though what with the music coming from outside the abbey. Not that I dislike what Valerio is doing outside,
+but I so used to love dancing before I joined the abbey. It’s certainly tempting to join in. Sister Anna wouldn’t be impressed by me saying that.
+She was quite strict and at first frightened me.
+I’m not surprised the applicant who was here yesterday left without a word.
+
+NARRATOR
+What do you do? Do you ask about; the manuscript, or, the applicant?
+<<choice [[the manuscript|the_manuscript]]>> |\
+<<choice [[the applicant|the_applicant]]>>
+
+:: the_applicant
+SISTER CATHERINA
+Oh! You probably don't know. An applicant came to the abbey yesterday. Her name was Isabella.
+I heard Sister Anna forced her to sing but wasn’t impressed that she couldn’t do it well.
+She disappeared yesterday noon. She probably went home. A lot of applicants realise the life here isn't for them and leave.
+If it’s ok, I should return to my writing. I hope I have helped you in some way adventurer.
+
+NARRATOR
+Sister Catherina gives you a smile, then turns and walks back to her desk.
+<<if $travelToInfirmary is 0 and $sisterAnnaCell is 0>>
+[[the_applicant_choice_two]]
+<<endif>>
+<<if $travelToInfirmary is 1 and $sisterAnnaCell is 0>>
+[[the_applicant_choice_three]]
+<<endif>>
+<<if $travelToInfirmary is 0 and $sisterAnnaCell is 1>>
+[[the_applicant_choice_four]]
+<<endif>>
+<<if $travelToInfirmary is 1 and $sisterAnnaCell is 1 and $talkToCecilia is 1>>
+[[summing_up]]
+<<endif>>
+<<if $talkToCecilia is 0>> 
+[[the_applicant_choice_one]] 
+<<endif>>
+
+:: the_applicant_choice_one
+NARRATOR
+What would you like to do? You may; talk to Sister Cecilia.
+<<choice [[talk to cecilia|talk_to_sister_cecilia]]>>
+
+:: the_applicant_choice_two
+NARRATOR
+What would you like to do? You may; go to Sister Anna’s cell, OR, go to the infirmary.
+<<choice [[go to anna's cell|sister_anna_cell]]>> |\
+<<choice [[go to infirmary|travel_to_infirmary]]>>
+
+:: the_applicant_choice_three
+NARRATOR
+What would you like to do? You may; go to Sister Anna’s cell.
+<<choice [[go to anna's cell|sister_anna_cell]]>>
+
+:: the_applicant_choice_four
+NARRATOR
+What would you like to do? You may; go to the infirmary.
+<<choice [[go to infirmary|travel_to_infirmary]]>>
+
+
+:: the_manuscript
+SISTER CATHERINA
+(enthusiastically)
+Oh, well! It’s a little project of mine transcribing the Book of Saradomin. It’s a beautiful book which captures all
+that is holy and it’s nothing but an honour to study it. I’m really starting to get the hang of illuminating the text.
+There are so many pages, all beautifully scribed...
+
+SOUND EFFECT: PERHAPS HAVE THE DIALOGUE FADE OUT BEHIND THE NARRATOR SO IT SOUNDS LIKE SHE IS STILL TALKING REALLY ENTHUSIASTICALLY
+
+NARRATOR
+This was the wrong question to ask.
+What do you do? You may ask about; the applicant.
+<<choice [[the applicant|the_applicant]]>>
+
+
+:: talk_to_sister_cecilia
+<<set $talkToCecilia = 1>>
+NARRATOR
+You follow the Abbess up a white stone staircase and venture into the chapel hall. Unlike the rest of the abbey,
+the large hall is finely decorated; coloured marble covering the floor and pillars that stretch up to the arched ceiling.
+The abbess ventures over to a sister, who surrounded by sheets of musical notation, appears to be leading the choir,
+waving her arms and conducting. The abbess beckons her to talk with you.
+
+SISTER CECILIA
+Look at me...look at me... Okay, that's good. Remember to look at me so you can keep in time. Oh! I'm sorry,
+I didn't, er...Ladies, keep rehearsing. I need to talk to someone.
+
+SOUND EFFECT: THE CHOIR FADE OUT BUT CONTINUE IN THE BACKGROUND
+
+NARRATOR
+The Sister comes over and the Abbess introduces her as Sister Cecilia. The abbess asks her where she was yesterday evening.
+
+SISTER CECILIA
+I was here. Leading the choir in practice of a new hymn to Saint Elspeth. I wrote the music, and might I add it's better
+music than those…dancers outside the abbey. I have no idea why they are here, but I detest dancing. Singing is much more holy.
+Do you know the story of Saint Elspeth and the Ripper Demon? I’d be happy to tell you. It’s a very important story to all the sisters here.
+
+NARRATOR
+What do you do?
+Do you ask about; the story, or, musical chords?
+<<choice [[story|the_story]]>> |\
+<<choice [[musical chords|the_musical_chords]]>>
+
+
+:: the_story
+NARRATOR
+Sister Cecilia nods and starts to relate the story behind her hymn.
+
+SISTER CECILIA
+The Ripper was an assassin demon. It would strike without warning and leave its victims horribly mutilated.
+Stab them through the heart with terrible claws, tear off their faces...
+Zamorak, the god of chaos, sent the Ripper to attack a village where Saint Elspeth was staying.
+But, it couldn't approach while she was singing. Her voice and singing was so holy.
+So it waited on the edge of the village. She sang for days, but eventually she was too weak to go on.
+She went out of the village to face the demon alone - she thought it might just kill her and spare the villagers. A noble sacrifice.
+
+She fought the demon and it mortally wounded her; but, as she was dying, Saradomin granted her the strength to sing one
+piercing note so perfect that it struck the demon dead. Her remains lay unburied until the present age. Then, seventy years ago,
+a group of holy women found them and built this abbey in her memory. That's why music is such an important part of our worship.
+
+Now if you’ll excuse me, I really must get back to helping the choir.
+
+NARRATOR
+You thank Sister Cecilia. She smiles and returns to conducting the choir leaving you with the Abbess.
+
+<<if $travelToInfirmary is 0 and $sisterAnnaCell is 0>>
+[[the_story_choice_two]]
+<<endif>>
+<<if $travelToInfirmary is 1 and $sisterAnnaCell is 0>>
+[[the_story_choice_three]]
+<<endif>>
+<<if $travelToInfirmary is 0 and $sisterAnnaCell is 1>>
+[[the_story_choice_four]]
+<<endif>>
+<<if $travelToInfirmary is 1 and $sisterAnnaCell is 1 and $talkToCatherina is 1>>
+[[summing_up]]
+<<endif>>
+<<if $talkToCatherina is 0>>
+[[the_story_choice_one]]
+<<endif>>
+
+:: the_story_choice_one
+NARRATOR
+What would you like to do? You may; talk to Sister Catherina.
+<<choice [[talk to catherina|talk_to_sister_catherina]]>>
+
+:: the_story_choice_two
+NARRATOR
+What would you like to do? You may; go to Sister Anna’s cell, OR, go to the infirmary.
+<<choice [[go to anna's cell|sister_anna_cell]]>> |\
+<<choice [[go to infirmary|travel_to_infirmary]]>>
+
+:: the_story_choice_three
+NARRATOR
+What would you like to do? You may; go to Sister Anna’s cell.
+<<choice [[go to anna's cell|sister_anna_cell]]>>
+
+:: the_story_choice_four
+NARRATOR
+What would you like to do? You may; go to the infirmary.
+<<choice [[go to infirmary|travel_to_infirmary]]>>
+
+:: the_musical_chords
+NARRATOR
+Sister Cecilia looks surprised, not expecting the question.
+
+SISTER CECILIA
+(uncertain & surprised)
+Musical chords? They’re just a collection of notes but I don’t see what that has to do with anything.
+
+NARRATOR
+This was the wrong question to ask.
+What do you do? You may ask about; the story.
+<<choice [[the story|the_story]]>>
+
+
+:: summing_up
+NARRATOR
+You explain to the abbess that after investigating and talking to some of the Sisters that two new facts have come to your attention;
+a person called Valerio and an applicant who was in the abbey yesterday.
+
+ABBESS BENITA
+Indeed. You are right to want to investigate these further. Very well.
+Where would you like to go? Go to Valerio, OR, go to the applicant room?
+<<choice [[valerio|go_to_valerio]]>> |\
+<<choice [[applicant room|recruit_room]]>> |\
+<<choice [[help|summing_up_help]]>>
+
+:: go_to_valerio
+<<set $talkToValerio = 1>>
+NARRATOR
+The abbess' face flashes a look of disapproval at the mention of this name, before she leads you towards the main gates
+of the abbey and points over to the troubadour and his camp.
+
+ABBESS BENITA
+Very well. I don’t know why they are here outside the Abbey. He and his party seem to come and go quite often.
+It’s not that I don’t respect their choice of...lifestyle, but I don’t want the sisters being distracted at this time.
+
+NARRATOR
+Leaving the Abbess at the gate, you walk over to the colorful tent where a number of people are dancing.
+Amongst them a brightly dressed man is playing a mandolin and singing.
+
+EXT. VALERIO CAMP – DAY
+SOUND EFFECT: VALERIO SINGING & MUSIC FOR A WHILE
+
+NARRATOR
+From his wide hat, sun kissed skin and open waistcoat the man has a very carefree air about him. He ceases his singing as you near,
+greeting you with an infectious smile.
+
+VALERIO
+(happily)
+Greetings, traveller! The name’s Valerio.
+I do hope we’re not causing any trouble. We just thought we’d help liven the desert up a bit.
+Everyone should enjoy dancing once in awhile, especially if there is some coin to be made!
+
+NARRATOR
+What do you do?
+Do you; ask why he is here, or, what is life like?
+<<choice [[why he is here|why_he_is_here]]>> |\
+<<choice [[what is life like|what_is_life_like]]>>
+
+:: why_he_is_here
+NARRATOR
+Valerio’s wide smile slowly disappears, the musician looking very forlorn. The facade fading away.
+
+VALERIO
+(stark honesty / sadly)
+Ah. I guess, it is more than a little strange that we would be here, outside an abbey huh?
+Very well...one of the sisters here, Sister Anna, she passed away recently. I knew her before she joined the abbey, so I've come to pay my respects.
+
+I knew her before she joined the abbey. I tried to talk her out of coming here, but when she made her mind up about something, there was nothing that could stop her.
+
+NARRATOR
+Valerio falls silent for a moment, his gaze falling to the sand, as if recalling some distant memory before with a shake of his head he returns.
+
+VALERIO
+(sounding a little more determined)
+That is the truth of why I’m here. Even a religious order isn't completely cut off from the world. Word gets around.
+Now, if you’ll excuse me I think some music is required to lift the mood.
+
+NARRATOR
+You return to the Abbess who is waiting by the front gate.
+
+SOUND EFFECT: THE BELL FROM THE CLOCK TOWER RINGS OUT. CUTTING THE ABBESS OFF.
+
+ABBESS BENITA
+(almost to herself)
+The bells shouldn’t be ringing at this time. What is Sister Debora up to…
+<<if $recruitRoom is 0>>
+[[go_to_valerio_choice_one]]
+<<else>>
+[[go_to_valerio_choice_two]]
+<<endif>>
+
+:: go_to_valerio_choice_one
+ABBESS BENITA
+Ah, Adventurer. Where would you like to go? You may; go to the applicant room
+<<choice [[go to applicant room|recruit_room]]>>
+
+:: go_to_valerio_choice_two
+ABBESS BENITA
+Ah, Adventurer. Where would you like to go? You may; go to the clock tower.
+<<choice [[go to clock tower|clock_tower]]>>
+
+
+:: recruit_room
+<<set $recruitRoom = 1>>
+NARRATOR
+Leading the way, the abbess takes you through the abbey to a room near the front gate.
+Finding a iron key on her busy keychain, she unlocks the door and pushes it open for you.
+
+SOUND EFFECT: METAL KEYS MOVING. DOOR BEING UNLOCKED THEN OPENED.
+
+ABBESS BENITA
+(uncertain)
+I’m not sure what help this will be. The applicant who was here must have left yesterday, though I didn’t see her leave.
+This is the room where all the applicants come and are interviewed by the sisters. I do know Sister Anna conducted the interview yesterday.
+
+NARRATOR
+You walk into a simple room with a few desks and wooden benches within, set out like a classroom.
+Searching around there doesn't seem to be anything amiss but, as you turn to leave, you notice something just behind the door.
+
+Reaching round you retrieve a piece of cloth, the colour and feel of which is immediately familiar.
+
+ABBESS BENITA
+A moment. Let me take a look at that.
+
+NARRATOR
+The abbess takes the cloth and examines it further.
+
+ABBESS BENITA
+This is most peculiar. Again, not something the sisters of the Abbey would wear and it seems....it seems to match the one you found in Sister Anna's cell. I wonder if-
+SOUND EFFECT: THE BELL FROM THE CLOCK TOWER RINGS OUT. CUTTING THE ABBESS OFF.
+
+ABBESS BENITA
+(annoyed)
+What in the name of Saradomin... What is Sister Deborah doing up there? The bell shouldn’t be sounding at this time! Though, that does remind me. It wouldn’t hurt to go talk to her as well at some point.
+<<if $talkToValerio is 0>>
+[[recruit_room_choice_one]]
+<<else>>
+[[recruit_room_choice_two]]
+<<endif>>
+
+:: recruit_room_choice_one
+ABBESS BENITA
+Where would you like to go? You may; go to see Valerio.
+<<choice [[go to see valerio|go_to_valerio]]>>
+
+:: recruit_room_choice_two
+ABBESS BENITA
+Where would you like to go? You may; go to the clock tower.
+<<choice [[clock tower|clock_tower]]>>
+
+:: what_is_life_like
+VALERIO
+(teasingly)
+Ah, are you interested in a change of career perhaps? Is that it?
+
+(happily)
+My life is rarely boring. Always on the road. Town after town...I’ve seen a lot of this world and it’s made even nicer by the company I keep.
+Why, there aren’t many women I’ve met who don’t like to be serenaded by my mandolin.
+
+SOUND EFFECT: HAPPY MANDOLIN RIFF
+
+NARRATOR
+This was the wrong question to ask.
+What do you do? You may; ask why he is here.
+<<choice [[why he is here|why_he_is_here]]>>
+
+
+:: clock_tower
+NARRATOR
+The abbess leads you deeper into the abbey, down it’s bare stone corridors towards the clock tower.
+As you pass an open doorway the potent smell of cabbages suddenly hits you. You peer back around and into what must be the abbey kitchens.
+There, a lady in abbey robes, red faced and in an apron, is busily stirring various pots while steam billows up and slides around the ceiling.
+
+ABBESS BENITA
+That’s Sister Elena. She’s in charge of the kitchens here. You may talk to her if you like.
+What do you do?
+Do you; continue to the clock tower, OR, talk to Sister Elena.
+<<choice [[continue clock tower|continue_clock_tower]]>> |\
+<<choice [[talk to sister elena|talk_to_sister_elena]]>>
+
+
+:: talk_to_sister_elena
+<<set $talkToElena = 1>>
+NARRATOR
+You enter the kitchen.
+
+SOUND EFFECT: KITCHEN AMBIENCE (BOILING WATER, CLATTERING UTENSILS & POTS
+
+SISTER ELENA
+(annoyed / impatient)
+Yes? What is it?
+
+NARRATOR
+The abbess goes over to Sister Elena and explains that you have a few questions about her whereabouts yesterday evening,
+and about Sister Anna. She waits outside, leaving the two of you to talk.
+
+SISTER ELENA
+(annoyed / impatient)
+I was here, in the kitchen. Why, where should I have been? I went down to the cellar to get some supplies at one point,
+but the rest of the time I was here. Actually, I noticed something while I was down there. I think someone's been stealing food from the cellar.
+I bet it was Sister Catherina. I've seen her sneaking an extra cup of wine at meals, and I bet she’s just the sort to want to flirt with that rabble outside.
+
+As for Sister Anna...she's with Saradomin now. It doesn't matter what I thought of her, and it does no good to speak ill of the dead.
+
+NARRATOR
+What do you do?
+Do you ask; about Sister Anna, or, how to make cabbage soup?
+<<choice [[sister anna|ask_sister_anna]]>> |\
+<<choice [[make cabbage soup|make_cabbage_soup]]>>
+
+
+:: ask_sister_anna
+SISTER ELENA
+(annoyed / impatient)
+Now, I know what you might be thinking. I didn’t say I didn’t like her. But she did cause conflict. Most of the sisters didn't see it,
+but I did. She was always arguing with the abbess.
+Sister Anna thought Sister Benita was too lenient with the order's rules. Anna would have enforced silence outside of services.
+She'd have stopped Sister Cecilia composing - prescribed melodies only. Maybe it's Saradomin's will that Sister Anna never got to become abbess.
+
+Now. I need to head to the basement for some ingredients. Out with you!
+
+NARRATOR
+You leave the kitchen by the threatening flick of a tea-towel at your back.
+
+ABBESS BENITA
+You’ll have to excuse Sister Elena, she isn’t the most...accommodating when busy.
+<<if $continueClockTower is 0>>
+[[ask_sister_anna_choice_one]]
+<<else>>
+[[meeting_with_the_abbess]]
+<<endif>>
+
+:: ask_sister_anna_choice_one
+ABBESS BENITA
+What would you like to do? You may; continue the clock tower.
+<<choice [[continue the clock tower|continue_clock_tower]]>>
+
+:: make_cabbage_soup
+SISTER ELENA
+(energetic – Jamie Oliver mode)
+You want to know how I make my cabbage soup? Well, let me tell you!
+
+SOUND EFFECT: RANDOM FOOD PREPARATION NOISES (CHOPPING, SCRAPING…ETC)
+
+First you need some onions and carrots, just to help take the edge off a bit. Slice and dice them, see? Then take your cabbage.
+We grow all our own you know. Right here in the abbey. Get rid of the outer leaves then cut the whole thing into bite sized pieces like this…
+
+NARRATOR
+The abbess tries to interrupt, unsuccessfully.
+
+SISTER ELENA
+Throw it all in a pot. Then you have to add the water. How much will depend on how many you’re cooking for.
+Cover it. Just like that, and then put it on a low heat. Low, did you hear me? People think they can cook food faster by
+just whacking it on the hottest thing they have. No no. We respect patience in this abbey and more so in this kitchen…
+
+NARRATOR
+This was the wrong question to ask.
+What do you do? You may; ask about Sister Anna.
+<<choice [[ask about sister anna|ask_sister_anna]]>>
+
+
+:: continue_clock_tower
+<<set $continueClockTower = 1>>
+NARRATOR
+Climbing some wooden stairs, you head up into the stone clock tower which raises above the abbey. Stopping at a
+floor housing all the clock machinery, obscured by large cogs and metal beams, are two feet. Could this be, another bod-
+
+SISTER DEBORAH
+(loud, a call out)
+Sister Catherina? Is that you?
+
+NARRATOR
+The feet wriggle.
+
+SISTER DEBORAH
+It's no good, Catherina, I just can't hear you. I'll be out of here in a minute, just need to get the, uh...
+Could you do me a favour, Catherina? That lever over there. Could you pull it until you hear the right sound.
+What was it now...oh yes, it'll be like two crunches followed by a CLUNK!
+Tell me when you've heard that please!
+
+NARRATOR
+Do you; use the lever, OR, say done?
+<<choice [[use the lever|use_the_lever]]>> |\
+<<choice [[say done|say_done]]>>
+
+
+:: say_done
+SISTER DEBORA
+Nope. Nope that doesn't seem right.
+Pull the lever again would you. Remember, it should sound like two crunches followed by a CLUNK!
+
+NARRATOR
+Do you; use the lever, OR, say done?
+<<choice [[use the lever|use_the_lever]]>> |\
+<<choice [[say done|say_done]]>>
+
+
+:: use_the_lever
+NARRATOR
+Pulling the lever, the cogs suddenly start to turn…
+
+SOUND EFFECT: CLOCK SOUND EFFECT
+
+NARRATOR
+Do you; use the lever, OR, say done?
+<<choice [[use lever|use_the_lever]]>> |\
+<<choice [[say done|talk_to_sister_debora]]>>
+
+:: talk_to_sister_debora
+NARRATOR
+Suddenly the cogs begin to whurr in seamless unison, theinner workings of the clock tower coming alive around you with mechanical glory.
+
+SISTER DEBORA
+Yep! That’s it! Let me just get out here…
+
+NARRATOR
+The feet begin to wriggle towards you revealing an abbey robeuntil an elderly woman with white hair and thick brimmed glasses,
+her eyes magnified, stands up in front of you.
+
+SISTER DEBORA
+(surprised)
+There! Oh. I'm terribly sorry. I thought you were Sister Catherina. She's normally the one who comes up here. Oh and Abbess Benita. What can I do for you?
+
+NARRATOR
+The Abbess explains how you are helping her with a matter of importance, and that you wish to know where Sister
+Debora was yesterday and her impressions of Sister Anna. She then turns to walk back down the stairs.
+
+SISTER DEBORA
+(mishearing - think Madame Fanny La Fan from ‘Allo ‘Allo)
+Sister Ban-ana? No no. You must mean Sister Anna. Well, a part breaks that you'd expected to hold for years...but that
+doesn't stop the whole mechanism, it just sets it in a different direction. Saradomin is a better clock-maker than us.
+ As for yesterday I was here, repairing the clock. As you can see it’s been playing up a bit.
+
+NARRATOR
+What do you do?
+Do you ask; why the crypt response, or, what she did before the abbey?
+<<choice [[why the crypt response|why_the_crypt_response]]>> |\
+<<choice [[what she did before abbey|what_she_did_before_abbey]]>>
+
+
+:: why_the_crypt_response
+NARRATOR
+Sister Debora’s eyes blink at you through her huge glasses.
+
+SISTER DEBORA
+Sister Benita was planning to retire as abbess next year. Everyone expected Sister Anna to become the new abbess.
+But it seems that wasn't Saradomin's plan, so he's taken her away. The clock runs, just not as we'd expected.
+
+SOUND EFFECT: THE BELL RINGS INCREDIBLY LOUDLY, ENDING WITH EAR RINGING.
+
+NARRATOR
+The wall of sound hits you with such force it blacks out your vision for a moment, disorientating you.
+Sister Debora on the other hand stands there unaffected, like nothing has happened.
+
+SISTER DEBORA
+(completely normal)
+Are you listening? I said, I need to do some work. Can you hear it? One of these cogs needs some oil.
+
+NARRATOR
+Carefully, descending back down the wooden staircase you rejoin with the Abbess.
+<<if $talkToElena is 0>>
+[[why_the_crypt_response_choice_one]]
+<<else>>
+[[meeting_with_the_abbess]]
+<<endif>>
+
+:: why_the_crypt_response_choice_one
+ABBESS BENITA
+What would you like to do now? You may; talk to Sister Elena.
+<<choice [[talk to sister elena|talk_to_sister_elena]]>>
+
+:: what_she_did_before_abbey
+SISTER DEBORA
+I’ve always been a clockmaker. Before I came here I used to live in a city called Ardougne and
+worked for...what’s the name, you know, a man with the hat. Oh yes. The King. But then rumour began that there was a plague.
+So I left and joined the abbey, here.
+
+NARRATOR
+This was the wrong question to ask.
+What do you do? You may ask; why the cryptic response?
+<<choice [[why the crypt response|why_the_crypt_response]]>>
+
+
+:: meeting_with_the_abbess
+NARRATOR
+You return to the office of the abbess and she sits, drawing up a chair behind her desk.
+
+SOUND EFFECT: CHAIR BEING SLID ACROSS THE STONE FLOOR
+
+ABBESS BENITA
+So, you've explored a lot of the abbey and talked to many of the Sisters here. I have to ask; do you think you know who the murderer is?
+
+NARRATOR
+You consider your options. What do you say?
+Is it; one of the sisters? Someone else?, OR, are you not sure?
+<<choice [[one of the sisters|end]]>> |\
+<<choice [[sister anna|end]]>> |\
+<<choice [[sister cecilia|end]]>> |\
+<<choice [[someone else|end]]>> |\
+<<choice [[i am not sure|end]]>>
+
+
+:: end
+NARRATOR
+The Abbess sits back in her chair, steepling her fingers while considering your response.
+She moves forward to speak, when just at that moment-
+
+SOUND EFFECT: A SCREAM ECHOS FROM OUTSIDE THE ROOM
+
+NARRATOR
+The Abbess’ eyes go wide. A silent shock drawing across her face.
+
+ABBESS BENITA
+(urgently)
+Did you hear that? Quick! Follow the sound of that scream!
+
+SOUND EFFECT: URGENT PUSHING BACK OF A CHAIR AND THE OPENING OF A DOOR. THE SCREAM OCCASIONALLY CONTINUES.
+
+NARRATOR
+Leaving the office, you and the Abbess both run in the direction of the scream. Its desperate wails getting louder and
+louder the deeper you go into the abbey. You come to a room where the wooden hatch to the basement is open.
+Thundering down the stairs you enter into the dim light of the basement and are met with a horrific sight.
+A body lays stretched out, blood pooling about the stone floor, and staining the white robes along with an apron.
+The apron of Sister Elena.
+Sister Cecilia stands nearby, her hand to her mouth in a silent scream.
+
+SISTER CECILIA
+(hysterical & panicked)
+I saw it! It was the demon! It was the Ripper!
+
+NARRATOR
+You have reached the end of Act 1. The next act will be added shortly.
+Come back soon to complete the mystery of, One Piercing Note.
+

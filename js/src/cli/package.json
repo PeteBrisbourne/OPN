@@ -1,0 +1,33 @@
+{
+  "name": "baby-adventure-cli",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js",
+    "test": "export NODE_ENV=test && mocha test"
+  },
+  "description": "Command line tools for the lifeline game.",
+  "author": {
+    "name": "Robert Jamison",
+    "email": "rejamison@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rejamison/baby-adventure/cli"
+  },
+  "keywords": [
+    "node",
+    "cli",
+    "baby adventure"
+  ],
+  "engines" : { "node" : ">=4.3.0" },
+  "dependencies": {
+    "request": "2.72.0",
+    "prompt": "1.0.0",
+    "colors": "1.1.2",
+    "mathjs": "3.2.1",
+    "jsep": "0.3.0"
+  },
+  "devDependencies": {
+  }
+}
