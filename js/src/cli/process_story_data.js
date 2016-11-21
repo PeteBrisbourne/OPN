@@ -27,9 +27,11 @@ fs.readFile('story.txt', 'utf8', function(err, data) {
                 node.action = {
                     type: 'choice',
                     choices: []
-                }
+                };
                 var choices = action.split(/(?:\s*\|\s*)(?=<<)/);
                 choices.forEach(function(choice) {
+                    console.log("node" + JSON.stringify(node));
+                    console.log("choice" + JSON.stringify(choice));
                     node.action.choices.push({
                         utterance: choice.match(/<<choice \[\[(.*)\|.*]]>>/)[1],
                         nextNode: validIntentPrefix(choice.match(/<<choice \[\[.*\|(.*)]]>>/)[1])

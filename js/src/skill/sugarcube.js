@@ -12,11 +12,14 @@ module.exports = function(storyData, session, currentNode) {
     this.session = session;
 
     this.pickNode = function(input, callback) {
+        console.log("pickNode");
         var that = this;
         var options = [];
         that.currentNode.action.choices.forEach(function(choice) {
           options.push(choice.utterance);
         });
+
+        console.log("options" + JSON.stringify(options));
 
         request({
             url: 'https://murmuring-eyrie-11211.herokuapp.com/nlp/getClosestPhrase',
@@ -26,6 +29,9 @@ module.exports = function(storyData, session, currentNode) {
                 options: options
             }
         }, function(err, response, result) {
+            console.log("err" + JSON.stringify(err));
+            console.log("response" + JSON.stringify(response));
+            console.log("result" + JSON.stringify(result));
             if(err) {
                 console.log(err);
                 callback(err);
@@ -44,8 +50,9 @@ module.exports = function(storyData, session, currentNode) {
     };
 
     this.resolve = function() {
-      var that = this;
-      var dialog = that.processScript(that.currentNode.script);
+        console.log("this in resolve" + JSON.stringify(this));
+        var that = this;
+        var dialog = that.processScript(that.currentNode.script);
       while(that.currentNode.action.type == 'go' ||
             that.currentNode.action.type == 'delay_then_go' ||
             (that.currentNode.oneTimeAction && (that.currentNode.oneTimeAction.type == 'go' || that.currentNode.oneTimeAction.type == 'delay_then_go'))) {

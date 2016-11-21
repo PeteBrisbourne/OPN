@@ -6,11 +6,11 @@ sure
 okay
 follow sister catherina
 the details of the murder
-her favourite food
-the cell
-go to infirmary
+why is she sad
+sister anna cell
+infirmary
 talk to sisters
-office of abbess help
+ask murder help
 go to sister anna's cell
 talk to the sisters
 go to the infirmary
@@ -20,18 +20,20 @@ the manuscript
 the applicant
 talk to cecilia
 go to anna's cell
+go to infirmary
 story
-musical chords
+music
 talk to catherina
 the story
-valerio
+visit the camp
 applicant room
-why he is here
+reason for being here
 what is life like
+what his life is like
 go to applicant room
 go to clock tower
-go to see valerio
 clock tower
+[help
 continue clock tower
 talk to sister elena
 sister anna
@@ -39,11 +41,11 @@ make cabbage soup
 continue the clock tower
 ask about sister anna
 use the lever
-say done
-use lever
-why the crypt response
+claim heard the sound
+her cryptic response
 what she did before abbey
 one of the sisters
 sister cecilia
 someone else
 i am not sure
+valerio
