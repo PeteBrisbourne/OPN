@@ -11,10 +11,14 @@
         {
           "utterance": "help",
           "nextNode": "intro_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "intro"
         }
       ]
     },
-    "script": "<<set $sisterAnnaCell = 0>>\n<<set $talkToSisters = 0>>\n<<set $talkToCatherina = 0>>\n<<set $talkToCecilia = 0>>\n<<set $talkToElena = 0>>\n<<set $travelToInfirmary = 0>>\n<<set $talkToValerio = 0>>\n<<set $recruitRoom = 0>>\n<<set $continueClockTower = 0>>\nNARRATOR: Jagex proudly present; One Piercing Note: A RuneScape adventure. In this audio quest, you take the role of an investigator who has been tasked to help solve a mystery set in the medieval Abbey of St. Elspeth.\nAnytime you feel stuck during your adventure, just say 'help'.\nTo start a new game say 'Start'."
+    "script": "<<set $sisterAnnaCell = 0>>\n<<set $talkToSisters = 0>>\n<<set $talkToCatherina = 0>>\n<<set $talkToCecilia = 0>>\n<<set $talkToElena = 0>>\n<<set $travelToInfirmary = 0>>\n<<set $talkToValerio = 0>>\n<<set $recruitRoom = 0>>\n<<set $continueClockTower = 0>>\n<<set $checkBed = 0>>\n<<set $checkChest = 0>>\n<<set $checkWindow = 0>>\nNARRATOR: Jagex proudly present; One Piercing Note: A RuneScape adventure. In this audio quest, you take the role of an investigator who has been tasked to help solve a mystery set in the medieval Abbey of St. Elspeth.\nAnytime you feel stuck during your adventure, just say 'help'.\nTo start a new game say 'Start'."
   },
   "intro_help": {
     "name": "intro_help",
@@ -28,6 +32,10 @@
         {
           "utterance": "help",
           "nextNode": "intro_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "intro"
         }
       ]
     },
@@ -57,6 +65,10 @@
         {
           "utterance": "okay",
           "nextNode": "will_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "outside_the_abbey"
         }
       ]
     },
@@ -65,7 +77,33 @@
   "outside_the_abbey_help": {
     "name": "outside_the_abbey_help",
     "action": {
-      "type": "end_game"
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "yes",
+          "nextNode": "will_help"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "wont_help"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "outside_the_abbey_help"
+        },
+        {
+          "utterance": "sure",
+          "nextNode": "will_help"
+        },
+        {
+          "utterance": "okay",
+          "nextNode": "will_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "outside_the_abbey"
+        }
+      ]
     },
     "script": "Say 'yes' to help Sister Catherina, or say 'no' to refuse help."
   },
@@ -77,10 +115,47 @@
         {
           "utterance": "follow sister catherina",
           "nextNode": "office_of_abbess"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "office_of_abbess"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "will_help_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "will_help"
         }
       ]
     },
-    "script": "SISTER CATHERINA: Saradomin be praised! Please, follow me. I will take you to our Abbess who will explain more. What do you do? You may follow Sister Catherina."
+    "script": "SISTER CATHERINA: Saradomin be praised! Please, follow me. I will take you to our Abbess who will explain more. NARRATOR: Would you like to follow Sister Catherina?"
+  },
+  "will_help_help": {
+    "name": "will_help_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "follow sister catherina",
+          "nextNode": "office_of_abbess"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "office_of_abbess"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "will_help_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "will_help"
+        }
+      ]
+    },
+    "script": "Would you like to follow Sister Catherina?"
   },
   "wont_help": {
     "name": "wont_help",
@@ -90,10 +165,39 @@
         {
           "utterance": "follow sister catherina",
           "nextNode": "office_of_abbess"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "wont_help_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "wont_help"
         }
       ]
     },
     "script": "SISTER CATHERINA: Oh. I see... Are you...certain you can’t help us? Please say yes. NARRATOR: You chose poorly. Every bad option will minus and affect your final score at the end of the game. What do you do? You may follow Sister Catherina."
+  },
+  "wont_help_help": {
+    "name": "wont_help_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "follow sister catherina",
+          "nextNode": "office_of_abbess"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "wont_help_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "wont_help"
+        }
+      ]
+    },
+    "script": "What do you do? You may follow Sister Catherina."
   },
   "office_of_abbess": {
     "name": "office_of_abbess",
@@ -101,7 +205,7 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "the details of the murder",
+          "utterance": "the murder",
           "nextNode": "ask_murder"
         },
         {
@@ -111,10 +215,14 @@
         {
           "utterance": "help",
           "nextNode": "office_of_abbess_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "office_of_abbess"
         }
       ]
     },
-    "script": "NARRATOR: Sister Catherina leads you through the ornate front gate of the abbey and into its paved courtyard where a flowing fountain stands in midst of the dry desert. The abbey certainly has a humble air about it, from its worn white walls to the lack of any fanciful decoration; the whole place is a testament to the simple and devoted lifestyle the Sisters must lead within and their dedication of worship to their god, Saradomin. Off to the side of the courtyard, Sister Catherina stops outside a dark wooden door. ABBESS BENITA: Come in. NARRATOR: You enter the room. A small room which appears to be more of an office than a place of worship. Behind a large desk sits an older woman, dressed in the same white robes as Sister Catherina. Her face has much more of a serious, authoritative, gaze, and wrinkled lines suggest a lifetime of devotion. ABBESS BENITA: Ah. You must be an adventurer who has heard our call. Thank Saradomin you’ve come. I’m the Abbess; Abbess Benita. I've called you here for a sensitive task - one that I would prefer to deal with quietly, without involving the Church authorities. Sister Catherina, please leave us. NARRATOR: The Abbess looks down at her desk, carefully replacing her ink quill. ABBESS BENITA: One of our sisters, Sister Anna, has been, I believe, murdered. Murdered quite brutally. I need you to investigate, for I fear the killer may still be in the abbey. I’m sure you must have some questions so please, ask them. NARRATOR: The Abbess waits for your question. What do you ask her? About the murder, or, why is she sad?"
+    "script": "NARRATOR: Sister Catherina leads you through the ornate front gate of the abbey and into its paved courtyard where a flowing fountain stands in midst of the dry desert. The abbey certainly has a humble air about it, from its worn white walls to the lack of any fanciful decoration; the whole place is a testament to the simple and devoted lifestyle the Sisters must lead within and their dedication of worship to their god, Saradomin. Off to the side of the courtyard, Sister Catherina stops outside a dark wooden door. ABBESS BENITA: Come in. NARRATOR: You enter the room. A small room which appears to be more of an office than a place of worship. Behind a large desk sits an older woman, dressed in the same white robes as Sister Catherina. Her face has much more of a serious, authoritative, gaze, and wrinkled lines suggest a lifetime of devotion. ABBESS BENITA: Ah. You must be an adventurer who has heard our call. Thank Saradomin you’ve come. I’m the Abbess; Abbess Benita. I've called you here for a sensitive task - one that I would prefer to deal with quietly, without involving the Church authorities. Sister Catherina, please leave us. NARRATOR: The Abbess looks down at her desk, carefully replacing her ink quill. ABBESS BENITA: One of our sisters, Sister Anna, has been, I believe, murdered. Murdered quite brutally. I need you to investigate, for I fear the killer may still be in the abbey. I’m sure you must have some questions so please, ask them. NARRATOR: The Abbess waits for your question. Do you ask about the murder or why she's sad?"
   },
   "office_of_abbess_help": {
     "name": "office_of_abbess_help",
@@ -122,7 +230,7 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "the details of the murder",
+          "utterance": "the murder",
           "nextNode": "ask_murder"
         },
         {
@@ -132,10 +240,14 @@
         {
           "utterance": "help",
           "nextNode": "office_of_abbess_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "office_of_abbess"
         }
       ]
     },
-    "script": "What do you ask her? About the murder, or, why is she sad?"
+    "script": "What do you ask her? About the murder or why she's sad?"
   },
   "ask_murder": {
     "name": "ask_murder",
@@ -157,10 +269,14 @@
         {
           "utterance": "ask murder help",
           "nextNode": "ask_murder_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "ask_murder"
         }
       ]
     },
-    "script": "ABBESS BENITA: Sister Anna was one of our most devoted sisters, and, a trusted friend. She was exactly what we should aspire to be; humble and committed to our worship of Saradomin. I last saw her after the afternoon prayer service, but when she didn’t turn up for the evening service, I went to her cell and there found her body. It was…horrific. The injuries were so severe that I had to stop myself from screaming. It wouldn’t be right to scare the other Sisters so…I moved the body to the infirmary and cleaned and wrapped it myself. I’ve forbidden the other sisters from seeing it. NARRATOR: Despite the abbess’ stern composure, you notice she is trembling. ABBESS BENITA: Please. The abbey is open for you to investigate. I will accompany you so you don’t get lost. I don’t mean to tell you how to proceed. But what would you like to do next? Go to Sister Anna’s cell, or, go to the infirmary, or, talk to the Sisters?"
+    "script": "ABBESS BENITA: Sister Anna was one of our most devoted sisters, and, a trusted friend. She was exactly what we should aspire to be; humble and committed to our worship of Saradomin. I last saw her after the afternoon prayer service, but when she didn’t turn up for the evening service, I went to her cell and there found her body. It was…horrific. The injuries were so severe that I had to stop myself from screaming. It wouldn’t be right to scare the other Sisters so…I moved the body to the infirmary and cleaned and wrapped it myself. I’ve forbidden the other sisters from seeing it. NARRATOR: Despite the abbess’ stern composure, you notice she is trembling. ABBESS BENITA: Please. The abbey is open for you to investigate. I will accompany you so you don’t get lost. I don’t mean to tell you how to proceed. But what would you like to do next? Would you like to go to Anna's cell or to the infirmary or talk to the sisters?"
   },
   "ask_murder_help": {
     "name": "ask_murder_help",
@@ -182,10 +298,14 @@
         {
           "utterance": "ask murder help",
           "nextNode": "ask_murder_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "ask_murder"
         }
       ]
     },
-    "script": "Would you like to; go to Sister Anna’s cell, OR, go to the infirmary, OR talk to the Sisters?"
+    "script": "Would you like to go to Anna's cell or to the infirmary or talk to the sisters?"
   },
   "ask_why_is_she_sad": {
     "name": "ask_why_is_she_sad",
@@ -193,16 +313,24 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "the details of the murder",
+          "utterance": "the murder",
+          "nextNode": "ask_murder"
+        },
+        {
+          "utterance": "yes",
           "nextNode": "ask_murder"
         },
         {
           "utterance": "help",
           "nextNode": "ask_why_is_she_sad_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "ask_why_is_she_sad"
         }
       ]
     },
-    "script": "NARRATOR: The Abbess flashes you a look of disbelief. ABBESS BENITA: Why am I SAD? I’ve just told you that one of my Sisters has been murdered. As abbess I am charged with the welfare of everyone in this abbey. Do you not think that may have something to do with it? NARRATOR: What do you ask next? You can ask about the murder."
+    "script": "NARRATOR: The Abbess flashes you a look of disbelief. ABBESS BENITA: Why am I SAD? I’ve just told you that one of my Sisters has been murdered. As abbess I am charged with the welfare of everyone in this abbey. Do you not think that may have something to do with it? NARRATOR: Do you ask about the murder now?"
   },
   "ask_why_is_she_sad_help": {
     "name": "ask_why_is_she_sad_help",
@@ -216,6 +344,10 @@
         {
           "utterance": "help",
           "nextNode": "ask_why_is_she_sad_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "ask_why_is_she_sad"
         }
       ]
     },
@@ -244,10 +376,14 @@
         {
           "utterance": "help",
           "nextNode": "travel_to_infirmary_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "travel_to_infirmary"
         }
       ]
     },
-    "script": "ABBESS BENITA: Very well. What would you care to do? Go to Sister Anna’s cell, or talk to the sisters?"
+    "script": "ABBESS BENITA: Very well. Would you care to go to Anna's cell or talk to the Sisters?"
   },
   "travel_to_infirmary_choice_one_help": {
     "name": "travel_to_infirmary_choice_one_help",
@@ -265,10 +401,14 @@
         {
           "utterance": "help",
           "nextNode": "travel_to_infirmary_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "travel_to_infirmary"
         }
       ]
     },
-    "script": "Where would you like to go next?\nYou may; go to Sister Anna’s cell, OR, talk to the sisters."
+    "script": "Where would you like to go next?\nYou can go to Sister Anna’s cell OR talk to the sisters."
   },
   "travel_to_infirmary_choice_two": {
     "name": "travel_to_infirmary_choice_two",
@@ -280,12 +420,24 @@
           "nextNode": "sister_anna_cell"
         },
         {
+          "utterance": "yes",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "ok",
+          "nextNode": "sister_anna_cell"
+        },
+        {
           "utterance": "help",
           "nextNode": "travel_to_infirmary_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "travel_to_infirmary"
         }
       ]
     },
-    "script": "ABBESS BENITA: Very well. What would you like to do now? You can go to Sister Anna’s cell"
+    "script": "ABBESS BENITA: Very well. Would you like to visit Sister Anna’s cell now?"
   },
   "travel_to_infirmary_choice_two_help": {
     "name": "travel_to_infirmary_choice_two_help",
@@ -297,12 +449,20 @@
           "nextNode": "sister_anna_cell"
         },
         {
+          "utterance": "yes",
+          "nextNode": "sister_anna_cell"
+        },
+        {
           "utterance": "help",
           "nextNode": "travel_to_infirmary_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "travel_to_infirmary"
         }
       ]
     },
-    "script": "Where would you like to go next?\nYou may; go to Sister Anna’s cell"
+    "script": "You can say: go to Sister Anna’s cell or yes."
   },
   "travel_to_infirmary_choice_three": {
     "name": "travel_to_infirmary_choice_three",
@@ -314,12 +474,20 @@
           "nextNode": "talk_to_sisters"
         },
         {
+          "utterance": "yes",
+          "nextNode": "talk_to_sisters"
+        },
+        {
           "utterance": "help",
-          "nextNode": "travel_to_infirmary_choice_two_help"
+          "nextNode": "travel_to_infirmary_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "travel_to_infirmary"
         }
       ]
     },
-    "script": "ABBESS BENITA: Very well. What do you want to do next? You can talk to the sisters"
+    "script": "ABBESS BENITA: Very well. Would you like to talk to the sisters now?"
   },
   "travel_to_infirmary_choice_three_help": {
     "name": "travel_to_infirmary_choice_three_help",
@@ -331,19 +499,27 @@
           "nextNode": "talk_to_sisters"
         },
         {
+          "utterance": "yes",
+          "nextNode": "talk_to_sisters"
+        },
+        {
           "utterance": "help",
-          "nextNode": "travel_to_infirmary_choice_two_help"
+          "nextNode": "travel_to_infirmary_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "travel_to_infirmary"
         }
       ]
     },
-    "script": "Where would you like to go next?\nYou may; talk to the sisters."
+    "script": "Where would you like to go next?\nYou can say talk to the sisters or yes."
   },
   "sister_anna_cell": {
     "name": "sister_anna_cell",
     "action": {
       "type": "end_game"
     },
-    "script": "<<set $sisterAnnaCell = 1>>\nABBESS BENITA: Sister Anna’s cell is this way. Please follow me. NARRATOR: The two of you walk through the abbey into the residence wing. The abbess stops at a door with the name ‘Sister Anna’ painted across it. The room is small and sparse of furniture apart from an uncomfortable looking bed and at the foot of it, a chest. The bare stone walls are without decoration. A warm breeze hits you, drawing your attention to the one solitary window. ABBESS BENITA: I’ve kept the room locked since I found the body. Nobody has been in here since, not even to clean. NARRATOR: What do you do? Check the bed, or, the chest, or, the window?\n<<if $travelToInfirmary is 0 and $talkToSisters is 0>>\n[[sister_anna_cell_choice_one]]\n<<endif>>\n<<if $travelToInfirmary is 0 and $talkToSisters is 1>>\n[[sister_anna_cell_choice_two]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $talkToSisters is 0>>\n[[sister_anna_cell_choice_three]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $talkToSisters is 1>>\n[[summing_up]]"
+    "script": "<<set $sisterAnnaCell = 1>>\nABBESS BENITA: Sister Anna’s cell is this way. Please follow me. NARRATOR: The two of you walk through the abbey into the residence wing. The abbess stops at a door with the name ‘Sister Anna’ painted across it. The room is small and sparse of furniture apart from an uncomfortable looking bed and at the foot of it, a chest. The bare stone walls are without decoration. A warm breeze hits you, drawing your attention to the one solitary window. ABBESS BENITA: I’ve kept the room locked since I found the body. Nobody has been in here since, not even to clean. NARRATOR: Would you like to check the bed, the chest or the window?\n<<if $travelToInfirmary is 0 and $talkToSisters is 0>>\n[[sister_anna_cell_choice_one]]\n<<endif>>\n<<if $travelToInfirmary is 0 and $talkToSisters is 1>>\n[[sister_anna_cell_choice_two]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $talkToSisters is 0>>\n[[sister_anna_cell_choice_three]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $talkToSisters is 1>>\n[[summing_up]]"
   },
   "sister_anna_cell_choice_one": {
     "name": "sister_anna_cell_choice_one",
@@ -361,10 +537,14 @@
         {
           "utterance": "help",
           "nextNode": "sister_anna_cell_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "sister_anna_cell"
         }
       ]
     },
-    "script": "ABBESS BENITA: It doesn’t look like anything else here is out of place. What would you like to do? Talk to the sisters, or go to the infirmary?"
+    "script": "ABBESS BENITA: It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary?"
   },
   "sister_anna_cell_choice_one_help": {
     "name": "sister_anna_cell_choice_one_help",
@@ -382,10 +562,14 @@
         {
           "utterance": "help",
           "nextNode": "sister_anna_cell_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "sister_anna_cell"
         }
       ]
     },
-    "script": "What would you like to do? You may; talk to the sisters, OR, go to the infirmary."
+    "script": "What would you like to do? You can talk to the sisters OR go to the infirmary."
   },
   "sister_anna_cell_choice_two": {
     "name": "sister_anna_cell_choice_two",
@@ -397,12 +581,20 @@
           "nextNode": "travel_to_infirmary"
         },
         {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
           "utterance": "help",
           "nextNode": "sister_anna_cell_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "sister_anna_cell"
         }
       ]
     },
-    "script": "ABBESS BENITA: It doesn’t look like anything else here is out of place. What would you like to do? You can go to the infirmary."
+    "script": "ABBESS BENITA: It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now?"
   },
   "sister_anna_cell_choice_two_help": {
     "name": "sister_anna_cell_choice_two_help",
@@ -414,12 +606,20 @@
           "nextNode": "travel_to_infirmary"
         },
         {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
           "utterance": "help",
           "nextNode": "sister_anna_cell_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "sister_anna_cell"
         }
       ]
     },
-    "script": "What would you like to do? You may; go to the infirmary."
+    "script": "What would you like to do? You can say \"go to the infirmary\" or \"yes\"."
   },
   "sister_anna_cell_choice_three": {
     "name": "sister_anna_cell_choice_three",
@@ -431,12 +631,20 @@
           "nextNode": "talk_to_sisters"
         },
         {
+          "utterance": "yes",
+          "nextNode": "talk_to_sisters"
+        },
+        {
           "utterance": "help",
           "nextNode": "sister_anna_cell_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "sister_anna_cell"
         }
       ]
     },
-    "script": "ABBESS BENITA: It doesn’t look like anything else here is out of place. What would you care to do? You can talk to the sisters."
+    "script": "ABBESS BENITA: It doesn’t look like anything else here is out of place. Would you like to talk to the sisters?"
   },
   "sister_anna_cell_choice_three_help": {
     "name": "sister_anna_cell_choice_three_help",
@@ -448,12 +656,20 @@
           "nextNode": "talk_to_sisters"
         },
         {
+          "utterance": "yes",
+          "nextNode": "talk_to_sisters"
+        },
+        {
           "utterance": "help",
           "nextNode": "sister_anna_cell_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "sister_anna_cell"
         }
       ]
     },
-    "script": "What would you like to do? You may; talk to the sisters."
+    "script": "What would you like to do? You can say \"talk to the sisters\" or \"yes\"."
   },
   "talk_to_sisters": {
     "name": "talk_to_sisters",
@@ -461,20 +677,24 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "talk to sister catherina",
+          "utterance": "sister catherina",
           "nextNode": "talk_to_sister_catherina"
         },
         {
-          "utterance": "talk to sister cecilia",
+          "utterance": "sister cecilia",
           "nextNode": "talk_to_sister_cecilia"
         },
         {
           "utterance": "help",
           "nextNode": "talk_to_sisters_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "talk_to_sisters"
         }
       ]
     },
-    "script": "<<set $talkToSisters = 1>>\nNARRATOR: The Abbess nods. ABBESS BENITA: There are two sisters I can take you to. Sister Catherina you’ve already met; she greeted you outside the abbey. The other, Sister Cecilia, is leading the choir in rehearsals. I’ve told them all about Sister Anna’s death of course, but, as I said, I haven’t mentioned the fact I believe it was murder. Who would you care to talk to first? Sister Catherina, or, Sister Cecilia."
+    "script": "<<set $talkToSisters = 1>>\nNARRATOR: The Abbess nods. ABBESS BENITA: There are two sisters I can take you to. Sister Catherina you’ve already met; she greeted you outside the abbey. The other, Sister Cecilia, is leading the choir in rehearsals. I’ve told them all about Sister Anna’s death of course, but, as I said, I haven’t mentioned the fact I believe it was murder. Would you like to speak to Sister Catherina or Sister Cecilia?"
   },
   "talk_to_sisters_help": {
     "name": "talk_to_sisters_help",
@@ -482,20 +702,24 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "talk to sister catherina",
+          "utterance": "sister catherina",
           "nextNode": "talk_to_sister_catherina"
         },
         {
-          "utterance": "talk to sister cecilia",
+          "utterance": "sister cecilia",
           "nextNode": "talk_to_sister_cecilia"
         },
         {
           "utterance": "help",
           "nextNode": "talk_to_sisters_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "talk_to_sisters"
         }
       ]
     },
-    "script": "Who would you care to talk to first?\nYou may choose; Sister Catherina, OR, Sister Cecilia."
+    "script": "Who would you care to talk to first?\nYou may choose Sister Catherina or Sister Cecilia."
   },
   "talk_to_sister_catherina": {
     "name": "talk_to_sister_catherina",
@@ -513,10 +737,14 @@
         {
           "utterance": "help",
           "nextNode": "talk_sister_catherina_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "talk_to_sister_catherina"
         }
       ]
     },
-    "script": "<<set $talkToCatherina = 1>>\nNARRATOR: Leading you through the Abbey, the Abbess approaches one of the sisters who is sat at a wooden desk writing. The abbess asks if she would be so kind as to answer some questions. The sister nods and gets up to walk towards you. You recognise her as Sister Catherina, who met you at the front gate. SISTER CATHERINA: Oh, adventurer. It is good to see you again. The Abbess says you would like to speak to me in regards to what I was doing before the evening service? NARRATOR: The Sister smiles politely. SISTER CATHERINA Well, I was in the scriptorium – in the basement - copying a manuscript from the Book of Saradomin. I’m going through the entire book, transcribing it all. There’s quite a lot, and, well, I think I’ve gotten quite good at it. It makes me feel somewhat proud, although I know that’s not a feeling I should indulge. Oh! But, uhm, I found it quite difficult though. What with the music and sounds of the party coming from outside the abbey. Do you know about that? It’s not that I disapprove of what they are doing, but I so used to love dancing before I joined here. It’s certainly tempting to join in.. NARRATOR: Sister Catherina shuffles, rubbing her arm. SISTER CATHERINA: I think, well...I know, Sister Anna wouldn’t be impressed by me saying that. She was quite strict and at first frightened me. I’m not surprised the applicant who was here yesterday left without a word. So...do you have any other questions for me? NARRATOR: It seems there is more that you could learn from Sister Catherina. What do you ask about? The manuscript, or, the applicant?"
+    "script": "<<set $talkToCatherina = 1>>\nNARRATOR: Leading you through the Abbey, the Abbess approaches one of the sisters who is sat at a wooden desk writing. The abbess asks if she would be so kind as to answer some questions. The sister nods and gets up to walk towards you. You recognise her as Sister Catherina, who met you at the front gate. SISTER CATHERINA: Oh, adventurer. It is good to see you again. The Abbess says you would like to speak to me in regards to what I was doing before the evening service? NARRATOR: The Sister smiles politely. SISTER CATHERINA Well, I was in the scriptorium – in the basement - copying a manuscript from the Book of Saradomin. I’m going through the entire book, transcribing it all. There’s quite a lot, and, well, I think I’ve gotten quite good at it. It makes me feel somewhat proud, although I know that’s not a feeling I should indulge. Oh! But, uhm, I found it quite difficult though. What with the music and sounds of the party coming from outside the abbey. Do you know about that? It’s not that I disapprove of what they are doing, but I so used to love dancing before I joined here. It’s certainly tempting to join in.. NARRATOR: Sister Catherina shuffles, rubbing her arm. SISTER CATHERINA: I think, well...I know, Sister Anna wouldn’t be impressed by me saying that. She was quite strict and at first frightened me. I’m not surprised the applicant who was here yesterday left without a word. So...do you have any other questions for me? NARRATOR: It seems there is more that you could learn from Sister Catherina. Do you ask about the manuscript or the applicant?"
   },
   "talk_sister_catherina_help": {
     "name": "talk_sister_catherina_help",
@@ -534,10 +762,14 @@
         {
           "utterance": "help",
           "nextNode": "talk_sister_catherina_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "talk_sister_catherina"
         }
       ]
     },
-    "script": "What do you do? Do you ask about; the manuscript, or, the applicant?"
+    "script": "You can ask about the manuscript or the applicant."
   },
   "the_applicant": {
     "name": "the_applicant",
@@ -556,12 +788,20 @@
           "nextNode": "talk_to_sister_cecilia"
         },
         {
+          "utterance": "yes",
+          "nextNode": "talk_to_sister_cecilia"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_applicant_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_applicant"
         }
       ]
     },
-    "script": "What would you like to do? You can talk to Sister Cecilia."
+    "script": "Do you talk to Sister Cecilia now?"
   },
   "the_applicant_choice_one_help": {
     "name": "the_applicant_choice_one_help",
@@ -573,12 +813,20 @@
           "nextNode": "talk_to_sister_cecilia"
         },
         {
+          "utterance": "yes",
+          "nextNode": "talk_to_sister_cecilia"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_applicant_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_applicant"
         }
       ]
     },
-    "script": "What would you like to do? You can talk to Sister Cecilia."
+    "script": "You can say \"talk to Sister Cecilia\" or \"yes\"."
   },
   "the_applicant_choice_two": {
     "name": "the_applicant_choice_two",
@@ -596,10 +844,14 @@
         {
           "utterance": "help",
           "nextNode": "the_applicant_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_applicant"
         }
       ]
     },
-    "script": "What would you like to do? You can go to Sister Anna’s cell or go to the infirmary."
+    "script": "Would you like to go to Sister Anna’s cell or the infirmary?"
   },
   "the_applicant_choice_two_help": {
     "name": "the_applicant_choice_two_help",
@@ -617,10 +869,14 @@
         {
           "utterance": "help",
           "nextNode": "the_applicant_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_applicant"
         }
       ]
     },
-    "script": "What would you like to do? You can go to Sister Anna’s cell or go to the infirmary."
+    "script": "You can go to Sister Anna’s cell or go to the infirmary."
   },
   "the_applicant_choice_three": {
     "name": "the_applicant_choice_three",
@@ -632,12 +888,20 @@
           "nextNode": "sister_anna_cell"
         },
         {
+          "utterance": "yes",
+          "nextNode": "sister_anna_cell"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_applicant_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_applicant"
         }
       ]
     },
-    "script": "What would you like to do? You can go to Sister Anna’s cell."
+    "script": "Would you like to go to Sister Anna’s cell?"
   },
   "the_applicant_choice_three_help": {
     "name": "the_applicant_choice_three_help",
@@ -649,12 +913,20 @@
           "nextNode": "sister_anna_cell"
         },
         {
+          "utterance": "yes",
+          "nextNode": "sister_anna_cell"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_applicant_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_applicant"
         }
       ]
     },
-    "script": "What would you like to do? You can go to Sister Anna’s cell."
+    "script": "You can say \"go to Sister Anna’s cell\" or \"yes\"."
   },
   "the_applicant_choice_four": {
     "name": "the_applicant_choice_four",
@@ -666,12 +938,20 @@
           "nextNode": "travel_to_infirmary"
         },
         {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_applicant_choice_four_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_applicant"
         }
       ]
     },
-    "script": "What would you like to do? You can go to the infirmary."
+    "script": "Would you like to go to the infirmary now?"
   },
   "the_applicant_choice_four_help": {
     "name": "the_applicant_choice_four_help",
@@ -683,12 +963,20 @@
           "nextNode": "travel_to_infirmary"
         },
         {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_applicant_choice_four_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_applicant"
         }
       ]
     },
-    "script": "What would you like to do? You can go to the infirmary."
+    "script": "You can say \"go to the infirmary\" or \"yes\"."
   },
   "the_manuscript": {
     "name": "the_manuscript",
@@ -700,12 +988,24 @@
           "nextNode": "the_applicant"
         },
         {
+          "utterance": "yes",
+          "nextNode": "the_applicant"
+        },
+        {
+          "utterance": "ask about the applicant",
+          "nextNode": "the_applicant"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_manuscript_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_manuscript"
         }
       ]
     },
-    "script": "SISTER CATHERINA: Oh, well! It’s a little project of mine transcribing the Book of Saradomin. It’s a beautiful book which captures all that is holy and it’s nothing but an honour to study it. I’m really starting to get the hang of illuminating the text. There are so many pages, all beautifully scribed... NARRATOR: The information doesn’t seem to be that useful. What do you ask next? You can ask about the applicant."
+    "script": "SISTER CATHERINA: Oh, well! It’s a little project of mine transcribing the Book of Saradomin. It’s a beautiful book which captures all that is holy and it’s nothing but an honour to study it. I’m really starting to get the hang of illuminating the text. There are so many pages, all beautifully scribed... NARRATOR: The information doesn’t seem to be that useful. Would you like to ask about the applicant?"
   },
   "the_manuscript_help": {
     "name": "the_manuscript_help",
@@ -717,12 +1017,24 @@
           "nextNode": "the_applicant"
         },
         {
+          "utterance": "ask about the applicant",
+          "nextNode": "the_applicant"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "the_applicant"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_manuscript_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_manuscript"
         }
       ]
     },
-    "script": "What do you ask next? You can ask about the applicant."
+    "script": "You can ask about the applicant or say \"yes\"."
   },
   "talk_to_sister_cecilia": {
     "name": "talk_to_sister_cecilia",
@@ -740,10 +1052,14 @@
         {
           "utterance": "help",
           "nextNode": "talk_to_sister_cecilia_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "talk_to_sister_cecilia"
         }
       ]
     },
-    "script": "<<set $talkToCecilia = 1>>\nNARRATOR: You follow the Abbess up a white stone staircase and head into the chapel hall. Unlike the rest of the abbey, the large hall is finely decorated; coloured marble covering the floor and pillars that stretch up to the arched ceiling. The abbess walks over to a sister, who surrounded by sheets of musical notation, appears to be leading the choir, waving her arms and conducting. The abbess beckons her to talk with you. SISTER CECILIA: Look at me...look at me... Okay, that's good. Remember to look at me so you can keep in time. Oh! I'm sorry, I didn't, er...Ladies, keep rehearsing. I need to talk to someone. ABBESS BENITA: Adventurer, this is Sister Cecilia. She leads the choir here in the abbey. Sister, would you be so kind as to tell the adventurer where you were yesterday evening? SISTER CECILIA: I was here. Leading the choir in practice of a new hymn to Saint Elspeth. I wrote the music, and might I add it's better music than those…dancers outside the abbey. I have no idea why they are here, but I detest dancing. It’s so...unthoughtful. So unholy. Do you know the story of Saint Elspeth and the Ripper Demon? I’d be happy to tell you. It’s a very important story to all the sisters here. NARRATOR: What do you ask about? The story, or, the music?"
+    "script": "<<set $talkToCecilia = 1>>\nNARRATOR: You follow the Abbess up a white stone staircase and head into the chapel hall. Unlike the rest of the abbey, the large hall is finely decorated; coloured marble covering the floor and pillars that stretch up to the arched ceiling. The abbess walks over to a sister, who surrounded by sheets of musical notation, appears to be leading the choir, waving her arms and conducting. The abbess beckons her to talk with you. SISTER CECILIA: Look at me...look at me... Okay, that's good. Remember to look at me so you can keep in time. Oh! I'm sorry, I didn't, er...Ladies, keep rehearsing. I need to talk to someone. ABBESS BENITA: Adventurer, this is Sister Cecilia. She leads the choir here in the abbey. Sister, would you be so kind as to tell the adventurer where you were yesterday evening? SISTER CECILIA: I was here. Leading the choir in practice of a new hymn to Saint Elspeth. I wrote the music, and might I add it's better music than those…dancers outside the abbey. I have no idea why they are here, but I detest dancing. It’s so...unthoughtful. So unholy. Do you know the story of Saint Elspeth and the Ripper Demon? I’d be happy to tell you. It’s a very important story to all the sisters here. NARRATOR: Do you ask about the story or the music?"
   },
   "talk_to_sister_cecilia_help": {
     "name": "talk_to_sister_cecilia_help",
@@ -761,6 +1077,10 @@
         {
           "utterance": "help",
           "nextNode": "talk_to_sister_cecilia_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "talk_to_sister_cecilia"
         }
       ]
     },
@@ -779,16 +1099,24 @@
       "type": "choice",
       "choices": [
         {
+          "utterance": "yes",
+          "nextNode": "talk_to_sister_catherina"
+        },
+        {
           "utterance": "talk to catherina",
           "nextNode": "talk_to_sister_catherina"
         },
         {
           "utterance": "help",
           "nextNode": "the_story_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_story"
         }
       ]
     },
-    "script": "What would you like to do? You can talk to Sister Catherina."
+    "script": "Would you like to talk to Sister Catherina now?"
   },
   "the_story_choice_one_help": {
     "name": "the_story_choice_one_help",
@@ -796,16 +1124,24 @@
       "type": "choice",
       "choices": [
         {
+          "utterance": "yes",
+          "nextNode": "talk_to_sister_catherina"
+        },
+        {
           "utterance": "talk to catherina",
           "nextNode": "talk_to_sister_catherina"
         },
         {
           "utterance": "help",
           "nextNode": "the_story_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_story"
         }
       ]
     },
-    "script": "What would you like to do? You can talk to Sister Catherina."
+    "script": "You can say \"talk to Sister Catherina\" or \"yes\"."
   },
   "the_story_choice_two": {
     "name": "the_story_choice_two",
@@ -823,10 +1159,14 @@
         {
           "utterance": "help",
           "nextNode": "the_story_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_story"
         }
       ]
     },
-    "script": "What would you like to do? You can go to Sister Anna’s cell or go to the infirmary."
+    "script": "Whould you like to go to Sister Anna’s cell or go to the infirmary."
   },
   "the_story_choice_two_help": {
     "name": "the_story_choice_two_help",
@@ -844,10 +1184,14 @@
         {
           "utterance": "help",
           "nextNode": "the_story_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_story"
         }
       ]
     },
-    "script": "What would you like to do? You can go to Sister Anna’s cell or go to the infirmary."
+    "script": "You can go to Sister Anna’s cell or go to the infirmary."
   },
   "the_story_choice_three": {
     "name": "the_story_choice_three",
@@ -859,12 +1203,28 @@
           "nextNode": "sister_anna_cell"
         },
         {
+          "utterance": "yes",
+          "nextNode": "sister_anna_cell"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_story_choice_three_help"
+        },
+        {
+          "utterance": "go to sister anna's cell",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "sister anna's cell",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_story"
         }
       ]
     },
-    "script": "What would you like to do? You can go to Sister Anna’s cell."
+    "script": "Would you like to go to Sister Anna’s cell now?"
   },
   "the_story_choice_three_help": {
     "name": "the_story_choice_three_help",
@@ -876,12 +1236,24 @@
           "nextNode": "sister_anna_cell"
         },
         {
+          "utterance": "yes",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "go to sister anna's cell",
+          "nextNode": "sister_anna_cell"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_story_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_story"
         }
       ]
     },
-    "script": "What would you like to do? You can go to Sister Anna’s cell."
+    "script": "You can say \"go to Sister Anna’s cell\" or \"yes\"."
   },
   "the_story_choice_four": {
     "name": "the_story_choice_four",
@@ -893,12 +1265,20 @@
           "nextNode": "travel_to_infirmary"
         },
         {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_story_choice_four_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_story"
         }
       ]
     },
-    "script": "What would you like to do? You can go to the infirmary."
+    "script": "Would you like to go to the infirmary?"
   },
   "the_story_choice_four_help": {
     "name": "the_story_choice_four_help",
@@ -910,12 +1290,20 @@
           "nextNode": "travel_to_infirmary"
         },
         {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_story_choice_four_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_story"
         }
       ]
     },
-    "script": "What would you like to do? You can go to the infirmary."
+    "script": "You can say \"go to the infirmary\" or say \"yes\"."
   },
   "the_musical_chords": {
     "name": "the_musical_chords",
@@ -927,12 +1315,20 @@
           "nextNode": "the_story"
         },
         {
+          "utterance": "yes",
+          "nextNode": "the_story"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_musical_chords_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_musical_chords"
         }
       ]
     },
-    "script": "NARRATOR: Sister Cecilia looks surprised, expecting you to ask about the story. SISTER CECILIA: Oh, well, like I already said the I wrote the music. The choir have been practicing it for a few days now. NARRATOR: That question didn’t seem to be useful. What do you ask next? You can ask about; the story."
+    "script": "NARRATOR: Sister Cecilia looks surprised, expecting you to ask about the story. SISTER CECILIA: Oh, well, like I already said the I wrote the music. The choir have been practicing it for a few days now. NARRATOR: That question didn’t seem to be useful. Would you like to ask about the story?"
   },
   "the_musical_chords_help": {
     "name": "the_musical_chords_help",
@@ -940,16 +1336,24 @@
       "type": "choice",
       "choices": [
         {
+          "utterance": "yes",
+          "nextNode": "the_story"
+        },
+        {
           "utterance": "the story",
           "nextNode": "the_story"
         },
         {
           "utterance": "help",
           "nextNode": "the_musical_chords_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_musical_chords"
         }
       ]
     },
-    "script": "What do you ask next? You can ask about the applicant."
+    "script": "You can say \"ask about the story\" or \"yes\"."
   },
   "summing_up": {
     "name": "summing_up",
@@ -965,12 +1369,24 @@
           "nextNode": "recruit_room"
         },
         {
+          "utterance": "applicant's room",
+          "nextNode": "recruit_room"
+        },
+        {
+          "utterance": "go to the applicant's room",
+          "nextNode": "recruit_room"
+        },
+        {
           "utterance": "help",
           "nextNode": "summing_up_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "summing_up"
         }
       ]
     },
-    "script": "NARRATOR: You explain to the abbess that after investigating and talking to some of the Sisters that two new points of interest have come to your attention; a camp of musicians and dancers outside the abbey, and an applicant who was in the abbey yesterday. ABBESS BENITA: Hmmm. And you wish to investigate these further I assume? Very well. What would you like to do? Visit the camp, or, go to the applicant’s room?"
+    "script": "NARRATOR: You explain to the abbess that after investigating and talking to some of the Sisters that two new points of interest have come to your attention; a camp of musicians and dancers outside the abbey, and an applicant who was in the abbey yesterday. ABBESS BENITA: Hmmm. And you wish to investigate these further I assume? Very well. Would you care to visit the camp or go to the applicant’s room?"
   },
   "summing_up_help": {
     "name": "summing_up_help",
@@ -988,10 +1404,14 @@
         {
           "utterance": "help",
           "nextNode": "summing_up_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "summing_up"
         }
       ]
     },
-    "script": "What would you like to do? Visit the camp, or, go to the applicant’s room?"
+    "script": "You can say \"visit the camp\" or \"go to the applicant’s room\"."
   },
   "go_to_valerio": {
     "name": "go_to_valerio",
@@ -1009,10 +1429,14 @@
         {
           "utterance": "help",
           "nextNode": "go_to_valerio_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "go_to_valerio"
         }
       ]
     },
-    "script": "<<set $talkToValerio = 1>>\nNARRATOR: The abbess' face flashes a look of disapproval, leading you towards the main gates of the abbey and points over to the troubadour and his camp. ABBESS BENITA: Very well. I don’t know why they are here outside the Abbey. He and his party seem to come and go quite often. It’s not that I don’t respect their choice of...lifestyle, but I don’t want the sisters being distracted at this time. NARRATOR: Leaving the Abbess at the gate, you walk over to the colourful tent where a number of people are dancing. Amongst them a brightly dressed man is playing a mandolin and singing. NARRATOR: From his wide hat, sun kissed skin and open waistcoat the man has a very carefree air about him. He ceases his singing as you near, greeting you with a broad smile. VALERIO: Greetings, traveller! The name’s Valerio. I do hope we’re not causing any trouble. We just thought we’d help liven the desert up a bit. Everyone should enjoy dancing once in awhile, especially if there is some coin to be made! NARRATOR: What do you do ask about? Reasons for being here, or, what his life is like?\""
+    "script": "<<set $talkToValerio = 1>>\nNARRATOR: The abbess' face flashes a look of disapproval, leading you towards the main gates of the abbey and points over to the troubadour and his camp. ABBESS BENITA: Very well. I don’t know why they are here outside the Abbey. He and his party seem to come and go quite often. It’s not that I don’t respect their choice of...lifestyle, but I don’t want the sisters being distracted at this time. NARRATOR: Leaving the Abbess at the gate, you walk over to the colourful tent where a number of people are dancing. Amongst them a brightly dressed man is playing a mandolin and singing. NARRATOR: From his wide hat, sun kissed skin and open waistcoat the man has a very carefree air about him. He ceases his singing as you near, greeting you with a broad smile. VALERIO: Greetings, traveller! The name’s Valerio. I do hope we’re not causing any trouble. We just thought we’d help liven the desert up a bit. Everyone should enjoy dancing once in awhile, especially if there is some coin to be made! NARRATOR: Do you ask why he's here or what his life is like?\""
   },
   "go_to_valerio_help": {
     "name": "go_to_valerio_help",
@@ -1030,10 +1454,14 @@
         {
           "utterance": "help",
           "nextNode": "go_to_valerio_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "go_to_valerio"
         }
       ]
     },
-    "script": "What do you do ask about? Reasons for being here, or, what his life is like?"
+    "script": "You can ask his reasons for being here or what his life is like."
   },
   "why_he_is_here": {
     "name": "why_he_is_here",
@@ -1048,16 +1476,24 @@
       "type": "choice",
       "choices": [
         {
+          "utterance": "yes",
+          "nextNode": "recruit_room"
+        },
+        {
           "utterance": "go to applicant room",
           "nextNode": "recruit_room"
         },
         {
           "utterance": "help",
           "nextNode": "go_to_valerio_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "go_to_valerio"
         }
       ]
     },
-    "script": "ABBESS BENITA: Ah, Adventurer. Where would you like to go? You can go to the applicant room"
+    "script": "ABBESS BENITA: Ah, Adventurer. Would you like to go to the applicant room now?"
   },
   "go_to_valerio_choice_one_help": {
     "name": "go_to_valerio_choice_one_help",
@@ -1069,12 +1505,20 @@
           "nextNode": "recruit_room"
         },
         {
+          "utterance": "yes",
+          "nextNode": "recruit_room"
+        },
+        {
           "utterance": "help",
           "nextNode": "go_to_valerio_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "go_to_valerio"
         }
       ]
     },
-    "script": "Where would you like to go? You can go to the applicant room."
+    "script": "You can say \"go to the applicant's room\" or \"yes\"."
   },
   "go_to_valerio_choice_two": {
     "name": "go_to_valerio_choice_two",
@@ -1086,12 +1530,20 @@
           "nextNode": "clock_tower"
         },
         {
+          "utterance": "yes",
+          "nextNode": "clock_tower"
+        },
+        {
           "utterance": "help",
           "nextNode": "go_to_valerio_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "go_to_valerio"
         }
       ]
     },
-    "script": "ABBESS BENITA: Ah, Adventurer. Where would you like to go? You can go to the clock tower."
+    "script": "ABBESS BENITA: Ah, Adventurer. Would you care to go to the clock tower?"
   },
   "go_to_valerio_choice_two_help": {
     "name": "go_to_valerio_choice_two_help",
@@ -1103,12 +1555,20 @@
           "nextNode": "clock_tower"
         },
         {
+          "utterance": "yes",
+          "nextNode": "clock_tower"
+        },
+        {
           "utterance": "help",
           "nextNode": "go_to_valerio_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "go_to_valerio"
         }
       ]
     },
-    "script": "Where would you like to go? You can go to the clock tower."
+    "script": "You can say \"go to the clock tower\" or \"yes\"."
   },
   "recruit_room": {
     "name": "recruit_room",
@@ -1127,12 +1587,20 @@
           "nextNode": "go_to_valerio"
         },
         {
+          "utterance": "yes",
+          "nextNode": "go_to_valerio"
+        },
+        {
           "utterance": "help",
           "nextNode": "recruit_room_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "recruit_room"
         }
       ]
     },
-    "script": "ABBESS BENITA: Where would you like to go? You can visit the camp."
+    "script": "ABBESS BENITA: Would you like to visit the camp now?."
   },
   "recruit_room_choice_one_help": {
     "name": "recruit_room_choice_one_help",
@@ -1144,12 +1612,20 @@
           "nextNode": "go_to_valerio"
         },
         {
+          "utterance": "yes",
+          "nextNode": "go_to_valerio"
+        },
+        {
           "utterance": "help",
           "nextNode": "recruit_room_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "recruit_room"
         }
       ]
     },
-    "script": "Where would you like to go? You can visit the camp"
+    "script": "You can say \"visit the camp\" or \"yes\"."
   },
   "recruit_room_choice_two": {
     "name": "recruit_room_choice_two",
@@ -1161,12 +1637,20 @@
           "nextNode": "clock_tower"
         },
         {
+          "utterance": "yes",
+          "nextNode": "clock_tower"
+        },
+        {
           "utterance": "help",
           "nextNode": "recruit_room_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "recruit_room"
         }
       ]
     },
-    "script": "ABBESS BENITA: Where would you like to go? You can go to the clock tower."
+    "script": "ABBESS BENITA: Would you like to go to the clock tower?"
   },
   "recruit_room_choice_two_help": {
     "name": "recruit_room_choice_two_help",
@@ -1178,12 +1662,20 @@
           "nextNode": "clock_tower"
         },
         {
+          "utterance": "yes",
+          "nextNode": "clock_tower"
+        },
+        {
           "utterance": "[help",
           "nextNode": "recruit_room_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "recruit_room"
         }
       ]
     },
-    "script": "Where would you like to go? You can go to the clock tower."
+    "script": "You can say \"go to the clock tower\" or \"yes\"."
   },
   "what_is_life_like": {
     "name": "what_is_life_like",
@@ -1195,12 +1687,20 @@
           "nextNode": "why_he_is_here"
         },
         {
+          "utterance": "yes",
+          "nextNode": "why_he_is_here"
+        },
+        {
           "utterance": "help",
           "nextNode": "what_is_life_like_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "what_is_life_like"
         }
       ]
     },
-    "script": "VALERIO: Ah, are you interested in a change of career perhaps? Is that it? My life is rarely boring. Always on the road. Town after town...I’ve seen a lot of this world and it’s made even nicer by the company I keep. Why, there aren’t many women I’ve met who don’t like to be serenaded by my mandolin. NARRATOR: The answer wasn’t particularly helpful. What do you ask next? You can ask; reasons for being here."
+    "script": "VALERIO: Ah, are you interested in a change of career perhaps? Is that it? My life is rarely boring. Always on the road. Town after town...I’ve seen a lot of this world and it’s made even nicer by the company I keep. Why, there aren’t many women I’ve met who don’t like to be serenaded by my mandolin. NARRATOR: The answer wasn’t particularly helpful. Do you ask why he's here?"
   },
   "what_is_life_like_help": {
     "name": "what_is_life_like_help",
@@ -1208,16 +1708,24 @@
       "type": "choice",
       "choices": [
         {
+          "utterance": "yes",
+          "nextNode": "why_he_is_here"
+        },
+        {
           "utterance": "reason for being here",
           "nextNode": "why_he_is_here"
         },
         {
           "utterance": "help",
           "nextNode": "what_is_life_like_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "what_is_life_like"
         }
       ]
     },
-    "script": "What do you ask next? You can ask; reasons for being here."
+    "script": "You can say \"yes\" to ask why he's here."
   },
   "clock_tower": {
     "name": "clock_tower",
@@ -1235,10 +1743,14 @@
         {
           "utterance": "help",
           "nextNode": "clock_tower_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "clock_tower"
         }
       ]
     },
-    "script": "NARRATOR: The abbess leads you deeper into the abbey, down it’s bare stone corridors towards the clock tower. As you pass an open doorway the potent smell of cabbages suddenly hits you. You peer back around and into what must be the abbey kitchens. There, a lady in abbey robes, red faced with   an apron bound severely around her midriff, is busily stirring various pots while steam billows up and slides around the ceiling. ABBESS BENITA: Ah, that’s Sister Elena. She’s in charge of the kitchens here. You may talk to her if you like. What you like to do? Go to the clock tower, or, talk to Sister Elena."
+    "script": "NARRATOR: The abbess leads you deeper into the abbey, down it’s bare stone corridors towards the clock tower. As you pass an open doorway the potent smell of cabbages suddenly hits you. You peer back around and into what must be the abbey kitchens. There, a lady in abbey robes, red faced with   an apron bound severely around her midriff, is busily stirring various pots while steam billows up and slides around the ceiling. ABBESS BENITA: Ah, that’s Sister Elena. She’s in charge of the kitchens here. You may talk to her if you like. Would you like to go to the clock tower or talk to Sister Elena?"
   },
   "clock_tower_help": {
     "name": "clock_tower_help",
@@ -1256,10 +1768,14 @@
         {
           "utterance": "help",
           "nextNode": "clock_tower_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "clock_tower"
         }
       ]
     },
-    "script": "What you like to do? Go to the clock tower, or, talk to Sister Elena."
+    "script": "You can go to the clock tower or talk to Sister Elena."
   },
   "talk_to_sister_elena": {
     "name": "talk_to_sister_elena",
@@ -1277,10 +1793,14 @@
         {
           "utterance": "help",
           "nextNode": "talk_to_sister_elena_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "talk_to_sister_elena"
         }
       ]
     },
-    "script": "<<set $talkToElena = 1>>\nSISTER ELENA: Yes? What is it? NARRATOR: The abbess goes over to Sister Elena and explains that you have a few questions about her whereabouts yesterday evening, and about Sister Anna. She waits outside, leaving the two of you to talk. SISTER ELENA: I was here, in the kitchen making cabbage soup. Why, where should I have been? I went down to the cellar to get some supplies at one point, but the rest of the time I was here. Actually, I noticed something while I was down there. I think someone's been stealing food from the cellar. I bet it was Sister Catherina. I've seen her sneaking an extra cup of wine at meals, and I bet she’s just the sort to want to flirt with that rabble outside. As for Sister Anna...she's with Saradomin now. It doesn't matter what I thought of her, and it does no good to speak ill of the dead. Now. Is there something else you need? NARRATOR: What do you do ask her about? Sister Anna, or, how to make cabbage soup?"
+    "script": "<<set $talkToElena = 1>>\nSISTER ELENA: Yes? What is it? NARRATOR: The abbess goes over to Sister Elena and explains that you have a few questions about her whereabouts yesterday evening, and about Sister Anna. She waits outside, leaving the two of you to talk. SISTER ELENA: I was here, in the kitchen making cabbage soup. Why, where should I have been? I went down to the cellar to get some supplies at one point, but the rest of the time I was here. Actually, I noticed something while I was down there. I think someone's been stealing food from the cellar. I bet it was Sister Catherina. I've seen her sneaking an extra cup of wine at meals, and I bet she’s just the sort to want to flirt with that rabble outside. As for Sister Anna...she's with Saradomin now. It doesn't matter what I thought of her, and it does no good to speak ill of the dead. Now. Is there something else you need? NARRATOR: Do you ask her about Sister Anna or how to make cabbage soup?"
   },
   "talk_to_sister_elena_help": {
     "name": "talk_to_sister_elena_help",
@@ -1298,10 +1818,14 @@
         {
           "utterance": "help",
           "nextNode": "talk_to_sister_elena_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "talk_to_sister_elena"
         }
       ]
     },
-    "script": "What do you do ask her about? Sister Anna, or, how to make cabbage soup?"
+    "script": "You can ask about Sister Anna or how to make cabbage soup?"
   },
   "ask_sister_anna": {
     "name": "ask_sister_anna",
@@ -1320,12 +1844,20 @@
           "nextNode": "continue_clock_tower"
         },
         {
+          "utterance": "yes",
+          "nextNode": "continue_clock_tower"
+        },
+        {
           "utterance": "help",
           "nextNode": "ask_sister_anna_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "ask_sister_anna"
         }
       ]
     },
-    "script": "ABBESS BENITA: What would you like to do? You can continue to the clock tower."
+    "script": "ABBESS BENITA: Would you like to continue to the clock tower."
   },
   "ask_sister_anna_choice_one_help": {
     "name": "ask_sister_anna_choice_one_help",
@@ -1337,12 +1869,20 @@
           "nextNode": "continue_clock_tower"
         },
         {
+          "utterance": "yes",
+          "nextNode": "continue_clock_tower"
+        },
+        {
           "utterance": "help",
           "nextNode": "ask_sister_anna_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "ask_sister_anna"
         }
       ]
     },
-    "script": "What would you like to do? You can continue to the clock tower."
+    "script": "You can say yes to continue to the clock tower."
   },
   "make_cabbage_soup": {
     "name": "make_cabbage_soup",
@@ -1356,10 +1896,18 @@
         {
           "utterance": "help",
           "nextNode": "make_cabbage_soup_help"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "ask_sister_anna"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "make_cabbage_soup"
         }
       ]
     },
-    "script": "SISTER ELENA: You want to know how I make my cabbage soup? Well, let me tell you! First you need some onions and carrots, just to help take the edge off a bit. Slice and dice them, see? Then take your cabbage. We grow all our own you know. Right here in the abbey. Get rid of the outer leaves then cut the whole thing into bite sized pieces like this… ABBESS BENITA: Ah, uhm, Sister Elena? I don’t think- SISTER ELENA: Throw it all in a pot! Then you have to add the water. How much will depend on how many you’re cooking for. Cover it. Just like that, and then put it on a low heat. Low, did you hear me? People think they can cook food faster by just whacking it on the hottest thing they have. No no. We respect patience in this abbey and more so in this kitchen… NARRATOR: Unless you are particularly hungry, this doesn’t seem like the most useful question to have asked. What do you ask next? You may; ask about Sister Anna."
+    "script": "SISTER ELENA: You want to know how I make my cabbage soup? Well, let me tell you! First you need some onions and carrots, just to help take the edge off a bit. Slice and dice them, see? Then take your cabbage. We grow all our own you know. Right here in the abbey. Get rid of the outer leaves then cut the whole thing into bite sized pieces like this… ABBESS BENITA: Ah, uhm, Sister Elena? I don’t think- SISTER ELENA: Throw it all in a pot! Then you have to add the water. How much will depend on how many you’re cooking for. Cover it. Just like that, and then put it on a low heat. Low, did you hear me? People think they can cook food faster by just whacking it on the hottest thing they have. No no. We respect patience in this abbey and more so in this kitchen… NARRATOR: Unless you are particularly hungry, this doesn’t seem like the most useful question to have asked. Would you like to ask about Sister Anna now?"
   },
   "make_cabbage_soup_help": {
     "name": "make_cabbage_soup_help",
@@ -1373,10 +1921,14 @@
         {
           "utterance": "help",
           "nextNode": "make_cabbage_soup_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "make_cabbage_soup"
         }
       ]
     },
-    "script": "What do you ask next? You may; ask about Sister Anna."
+    "script": "You can say \"yes\" to ask about Sister Anna."
   },
   "continue_clock_tower": {
     "name": "continue_clock_tower",
@@ -1394,10 +1946,14 @@
         {
           "utterance": "help",
           "nextNode": "continue_clock_tower_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "continue_clock_tower"
         }
       ]
     },
-    "script": "<<set $continueClockTower = 1>>\nNARRATOR: Climbing some wooden stairs, you head up into the stone clock tower which raises above the abbey. Stopping at a floor housing all the clock machinery, you notice two feet poking out from under a collection of large cogs. SISTER DEBORAH: Sister Catherina? Is that you? NARRATOR: The feet wriggle. SISTER DEBORAH: It's no good, Catherina, I just can't hear you. I'll be out of here in a minute, just need to get the, uh... Could you do me a favour, Catherina? That lever over there. Could you pull it until you hear the right sound? What was it now...oh yes, it'll be like two crunches followed by a CLUNK! Tell me when you've heard that please! NARRATOR: What do you do next? Use the lever or claim heard the sound?"
+    "script": "<<set $continueClockTower = 1>>\nNARRATOR: Climbing some wooden stairs, you head up into the stone clock tower which raises above the abbey. Stopping at a floor housing all the clock machinery, you notice two feet poking out from under a collection of large cogs. SISTER DEBORAH: Sister Catherina? Is that you? NARRATOR: The feet wriggle. SISTER DEBORAH: It's no good, Catherina, I just can't hear you. I'll be out of here in a minute, just need to get the, uh... Could you do me a favour, Catherina? That lever over there. Could you pull it until you hear the right sound? What was it now...oh yes, it'll be like two crunches followed by a CLUNK! Tell me when you've heard that please! NARRATOR: Do you use the lever or say you heard the sound?"
   },
   "continue_clock_tower_help": {
     "name": "continue_clock_tower_help",
@@ -1415,10 +1971,14 @@
         {
           "utterance": "help",
           "nextNode": "continue_clock_tower_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "continue_clock_tower"
         }
       ]
     },
-    "script": "What do you do next? Use the lever or claim you heard the sound?"
+    "script": "You can use the lever or say you heard the sound?"
   },
   "say_done": {
     "name": "say_done",
@@ -1436,10 +1996,14 @@
         {
           "utterance": "help",
           "nextNode": "say_done_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "say_done"
         }
       ]
     },
-    "script": "SISTER DEBORA: Nope. Nope that doesn't seem right. Pull the lever again would you. Remember, it should sound like two crunches followed by a CLUNK! NARRATOR: What do you do next? Use the lever or claim heard the sound?"
+    "script": "SISTER DEBORA: Nope. Nope that doesn't seem right. Pull the lever again would you. Remember, it should sound like two crunches followed by a CLUNK! NARRATOR: You can use the lever or say you heard the sound?"
   },
   "say_done_help": {
     "name": "say_done_help",
@@ -1457,10 +2021,14 @@
         {
           "utterance": "help",
           "nextNode": "say_done_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "say_done"
         }
       ]
     },
-    "script": "What do you do next? Use the lever or claim you heard the sound?"
+    "script": "You can use the lever or say you heard the sound?"
   },
   "use_the_lever": {
     "name": "use_the_lever",
@@ -1478,10 +2046,14 @@
         {
           "utterance": "help",
           "nextNode": "use_the_lever_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "use_the_lever"
         }
       ]
     },
-    "script": "Pulling the lever, the cogs suddenly start to turn… Do you use the lever or claim you heard the sound?"
+    "script": "Pulling the lever, the cogs suddenly start to turn… Do you use the lever or say you heard the sound?"
   },
   "use_the_lever_help": {
     "name": "use_the_lever_help",
@@ -1499,6 +2071,10 @@
         {
           "utterance": "help",
           "nextNode": "use_the_lever_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "use_the_lever"
         }
       ]
     },
@@ -1520,10 +2096,14 @@
         {
           "utterance": "help",
           "nextNode": "talk_to_sister_debora_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "talk_to_sister_debora"
         }
       ]
     },
-    "script": "NARRATOR: Suddenly the cogs begin to whurr in unison, the inner workings of the clock tower coming alive around you in mechanical glory. SISTER DEBORA: Yep! That’s it! Let me just get out here… NARRATOR: The feet begin to wriggle towards you revealing an abbey robe, until an elderly woman with white hair and thick rimmed glasses, her eyes magnified, stands up in front of you. SISTER DEBORA: There! Oh. I'm terribly sorry. I thought you were Sister Catherina. She's normally the one who comes up here. Oh and Abbess Benita. What can I do for you? ABBESS BENITA: Ah Sister Debora. I assume you’re in the middle of fixing things? If you wouldn’t mind I’d appreciate if you could talk a little about Sister Anna. I know it might be hard. SISTER DEBORA: Sister Ban-ana? No no. You must mean Sister Anna. Well, a part breaks that you'd expected to hold for years...but that doesn't stop the whole mechanism, it just sets it in a different direction. Saradomin is a better clock-maker than us. As for yesterday I was here, repairing the clock. As you can see it’s been playing up a bit. NARRATOR: What would you like to ask Sister Debora about next? Her cryptic response or her life before the abbey?"
+    "script": "NARRATOR: Suddenly the cogs begin to whurr in unison, the inner workings of the clock tower coming alive around you in mechanical glory. SISTER DEBORA: Yep! That’s it! Let me just get out here… NARRATOR: The feet begin to wriggle towards you revealing an abbey robe, until an elderly woman with white hair and thick rimmed glasses, her eyes magnified, stands up in front of you. SISTER DEBORA: There! Oh. I'm terribly sorry. I thought you were Sister Catherina. She's normally the one who comes up here. Oh and Abbess Benita. What can I do for you? ABBESS BENITA: Ah Sister Debora. I assume you’re in the middle of fixing things? If you wouldn’t mind I’d appreciate if you could talk a little about Sister Anna. I know it might be hard. SISTER DEBORA: Sister Ban-ana? No no. You must mean Sister Anna. Well, a part breaks that you'd expected to hold for years...but that doesn't stop the whole mechanism, it just sets it in a different direction. Saradomin is a better clock-maker than us. As for yesterday I was here, repairing the clock. As you can see it’s been playing up a bit. NARRATOR: Do you ask Sister Debora about her cryptic response or her life before the abbey?"
   },
   "talk_to_sister_debora_help": {
     "name": "talk_to_sister_debora_help",
@@ -1541,10 +2121,14 @@
         {
           "utterance": "help",
           "nextNode": "talk_to_sister_debora_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "talk_to_sister_debora"
         }
       ]
     },
-    "script": "What would you like to ask Sister Debora about next? Her cryptic response or her life before the abbey?"
+    "script": "You can ask about her cryptic response or her life before the abbey."
   },
   "her_cryptic_response": {
     "name": "her_cryptic_response",
@@ -1563,12 +2147,20 @@
           "nextNode": "talk_to_sister_elena"
         },
         {
+          "utterance": "yes",
+          "nextNode": "talk_to_sister_elena"
+        },
+        {
           "utterance": "help",
           "nextNode": "her_cryptic_response_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "her_cryptic_response"
         }
       ]
     },
-    "script": "ABBESS BENITA: What would you like to do now? You can talk to Sister Elena."
+    "script": "ABBESS BENITA: Would you care to speak to Sister Elena."
   },
   "her_cryptic_response_choice_one_help": {
     "name": "her_cryptic_response_choice_one_help",
@@ -1580,12 +2172,20 @@
           "nextNode": "talk_to_sister_elena"
         },
         {
+          "utterance": "yes",
+          "nextNode": "talk_to_sister_elena"
+        },
+        {
           "utterance": "help",
           "nextNode": "her_cryptic_response_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "her_cryptic_response"
         }
       ]
     },
-    "script": "What would you like to do now? You may; talk to Sister Elena."
+    "script": "You can say \"yes\" to talk to Sister Elena."
   },
   "what_she_did_before_abbey": {
     "name": "what_she_did_before_abbey",
@@ -1597,12 +2197,20 @@
           "nextNode": "her_cryptic_response"
         },
         {
+          "utterance": "yes",
+          "nextNode": "her_cryptic_response"
+        },
+        {
           "utterance": "help",
           "nextNode": "what_she_did_before_abbey_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "what_she_did_before_abbey"
         }
       ]
     },
-    "script": "SISTER DEBORA: I’ve always been a clockmaker. Before I came here I used to live in a city called Ardougne and worked for...what’s the name, you know, a man with the hat. Oh yes. The King. But then rumour began that there was a plague. So I left and joined the abbey, here. NARRATOR: This information doesn’t seem to be that useful. What would you like to ask next? You can ask about; her cryptic response."
+    "script": "SISTER DEBORA: I’ve always been a clockmaker. Before I came here I used to live in a city called Ardougne and worked for...what’s the name, you know, a man with the hat. Oh yes. The King. But then rumour began that there was a plague. So I left and joined the abbey, here. NARRATOR: This information doesn’t seem to be that useful. Do you ask about her cryptic response?"
   },
   "what_she_did_before_abbey_help": {
     "name": "what_she_did_before_abbey_help",
@@ -1614,12 +2222,20 @@
           "nextNode": "her_cryptic_response"
         },
         {
+          "utterance": "yes",
+          "nextNode": "her_cryptic_response"
+        },
+        {
           "utterance": "help",
           "nextNode": "what_she_did_before_abbey_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "what_she_did_before_abbey"
         }
       ]
     },
-    "script": "What do you do? You may ask; why the cryptic response?"
+    "script": "You can say \"yes\" to ask about her cryptic response."
   },
   "meeting_with_the_abbess": {
     "name": "meeting_with_the_abbess",
@@ -1628,15 +2244,7 @@
       "choices": [
         {
           "utterance": "one of the sisters",
-          "nextNode": "end"
-        },
-        {
-          "utterance": "sister anna",
-          "nextNode": "end"
-        },
-        {
-          "utterance": "sister cecilia",
-          "nextNode": "end"
+          "nextNode": "one_of_the_sisters"
         },
         {
           "utterance": "someone else",
@@ -1653,10 +2261,14 @@
         {
           "utterance": "help",
           "nextNode": "meeting_with_the_abbess_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "meeting_with_the_abbess"
         }
       ]
     },
-    "script": "NARRATOR: You return to the office of the abbess. ABBESS BENITA: I have to ask; given what you’ve learnt so far, do you think you know who the murderer is? NARRATOR: You consider your options. What do you say? One of the sisters or Valerio or not sure?"
+    "script": "NARRATOR: You return to the office of the abbess. ABBESS BENITA: I have to ask; given what you’ve learnt so far, who do you think the murderer is?"
   },
   "meeting_with_the_abbess_help": {
     "name": "meeting_with_the_abbess_help",
@@ -1665,15 +2277,7 @@
       "choices": [
         {
           "utterance": "one of the sisters",
-          "nextNode": "end"
-        },
-        {
-          "utterance": "sister anna",
-          "nextNode": "end"
-        },
-        {
-          "utterance": "sister cecilia",
-          "nextNode": "end"
+          "nextNode": "one_of_the_sisters"
         },
         {
           "utterance": "someone else",
@@ -1686,10 +2290,96 @@
         {
           "utterance": "help",
           "nextNode": "meeting_with_the_abbess_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "meeting_with_the_abbess"
         }
       ]
     },
-    "script": "Who is the murder? Is it; one of the sisters or Valerio?, OR, are you not sure?"
+    "script": "Is it one of the sisters, Valerio or are you not sure?"
+  },
+  "one_of_the_sisters": {
+    "name": "one_of_the_sisters",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "Catherina",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "Cecilia",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "Debora",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "Elena",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "Sister Catherina",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "Sister Cecilia",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "Sister Debora",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "Sister Elena",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "one_of_the_sisters_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "one_of_the_sisters"
+        }
+      ]
+    },
+    "script": "ABBESS BENITA: One of the sisters? Really? This is most disturbing.\nWhich do you suspect?"
+  },
+  "one_of_the_sisters_help": {
+    "name": "one_of_the_sisters_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "Catherina",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "Cecilia",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "Debora",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "Elena",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "one_of_the_sisters_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "one_of_the_sisters"
+        }
+      ]
+    },
+    "script": "Do you suspect Catherina, Cecilia, Debora or Elena?"
   },
   "end": {
     "name": "end",

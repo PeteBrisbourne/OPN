@@ -14,14 +14,35 @@ var newSessionHandlers = {
     'NewSession': function() {
         console.log("NewSession: ");
         console.log("this in NewSession" + JSON.stringify(this));
+/*        if (this.attributes.lastNode && this.attributes.lastNode != "end") {
+         console.log("this.attributes" + JSON.stringify(this.attributes));
+         console.log("here");
+         var lastNode = this.attributes.lastNode.replace(/_/g, " ");
+         console.log(lastNode);
+         var welcomeMsg = "Welcome to One Piercing Note, RuneScape quest. A game has already started. Last scene you visited is "
+         + lastNode +  ". Would you like to continue the game?" +
+         "Say 'Continue' to continue the game, Or say 'New Game' to start a new game. ";
+         var reprompt = "Would you like to continue the game? Say 'Continue' to continue the game, Or say 'New Game' to start a new game. ";
+         this.handler.state = PLAY_MODE;
+         this.emit(':ask', welcomeMsg, reprompt);
+         }*/
         if (this.attributes.lastNode && this.attributes.lastNode != "end") {
             console.log("this.attributes" + JSON.stringify(this.attributes));
             console.log("here");
+            this.attributes.lastNode = this.attributes.lastNode.split("_choice")[0];
+            this.attributes.lastNode = this.attributes.lastNode.split("_help")[0];
+
+            console.log(this.attributes.lastNode);
+
+            if (this.attributes.lastNode == 'will' || this.attributes.lastNode == 'wont') {
+                this.attributes.lastNode += "_help";
+            }
             var lastNode = this.attributes.lastNode.replace(/_/g, " ");
+
             console.log(lastNode);
-            var welcomeMsg = "Welcome to One Piercing Note, RuneScape quest. A game has already started. Last scene you visited is "
-                + lastNode +  ". Would you like to continue the game?" +
-                "Say 'Continue' to continue the game, Or say 'New Game' to start a new game. ";
+            console.log(this.attributes.lastNode);
+            var welcomeMsg = "Welcome to One Piercing Note, RuneScape quest. A game has already started. Last scene you visited is " + lastNode
+                +  ". Would you like to continue the game?" + "Say 'Continue' to continue the game, Or say 'New Game' to start a new game. ";
             var reprompt = "Would you like to continue the game? Say 'Continue' to continue the game, Or say 'New Game' to start a new game. ";
             this.handler.state = PLAY_MODE;
             this.emit(':ask', welcomeMsg, reprompt);
@@ -52,7 +73,7 @@ var newSessionHandlers = {
 
     'Unhandled': function () {
         console.log("this in NewSeesion Unhandle" + JSON.stringify(this));
-        console.log("Unhandled:  Shouldn't have gotten here: " + JSON.stringify(this.event, null, 4));
+        console.log("Unhandled:  Shouldn't have gotten here 1: " + JSON.stringify(this.event, null, 4));
         var message = "Sorry, I did not get that, say 'continue' to continue game or say 'new game' to start a new game";
         var reprompt = "Say 'continue' to continue game or say 'new game' to start a new game";
         this.emit(':ask', message, reprompt);
@@ -116,10 +137,13 @@ var stateHandlers = {
                     that.emit(':ask', "Sorry, I didn't catch that...", buildReprompt(game));
                 } else {
                     if (DEBUG) console.log("EverythingElseIntent: selectedNode=" + JSON.stringify(node, null, 4));
-
+                    console.log(JSON.stringify(node));
+                    // that.attributes.lastNode = node.name;
                     game.currentNode = node;
                     var dialog = game.resolve();
                     that.attributes.lastNode = game.currentNode.name;
+                    // console.log("this.attributes.lastNode" + that.attributes.lastNode);
+                    console.log("this.attributes.lastNode" + that.attributes.lastNode);
                     dialog = dialog.replace(/\n/g, "<break time='250ms'/>");
 
                     if (game.currentNode.action.type == 'end_game') {
@@ -131,8 +155,7 @@ var stateHandlers = {
             })
         },
         'Unhandled': function () {
-            console.log(this.event.request.intent.slots.PlayerDialog.value);
-            console.log("Unhandled:  Shouldn't have gotten here: " + JSON.stringify(this.event, null, 4));
+            console.log("Unhandled:  Shouldn't have gotten here 2: " + JSON.stringify(this.event, null, 4));
             this.emit(':tell', 'Goodbye.');
         }
     })

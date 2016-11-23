@@ -15,8 +15,10 @@ module.exports = function(storyData, session, currentNode) {
         console.log("pickNode");
         var that = this;
         var options = [];
+        console.log(JSON.stringify(that.currentNode));
         that.currentNode.action.choices.forEach(function(choice) {
-          options.push(choice.utterance);
+            console.log("choice" + JSON.stringify(choice));
+            options.push(choice.utterance);
         });
 
         console.log("options" + JSON.stringify(options));

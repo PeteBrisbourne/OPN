@@ -1,1 +1,3 @@
 EverythingElseIntent {PlayerDialog}
+ContinueGameIntent {ContinueGame}
+NewGameIntent {NewGame}

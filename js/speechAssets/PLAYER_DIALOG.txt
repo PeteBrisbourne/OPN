@@ -1,10 +1,22 @@
 start
 help
+replay
 yes
 no
 sure
 okay
 follow sister catherina
+catherina
+cecilia
+anna
+debora
+elena
+valerio
+murder
+ask about the applicant
+sister anna's cell
+applicant's room
+go to the applicant's room
 the details of the murder
 why is she sad
 sister anna cell
@@ -33,7 +45,6 @@ what his life is like
 go to applicant room
 go to clock tower
 clock tower
-[help
 continue clock tower
 talk to sister elena
 sister anna
@@ -46,6 +57,11 @@ her cryptic response
 what she did before abbey
 one of the sisters
 sister cecilia
+sister catherina
+sister debora
+sister elena
 someone else
 i am not sure
-valerio
+check the bed
+check the window
+check the chest
