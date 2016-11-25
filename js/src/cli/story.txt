@@ -28,20 +28,14 @@ During this adventure, you are given choices about where you can go and the thin
 :: outside_the_abbey
 The abbey stands in a sea of hazy hot desert, with its single clock tower jutting towards the blue sky like a lighthouse. The sun beats down relentlessly on its stone-white walls, and burns the back of your neck as you approach the front gate. You had overheard that the Abbey of St. Elspeth Citharede was looking for an adventurer. To what end you did not know, but the unusual request had been more than enough to capture your interest. Approaching the front gate, a person clothed in white robes shuffles to her feet. Perhaps this is one of the Abbey Sisters. SISTER CATHERINA: Thank Saradomin! You must be the adventurer the abbess prayed for! My name is Sister Catherina. Our abbess asked me to wait here for you to arrive. Will you help us Adventurer? Sister Catherine looks at you expectantly. What do you say; yes or no?
 <<choice [[yes|will_help]]>> |\
-<<choice [[I will|will_help]]>> |\
 <<choice [[no|wont_help]]>> |\
-<<choice [[not a change|wont_help]]>> |\
-<<choice [[I wont|wont_help]]>> |\
 <<choice [[help|outside_the_abbey_help]]>> |\
 <<choice [[replay|outside_the_abbey]]>>
 
 :: outside_the_abbey_help
 Say 'yes' to help Sister Catherina, or say 'no' to refuse help.
 <<choice [[yes|will_help]]>> |\
-<<choice [[I will|will_help]]>> |\
 <<choice [[no|wont_help]]>> |\
-<<choice [[not a change|wont_help]]>> |\
-<<choice [[I wont|wont_help]]>> |\
 <<choice [[help|outside_the_abbey_help]]>> |\
 <<choice [[replay|outside_the_abbey]]>>
 
@@ -49,7 +43,6 @@ Say 'yes' to help Sister Catherina, or say 'no' to refuse help.
 SISTER CATHERINA: Saradomin be praised! Please, follow me. I will take you to our Abbess who will explain more. NARRATOR: Would you like to follow Sister Catherina?
 <<choice [[follow sister catherina|office_of_abbess]]>> |\
 <<choice [[yes|office_of_abbess]]>> |\
-<<choice [[I will|office_of_abbess]]>> |\
 <<choice [[help|will_help_help]]>> |\
 <<choice [[replay|will_help]]>>
 
@@ -57,7 +50,6 @@ SISTER CATHERINA: Saradomin be praised! Please, follow me. I will take you to ou
 Would you like to follow Sister Catherina?
 <<choice [[follow sister catherina|office_of_abbess]]>> |\
 <<choice [[yes|office_of_abbess]]>> |\
-<<choice [[I will|office_of_abbess]]>> |\
 <<choice [[help|will_help_help]]>> |\
 <<choice [[replay|will_help]]>>
 
@@ -65,7 +57,6 @@ Would you like to follow Sister Catherina?
 SISTER CATHERINA: Oh. I see... Are you...certain you can’t help us? Please say yes.
 <<choice [[follow sister catherina|office_of_abbess]]>> |\
 <<choice [[yes|office_of_abbess]]>> |\
-<<choice [[I will|office_of_abbess]]>> |\
 <<choice [[help|wont_help_help]]>> |\
 <<choice [[replay|wont_help]]>>
 
@@ -153,7 +144,6 @@ You can go to Sister Anna’s cell OR talk to the sisters.
 ABBESS BENITA: Very well. Would you like to visit Sister Anna’s cell now?
 <<choice [[go to sister anna's cell|sister_anna_cell]]>> |\
 <<choice [[yes|sister_anna_cell]]>> |\
-<<choice [[ok|sister_anna_cell]]>> |\
 <<choice [[help|travel_to_infirmary_choice_two_help]]>> |\
 <<choice [[replay|travel_to_infirmary]]>>
 
@@ -346,14 +336,12 @@ You can say "go to the infirmary" or "yes".
 SISTER CATHERINA: Oh, well! It’s a little project of mine transcribing the Book of Saradomin. It’s a beautiful book which captures all that is holy and it’s nothing but an honour to study it. I’m really starting to get the hang of illuminating the text. There are so many pages, all beautifully scribed... NARRATOR: The information doesn’t seem to be that useful. Would you like to ask about the applicant?
 <<choice [[the applicant|the_applicant]]>> |\
 <<choice [[yes|the_applicant]]>> |\
-<<choice [[ask about the applicant|the_applicant]]>> |\
 <<choice [[help|the_manuscript_help]]>> |\
 <<choice [[replay|the_manuscript]]>>
 
 :: the_manuscript_help
 You can ask about the applicant or say "yes".
 <<choice [[the applicant|the_applicant]]>> |\
-<<choice [[ask about the applicant|the_applicant]]>> |\
 <<choice [[yes|the_applicant]]>> |\
 <<choice [[help|the_manuscript_help]]>> |\
 <<choice [[replay|the_manuscript]]>>
@@ -421,16 +409,13 @@ You can go to Sister Anna’s cell or go to the infirmary.
 
 :: the_story_choice_three
 Would you like to go to Sister Anna’s cell now?
-<<choice [[go to anna's cell|sister_anna_cell]]>> |\
 <<choice [[yes|sister_anna_cell]]>> |\
 <<choice [[help|the_story_choice_three_help]]>> |\
 <<choice [[go to sister anna's cell|sister_anna_cell]]>> |\
-<<choice [[sister anna's cell|sister_anna_cell]]>> |\
 <<choice [[replay|the_story]]>>
 
 :: the_story_choice_three_help
 You can say "go to Sister Anna’s cell" or "yes".
-<<choice [[go to anna's cell|sister_anna_cell]]>> |\
 <<choice [[yes|sister_anna_cell]]>> |\
 <<choice [[go to sister anna's cell|sister_anna_cell]]>> |\
 <<choice [[help|the_story_choice_three_help]]>> |\
@@ -467,16 +452,14 @@ You can say "ask about the story" or "yes".
 :: summing_up
 NARRATOR: You explain to the abbess that after investigating and talking to some of the Sisters that two new points of interest have come to your attention; a camp of musicians and dancers outside the abbey, and an applicant who was in the abbey yesterday. ABBESS BENITA: Hmmm. And you wish to investigate these further I assume? Very well. Would you care to visit the camp or go to the applicant’s room?
 <<choice [[visit the camp|go_to_valerio]]>> |\
-<<choice [[applicant room|recruit_room]]>> |\
-<<choice [[applicant's room|recruit_room]]>> |\
-<<choice [[go to the applicant's room|recruit_room]]>> |\
+<<choice [[go to the applicant room|recruit_room]]>> |\
 <<choice [[help|summing_up_help]]>> |\
 <<choice [[replay|summing_up]]>>
 
 :: summing_up_help
 You can say "visit the camp" or "go to the applicant’s room".
 <<choice [[visit the camp|go_to_valerio]]>> |\
-<<choice [[applicant room|recruit_room]]>> |\
+<<choice [[go to the applicant room|recruit_room]]>> |\
 <<choice [[help|summing_up_help]]>> |\
 <<choice [[replay|summing_up]]>>
 
@@ -760,10 +743,6 @@ Is it one of the sisters, Valerio or are you not sure?
 :: one_of_the_sisters
 ABBESS BENITA: One of the sisters? Really? This is most disturbing.
 Which do you suspect?
-<<choice [[Catherina|end]]>> |\
-<<choice [[Cecilia|end]]>> |\
-<<choice [[Debora|end]]>> |\
-<<choice [[Elena|end]]>> |\
 <<choice [[Sister Catherina|end]]>> |\
 <<choice [[Sister Cecilia|end]]>> |\
 <<choice [[Sister Debora|end]]>> |\
@@ -773,10 +752,10 @@ Which do you suspect?
 
 :: one_of_the_sisters_help
 Do you suspect Catherina, Cecilia, Debora or Elena?
-<<choice [[Catherina|end]]>> |\
-<<choice [[Cecilia|end]]>> |\
-<<choice [[Debora|end]]>> |\
-<<choice [[Elena|end]]>> |\
+<<choice [[Sister Catherina|end]]>> |\
+<<choice [[Sister Cecilia|end]]>> |\
+<<choice [[Sister Debora|end]]>> |\
+<<choice [[Sister Elena|end]]>> |\
 <<choice [[help|one_of_the_sisters_help]]>> |\
 <<choice [[replay|one_of_the_sisters]]>>
 

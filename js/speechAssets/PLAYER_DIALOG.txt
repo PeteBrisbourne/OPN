@@ -2,10 +2,7 @@ start
 help
 replay
 yes
-I will
 no
-not a change
-I wont
 follow sister catherina
 the murder
 why is she sad
@@ -16,7 +13,6 @@ ask murder help
 the details of the murder
 go to sister anna's cell
 talk to the sisters
-ok
 go to the infirmary
 sister catherina
 sister cecilia
@@ -25,16 +21,12 @@ the applicant
 talk to cecilia
 go to anna's cell
 go to infirmary
-ask about the applicant
 story
 music
 talk to catherina
-sister anna's cell
 the story
 visit the camp
-applicant room
-applicant's room
-go to the applicant's room
+go to the applicant room
 reason for being here
 what is life like
 what his life is like
@@ -57,10 +49,6 @@ one of the sisters
 someone else
 i am not sure
 valerio
-Catherina
-Cecilia
-Debora
-Elena
 Sister Catherina
 Sister Cecilia
 Sister Debora

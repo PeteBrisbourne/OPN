@@ -51,19 +51,7 @@
           "nextNode": "will_help"
         },
         {
-          "utterance": "I will",
-          "nextNode": "will_help"
-        },
-        {
           "utterance": "no",
-          "nextNode": "wont_help"
-        },
-        {
-          "utterance": "not a change",
-          "nextNode": "wont_help"
-        },
-        {
-          "utterance": "I wont",
           "nextNode": "wont_help"
         },
         {
@@ -88,19 +76,7 @@
           "nextNode": "will_help"
         },
         {
-          "utterance": "I will",
-          "nextNode": "will_help"
-        },
-        {
           "utterance": "no",
-          "nextNode": "wont_help"
-        },
-        {
-          "utterance": "not a change",
-          "nextNode": "wont_help"
-        },
-        {
-          "utterance": "I wont",
           "nextNode": "wont_help"
         },
         {
@@ -129,10 +105,6 @@
           "nextNode": "office_of_abbess"
         },
         {
-          "utterance": "I will",
-          "nextNode": "office_of_abbess"
-        },
-        {
           "utterance": "help",
           "nextNode": "will_help_help"
         },
@@ -158,10 +130,6 @@
           "nextNode": "office_of_abbess"
         },
         {
-          "utterance": "I will",
-          "nextNode": "office_of_abbess"
-        },
-        {
           "utterance": "help",
           "nextNode": "will_help_help"
         },
@@ -184,10 +152,6 @@
         },
         {
           "utterance": "yes",
-          "nextNode": "office_of_abbess"
-        },
-        {
-          "utterance": "I will",
           "nextNode": "office_of_abbess"
         },
         {
@@ -445,10 +409,6 @@
         },
         {
           "utterance": "yes",
-          "nextNode": "sister_anna_cell"
-        },
-        {
-          "utterance": "ok",
           "nextNode": "sister_anna_cell"
         },
         {
@@ -1016,10 +976,6 @@
           "nextNode": "the_applicant"
         },
         {
-          "utterance": "ask about the applicant",
-          "nextNode": "the_applicant"
-        },
-        {
           "utterance": "help",
           "nextNode": "the_manuscript_help"
         },
@@ -1038,10 +994,6 @@
       "choices": [
         {
           "utterance": "the applicant",
-          "nextNode": "the_applicant"
-        },
-        {
-          "utterance": "ask about the applicant",
           "nextNode": "the_applicant"
         },
         {
@@ -1223,10 +1175,6 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "go to anna's cell",
-          "nextNode": "sister_anna_cell"
-        },
-        {
           "utterance": "yes",
           "nextNode": "sister_anna_cell"
         },
@@ -1236,10 +1184,6 @@
         },
         {
           "utterance": "go to sister anna's cell",
-          "nextNode": "sister_anna_cell"
-        },
-        {
-          "utterance": "sister anna's cell",
           "nextNode": "sister_anna_cell"
         },
         {
@@ -1255,10 +1199,6 @@
     "action": {
       "type": "choice",
       "choices": [
-        {
-          "utterance": "go to anna's cell",
-          "nextNode": "sister_anna_cell"
-        },
         {
           "utterance": "yes",
           "nextNode": "sister_anna_cell"
@@ -1389,15 +1329,7 @@
           "nextNode": "go_to_valerio"
         },
         {
-          "utterance": "applicant room",
-          "nextNode": "recruit_room"
-        },
-        {
-          "utterance": "applicant's room",
-          "nextNode": "recruit_room"
-        },
-        {
-          "utterance": "go to the applicant's room",
+          "utterance": "go to the applicant room",
           "nextNode": "recruit_room"
         },
         {
@@ -1422,7 +1354,7 @@
           "nextNode": "go_to_valerio"
         },
         {
-          "utterance": "applicant room",
+          "utterance": "go to the applicant room",
           "nextNode": "recruit_room"
         },
         {
@@ -2329,22 +2261,6 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "Catherina",
-          "nextNode": "end"
-        },
-        {
-          "utterance": "Cecilia",
-          "nextNode": "end"
-        },
-        {
-          "utterance": "Debora",
-          "nextNode": "end"
-        },
-        {
-          "utterance": "Elena",
-          "nextNode": "end"
-        },
-        {
           "utterance": "Sister Catherina",
           "nextNode": "end"
         },
@@ -2378,19 +2294,19 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "Catherina",
+          "utterance": "Sister Catherina",
           "nextNode": "end"
         },
         {
-          "utterance": "Cecilia",
+          "utterance": "Sister Cecilia",
           "nextNode": "end"
         },
         {
-          "utterance": "Debora",
+          "utterance": "Sister Debora",
           "nextNode": "end"
         },
         {
-          "utterance": "Elena",
+          "utterance": "Sister Elena",
           "nextNode": "end"
         },
         {
