@@ -11,6 +11,7 @@
 <<set $checkBed = 0>>
 <<set $checkChest = 0>>
 <<set $checkWindow = 0>>
+<audio src="https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01_intro.mp3" />
 NARRATOR: Jagex proudly present; One Piercing Note: A RuneScape adventure. In this audio quest, you take the role of an investigator who has been tasked to help solve a mystery set in the medieval Abbey of St. Elspeth.
 Anytime you feel stuck during your adventure, just say 'help'.
 To start a new game say 'Start'.
@@ -27,25 +28,28 @@ During this adventure, you are given choices about where you can go and the thin
 :: outside_the_abbey
 The abbey stands in a sea of hazy hot desert, with its single clock tower jutting towards the blue sky like a lighthouse. The sun beats down relentlessly on its stone-white walls, and burns the back of your neck as you approach the front gate. You had overheard that the Abbey of St. Elspeth Citharede was looking for an adventurer. To what end you did not know, but the unusual request had been more than enough to capture your interest. Approaching the front gate, a person clothed in white robes shuffles to her feet. Perhaps this is one of the Abbey Sisters. SISTER CATHERINA: Thank Saradomin! You must be the adventurer the abbess prayed for! My name is Sister Catherina. Our abbess asked me to wait here for you to arrive. Will you help us Adventurer? Sister Catherine looks at you expectantly. What do you say; yes or no?
 <<choice [[yes|will_help]]>> |\
+<<choice [[I will|will_help]]>> |\
 <<choice [[no|wont_help]]>> |\
+<<choice [[not a change|wont_help]]>> |\
+<<choice [[I wont|wont_help]]>> |\
 <<choice [[help|outside_the_abbey_help]]>> |\
-<<choice [[sure|will_help]]>> |\
-<<choice [[okay|will_help]]>> |\
 <<choice [[replay|outside_the_abbey]]>>
 
 :: outside_the_abbey_help
 Say 'yes' to help Sister Catherina, or say 'no' to refuse help.
 <<choice [[yes|will_help]]>> |\
+<<choice [[I will|will_help]]>> |\
 <<choice [[no|wont_help]]>> |\
+<<choice [[not a change|wont_help]]>> |\
+<<choice [[I wont|wont_help]]>> |\
 <<choice [[help|outside_the_abbey_help]]>> |\
-<<choice [[sure|will_help]]>> |\
-<<choice [[okay|will_help]]>> |\
 <<choice [[replay|outside_the_abbey]]>>
 
 :: will_help
 SISTER CATHERINA: Saradomin be praised! Please, follow me. I will take you to our Abbess who will explain more. NARRATOR: Would you like to follow Sister Catherina?
 <<choice [[follow sister catherina|office_of_abbess]]>> |\
 <<choice [[yes|office_of_abbess]]>> |\
+<<choice [[I will|office_of_abbess]]>> |\
 <<choice [[help|will_help_help]]>> |\
 <<choice [[replay|will_help]]>>
 
@@ -53,12 +57,15 @@ SISTER CATHERINA: Saradomin be praised! Please, follow me. I will take you to ou
 Would you like to follow Sister Catherina?
 <<choice [[follow sister catherina|office_of_abbess]]>> |\
 <<choice [[yes|office_of_abbess]]>> |\
+<<choice [[I will|office_of_abbess]]>> |\
 <<choice [[help|will_help_help]]>> |\
 <<choice [[replay|will_help]]>>
 
 :: wont_help
-SISTER CATHERINA: Oh. I see... Are you...certain you can’t help us? Please say yes. NARRATOR: You chose poorly. Every bad option will minus and affect your final score at the end of the game. What do you do? You may follow Sister Catherina.
+SISTER CATHERINA: Oh. I see... Are you...certain you can’t help us? Please say yes.
 <<choice [[follow sister catherina|office_of_abbess]]>> |\
+<<choice [[yes|office_of_abbess]]>> |\
+<<choice [[I will|office_of_abbess]]>> |\
 <<choice [[help|wont_help_help]]>> |\
 <<choice [[replay|wont_help]]>>
 
@@ -251,15 +258,15 @@ You may choose Sister Catherina or Sister Cecilia.
 NARRATOR: Leading you through the Abbey, the Abbess approaches one of the sisters who is sat at a wooden desk writing. The abbess asks if she would be so kind as to answer some questions. The sister nods and gets up to walk towards you. You recognise her as Sister Catherina, who met you at the front gate. SISTER CATHERINA: Oh, adventurer. It is good to see you again. The Abbess says you would like to speak to me in regards to what I was doing before the evening service? NARRATOR: The Sister smiles politely. SISTER CATHERINA Well, I was in the scriptorium – in the basement - copying a manuscript from the Book of Saradomin. I’m going through the entire book, transcribing it all. There’s quite a lot, and, well, I think I’ve gotten quite good at it. It makes me feel somewhat proud, although I know that’s not a feeling I should indulge. Oh! But, uhm, I found it quite difficult though. What with the music and sounds of the party coming from outside the abbey. Do you know about that? It’s not that I disapprove of what they are doing, but I so used to love dancing before I joined here. It’s certainly tempting to join in.. NARRATOR: Sister Catherina shuffles, rubbing her arm. SISTER CATHERINA: I think, well...I know, Sister Anna wouldn’t be impressed by me saying that. She was quite strict and at first frightened me. I’m not surprised the applicant who was here yesterday left without a word. So...do you have any other questions for me? NARRATOR: It seems there is more that you could learn from Sister Catherina. Do you ask about the manuscript or the applicant?
 <<choice [[the manuscript|the_manuscript]]>> |\
 <<choice [[the applicant|the_applicant]]>> |\
-<<choice [[help|talk_sister_catherina_help]]>> |\
+<<choice [[help|talk_to_sister_catherina_help]]>> |\
 <<choice [[replay|talk_to_sister_catherina]]>>
 
-:: talk_sister_catherina_help
+:: talk_to_sister_catherina_help
 You can ask about the manuscript or the applicant.
 <<choice [[the manuscript|the_manuscript]]>> |\
 <<choice [[the applicant|the_applicant]]>> |\
-<<choice [[help|talk_sister_catherina_help]]>> |\
-<<choice [[replay|talk_sister_catherina]]>>
+<<choice [[help|talk_to_sister_catherina_help]]>> |\
+<<choice [[replay|talk_to_sister_catherina]]>>
 
 :: the_applicant
 SISTER CATHERINA: Oh! You probably don't know. An applicant came to the abbey yesterday interested in joining. Her name was Isabella. I heard Sister Anna asked her to sing, but wasn’t impressed with her efforts. She disappeared yesterday noon. She probably went home. A lot of applicants realise the life here isn't for them and leave. If it’s ok, I should return to my writing. I hope I have helped you in some way adventurer. NARRATOR: Sister Catherina gives you a smile, then returns to her desk.
@@ -491,37 +498,37 @@ You can ask his reasons for being here or what his life is like.
 :: why_he_is_here
 NARRATOR: Valerio’s wide smile slowly disappears, the musician looking very forlorn. VALERIO: Ah. I guess, it is more than a little strange that we would be here, outside an abbey huh? Well, if you want the truth...one of the sisters here, Sister Anna, she passed away recently. I knew her before she joined the abbey, so I've come to pay my respects. I tried to talk her out of coming here, but when she made her mind up about something, there was nothing that could stop her. NARRATOR: Valerio falls silent for a moment, his gaze falling to the sand, as if recalling some distant memory before with a shake of his head he returns. VALERIO: That is the truth of why I’m here. Even a religious order isn't completely cut off from the world. Word gets around. Now, if you’ll excuse me I think some music is required to lift the mood. NARRATOR: You return to the Abbess who is waiting by the front gate. ABBESS BENITA: The bells shouldn’t be ringing at this time. What is Sister Debora up to…
 <<if $recruitRoom is 0>>
-[[go_to_valerio_choice_one]]
+[[why_he_is_here_choice_one]]
 <<else>>
-[[go_to_valerio_choice_two]]
+[[why_he_is_here_choice_two]]
 <<endif>>
 
-:: go_to_valerio_choice_one
+:: why_he_is_here_choice_one
 ABBESS BENITA: Ah, Adventurer. Would you like to go to the applicant room now?
 <<choice [[yes|recruit_room]]>> |\
 <<choice [[go to applicant room|recruit_room]]>> |\
-<<choice [[help|go_to_valerio_choice_one_help]]>> |\
+<<choice [[help|why_he_is_here_choice_one_help]]>> |\
 <<choice [[replay|go_to_valerio]]>>
 
-:: go_to_valerio_choice_one_help
+:: why_he_is_here_choice_one_help
 You can say "go to the applicant's room" or "yes".
 <<choice [[go to applicant room|recruit_room]]>> |\
 <<choice [[yes|recruit_room]]>> |\
-<<choice [[help|go_to_valerio_choice_one_help]]>> |\
+<<choice [[help|why_he_is_here_choice_one_help]]>> |\
 <<choice [[replay|go_to_valerio]]>>
 
-:: go_to_valerio_choice_two
+:: why_he_is_here_choice_two
 ABBESS BENITA: Ah, Adventurer. Would you care to go to the clock tower?
 <<choice [[go to clock tower|clock_tower]]>> |\
 <<choice [[yes|clock_tower]]>> |\
-<<choice [[help|go_to_valerio_choice_two_help]]>> |\
+<<choice [[help|why_he_is_here_choice_two_help]]>> |\
 <<choice [[replay|go_to_valerio]]>>
 
-:: go_to_valerio_choice_two_help
+:: why_he_is_here_choice_two_help
 You can say "go to the clock tower" or "yes".
 <<choice [[go to clock tower|clock_tower]]>> |\
 <<choice [[yes|clock_tower]]>> |\
-<<choice [[help|go_to_valerio_choice_two_help]]>> |\
+<<choice [[help|why_he_is_here_choice_two_help]]>> |\
 <<choice [[replay|go_to_valerio]]>>
 
 :: recruit_room
@@ -651,14 +658,14 @@ NARRATOR: Climbing some wooden stairs, you head up into the stone clock tower wh
 :: continue_clock_tower_help
 You can use the lever or say you heard the sound?
 <<choice [[use the lever|use_the_lever]]>> |\
-<<choice [[claim heard the sound|say_done]]>> |\
+<<choice [[say heard the sound|say_done]]>> |\
 <<choice [[help|continue_clock_tower_help]]>> |\
 <<choice [[replay|continue_clock_tower]]>>
 
 :: say_done
 SISTER DEBORA: Nope. Nope that doesn't seem right. Pull the lever again would you. Remember, it should sound like two crunches followed by a CLUNK! NARRATOR: You can use the lever or say you heard the sound?
 <<choice [[use the lever|use_the_lever]]>> |\
-<<choice [[claim heard the sound|say_done]]>> |\
+<<choice [[say heard the sound|say_done]]>> |\
 <<choice [[help|say_done_help]]>> |\
 <<choice [[replay|say_done]]>>
 
@@ -774,5 +781,9 @@ Do you suspect Catherina, Cecilia, Debora or Elena?
 <<choice [[replay|one_of_the_sisters]]>>
 
 :: end
-ABBESS BENITA: Interesting. In that case, perhaps we- Did you hear that? Quick! Follow the sound of that scream! NARRATOR: Leaving the office, you and the Abbess both run in the direction of the scream. The desperate wails get louder and louder the deeper you go into the abbey. You come to a room where the wooden hatch to the basement is open. Thundering down the stairs you enter into the dim light of the basement. A body lays stretched out, blood pooling around it on the stone floor. The pristine white robes now soaked in crimson along with the apron tied around the front. The apron of Sister Elena. Sister Cecilia cowers in the corner, shaking. SISTER CECILIA: I saw it! It was the demon! It was the Ripper! NARRATOR: End of Act 1. The next part of One Piercing Note will be available soon. The full quest can also be experienced in RuneScape. Visit RuneScape.com to find out more.
+ABBESS BENITA: Interesting. In that case, perhaps we - Did you hear that? Quick! Follow the sound of that scream! NARRATOR: Leaving the office, you and the Abbess both run in the direction of the scream. The desperate wails get louder and louder the deeper you go into the abbey. You come to a room where the wooden hatch to the basement is open. Thundering down the stairs you enter into the dim light of the basement. A body lays stretched out, blood pooling around it on the stone floor. The pristine white robes now soaked in crimson along with the apron tied around the front. The apron of Sister Elena. Sister Cecilia cowers in the corner, shaking. SISTER CECILIA: I saw it! It was the demon! It was the Ripper!
+[[end_of_act_one]]
+
+:: end_of_act_one
+NARRATOR: End of Act 1. The next part of One Piercing Note will be available soon. The full quest can also be experienced in RuneScape. Visit RuneScape.com to find out more.
 

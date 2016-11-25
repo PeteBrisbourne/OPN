@@ -8,25 +8,15 @@ var SugarCube = require('sugarcube');
 
 var DEBUG = true;
 var PLAY_MODE = "PLAY_MODE";
+var RESUME_DECISION_MODE = "RESUME_DECISION_MODE";
+var CONFIRM_MODE = "CONFIRM_MODE";
 
 // create handlers for all the story nodes
 var newSessionHandlers = {
     'NewSession': function() {
         console.log("NewSession: ");
         console.log("this in NewSession" + JSON.stringify(this));
-/*        if (this.attributes.lastNode && this.attributes.lastNode != "end") {
-         console.log("this.attributes" + JSON.stringify(this.attributes));
-         console.log("here");
-         var lastNode = this.attributes.lastNode.replace(/_/g, " ");
-         console.log(lastNode);
-         var welcomeMsg = "Welcome to One Piercing Note, RuneScape quest. A game has already started. Last scene you visited is "
-         + lastNode +  ". Would you like to continue the game?" +
-         "Say 'Continue' to continue the game, Or say 'New Game' to start a new game. ";
-         var reprompt = "Would you like to continue the game? Say 'Continue' to continue the game, Or say 'New Game' to start a new game. ";
-         this.handler.state = PLAY_MODE;
-         this.emit(':ask', welcomeMsg, reprompt);
-         }*/
-        if (this.attributes.lastNode && this.attributes.lastNode != "end") {
+        if (this.attributes.lastNode) {
             console.log("this.attributes" + JSON.stringify(this.attributes));
             console.log("here");
             this.attributes.lastNode = this.attributes.lastNode.split("_choice")[0];
@@ -41,10 +31,10 @@ var newSessionHandlers = {
 
             console.log(lastNode);
             console.log(this.attributes.lastNode);
+            this.handler.state = RESUME_DECISION_MODE;
             var welcomeMsg = "Welcome to One Piercing Note, RuneScape quest. A game has already started. Last scene you visited is " + lastNode
-                +  ". Would you like to continue the game?" + "Say 'Continue' to continue the game, Or say 'New Game' to start a new game. ";
-            var reprompt = "Would you like to continue the game? Say 'Continue' to continue the game, Or say 'New Game' to start a new game. ";
-            this.handler.state = PLAY_MODE;
+                +  ". Would you like to continue the game?" + "Say 'Yes' to continue the game, Or say 'No' to start a new game. ";
+            var reprompt = "Would you like to continue the game? Say 'Yes' to continue the game, Or say 'No' to start a new game. ";
             this.emit(':ask', welcomeMsg, reprompt);
         }
         else {
@@ -58,8 +48,8 @@ var newSessionHandlers = {
     },
 
     'AMAZON.HelpIntent': function () {
-        var message = "Would you like to continue the game? Say 'Continue' to continue the game, Or say 'New Game' to start a new game. ";
-        var reprompt = "Say 'Continue' to continue the game, Or say 'New Game' to start a new game.";
+        var message = "Would you like to continue the game? Say 'Yes' to continue the game, Or say 'No' to start a new game. ";
+        var reprompt = "Say 'Yes' to continue the game, Or say 'No' to start a new game.";
         this.emit(':ask', message, reprompt);
     },
     'AMAZON.StopIntent': function () {
@@ -80,23 +70,10 @@ var newSessionHandlers = {
     }
 };
 var stateHandlers = {
-    playModeIntentHandlers: Alexa.CreateStateHandler(PLAY_MODE, {
-        'NewSession': function () {
-            console.log("NewSession: ");
-            console.log("this in Play Mode" + JSON.stringify(this));
-            this.emit("NewSession");
-        },
-        'NewGameIntent' : function () {
-            console.log("new game");
-            var game = new SugarCube(storyData, this.attributes, storyData.intro);
-            var dialog = game.resolve();
-            this.attributes.lastNode = game.currentNode.name;
-            dialog = dialog.replace(/\n/g, "<break time='250ms'/>");
-            this.emit(':ask', dialog, buildReprompt(game));
-        },
-
-        'ContinueGameIntent' : function () {
+    resumeDecisionModeIntentHandlers: Alexa.CreateStateHandler(RESUME_DECISION_MODE, {
+        'AMAZON.YesIntent': function () {
             console.log("continue game");
+            this.handler.state = PLAY_MODE;
             var lastNode = this.attributes.lastNode;
             console.log(lastNode);
             var game = new SugarCube(storyData, this.attributes, storyData[lastNode]);
@@ -104,6 +81,57 @@ var stateHandlers = {
             this.attributes.lastNode = game.currentNode.name;
             dialog = dialog.replace(/\n/g, "<break time='250ms'/>");
             this.emit(':ask', dialog, buildReprompt(game));
+        },
+        'AMAZON.NoIntent': function () {
+            this.handler.state = CONFIRM_MODE;
+            console.log('new game');
+            var message = "Are you sure to start a new game? A new game will override the old save. Say 'Yes' to confirm " +
+                "the new game, Or say 'No' to continue previous game.";
+            var reprompt = "Say 'Yes' to confirm the new game, Or say 'No' to continue previous game.";
+            this.emit(':ask', message, reprompt);
+        },
+        'ContinueGameIntent': function () {
+            this.emitWithState("AMAZON.YesIntent");
+        },
+        'NewGameIntent': function () {
+            this.emitWithState("AMAZON.NoIntent");
+        }
+    }),
+
+    confirmModeIntentHandlers : Alexa.CreateStateHandler(CONFIRM_MODE, {
+        'AMAZON.YesIntent': function () {
+            this.handler.state = PLAY_MODE;
+            console.log("confirm new game");
+            var game = new SugarCube(storyData, this.attributes, storyData.intro);
+            var dialog = game.resolve();
+            this.attributes.lastNode = game.currentNode.name;
+            dialog = dialog.replace(/\n/g, "<break time='250ms'/>");
+            this.emit(':ask', dialog, buildReprompt(game));
+        },
+        'ContinueGameIntent': function () {
+            this.emitWithState("AMAZON.NoIntent");
+        },
+        'NewGameIntent': function () {
+            this.emitWithState("AMAZON.YesIntent");
+        },
+        'AMAZON.NoIntent': function () {
+            console.log("confirm continue game");
+            this.handler.state = PLAY_MODE;
+            var lastNode = this.attributes.lastNode;
+            console.log(lastNode);
+            var game = new SugarCube(storyData, this.attributes, storyData[lastNode]);
+            var dialog = game.resolve();
+            this.attributes.lastNode = game.currentNode.name;
+            dialog = dialog.replace(/\n/g, "<break time='250ms'/>");
+            this.emit(':ask', dialog, buildReprompt(game));
+        }
+    }),
+
+    playModeIntentHandlers: Alexa.CreateStateHandler(PLAY_MODE, {
+        'NewSession': function () {
+            console.log("NewSession: ");
+            console.log("this in Play Mode" + JSON.stringify(this));
+            this.emit("NewSession");
         },
         'AMAZON.HelpIntent': function () {
             this.emit(':tell', 'not yet implemented :(');
@@ -116,8 +144,19 @@ var stateHandlers = {
             console.log("this in Cancel" + JSON.stringify(this));
             this.emit(':tell', 'Goodbye.');
         },
-        'EverythingElseIntent': function () {
-            var userDialog = this.event.request.intent.slots.PlayerDialog.value;
+        'AMAZON.YesIntent': function () {
+            this.emitWithState('EverythingElseIntent', 'yes');
+        },
+        'AMAZON.NoIntent': function () {
+            this.emitWithState('EverythingElseIntent', 'no');
+        },
+        'AMAZON.RepeatIntent': function () {
+            this.emitWithState('EverythingElseIntent', 'replay');
+        },
+        'EverythingElseIntent': function (userDialog) {
+            if (!userDialog) {
+                userDialog = this.event.request.intent.slots.PlayerDialog.value;
+            }
             console.log("EverythingElseIntent: " + userDialog);
             if (DEBUG) console.log("EverythingElseIntent: session=" + JSON.stringify(this));
             var that = this;
@@ -167,7 +206,7 @@ exports.handler = function(event, context) {
     console.log("event in skill entry" + JSON.stringify(event));
     console.log("context in skill entry" + JSON.stringify(context));
     var alexa = Alexa.handler(event, context);
-    alexa.registerHandlers(newSessionHandlers, stateHandlers.playModeIntentHandlers);
+    alexa.registerHandlers(newSessionHandlers, stateHandlers.playModeIntentHandlers, stateHandlers.confirmModeIntentHandlers, stateHandlers.resumeDecisionModeIntentHandlers);
     alexa.dynamoDBTableName = "RuneScape";
     alexa.execute();
 };

@@ -7,33 +7,6 @@
       "intent": "AMAZON.StopIntent"
     },
     {
-      "intent": "AMAZON.PauseIntent"
-    },
-    {
-      "intent": "AMAZON.ResumeIntent"
-    },
-    {
-      "intent": "NewGameIntent",
-      "slots": [
-        {
-          "name": "NewGame",
-          "type": "NEW_GAME"
-        }
-      ]
-    },
-    {
-      "intent": "ContinueGameIntent",
-      "slots": [
-        {
-          "name": "ContinueGame",
-          "type": "CONTINUE_GAME"
-        }
-      ]
-    },
-    {
-      "intent": "AMAZON.NoIntent"
-    },
-    {
       "intent": "AMAZON.CancelIntent"
     },
     {

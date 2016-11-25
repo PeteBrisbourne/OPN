@@ -18,7 +18,7 @@
         }
       ]
     },
-    "script": "<<set $sisterAnnaCell = 0>>\n<<set $talkToSisters = 0>>\n<<set $talkToCatherina = 0>>\n<<set $talkToCecilia = 0>>\n<<set $talkToElena = 0>>\n<<set $travelToInfirmary = 0>>\n<<set $talkToValerio = 0>>\n<<set $recruitRoom = 0>>\n<<set $continueClockTower = 0>>\n<<set $checkBed = 0>>\n<<set $checkChest = 0>>\n<<set $checkWindow = 0>>\nNARRATOR: Jagex proudly present; One Piercing Note: A RuneScape adventure. In this audio quest, you take the role of an investigator who has been tasked to help solve a mystery set in the medieval Abbey of St. Elspeth.\nAnytime you feel stuck during your adventure, just say 'help'.\nTo start a new game say 'Start'."
+    "script": "<<set $sisterAnnaCell = 0>>\n<<set $talkToSisters = 0>>\n<<set $talkToCatherina = 0>>\n<<set $talkToCecilia = 0>>\n<<set $talkToElena = 0>>\n<<set $travelToInfirmary = 0>>\n<<set $talkToValerio = 0>>\n<<set $recruitRoom = 0>>\n<<set $continueClockTower = 0>>\n<<set $checkBed = 0>>\n<<set $checkChest = 0>>\n<<set $checkWindow = 0>>\n<audio src=\"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01_intro.mp3\" />\nNARRATOR: Jagex proudly present; One Piercing Note: A RuneScape adventure. In this audio quest, you take the role of an investigator who has been tasked to help solve a mystery set in the medieval Abbey of St. Elspeth.\nAnytime you feel stuck during your adventure, just say 'help'.\nTo start a new game say 'Start'."
   },
   "intro_help": {
     "name": "intro_help",
@@ -51,20 +51,24 @@
           "nextNode": "will_help"
         },
         {
+          "utterance": "I will",
+          "nextNode": "will_help"
+        },
+        {
           "utterance": "no",
+          "nextNode": "wont_help"
+        },
+        {
+          "utterance": "not a change",
+          "nextNode": "wont_help"
+        },
+        {
+          "utterance": "I wont",
           "nextNode": "wont_help"
         },
         {
           "utterance": "help",
           "nextNode": "outside_the_abbey_help"
-        },
-        {
-          "utterance": "sure",
-          "nextNode": "will_help"
-        },
-        {
-          "utterance": "okay",
-          "nextNode": "will_help"
         },
         {
           "utterance": "replay",
@@ -84,20 +88,24 @@
           "nextNode": "will_help"
         },
         {
+          "utterance": "I will",
+          "nextNode": "will_help"
+        },
+        {
           "utterance": "no",
+          "nextNode": "wont_help"
+        },
+        {
+          "utterance": "not a change",
+          "nextNode": "wont_help"
+        },
+        {
+          "utterance": "I wont",
           "nextNode": "wont_help"
         },
         {
           "utterance": "help",
           "nextNode": "outside_the_abbey_help"
-        },
-        {
-          "utterance": "sure",
-          "nextNode": "will_help"
-        },
-        {
-          "utterance": "okay",
-          "nextNode": "will_help"
         },
         {
           "utterance": "replay",
@@ -118,6 +126,10 @@
         },
         {
           "utterance": "yes",
+          "nextNode": "office_of_abbess"
+        },
+        {
+          "utterance": "I will",
           "nextNode": "office_of_abbess"
         },
         {
@@ -146,6 +158,10 @@
           "nextNode": "office_of_abbess"
         },
         {
+          "utterance": "I will",
+          "nextNode": "office_of_abbess"
+        },
+        {
           "utterance": "help",
           "nextNode": "will_help_help"
         },
@@ -167,6 +183,14 @@
           "nextNode": "office_of_abbess"
         },
         {
+          "utterance": "yes",
+          "nextNode": "office_of_abbess"
+        },
+        {
+          "utterance": "I will",
+          "nextNode": "office_of_abbess"
+        },
+        {
           "utterance": "help",
           "nextNode": "wont_help_help"
         },
@@ -176,7 +200,7 @@
         }
       ]
     },
-    "script": "SISTER CATHERINA: Oh. I see... Are you...certain you can’t help us? Please say yes. NARRATOR: You chose poorly. Every bad option will minus and affect your final score at the end of the game. What do you do? You may follow Sister Catherina."
+    "script": "SISTER CATHERINA: Oh. I see... Are you...certain you can’t help us? Please say yes."
   },
   "wont_help_help": {
     "name": "wont_help_help",
@@ -736,7 +760,7 @@
         },
         {
           "utterance": "help",
-          "nextNode": "talk_sister_catherina_help"
+          "nextNode": "talk_to_sister_catherina_help"
         },
         {
           "utterance": "replay",
@@ -746,8 +770,8 @@
     },
     "script": "<<set $talkToCatherina = 1>>\nNARRATOR: Leading you through the Abbey, the Abbess approaches one of the sisters who is sat at a wooden desk writing. The abbess asks if she would be so kind as to answer some questions. The sister nods and gets up to walk towards you. You recognise her as Sister Catherina, who met you at the front gate. SISTER CATHERINA: Oh, adventurer. It is good to see you again. The Abbess says you would like to speak to me in regards to what I was doing before the evening service? NARRATOR: The Sister smiles politely. SISTER CATHERINA Well, I was in the scriptorium – in the basement - copying a manuscript from the Book of Saradomin. I’m going through the entire book, transcribing it all. There’s quite a lot, and, well, I think I’ve gotten quite good at it. It makes me feel somewhat proud, although I know that’s not a feeling I should indulge. Oh! But, uhm, I found it quite difficult though. What with the music and sounds of the party coming from outside the abbey. Do you know about that? It’s not that I disapprove of what they are doing, but I so used to love dancing before I joined here. It’s certainly tempting to join in.. NARRATOR: Sister Catherina shuffles, rubbing her arm. SISTER CATHERINA: I think, well...I know, Sister Anna wouldn’t be impressed by me saying that. She was quite strict and at first frightened me. I’m not surprised the applicant who was here yesterday left without a word. So...do you have any other questions for me? NARRATOR: It seems there is more that you could learn from Sister Catherina. Do you ask about the manuscript or the applicant?"
   },
-  "talk_sister_catherina_help": {
-    "name": "talk_sister_catherina_help",
+  "talk_to_sister_catherina_help": {
+    "name": "talk_to_sister_catherina_help",
     "action": {
       "type": "choice",
       "choices": [
@@ -761,11 +785,11 @@
         },
         {
           "utterance": "help",
-          "nextNode": "talk_sister_catherina_help"
+          "nextNode": "talk_to_sister_catherina_help"
         },
         {
           "utterance": "replay",
-          "nextNode": "talk_sister_catherina"
+          "nextNode": "talk_to_sister_catherina"
         }
       ]
     },
@@ -1468,10 +1492,10 @@
     "action": {
       "type": "end_game"
     },
-    "script": "NARRATOR: Valerio’s wide smile slowly disappears, the musician looking very forlorn. VALERIO: Ah. I guess, it is more than a little strange that we would be here, outside an abbey huh? Well, if you want the truth...one of the sisters here, Sister Anna, she passed away recently. I knew her before she joined the abbey, so I've come to pay my respects. I tried to talk her out of coming here, but when she made her mind up about something, there was nothing that could stop her. NARRATOR: Valerio falls silent for a moment, his gaze falling to the sand, as if recalling some distant memory before with a shake of his head he returns. VALERIO: That is the truth of why I’m here. Even a religious order isn't completely cut off from the world. Word gets around. Now, if you’ll excuse me I think some music is required to lift the mood. NARRATOR: You return to the Abbess who is waiting by the front gate. ABBESS BENITA: The bells shouldn’t be ringing at this time. What is Sister Debora up to…\n<<if $recruitRoom is 0>>\n[[go_to_valerio_choice_one]]\n<<else>>\n[[go_to_valerio_choice_two]]"
+    "script": "NARRATOR: Valerio’s wide smile slowly disappears, the musician looking very forlorn. VALERIO: Ah. I guess, it is more than a little strange that we would be here, outside an abbey huh? Well, if you want the truth...one of the sisters here, Sister Anna, she passed away recently. I knew her before she joined the abbey, so I've come to pay my respects. I tried to talk her out of coming here, but when she made her mind up about something, there was nothing that could stop her. NARRATOR: Valerio falls silent for a moment, his gaze falling to the sand, as if recalling some distant memory before with a shake of his head he returns. VALERIO: That is the truth of why I’m here. Even a religious order isn't completely cut off from the world. Word gets around. Now, if you’ll excuse me I think some music is required to lift the mood. NARRATOR: You return to the Abbess who is waiting by the front gate. ABBESS BENITA: The bells shouldn’t be ringing at this time. What is Sister Debora up to…\n<<if $recruitRoom is 0>>\n[[why_he_is_here_choice_one]]\n<<else>>\n[[why_he_is_here_choice_two]]"
   },
-  "go_to_valerio_choice_one": {
-    "name": "go_to_valerio_choice_one",
+  "why_he_is_here_choice_one": {
+    "name": "why_he_is_here_choice_one",
     "action": {
       "type": "choice",
       "choices": [
@@ -1485,7 +1509,7 @@
         },
         {
           "utterance": "help",
-          "nextNode": "go_to_valerio_choice_one_help"
+          "nextNode": "why_he_is_here_choice_one_help"
         },
         {
           "utterance": "replay",
@@ -1495,8 +1519,8 @@
     },
     "script": "ABBESS BENITA: Ah, Adventurer. Would you like to go to the applicant room now?"
   },
-  "go_to_valerio_choice_one_help": {
-    "name": "go_to_valerio_choice_one_help",
+  "why_he_is_here_choice_one_help": {
+    "name": "why_he_is_here_choice_one_help",
     "action": {
       "type": "choice",
       "choices": [
@@ -1510,7 +1534,7 @@
         },
         {
           "utterance": "help",
-          "nextNode": "go_to_valerio_choice_one_help"
+          "nextNode": "why_he_is_here_choice_one_help"
         },
         {
           "utterance": "replay",
@@ -1520,8 +1544,8 @@
     },
     "script": "You can say \"go to the applicant's room\" or \"yes\"."
   },
-  "go_to_valerio_choice_two": {
-    "name": "go_to_valerio_choice_two",
+  "why_he_is_here_choice_two": {
+    "name": "why_he_is_here_choice_two",
     "action": {
       "type": "choice",
       "choices": [
@@ -1535,7 +1559,7 @@
         },
         {
           "utterance": "help",
-          "nextNode": "go_to_valerio_choice_two_help"
+          "nextNode": "why_he_is_here_choice_two_help"
         },
         {
           "utterance": "replay",
@@ -1545,8 +1569,8 @@
     },
     "script": "ABBESS BENITA: Ah, Adventurer. Would you care to go to the clock tower?"
   },
-  "go_to_valerio_choice_two_help": {
-    "name": "go_to_valerio_choice_two_help",
+  "why_he_is_here_choice_two_help": {
+    "name": "why_he_is_here_choice_two_help",
     "action": {
       "type": "choice",
       "choices": [
@@ -1560,7 +1584,7 @@
         },
         {
           "utterance": "help",
-          "nextNode": "go_to_valerio_choice_two_help"
+          "nextNode": "why_he_is_here_choice_two_help"
         },
         {
           "utterance": "replay",
@@ -1965,7 +1989,7 @@
           "nextNode": "use_the_lever"
         },
         {
-          "utterance": "claim heard the sound",
+          "utterance": "say heard the sound",
           "nextNode": "say_done"
         },
         {
@@ -1990,7 +2014,7 @@
           "nextNode": "use_the_lever"
         },
         {
-          "utterance": "claim heard the sound",
+          "utterance": "say heard the sound",
           "nextNode": "say_done"
         },
         {
@@ -2384,8 +2408,16 @@
   "end": {
     "name": "end",
     "action": {
+      "type": "go",
+      "nextNode": "end_of_act_one"
+    },
+    "script": "ABBESS BENITA: Interesting. In that case, perhaps we - Did you hear that? Quick! Follow the sound of that scream! NARRATOR: Leaving the office, you and the Abbess both run in the direction of the scream. The desperate wails get louder and louder the deeper you go into the abbey. You come to a room where the wooden hatch to the basement is open. Thundering down the stairs you enter into the dim light of the basement. A body lays stretched out, blood pooling around it on the stone floor. The pristine white robes now soaked in crimson along with the apron tied around the front. The apron of Sister Elena. Sister Cecilia cowers in the corner, shaking. SISTER CECILIA: I saw it! It was the demon! It was the Ripper!"
+  },
+  "end_of_act_one": {
+    "name": "end_of_act_one",
+    "action": {
       "type": "end_game"
     },
-    "script": "ABBESS BENITA: Interesting. In that case, perhaps we- Did you hear that? Quick! Follow the sound of that scream! NARRATOR: Leaving the office, you and the Abbess both run in the direction of the scream. The desperate wails get louder and louder the deeper you go into the abbey. You come to a room where the wooden hatch to the basement is open. Thundering down the stairs you enter into the dim light of the basement. A body lays stretched out, blood pooling around it on the stone floor. The pristine white robes now soaked in crimson along with the apron tied around the front. The apron of Sister Elena. Sister Cecilia cowers in the corner, shaking. SISTER CECILIA: I saw it! It was the demon! It was the Ripper! NARRATOR: End of Act 1. The next part of One Piercing Note will be available soon. The full quest can also be experienced in RuneScape. Visit RuneScape.com to find out more."
+    "script": "NARRATOR: End of Act 1. The next part of One Piercing Note will be available soon. The full quest can also be experienced in RuneScape. Visit RuneScape.com to find out more."
   }
 }
