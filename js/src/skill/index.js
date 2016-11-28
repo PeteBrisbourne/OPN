@@ -186,6 +186,20 @@ var stateHandlers = {
                     dialog = dialog.replace(/\n/g, "<break time='250ms'/>");
 
                     if (game.currentNode.action.type == 'end_game') {
+                        if (node == "end") {
+                            var cardTitle = 'Your RuneScape Offer';
+                            var cardContent = 'Description: Get your hands on £20 worth of content, including 25 days of membership, in-game currency, and keys to unlock prizes!\r\n' +
+                                'Download instructions \r\n' +
+                                "1.  Visit http://www.runescape.com/ and create your FREE Runescape account\r\n" +
+                                "2.  Hit ‘Play Now’ and follow the prompts to download – you now have access to the world of Gielinor! \r\n" +
+                                "3.  Next, visit https://secure.runescape.com/m=billing_core/voucherform.ws?ssl=1 and log in when prompted \r\n" +
+                                "4.  Enter your starter pack code in the box available then hit redeem to unlock your greatest adventure!\r\n";
+                            var imageObj = {
+                              "smallImageUrl" : "https://s3-eu-west-1.amazonaws.com/runescape/images/Runescape_Logo_small.png",
+                              "largeImageUrl" : "https://s3-eu-west-1.amazonaws.com/runescape/images/Runescape_Logo.png"
+                            };
+                            that.emit(':tellWithCard', dialog, cardTitle, cardContent, imageObj);
+                        }
                         that.emit(':tell', dialog);
                     } else {
                         that.emit(':ask', dialog, buildReprompt(game));
