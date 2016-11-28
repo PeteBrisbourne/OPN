@@ -13,6 +13,9 @@ ask murder help
 the details of the murder
 go to sister anna's cell
 talk to the sisters
+check the bed
+check the window
+check the chest
 go to the infirmary
 sister catherina
 sister cecilia

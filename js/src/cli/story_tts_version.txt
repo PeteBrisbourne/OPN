@@ -171,60 +171,320 @@ You can say talk to the sisters or yes.
 :: sister_anna_cell
 <<set $sisterAnnaCell = 1>>
 ABBESS BENITA: Sister Anna’s cell is this way. Please follow me. NARRATOR: The two of you walk through the abbey into the residence wing. The abbess stops at a door with the name ‘Sister Anna’ painted across it. The room is small and sparse of furniture apart from an uncomfortable looking bed and at the foot of it, a chest. The bare stone walls are without decoration. A warm breeze hits you, drawing your attention to the one solitary window. ABBESS BENITA: I’ve kept the room locked since I found the body. Nobody has been in here since, not even to clean. NARRATOR: Would you like to check the bed, the chest or the window?
-<<if $travelToInfirmary is 0 and $talkToSisters is 0>>
-[[sister_anna_cell_choice_one]]
+<<choice [[check the bed|check_the_bed]]>> |\
+<<choice [[check the window|check_the_window]]>> |\
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|sister_anna_cell_help]]>> |\
+<<choice [[replay|sister_anna_cell]]>>
+
+:: check_the_bed
+<<set $checkBed = 1>>
+NARRATOR: The bed is neatly made, though looks extremely uncomfortable. You lift the pillows and sheets but find nothing. Kneeling down you reach around underneath until…your fingers touch upon something soft. Pulling it out you reveal a piece of cloth. ABBESS BENITA: That looks like a piece of clothing, but it doesn't match any of the robes the Sisters wear. How strange.
+<<if $checkWindow is 0 and $checkChest is 0>>
+[[check_the_bed_choice_one]]
 <<endif>>
-<<if $travelToInfirmary is 0 and $talkToSisters is 1>>
-[[sister_anna_cell_choice_two]]
+<<if $checkWindow is 0 and $checkChest is 1>>
+[[check_the_bed_choice_two]]
 <<endif>>
-<<if $travelToInfirmary is 1 and $talkToSisters is 0>>
-[[sister_anna_cell_choice_three]]
+<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>>
+[[check_the_bed_choice_three]]
 <<endif>>
-<<if $travelToInfirmary is 1 and $talkToSisters is 1>>
+<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>>
+[[check_the_bed_choice_four]]
+<<endif>>
+<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>>
+[[check_the_bed_choice_five]]
+<<endif>>
+<<if $checkWindow is 1 and $checkChest is 0>>
+[[check_the_bed_choice_six]]
+<<endif>>
+<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>>
 [[summing_up]]
 <<endif>>
 
-:: sister_anna_cell_choice_one
-ABBESS BENITA: It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary?
-<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
-<<choice [[talk to the sisters|talk_to_sisters]]>> |\
-<<choice [[help|sister_anna_cell_choice_one_help]]>> |\
-<<choice [[replay|sister_anna_cell]]>>
+:: check_the_bed_choice_one
+Would you like to check the chest or the window?
+<<choice [[check the window|check_the_window]]>> |\
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|check_the_bed_choice_one_help]]>> |\
+<<choice [[replay|check_the_bed]]>>
 
-:: sister_anna_cell_choice_one_help
-What would you like to do? You can talk to the sisters OR go to the infirmary.
-<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
-<<choice [[talk to the sisters|talk_to_sisters]]>> |\
-<<choice [[help|sister_anna_cell_choice_one_help]]>> |\
-<<choice [[replay|sister_anna_cell]]>>
+:: check_the_bed_choice_one_help
+Would you like to check the chest or the window?
+<<choice [[check the window|check_the_window]]>> |\
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|check_the_bed_choice_one_help]]>> |\
+<<choice [[replay|check_the_bed]]>>
 
-:: sister_anna_cell_choice_two
-ABBESS BENITA: It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now?
+:: check_the_bed_choice_two
+Would you like to check the window now?
+<<choice [[check the window|check_the_window]]>> |\
+<<choice [[yes|check_the_window]]>> |\
+<<choice [[help|check_the_bed_choice_two_help]]>> |\
+<<choice [[replay|check_the_bed]]>>
+
+:: check_the_bed_choice_two_help
+Would you like to check the window now?
+<<choice [[check the window|check_the_window]]>> |\
+<<choice [[yes|check_the_window]]>> |\
+<<choice [[help|check_the_bed_choice_two_help]]>> |\
+<<choice [[replay|check_the_bed]]>>
+
+:: check_the_bed_choice_three
+It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary?
+<<choice [[talk to the sisters|talk_to_sisters]]>> |\
+<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
+<<choice [[help|check_the_bed_choice_three_help]]>> |\
+<<choice [[replay|check_the_bed]]>>
+
+:: check_the_bed_choice_three_help
+It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary?
+<<choice [[talk to the sisters|talk_to_sisters]]>> |\
+<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
+<<choice [[help|check_the_bed_choice_three_help]]>> |\
+<<choice [[replay|check_the_bed]]>>
+
+:: check_the_bed_choice_four
+It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now?
 <<choice [[go to the infirmary|travel_to_infirmary]]>> |\
 <<choice [[yes|travel_to_infirmary]]>> |\
-<<choice [[help|sister_anna_cell_choice_two_help]]>> |\
-<<choice [[replay|sister_anna_cell]]>>
+<<choice [[help|check_the_bed_choice_four_help]]>> |\
+<<choice [[replay|check_the_bed]]>>
 
-:: sister_anna_cell_choice_two_help
-What would you like to do? You can say "go to the infirmary" or "yes".
+:: check_the_bed_choice_four_help
+It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now?
 <<choice [[go to the infirmary|travel_to_infirmary]]>> |\
 <<choice [[yes|travel_to_infirmary]]>> |\
-<<choice [[help|sister_anna_cell_choice_two_help]]>> |\
-<<choice [[replay|sister_anna_cell]]>>
+<<choice [[help|check_the_bed_choice_four_help]]>> |\
+<<choice [[replay|check_the_bed]]>>
 
-:: sister_anna_cell_choice_three
-ABBESS BENITA: It doesn’t look like anything else here is out of place. Would you like to talk to the sisters?
-<<choice [[talk to sisters|talk_to_sisters]]>> |\
+:: check_the_bed_choice_five
+It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now?
+<<choice [[talk to the sisters|talk_to_sisters]]>> |\
 <<choice [[yes|talk_to_sisters]]>> |\
-<<choice [[help|sister_anna_cell_choice_three_help]]>> |\
-<<choice [[replay|sister_anna_cell]]>>
+<<choice [[help|check_the_bed_choice_five_help]]>> |\
+<<choice [[replay|check_the_bed]]>>
 
-:: sister_anna_cell_choice_three_help
-What would you like to do? You can say "talk to the sisters" or "yes".
-<<choice [[talk to sisters|talk_to_sisters]]>> |\
-<<choice [[yes|talk_to_sisters]]>> |\
-<<choice [[help|sister_anna_cell_choice_three_help]]>> |\
-<<choice [[replay|sister_anna_cell]]>>
+:: check_the_bed_choice_five_help
+Would you like to talk to the sisters or go to the infirmary?
+<<choice [[talk to the sisters|talk_to_sisters]]>> |\
+<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
+<<choice [[help|check_the_bed_choice_five_help]]>> |\
+<<choice [[replay|check_the_bed]]>>
+
+:: check_the_bed_choice_six
+Would you like to check the chest now?
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|check_the_bed_choice_six_help]]>> |\
+<<choice [[replay|check_the_bed]]>>
+
+:: check_the_bed_choice_six_help
+Would you like to check the chest now?
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|check_the_bed_choice_six_help]]>> |\
+<<choice [[replay|check_the_bed]]>>
+
+:: check_the_window
+<<set $checkWindow = 1>>
+ You walk to the small window you notice that it is smashed, however there appears to be no glass in the room itself.
+<<if $checkBed is 0 and $checkChest is 0>> 
+[[check_the_window_choice_one]] 
+<<endif>> 
+<<if $checkBed is 0 and $checkChest is 1>> 
+[[check_the_window_choice_two]] 
+<<endif>>
+ <<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>> 
+[[check_the_window_choice_three]] 
+<<endif>>
+ <<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>> 
+[[check_the_window_choice_four]] 
+<<endif>> 
+<<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>> 
+[[check_the_window_choice_five]]
+ <<endif>> 
+<<if $checkBed is 1 and $checkChest is 0>> 
+[[check_the_window_choice_six]] 
+<<endif>> 
+<<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>> 
+[[summing_up]] 
+<<endif>>  
+
+:: check_the_window_choice_one
+ Would you like to check the chest or the bed? 
+<<choice [[check the bed|check_the_bed]]>> |\
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|check_the_window_choice_one_help]]>> |\
+<<choice [[replay|check_the_window]]>>
+
+:: check_the_window_choice_one_help
+Would you like to check the chest or the bed?
+<<choice [[check the bed|check_the_bed]]>> |\
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|check_the_window_choice_one_help]]>> |\
+<<choice [[replay|check_the_window]]>>
+
+:: check_the_window_choice_two
+Would you like to check the bed now?
+<<choice [[check the bed|check_the_bed]]>> |\
+<<choice [[help|check_the_window_choice_two_help]]>> |\
+<<choice [[replay|check_the_window]]>>
+
+:: check_the_window_choice_two_help
+Would you like to check the bed now? 
+<<choice [[check the bed|check_the_bed]]>> |\
+<<choice [[help|check_the_window_choice_two_help]]>> |\
+<<choice [[replay|check_the_window]]>>
+
+:: check_the_window_choice_three
+It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? 
+<<choice [[talk to the sisters|talk_to_sisters]]>> |\
+<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
+<<choice [[help|check_the_window_choice_three_help]]>> |\
+<<choice [[replay|check_the_window]]>>  
+
+:: check_the_window_choice_three_help
+It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? 
+<<choice [[talk to the sisters|talk_to_sisters]]>> |\
+<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
+<<choice [[help|check_the_window_choice_three_help]]>> |\
+<<choice [[replay|check_the_window]]>>  
+
+:: check_the_window_choice_four
+It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? 
+<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
+<<choice [[help|check_the_window_choice_four_help]]>> |\
+<<choice [[replay|check_the_window]]>>  
+
+:: check_the_window_choice_four_help
+It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? 
+<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
+<<choice [[help|check_the_window_choice_four_help]]>> |\
+<<choice [[replay|check_the_window]]>>  
+
+:: check_the_window_choice_five
+It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now? 
+<<choice [[talk to the sisters|talk_to_sisters]]>> |\
+<<choice [[help|check_the_window_choice_five_help]]>> |\
+<<choice [[replay|check_the_window]]>>  
+
+:: check_the_window_choice_five_help
+ Would you like to talk to the sisters now?
+<<choice [[talk to the sisters|talk_to_sisters]]>> |\
+<<choice [[help|check_the_window_choice_five_help]]>> |\
+<<choice [[replay|check_the_window]]>>  
+
+:: check_the_window_choice_six
+Would you like to check the chest now? 
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|check_the_window_choice_six_help]]>> |\
+<<choice [[replay|check_the_window]]>>  
+
+:: check_the_window_choice_six_help
+ Would you like to check the chest now?
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|check_the_window_choice_six_help]]>> |\
+<<choice [[replay|check_the_window]]>>  
+
+:: check_the_chest
+<<set $checkChest = 1>>
+The latch to the chest has no lock. You flip the metal catch then open the chest. Inside are a set of abbey robes. You lift them but discover nothing else.
+<<if $checkBed is 0 and $checkWindow is 0>> 
+[[check_the_chest_choice_one]] 
+<<endif>> 
+<<if $checkBed is 0 and $checkWindow is 1>> 
+[[check_the_chest_choice_two]] 
+<<endif>>
+ <<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>> 
+[[check_the_chest_choice_three]] 
+<<endif>>
+ <<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>> 
+[[check_the_chest_choice_four]] 
+<<endif>> 
+<<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>> 
+[[check_the_chest_choice_five]]
+ <<endif>> 
+<<if $checkBed is 1 and $checkWindow is 0>> 
+[[check_the_chest_choice_six]] 
+<<endif>> 
+<<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>> 
+[[summing_up]] 
+<<endif>>  
+
+:: check_the_chest_choice_one
+ Would you like to check the window or the bed? 
+<<choice [[check the bed|check_the_bed]]>> |\
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|check_the_chest_choice_one_help]]>> |\
+<<choice [[replay|check_the_chest]]>>
+
+:: check_the_chest_choice_one_help
+Would you like to check the window or the bed?
+<<choice [[check the bed|check_the_bed]]>> |\
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|check_the_chest_choice_one_help]]>> |\
+<<choice [[replay|check_the_chest]]>>
+
+:: check_the_chest_choice_two
+Would you like to check the bed now?
+<<choice [[check the bed|check_the_bed]]>> |\
+<<choice [[help|check_the_chest_choice_two_help]]>> |\
+<<choice [[replay|check_the_chest]]>>
+
+:: check_the_chest_choice_two_help
+Would you like to check the bed now? 
+<<choice [[check the bed|check_the_bed]]>> |\
+<<choice [[help|check_the_chest_choice_two_help]]>> |\
+<<choice [[replay|check_the_chest]]>>
+
+:: check_the_chest_choice_three
+It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? 
+<<choice [[talk to the sisters|talk_to_sisters]]>> |\
+<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
+<<choice [[help|check_the_chest_choice_three_help]]>> |\
+<<choice [[replay|check_the_chest]]>>  
+
+:: check_the_chest_choice_three_help
+It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? 
+<<choice [[talk to the sisters|talk_to_sisters]]>> |\
+<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
+<<choice [[help|check_the_chest_choice_three_help]]>> |\
+<<choice [[replay|check_the_chest]]>>  
+
+:: check_the_chest_choice_four
+It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? 
+<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
+<<choice [[help|check_the_chest_choice_four_help]]>> |\
+<<choice [[replay|check_the_chest]]>>  
+
+:: check_the_chest_choice_four_help
+It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? 
+<<choice [[go to the infirmary|travel_to_infirmary]]>> |\
+<<choice [[help|check_the_chest_choice_four_help]]>> |\
+<<choice [[replay|check_the_chest]]>>  
+
+:: check_the_chest_choice_five
+It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now? 
+<<choice [[talk to the sisters|talk_to_sisters]]>> |\
+<<choice [[help|check_the_chest_choice_five_help]]>> |\
+<<choice [[replay|check_the_chest]]>>  
+
+:: check_the_chest_choice_five_help
+ Would you like to talk to the sisters now?
+<<choice [[talk to the sisters|talk_to_sisters]]>> |\
+<<choice [[help|check_the_chest_choice_five_help]]>> |\
+<<choice [[replay|check_the_chest]]>>  
+
+:: check_the_chest_choice_six
+Would you like to check the window now? 
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|check_the_chest_choice_six_help]]>> |\
+<<choice [[replay|check_the_chest]]>>  
+
+:: check_the_chest_choice_six_help
+ Would you like to check the window now?
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|check_the_chest_choice_six_help]]>> |\
+<<choice [[replay|check_the_chest]]>>  
 
 :: talk_to_sisters
 <<set $talkToSisters = 1>>

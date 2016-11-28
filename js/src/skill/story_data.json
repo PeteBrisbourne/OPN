@@ -501,12 +501,191 @@
   "sister_anna_cell": {
     "name": "sister_anna_cell",
     "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the bed",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "check the window",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "sister_anna_cell_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "sister_anna_cell"
+        }
+      ]
+    },
+    "script": "<<set $sisterAnnaCell = 1>>\nABBESS BENITA: Sister Anna’s cell is this way. Please follow me. NARRATOR: The two of you walk through the abbey into the residence wing. The abbess stops at a door with the name ‘Sister Anna’ painted across it. The room is small and sparse of furniture apart from an uncomfortable looking bed and at the foot of it, a chest. The bare stone walls are without decoration. A warm breeze hits you, drawing your attention to the one solitary window. ABBESS BENITA: I’ve kept the room locked since I found the body. Nobody has been in here since, not even to clean. NARRATOR: Would you like to check the bed, the chest or the window?"
+  },
+  "check_the_bed": {
+    "name": "check_the_bed",
+    "action": {
       "type": "end_game"
     },
-    "script": "<<set $sisterAnnaCell = 1>>\nABBESS BENITA: Sister Anna’s cell is this way. Please follow me. NARRATOR: The two of you walk through the abbey into the residence wing. The abbess stops at a door with the name ‘Sister Anna’ painted across it. The room is small and sparse of furniture apart from an uncomfortable looking bed and at the foot of it, a chest. The bare stone walls are without decoration. A warm breeze hits you, drawing your attention to the one solitary window. ABBESS BENITA: I’ve kept the room locked since I found the body. Nobody has been in here since, not even to clean. NARRATOR: Would you like to check the bed, the chest or the window?\n<<if $travelToInfirmary is 0 and $talkToSisters is 0>>\n[[sister_anna_cell_choice_one]]\n<<endif>>\n<<if $travelToInfirmary is 0 and $talkToSisters is 1>>\n[[sister_anna_cell_choice_two]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $talkToSisters is 0>>\n[[sister_anna_cell_choice_three]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $talkToSisters is 1>>\n[[summing_up]]"
+    "script": "<<set $checkBed = 1>>\nNARRATOR: The bed is neatly made, though looks extremely uncomfortable. You lift the pillows and sheets but find nothing. Kneeling down you reach around underneath until…your fingers touch upon something soft. Pulling it out you reveal a piece of cloth. ABBESS BENITA: That looks like a piece of clothing, but it doesn't match any of the robes the Sisters wear. How strange.\n<<if $checkWindow is 0 and $checkChest is 0>>\n[[check_the_bed_choice_one]]\n<<endif>>\n<<if $checkWindow is 0 and $checkChest is 1>>\n[[check_the_bed_choice_two]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>>\n[[check_the_bed_choice_three]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>>\n[[check_the_bed_choice_four]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>>\n[[check_the_bed_choice_five]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 0>>\n[[check_the_bed_choice_six]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>>\n[[summing_up]]"
   },
-  "sister_anna_cell_choice_one": {
-    "name": "sister_anna_cell_choice_one",
+  "check_the_bed_choice_one": {
+    "name": "check_the_bed_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the window",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "Would you like to check the chest or the window?"
+  },
+  "check_the_bed_choice_one_help": {
+    "name": "check_the_bed_choice_one_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the window",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "Would you like to check the chest or the window?"
+  },
+  "check_the_bed_choice_two": {
+    "name": "check_the_bed_choice_two",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the window",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "Would you like to check the window now?"
+  },
+  "check_the_bed_choice_two_help": {
+    "name": "check_the_bed_choice_two_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the window",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "Would you like to check the window now?"
+  },
+  "check_the_bed_choice_three": {
+    "name": "check_the_bed_choice_three",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary?"
+  },
+  "check_the_bed_choice_three_help": {
+    "name": "check_the_bed_choice_three_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary?"
+  },
+  "check_the_bed_choice_four": {
+    "name": "check_the_bed_choice_four",
     "action": {
       "type": "choice",
       "choices": [
@@ -514,49 +693,565 @@
           "utterance": "go to the infirmary",
           "nextNode": "travel_to_infirmary"
         },
+        {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_four_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now?"
+  },
+  "check_the_bed_choice_four_help": {
+    "name": "check_the_bed_choice_four_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_four_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now?"
+  },
+  "check_the_bed_choice_five": {
+    "name": "check_the_bed_choice_five",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_five_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now?"
+  },
+  "check_the_bed_choice_five_help": {
+    "name": "check_the_bed_choice_five_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_five_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "Would you like to talk to the sisters or go to the infirmary?"
+  },
+  "check_the_bed_choice_six": {
+    "name": "check_the_bed_choice_six",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_six_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "Would you like to check the chest now?"
+  },
+  "check_the_bed_choice_six_help": {
+    "name": "check_the_bed_choice_six_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_six_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "Would you like to check the chest now?"
+  },
+  "check_the_window": {
+    "name": "check_the_window",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "<<set $checkWindow = 1>>\n You walk to the small window you notice that it is smashed, however there appears to be no glass in the room itself.\n<<if $checkBed is 0 and $checkChest is 0>> \n[[check_the_window_choice_one]] \n<<endif>> \n<<if $checkBed is 0 and $checkChest is 1>> \n[[check_the_window_choice_two]] \n<<endif>>\n <<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>> \n[[check_the_window_choice_three]] \n<<endif>>\n <<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>> \n[[check_the_window_choice_four]] \n<<endif>> \n<<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>> \n[[check_the_window_choice_five]]\n <<endif>> \n<<if $checkBed is 1 and $checkChest is 0>> \n[[check_the_window_choice_six]] \n<<endif>> \n<<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>> \n[[summing_up]] "
+  },
+  "check_the_window_choice_one": {
+    "name": "check_the_window_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the bed",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_window_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_window"
+        }
+      ]
+    },
+    "script": " Would you like to check the chest or the bed? "
+  },
+  "check_the_window_choice_one_help": {
+    "name": "check_the_window_choice_one_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the bed",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_window_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_window"
+        }
+      ]
+    },
+    "script": "Would you like to check the chest or the bed?"
+  },
+  "check_the_window_choice_two": {
+    "name": "check_the_window_choice_two",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the bed",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_window_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_window"
+        }
+      ]
+    },
+    "script": "Would you like to check the bed now?"
+  },
+  "check_the_window_choice_two_help": {
+    "name": "check_the_window_choice_two_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the bed",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_window_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_window"
+        }
+      ]
+    },
+    "script": "Would you like to check the bed now? "
+  },
+  "check_the_window_choice_three": {
+    "name": "check_the_window_choice_three",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_window_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_window"
+        }
+      ]
+    },
+    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? "
+  },
+  "check_the_window_choice_three_help": {
+    "name": "check_the_window_choice_three_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_window_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_window"
+        }
+      ]
+    },
+    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? "
+  },
+  "check_the_window_choice_four": {
+    "name": "check_the_window_choice_four",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_window_choice_four_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_window"
+        }
+      ]
+    },
+    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? "
+  },
+  "check_the_window_choice_four_help": {
+    "name": "check_the_window_choice_four_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_window_choice_four_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_window"
+        }
+      ]
+    },
+    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? "
+  },
+  "check_the_window_choice_five": {
+    "name": "check_the_window_choice_five",
+    "action": {
+      "type": "choice",
+      "choices": [
         {
           "utterance": "talk to the sisters",
           "nextNode": "talk_to_sisters"
         },
         {
           "utterance": "help",
-          "nextNode": "sister_anna_cell_choice_one_help"
+          "nextNode": "check_the_window_choice_five_help"
         },
         {
           "utterance": "replay",
-          "nextNode": "sister_anna_cell"
+          "nextNode": "check_the_window"
         }
       ]
     },
-    "script": "ABBESS BENITA: It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary?"
+    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now? "
   },
-  "sister_anna_cell_choice_one_help": {
-    "name": "sister_anna_cell_choice_one_help",
+  "check_the_window_choice_five_help": {
+    "name": "check_the_window_choice_five_help",
     "action": {
       "type": "choice",
       "choices": [
-        {
-          "utterance": "go to the infirmary",
-          "nextNode": "travel_to_infirmary"
-        },
         {
           "utterance": "talk to the sisters",
           "nextNode": "talk_to_sisters"
         },
         {
           "utterance": "help",
-          "nextNode": "sister_anna_cell_choice_one_help"
+          "nextNode": "check_the_window_choice_five_help"
         },
         {
           "utterance": "replay",
-          "nextNode": "sister_anna_cell"
+          "nextNode": "check_the_window"
         }
       ]
     },
-    "script": "What would you like to do? You can talk to the sisters OR go to the infirmary."
+    "script": " Would you like to talk to the sisters now?"
   },
-  "sister_anna_cell_choice_two": {
-    "name": "sister_anna_cell_choice_two",
+  "check_the_window_choice_six": {
+    "name": "check_the_window_choice_six",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_window_choice_six_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_window"
+        }
+      ]
+    },
+    "script": "Would you like to check the chest now? "
+  },
+  "check_the_window_choice_six_help": {
+    "name": "check_the_window_choice_six_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_window_choice_six_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_window"
+        }
+      ]
+    },
+    "script": " Would you like to check the chest now?"
+  },
+  "check_the_chest": {
+    "name": "check_the_chest",
+    "action": {
+      "type": "end_game"
+    },
+    "script": "<<set $checkChest = 1>>\nThe latch to the chest has no lock. You flip the metal catch then open the chest. Inside are a set of abbey robes. You lift them but discover nothing else.\n<<if $checkBed is 0 and $checkWindow is 0>> \n[[check_the_chest_choice_one]] \n<<endif>> \n<<if $checkBed is 0 and $checkWindow is 1>> \n[[check_the_chest_choice_two]] \n<<endif>>\n <<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>> \n[[check_the_chest_choice_three]] \n<<endif>>\n <<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>> \n[[check_the_chest_choice_four]] \n<<endif>> \n<<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>> \n[[check_the_chest_choice_five]]\n <<endif>> \n<<if $checkBed is 1 and $checkWindow is 0>> \n[[check_the_chest_choice_six]] \n<<endif>> \n<<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>> \n[[summing_up]] "
+  },
+  "check_the_chest_choice_one": {
+    "name": "check_the_chest_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the bed",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_chest_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_chest"
+        }
+      ]
+    },
+    "script": " Would you like to check the window or the bed? "
+  },
+  "check_the_chest_choice_one_help": {
+    "name": "check_the_chest_choice_one_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the bed",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_chest_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_chest"
+        }
+      ]
+    },
+    "script": "Would you like to check the window or the bed?"
+  },
+  "check_the_chest_choice_two": {
+    "name": "check_the_chest_choice_two",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the bed",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_chest_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_chest"
+        }
+      ]
+    },
+    "script": "Would you like to check the bed now?"
+  },
+  "check_the_chest_choice_two_help": {
+    "name": "check_the_chest_choice_two_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the bed",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_chest_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_chest"
+        }
+      ]
+    },
+    "script": "Would you like to check the bed now? "
+  },
+  "check_the_chest_choice_three": {
+    "name": "check_the_chest_choice_three",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_chest_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_chest"
+        }
+      ]
+    },
+    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? "
+  },
+  "check_the_chest_choice_three_help": {
+    "name": "check_the_chest_choice_three_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_chest_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_chest"
+        }
+      ]
+    },
+    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? "
+  },
+  "check_the_chest_choice_four": {
+    "name": "check_the_chest_choice_four",
     "action": {
       "type": "choice",
       "choices": [
@@ -565,23 +1260,19 @@
           "nextNode": "travel_to_infirmary"
         },
         {
-          "utterance": "yes",
-          "nextNode": "travel_to_infirmary"
-        },
-        {
           "utterance": "help",
-          "nextNode": "sister_anna_cell_choice_two_help"
+          "nextNode": "check_the_chest_choice_four_help"
         },
         {
           "utterance": "replay",
-          "nextNode": "sister_anna_cell"
+          "nextNode": "check_the_chest"
         }
       ]
     },
-    "script": "ABBESS BENITA: It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now?"
+    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? "
   },
-  "sister_anna_cell_choice_two_help": {
-    "name": "sister_anna_cell_choice_two_help",
+  "check_the_chest_choice_four_help": {
+    "name": "check_the_chest_choice_four_help",
     "action": {
       "type": "choice",
       "choices": [
@@ -590,70 +1281,100 @@
           "nextNode": "travel_to_infirmary"
         },
         {
-          "utterance": "yes",
-          "nextNode": "travel_to_infirmary"
-        },
-        {
           "utterance": "help",
-          "nextNode": "sister_anna_cell_choice_two_help"
+          "nextNode": "check_the_chest_choice_four_help"
         },
         {
           "utterance": "replay",
-          "nextNode": "sister_anna_cell"
+          "nextNode": "check_the_chest"
         }
       ]
     },
-    "script": "What would you like to do? You can say \"go to the infirmary\" or \"yes\"."
+    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? "
   },
-  "sister_anna_cell_choice_three": {
-    "name": "sister_anna_cell_choice_three",
+  "check_the_chest_choice_five": {
+    "name": "check_the_chest_choice_five",
     "action": {
       "type": "choice",
       "choices": [
         {
-          "utterance": "talk to sisters",
-          "nextNode": "talk_to_sisters"
-        },
-        {
-          "utterance": "yes",
+          "utterance": "talk to the sisters",
           "nextNode": "talk_to_sisters"
         },
         {
           "utterance": "help",
-          "nextNode": "sister_anna_cell_choice_three_help"
+          "nextNode": "check_the_chest_choice_five_help"
         },
         {
           "utterance": "replay",
-          "nextNode": "sister_anna_cell"
+          "nextNode": "check_the_chest"
         }
       ]
     },
-    "script": "ABBESS BENITA: It doesn’t look like anything else here is out of place. Would you like to talk to the sisters?"
+    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now? "
   },
-  "sister_anna_cell_choice_three_help": {
-    "name": "sister_anna_cell_choice_three_help",
+  "check_the_chest_choice_five_help": {
+    "name": "check_the_chest_choice_five_help",
     "action": {
       "type": "choice",
       "choices": [
         {
-          "utterance": "talk to sisters",
-          "nextNode": "talk_to_sisters"
-        },
-        {
-          "utterance": "yes",
+          "utterance": "talk to the sisters",
           "nextNode": "talk_to_sisters"
         },
         {
           "utterance": "help",
-          "nextNode": "sister_anna_cell_choice_three_help"
+          "nextNode": "check_the_chest_choice_five_help"
         },
         {
           "utterance": "replay",
-          "nextNode": "sister_anna_cell"
+          "nextNode": "check_the_chest"
         }
       ]
     },
-    "script": "What would you like to do? You can say \"talk to the sisters\" or \"yes\"."
+    "script": " Would you like to talk to the sisters now?"
+  },
+  "check_the_chest_choice_six": {
+    "name": "check_the_chest_choice_six",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_chest_choice_six_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_chest"
+        }
+      ]
+    },
+    "script": "Would you like to check the window now? "
+  },
+  "check_the_chest_choice_six_help": {
+    "name": "check_the_chest_choice_six_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_chest_choice_six_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_chest"
+        }
+      ]
+    },
+    "script": " Would you like to check the window now?"
   },
   "talk_to_sisters": {
     "name": "talk_to_sisters",

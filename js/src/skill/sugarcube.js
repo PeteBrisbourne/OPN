@@ -43,6 +43,9 @@ module.exports = function(storyData, session, currentNode) {
                 } else {
                     that.currentNode.action.choices.forEach(function(choice) {
                         if(choice.utterance == result.option) {
+                            console.log(JSON.stringify(choice));
+                            console.log(choice.nextNode);
+                            console.log(storyData[choice.nextNode]);
                             callback(null, storyData[choice.nextNode]);
                         }
                     });
@@ -78,6 +81,8 @@ module.exports = function(storyData, session, currentNode) {
         var re = /<<([^>]*)>>/;
         var match;
         while(match = re.exec(input)) {
+            console.log("match" + match);
+            console.log("match" + JSON.stringify(match));
             if(match[1].indexOf('if') == 0) {
                 var head = input.substring(0, match.index);
                 var tail = input.substring(match.index + match[0].length);
@@ -145,7 +150,7 @@ module.exports = function(storyData, session, currentNode) {
                                 } else if(node.operator == 'and') {
                                     return left && right;
                                 } else {
-                                    console.log("SHOULDN'T HAVE GOTTEN HERE");
+                                    console.log("SHOULDN'T HAVE GOTTEN HERE1111");
                                     return false;
                                 }
                             } else if(node.type == 'Identifier') {
@@ -153,7 +158,7 @@ module.exports = function(storyData, session, currentNode) {
                             } else if(node.type == 'Literal') {
                                 return node.value;
                             } else {
-                                console.log("SHOULDN'T HAVE GOTTEN HERE");
+                                console.log("SHOULDN'T HAVE GOTTEN HERE2222");
                                 return false;
                             }
                         }
@@ -192,7 +197,7 @@ module.exports = function(storyData, session, currentNode) {
                 // remove this tag from the input
                 input = input.substring(0, match.index) + input.substring(endingMatch.index + endingMatch[0].length);
             } else {
-                console.log("SHOULDN'T HAVE GOTTEN HERE");
+                console.log("SHOULDN'T HAVE GOTTEN HERE3333");
             }
         }
 
