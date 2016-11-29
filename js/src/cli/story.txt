@@ -170,7 +170,7 @@ You can say talk to the sisters or yes.
 
 :: sister_anna_cell
 <<set $sisterAnnaCell = 1>>
-ABBESS BENITA: Sister Anna’s cell is this way. Please follow me. NARRATOR: The two of you walk through the abbey into the residence wing. The abbess stops at a door with the name ‘Sister Anna’ painted across it. The room is small and sparse of furniture apart from an uncomfortable looking bed and at the foot of it, a chest. The bare stone walls are without decoration. A warm breeze hits you, drawing your attention to the one solitary window. ABBESS BENITA: I’ve kept the room locked since I found the body. Nobody has been in here since, not even to clean. NARRATOR: Would you like to check the bed, the chest or the window?
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc04_sister_anna_cell.mp3" />
 <<choice [[check the bed|check_the_bed]]>> |\
 <<choice [[check the window|check_the_window]]>> |\
 <<choice [[check the chest|check_the_chest]]>> |\
@@ -179,7 +179,7 @@ ABBESS BENITA: Sister Anna’s cell is this way. Please follow me. NARRATOR: The
 
 :: check_the_bed
 <<set $checkBed = 1>>
-NARRATOR: The bed is neatly made, though looks extremely uncomfortable. You lift the pillows and sheets but find nothing. Kneeling down you reach around underneath until…your fingers touch upon something soft. Pulling it out you reveal a piece of cloth. ABBESS BENITA: That looks like a piece of clothing, but it doesn't match any of the robes the Sisters wear. How strange.
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed.mp3" />
 <<if $checkWindow is 0 and $checkChest is 0>>
 [[check_the_bed_choice_one]]
 <<endif>>
@@ -203,7 +203,7 @@ NARRATOR: The bed is neatly made, though looks extremely uncomfortable. You lift
 <<endif>>
 
 :: check_the_bed_choice_one
-Would you like to check the chest or the window?
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op1.mp3" />
 <<choice [[check the window|check_the_window]]>> |\
 <<choice [[check the chest|check_the_chest]]>> |\
 <<choice [[help|check_the_bed_choice_one_help]]>> |\
@@ -217,7 +217,7 @@ Would you like to check the chest or the window?
 <<choice [[replay|check_the_bed]]>>
 
 :: check_the_bed_choice_two
-Would you like to check the window now?
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op2.mp3" />
 <<choice [[check the window|check_the_window]]>> |\
 <<choice [[yes|check_the_window]]>> |\
 <<choice [[help|check_the_bed_choice_two_help]]>> |\
@@ -231,7 +231,7 @@ Would you like to check the window now?
 <<choice [[replay|check_the_bed]]>>
 
 :: check_the_bed_choice_three
-It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary?
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op3.mp3" />
 <<choice [[talk to the sisters|talk_to_sisters]]>> |\
 <<choice [[go to the infirmary|travel_to_infirmary]]>> |\
 <<choice [[help|check_the_bed_choice_three_help]]>> |\
@@ -245,7 +245,7 @@ It doesn’t look like anything else here is out of place. Would you like to tal
 <<choice [[replay|check_the_bed]]>>
 
 :: check_the_bed_choice_four
-It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now?
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op4.mp3" />
 <<choice [[go to the infirmary|travel_to_infirmary]]>> |\
 <<choice [[yes|travel_to_infirmary]]>> |\
 <<choice [[help|check_the_bed_choice_four_help]]>> |\
@@ -259,7 +259,7 @@ It doesn’t look like anything else here is out of place. Would you like to go 
 <<choice [[replay|check_the_bed]]>>
 
 :: check_the_bed_choice_five
-It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now?
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op5.mp3" />
 <<choice [[talk to the sisters|talk_to_sisters]]>> |\
 <<choice [[yes|talk_to_sisters]]>> |\
 <<choice [[help|check_the_bed_choice_five_help]]>> |\
@@ -286,7 +286,7 @@ Would you like to check the chest now?
 
 :: check_the_window
 <<set $checkWindow = 1>>
- You walk to the small window you notice that it is smashed, however there appears to be no glass in the room itself.
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window.mp3" />
 <<if $checkBed is 0 and $checkChest is 0>> 
 [[check_the_window_choice_one]] 
 <<endif>> 
@@ -310,7 +310,7 @@ Would you like to check the chest now?
 <<endif>>  
 
 :: check_the_window_choice_one
- Would you like to check the chest or the bed? 
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op1.mp3" />
 <<choice [[check the bed|check_the_bed]]>> |\
 <<choice [[check the chest|check_the_chest]]>> |\
 <<choice [[help|check_the_window_choice_one_help]]>> |\
@@ -324,7 +324,7 @@ Would you like to check the chest or the bed?
 <<choice [[replay|check_the_window]]>>
 
 :: check_the_window_choice_two
-Would you like to check the bed now?
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op2.mp3" />
 <<choice [[check the bed|check_the_bed]]>> |\
 <<choice [[help|check_the_window_choice_two_help]]>> |\
 <<choice [[replay|check_the_window]]>>
@@ -336,7 +336,7 @@ Would you like to check the bed now? 
 <<choice [[replay|check_the_window]]>>
 
 :: check_the_window_choice_three
-It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? 
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op3.mp3" />
 <<choice [[talk to the sisters|talk_to_sisters]]>> |\
 <<choice [[go to the infirmary|travel_to_infirmary]]>> |\
 <<choice [[help|check_the_window_choice_three_help]]>> |\
@@ -350,7 +350,7 @@ It doesn’t look like anything else here is out of place. Would you like to tal
 <<choice [[replay|check_the_window]]>>  
 
 :: check_the_window_choice_four
-It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? 
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op4.mp3" />
 <<choice [[go to the infirmary|travel_to_infirmary]]>> |\
 <<choice [[help|check_the_window_choice_four_help]]>> |\
 <<choice [[replay|check_the_window]]>>  
@@ -362,7 +362,7 @@ It doesn’t look like anything else here is out of place. Would you like to go 
 <<choice [[replay|check_the_window]]>>  
 
 :: check_the_window_choice_five
-It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now? 
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op5.mp3" />
 <<choice [[talk to the sisters|talk_to_sisters]]>> |\
 <<choice [[help|check_the_window_choice_five_help]]>> |\
 <<choice [[replay|check_the_window]]>>  
@@ -387,7 +387,7 @@ Would you like to check the chest now? 
 
 :: check_the_chest
 <<set $checkChest = 1>>
-The latch to the chest has no lock. You flip the metal catch then open the chest. Inside are a set of abbey robes. You lift them but discover nothing else.
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest.mp3" />
 <<if $checkBed is 0 and $checkWindow is 0>> 
 [[check_the_chest_choice_one]] 
 <<endif>> 
@@ -411,7 +411,7 @@ The latch to the chest has no lock. You flip the metal catch then open the chest
 <<endif>>  
 
 :: check_the_chest_choice_one
- Would you like to check the window or the bed? 
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op1.mp3" />
 <<choice [[check the bed|check_the_bed]]>> |\
 <<choice [[check the chest|check_the_chest]]>> |\
 <<choice [[help|check_the_chest_choice_one_help]]>> |\
@@ -425,7 +425,7 @@ Would you like to check the window or the bed?
 <<choice [[replay|check_the_chest]]>>
 
 :: check_the_chest_choice_two
-Would you like to check the bed now?
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op2.mp3" />
 <<choice [[check the bed|check_the_bed]]>> |\
 <<choice [[help|check_the_chest_choice_two_help]]>> |\
 <<choice [[replay|check_the_chest]]>>
@@ -437,7 +437,7 @@ Would you like to check the bed now? 
 <<choice [[replay|check_the_chest]]>>
 
 :: check_the_chest_choice_three
-It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? 
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op4.mp3" />
 <<choice [[talk to the sisters|talk_to_sisters]]>> |\
 <<choice [[go to the infirmary|travel_to_infirmary]]>> |\
 <<choice [[help|check_the_chest_choice_three_help]]>> |\
@@ -451,7 +451,7 @@ It doesn’t look like anything else here is out of place. Would you like to tal
 <<choice [[replay|check_the_chest]]>>  
 
 :: check_the_chest_choice_four
-It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? 
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op5.mp3" />
 <<choice [[go to the infirmary|travel_to_infirmary]]>> |\
 <<choice [[help|check_the_chest_choice_four_help]]>> |\
 <<choice [[replay|check_the_chest]]>>  
@@ -463,7 +463,7 @@ It doesn’t look like anything else here is out of place. Would you like to go 
 <<choice [[replay|check_the_chest]]>>  
 
 :: check_the_chest_choice_five
-It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now? 
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op6.mp3" />
 <<choice [[talk to the sisters|talk_to_sisters]]>> |\
 <<choice [[help|check_the_chest_choice_five_help]]>> |\
 <<choice [[replay|check_the_chest]]>>  
@@ -475,7 +475,7 @@ It doesn’t look like anything else here is out of place. Would you like to tal
 <<choice [[replay|check_the_chest]]>>  
 
 :: check_the_chest_choice_six
-Would you like to check the window now? 
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op3.mp3" />
 <<choice [[check the chest|check_the_chest]]>> |\
 <<choice [[help|check_the_chest_choice_six_help]]>> |\
 <<choice [[replay|check_the_chest]]>>  
@@ -518,7 +518,7 @@ You can ask about the manuscript or the applicant.
 <<choice [[replay|talk_to_sister_catherina]]>>
 
 :: the_applicant
-<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_incorr.mp3" />
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_corr.mp3" />
 <<if $travelToInfirmary is 0 and $sisterAnnaCell is 0>>
 [[the_applicant_choice_two]]
 <<endif>>
@@ -726,13 +726,15 @@ You can say "visit the camp" or "go to the applicant’s room".
 <<set $talkToValerio = 1>>
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc13_talk_to_valerio.mp3" />
 <<choice [[reason for being here|why_he_is_here]]>> |\
-<<choice [[what is life like|what_is_life_like]]>> |\
+<<choice [[why is here|why_he_is_here]]>> |\
+<<choice [[what his life is like|what_is_life_like]]>> |\
 <<choice [[help|go_to_valerio_help]]>> |\
 <<choice [[replay|go_to_valerio]]>>
 
 :: go_to_valerio_help
 You can ask his reasons for being here or what his life is like.
 <<choice [[reason for being here|why_he_is_here]]>> |\
+<<choice [[why is here|why_he_is_here]]>> |\
 <<choice [[what his life is like|what_is_life_like]]>> |\
 <<choice [[help|go_to_valerio_help]]>> |\
 <<choice [[replay|go_to_valerio]]>>
@@ -1001,19 +1003,19 @@ Is it one of the sisters, Valerio or are you not sure?
 
 :: one_of_the_sisters
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc18_meet_with_abbess_reply_sisters.mp3" />
-<<choice [[Sister Catherina|end]]>> |\
-<<choice [[Sister Cecilia|end]]>> |\
-<<choice [[Sister Debora|end]]>> |\
-<<choice [[Sister Elena|end]]>> |\
+<<choice [[sister catherina|end]]>> |\
+<<choice [[sister cecilia|end]]>> |\
+<<choice [[sister deborah|end]]>> |\
+<<choice [[sister elena|end]]>> |\
 <<choice [[help|one_of_the_sisters_help]]>> |\
 <<choice [[replay|one_of_the_sisters]]>>
 
 :: one_of_the_sisters_help
 Do you suspect Catherina, Cecilia, Debora or Elena?
-<<choice [[Sister Catherina|end]]>> |\
-<<choice [[Sister Cecilia|end]]>> |\
-<<choice [[Sister Debora|end]]>> |\
-<<choice [[Sister Elena|end]]>> |\
+<<choice [[sister catherina|end]]>> |\
+<<choice [[sister cecilia|end]]>> |\
+<<choice [[sister deborah|end]]>> |\
+<<choice [[sister elena|end]]>> |\
 <<choice [[help|one_of_the_sisters_help]]>> |\
 <<choice [[replay|one_of_the_sisters]]>>
 

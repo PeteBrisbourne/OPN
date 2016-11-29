@@ -525,14 +525,14 @@
         }
       ]
     },
-    "script": "<<set $sisterAnnaCell = 1>>\nABBESS BENITA: Sister Anna’s cell is this way. Please follow me. NARRATOR: The two of you walk through the abbey into the residence wing. The abbess stops at a door with the name ‘Sister Anna’ painted across it. The room is small and sparse of furniture apart from an uncomfortable looking bed and at the foot of it, a chest. The bare stone walls are without decoration. A warm breeze hits you, drawing your attention to the one solitary window. ABBESS BENITA: I’ve kept the room locked since I found the body. Nobody has been in here since, not even to clean. NARRATOR: Would you like to check the bed, the chest or the window?"
+    "script": "<<set $sisterAnnaCell = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc04_sister_anna_cell.mp3\" />"
   },
   "check_the_bed": {
     "name": "check_the_bed",
     "action": {
       "type": "end_game"
     },
-    "script": "<<set $checkBed = 1>>\nNARRATOR: The bed is neatly made, though looks extremely uncomfortable. You lift the pillows and sheets but find nothing. Kneeling down you reach around underneath until…your fingers touch upon something soft. Pulling it out you reveal a piece of cloth. ABBESS BENITA: That looks like a piece of clothing, but it doesn't match any of the robes the Sisters wear. How strange.\n<<if $checkWindow is 0 and $checkChest is 0>>\n[[check_the_bed_choice_one]]\n<<endif>>\n<<if $checkWindow is 0 and $checkChest is 1>>\n[[check_the_bed_choice_two]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>>\n[[check_the_bed_choice_three]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>>\n[[check_the_bed_choice_four]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>>\n[[check_the_bed_choice_five]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 0>>\n[[check_the_bed_choice_six]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>>\n[[summing_up]]"
+    "script": "<<set $checkBed = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed.mp3\" />\n<<if $checkWindow is 0 and $checkChest is 0>>\n[[check_the_bed_choice_one]]\n<<endif>>\n<<if $checkWindow is 0 and $checkChest is 1>>\n[[check_the_bed_choice_two]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>>\n[[check_the_bed_choice_three]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>>\n[[check_the_bed_choice_four]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>>\n[[check_the_bed_choice_five]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 0>>\n[[check_the_bed_choice_six]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>>\n[[summing_up]]"
   },
   "check_the_bed_choice_one": {
     "name": "check_the_bed_choice_one",
@@ -557,7 +557,7 @@
         }
       ]
     },
-    "script": "Would you like to check the chest or the window?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op1.mp3\" />"
   },
   "check_the_bed_choice_one_help": {
     "name": "check_the_bed_choice_one_help",
@@ -607,7 +607,7 @@
         }
       ]
     },
-    "script": "Would you like to check the window now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op2.mp3\" />"
   },
   "check_the_bed_choice_two_help": {
     "name": "check_the_bed_choice_two_help",
@@ -657,7 +657,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op3.mp3\" />"
   },
   "check_the_bed_choice_three_help": {
     "name": "check_the_bed_choice_three_help",
@@ -707,7 +707,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op4.mp3\" />"
   },
   "check_the_bed_choice_four_help": {
     "name": "check_the_bed_choice_four_help",
@@ -757,7 +757,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op5.mp3\" />"
   },
   "check_the_bed_choice_five_help": {
     "name": "check_the_bed_choice_five_help",
@@ -831,7 +831,7 @@
     "action": {
       "type": "end_game"
     },
-    "script": "<<set $checkWindow = 1>>\n You walk to the small window you notice that it is smashed, however there appears to be no glass in the room itself.\n<<if $checkBed is 0 and $checkChest is 0>> \n[[check_the_window_choice_one]] \n<<endif>> \n<<if $checkBed is 0 and $checkChest is 1>> \n[[check_the_window_choice_two]] \n<<endif>>\n <<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>> \n[[check_the_window_choice_three]] \n<<endif>>\n <<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>> \n[[check_the_window_choice_four]] \n<<endif>> \n<<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>> \n[[check_the_window_choice_five]]\n <<endif>> \n<<if $checkBed is 1 and $checkChest is 0>> \n[[check_the_window_choice_six]] \n<<endif>> \n<<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>> \n[[summing_up]] "
+    "script": "<<set $checkWindow = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window.mp3\" />\n<<if $checkBed is 0 and $checkChest is 0>> \n[[check_the_window_choice_one]] \n<<endif>> \n<<if $checkBed is 0 and $checkChest is 1>> \n[[check_the_window_choice_two]] \n<<endif>>\n <<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>> \n[[check_the_window_choice_three]] \n<<endif>>\n <<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>> \n[[check_the_window_choice_four]] \n<<endif>> \n<<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>> \n[[check_the_window_choice_five]]\n <<endif>> \n<<if $checkBed is 1 and $checkChest is 0>> \n[[check_the_window_choice_six]] \n<<endif>> \n<<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>> \n[[summing_up]] "
   },
   "check_the_window_choice_one": {
     "name": "check_the_window_choice_one",
@@ -856,7 +856,7 @@
         }
       ]
     },
-    "script": " Would you like to check the chest or the bed? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op1.mp3\" />"
   },
   "check_the_window_choice_one_help": {
     "name": "check_the_window_choice_one_help",
@@ -902,7 +902,7 @@
         }
       ]
     },
-    "script": "Would you like to check the bed now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op2.mp3\" />"
   },
   "check_the_window_choice_two_help": {
     "name": "check_the_window_choice_two_help",
@@ -948,7 +948,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op3.mp3\" />"
   },
   "check_the_window_choice_three_help": {
     "name": "check_the_window_choice_three_help",
@@ -994,7 +994,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op4.mp3\" />"
   },
   "check_the_window_choice_four_help": {
     "name": "check_the_window_choice_four_help",
@@ -1036,7 +1036,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op5.mp3\" />"
   },
   "check_the_window_choice_five_help": {
     "name": "check_the_window_choice_five_help",
@@ -1106,7 +1106,7 @@
     "action": {
       "type": "end_game"
     },
-    "script": "<<set $checkChest = 1>>\nThe latch to the chest has no lock. You flip the metal catch then open the chest. Inside are a set of abbey robes. You lift them but discover nothing else.\n<<if $checkBed is 0 and $checkWindow is 0>> \n[[check_the_chest_choice_one]] \n<<endif>> \n<<if $checkBed is 0 and $checkWindow is 1>> \n[[check_the_chest_choice_two]] \n<<endif>>\n <<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>> \n[[check_the_chest_choice_three]] \n<<endif>>\n <<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>> \n[[check_the_chest_choice_four]] \n<<endif>> \n<<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>> \n[[check_the_chest_choice_five]]\n <<endif>> \n<<if $checkBed is 1 and $checkWindow is 0>> \n[[check_the_chest_choice_six]] \n<<endif>> \n<<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>> \n[[summing_up]] "
+    "script": "<<set $checkChest = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest.mp3\" />\n<<if $checkBed is 0 and $checkWindow is 0>> \n[[check_the_chest_choice_one]] \n<<endif>> \n<<if $checkBed is 0 and $checkWindow is 1>> \n[[check_the_chest_choice_two]] \n<<endif>>\n <<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>> \n[[check_the_chest_choice_three]] \n<<endif>>\n <<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>> \n[[check_the_chest_choice_four]] \n<<endif>> \n<<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>> \n[[check_the_chest_choice_five]]\n <<endif>> \n<<if $checkBed is 1 and $checkWindow is 0>> \n[[check_the_chest_choice_six]] \n<<endif>> \n<<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>> \n[[summing_up]] "
   },
   "check_the_chest_choice_one": {
     "name": "check_the_chest_choice_one",
@@ -1131,7 +1131,7 @@
         }
       ]
     },
-    "script": " Would you like to check the window or the bed? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op1.mp3\" />"
   },
   "check_the_chest_choice_one_help": {
     "name": "check_the_chest_choice_one_help",
@@ -1177,7 +1177,7 @@
         }
       ]
     },
-    "script": "Would you like to check the bed now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op2.mp3\" />"
   },
   "check_the_chest_choice_two_help": {
     "name": "check_the_chest_choice_two_help",
@@ -1223,7 +1223,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op4.mp3\" />"
   },
   "check_the_chest_choice_three_help": {
     "name": "check_the_chest_choice_three_help",
@@ -1269,7 +1269,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op5.mp3\" />"
   },
   "check_the_chest_choice_four_help": {
     "name": "check_the_chest_choice_four_help",
@@ -1311,7 +1311,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op6.mp3\" />"
   },
   "check_the_chest_choice_five_help": {
     "name": "check_the_chest_choice_five_help",
@@ -1353,7 +1353,7 @@
         }
       ]
     },
-    "script": "Would you like to check the window now? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op3.mp3\" />"
   },
   "check_the_chest_choice_six_help": {
     "name": "check_the_chest_choice_six_help",
@@ -1481,7 +1481,7 @@
     "action": {
       "type": "end_game"
     },
-    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_incorr.mp3\" />\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 0>>\n[[the_applicant_choice_two]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 0>>\n[[the_applicant_choice_three]]\n<<endif>>\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 1>>\n[[the_applicant_choice_four]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 1 and $talkToCecilia is 1>>\n[[summing_up]]\n<<endif>>\n<<if $talkToCecilia is 0>> \n[[the_applicant_choice_one]] "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_corr.mp3\" />\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 0>>\n[[the_applicant_choice_two]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 0>>\n[[the_applicant_choice_three]]\n<<endif>>\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 1>>\n[[the_applicant_choice_four]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 1 and $talkToCecilia is 1>>\n[[summing_up]]\n<<endif>>\n<<if $talkToCecilia is 0>> \n[[the_applicant_choice_one]] "
   },
   "the_applicant_choice_one": {
     "name": "the_applicant_choice_one",
@@ -2100,7 +2100,11 @@
           "nextNode": "why_he_is_here"
         },
         {
-          "utterance": "what is life like",
+          "utterance": "why is here",
+          "nextNode": "why_he_is_here"
+        },
+        {
+          "utterance": "what his life is like",
           "nextNode": "what_is_life_like"
         },
         {
@@ -2122,6 +2126,10 @@
       "choices": [
         {
           "utterance": "reason for being here",
+          "nextNode": "why_he_is_here"
+        },
+        {
+          "utterance": "why is here",
           "nextNode": "why_he_is_here"
         },
         {
@@ -2982,19 +2990,19 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "Sister Catherina",
+          "utterance": "sister catherina",
           "nextNode": "end"
         },
         {
-          "utterance": "Sister Cecilia",
+          "utterance": "sister cecilia",
           "nextNode": "end"
         },
         {
-          "utterance": "Sister Debora",
+          "utterance": "sister deborah",
           "nextNode": "end"
         },
         {
-          "utterance": "Sister Elena",
+          "utterance": "sister elena",
           "nextNode": "end"
         },
         {
@@ -3015,19 +3023,19 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "Sister Catherina",
+          "utterance": "sister catherina",
           "nextNode": "end"
         },
         {
-          "utterance": "Sister Cecilia",
+          "utterance": "sister cecilia",
           "nextNode": "end"
         },
         {
-          "utterance": "Sister Debora",
+          "utterance": "sister deborah",
           "nextNode": "end"
         },
         {
-          "utterance": "Sister Elena",
+          "utterance": "sister elena",
           "nextNode": "end"
         },
         {

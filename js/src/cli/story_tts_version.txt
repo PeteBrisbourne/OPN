@@ -726,13 +726,15 @@ You can say "visit the camp" or "go to the applicant’s room".
 <<set $talkToValerio = 1>>
 NARRATOR: The abbess' face flashes a look of disapproval, leading you towards the main gates of the abbey and points over to the troubadour and his camp. ABBESS BENITA: Very well. I don’t know why they are here outside the Abbey. He and his party seem to come and go quite often. It’s not that I don’t respect their choice of...lifestyle, but I don’t want the sisters being distracted at this time. NARRATOR: Leaving the Abbess at the gate, you walk over to the colourful tent where a number of people are dancing. Amongst them a brightly dressed man is playing a mandolin and singing. NARRATOR: From his wide hat, sun kissed skin and open waistcoat the man has a very carefree air about him. He ceases his singing as you near, greeting you with a broad smile. VALERIO: Greetings, traveller! The name’s Valerio. I do hope we’re not causing any trouble. We just thought we’d help liven the desert up a bit. Everyone should enjoy dancing once in awhile, especially if there is some coin to be made! NARRATOR: Do you ask why he's here or what his life is like?"
 <<choice [[reason for being here|why_he_is_here]]>> |\
-<<choice [[what is life like|what_is_life_like]]>> |\
+<<choice [[why is here|why_he_is_here]]>> |\
+<<choice [[what his life is like|what_is_life_like]]>> |\
 <<choice [[help|go_to_valerio_help]]>> |\
 <<choice [[replay|go_to_valerio]]>>
 
 :: go_to_valerio_help
 You can ask his reasons for being here or what his life is like.
 <<choice [[reason for being here|why_he_is_here]]>> |\
+<<choice [[why is here|why_he_is_here]]>> |\
 <<choice [[what his life is like|what_is_life_like]]>> |\
 <<choice [[help|go_to_valerio_help]]>> |\
 <<choice [[replay|go_to_valerio]]>>
@@ -1002,19 +1004,19 @@ Is it one of the sisters, Valerio or are you not sure?
 :: one_of_the_sisters
 ABBESS BENITA: One of the sisters? Really? This is most disturbing.
 Which do you suspect?
-<<choice [[Sister Catherina|end]]>> |\
-<<choice [[Sister Cecilia|end]]>> |\
-<<choice [[Sister Debora|end]]>> |\
-<<choice [[Sister Elena|end]]>> |\
+<<choice [[sister catherina|end]]>> |\
+<<choice [[sister cecilia|end]]>> |\
+<<choice [[sister deborah|end]]>> |\
+<<choice [[sister elena|end]]>> |\
 <<choice [[help|one_of_the_sisters_help]]>> |\
 <<choice [[replay|one_of_the_sisters]]>>
 
 :: one_of_the_sisters_help
 Do you suspect Catherina, Cecilia, Debora or Elena?
-<<choice [[Sister Catherina|end]]>> |\
-<<choice [[Sister Cecilia|end]]>> |\
-<<choice [[Sister Debora|end]]>> |\
-<<choice [[Sister Elena|end]]>> |\
+<<choice [[sister catherina|end]]>> |\
+<<choice [[sister cecilia|end]]>> |\
+<<choice [[sister deborah|end]]>> |\
+<<choice [[sister elena|end]]>> |\
 <<choice [[help|one_of_the_sisters_help]]>> |\
 <<choice [[replay|one_of_the_sisters]]>>
 

@@ -16,7 +16,7 @@ var newSessionHandlers = {
     'NewSession': function() {
         console.log("NewSession: ");
         console.log("this in NewSession" + JSON.stringify(this));
-        if (this.attributes.lastNode) {
+        if (this.attributes.lastNode && this.attributes.lastNode != "intro") {
             console.log("this.attributes" + JSON.stringify(this.attributes));
             console.log("here");
             this.attributes.lastNode = this.attributes.lastNode.split("_choice")[0];
@@ -32,9 +32,9 @@ var newSessionHandlers = {
             console.log(lastNode);
             console.log(this.attributes.lastNode);
             this.handler.state = RESUME_DECISION_MODE;
-            var welcomeMsg = "Welcome to One Piercing Note, RuneScape quest. A game has already started. Last scene you visited is " + lastNode
-                +  ". Would you like to continue the game?" + "Say 'Yes' to continue the game, Or say 'No' to start a new game. ";
-            var reprompt = "Would you like to continue the game? Say 'Yes' to continue the game, Or say 'No' to start a new game. ";
+            var welcomeMsg = "Welcome to One Piercing Note, RuneScape quest. A game has already started. Last scene you visited was " + lastNode
+                +  ". Would you like to continue the game?" + "Say 'Yes' to continue, or 'No' to start a new game. ";
+            var reprompt = "Would you like to continue the game? Say 'Yes' to continue the game, Or 'No' to start a new game. ";
             this.emit(':ask', welcomeMsg, reprompt);
         }
         else {
@@ -80,12 +80,17 @@ var stateHandlers = {
             var dialog = game.resolve();
             this.attributes.lastNode = game.currentNode.name;
             dialog = dialog.replace(/\n/g, "<break time='250ms'/>");
-            this.emit(':ask', dialog, buildReprompt(game));
+            if (lastNode == 'end' || lastNode == 'end_help') {
+                this.emit(':tell', dialog);
+            }
+            else {
+                this.emit(':ask', dialog, buildReprompt(game));
+            }
         },
         'AMAZON.NoIntent': function () {
             this.handler.state = CONFIRM_MODE;
             console.log('new game');
-            var message = "Are you sure to start a new game? A new game will override the old save. Say 'Yes' to confirm " +
+            var message = "Are you sure you want to start a new game? A new game will override the old saved game. Say 'Yes' to confirm " +
                 "the new game, Or say 'No' to continue previous game.";
             var reprompt = "Say 'Yes' to confirm the new game, Or say 'No' to continue previous game.";
             this.emit(':ask', message, reprompt);
@@ -95,6 +100,25 @@ var stateHandlers = {
         },
         'NewGameIntent': function () {
             this.emitWithState("AMAZON.NoIntent");
+        },
+        'AMAZON.HelpIntent': function () {
+            var message = "Would you like to continue the game? Say 'Yes' to continue the game, Or say 'No' to start a new game. ";
+            var reprompt = "Say 'Yes' to continue the game, Or say 'No' to start a new game.";
+            this.emit(':ask', message, reprompt);
+        },
+        'AMAZON.StopIntent': function () {
+            console.log("this in Stop" + JSON.stringify(this));
+            this.emit(':tell', 'Goodbye.');
+        },
+        'AMAZON.CancelIntent': function () {
+            console.log("this in Cancel" + JSON.stringify(this));
+            this.emit(':tell', 'Goodbye.');
+        },
+        'Unhandled': function () {
+            console.log("Unhandled: " + JSON.stringify(this.event, null, 4));
+            var message = "Sorry, I did not get that. Trying say 'Yes' to continue the game, Or say 'No' to start a new game.";
+            var reprompt = "Say 'Yes' to continue the game, Or say 'No' to start a new game.";
+            this.emit(':ask', message, reprompt);
         }
     }),
 
@@ -114,6 +138,19 @@ var stateHandlers = {
         'NewGameIntent': function () {
             this.emitWithState("AMAZON.YesIntent");
         },
+        'AMAZON.HelpIntent': function () {
+            var message = "Say 'Yes' to confirm the new game, Or say 'No' to continue previous game.";
+            var reprompt = "Say 'Yes' to confirm the new game, Or say 'No' to continue previous game.";
+            this.emit(':ask', message, reprompt);
+        },
+        'AMAZON.StopIntent': function () {
+            console.log("this in Stop" + JSON.stringify(this));
+            this.emit(':tell', 'Goodbye.');
+        },
+        'AMAZON.CancelIntent': function () {
+            console.log("this in Cancel" + JSON.stringify(this));
+            this.emit(':tell', 'Goodbye.');
+        },
         'AMAZON.NoIntent': function () {
             console.log("confirm continue game");
             this.handler.state = PLAY_MODE;
@@ -123,7 +160,16 @@ var stateHandlers = {
             var dialog = game.resolve();
             this.attributes.lastNode = game.currentNode.name;
             dialog = dialog.replace(/\n/g, "<break time='250ms'/>");
-            this.emit(':ask', dialog, buildReprompt(game));
+            if (lastNode == 'end' || lastNode == 'end_help') {
+                this.emit(':tell', dialog);
+            }
+            else this.emit(':ask', dialog, buildReprompt(game));
+        },
+        'Unhandled': function () {
+            console.log("Unhandled: " + JSON.stringify(this.event, null, 4));
+            var message = "Sorry, I did not get that. Trying say 'Yes' to confirm the new game, Or say 'No' to continue previous game.";
+            var reprompt = "Say 'Yes' to confirm the new game, Or say 'No' to continue previous game.";
+            this.emit(':ask', message, reprompt);
         }
     }),
 
@@ -134,7 +180,7 @@ var stateHandlers = {
             this.emit("NewSession");
         },
         'AMAZON.HelpIntent': function () {
-            this.emit(':tell', 'not yet implemented :(');
+            this.emitWithState('EverythingElseIntent', 'help');
         },
         'AMAZON.StopIntent': function () {
             console.log("this in Stop" + JSON.stringify(this));
@@ -200,7 +246,7 @@ var stateHandlers = {
                             };
                             that.emit(':tellWithCard', dialog, cardTitle, cardContent, imageObj);
                         }
-                        that.emit(':tell', dialog);
+                        else that.emit(':tell', dialog);
                     } else {
                         that.emit(':ask', dialog, buildReprompt(game));
                     }
@@ -208,8 +254,9 @@ var stateHandlers = {
             })
         },
         'Unhandled': function () {
-            console.log("Unhandled:  Shouldn't have gotten here 2: " + JSON.stringify(this.event, null, 4));
-            this.emit(':tell', 'Goodbye.');
+            var message = "Sorry, I didn't get that. Trying say 'help' to see what you can say.";
+            var reprompt = "Trying say 'help' to get available options.";
+            this.emit(':ask', message, reprompt);
         }
     })
 };
@@ -228,11 +275,13 @@ exports.handler = function(event, context) {
 function buildReprompt(game) {
     var reprompt = "Try saying: ";
     var choices = game.currentNode.action.choices;
-    for(var i = 0; i < (choices.length > 3 ? 3 : choices.length); i++) {
-        if(i == choices.length - 1) {
-            reprompt += "or \"" + choices[i].utterance + "\".";
-        } else {
-            reprompt += "\"" + choices[i].utterance + "\", ";
+    if (choices) {
+        for (var i = 0; i < (choices.length > 6 ? 6 : choices.length); i++) {
+            if (i == choices.length - 1) {
+                reprompt += "or \"" + choices[i].utterance + "\".";
+            } else {
+                reprompt += "\"" + choices[i].utterance + "\", ";
+            }
         }
     }
     return reprompt;
