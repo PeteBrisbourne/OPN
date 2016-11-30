@@ -2,6 +2,7 @@ var Alexa = require('alexa-sdk');
 var storyData = require('story_data.json');
 var request = require('request');
 var SugarCube = require('sugarcube');
+var voucherReader = require('./voucher_reader');
 
 // TODO: Add handling for delay_then_go actions.
 // TODO: Add more natural reprompt hints for phrases.  Summarize the content and suggest a keyword?
@@ -16,35 +17,37 @@ var newSessionHandlers = {
     'NewSession': function() {
         console.log("NewSession: ");
         console.log("this in NewSession" + JSON.stringify(this));
+
+
         if (this.attributes.lastNode && this.attributes.lastNode != "intro") {
-            console.log("this.attributes" + JSON.stringify(this.attributes));
-            console.log("here");
-            this.attributes.lastNode = this.attributes.lastNode.split("_choice")[0];
-            this.attributes.lastNode = this.attributes.lastNode.split("_help")[0];
+                console.log("this.attributes" + JSON.stringify(this.attributes));
+                console.log("here");
+                this.attributes.lastNode = this.attributes.lastNode.split("_choice")[0];
+                this.attributes.lastNode = this.attributes.lastNode.split("_help")[0];
 
-            console.log(this.attributes.lastNode);
+                console.log(this.attributes.lastNode);
 
-            if (this.attributes.lastNode == 'will' || this.attributes.lastNode == 'wont') {
-                this.attributes.lastNode += "_help";
+                if (this.attributes.lastNode == 'will' || this.attributes.lastNode == 'wont') {
+                    this.attributes.lastNode += "_help";
+                }
+                var lastNode = this.attributes.lastNode.replace(/_/g, " ");
+
+                console.log(lastNode);
+                console.log(this.attributes.lastNode);
+                this.handler.state = RESUME_DECISION_MODE;
+                var welcomeMsg = "Welcome to One Piercing Note, RuneScape quest. A game has already started. Last scene you visited was " + lastNode
+                    +  ". Would you like to continue the game?" + "Say 'Yes' to continue, or 'No' to start a new game. ";
+                var reprompt = "Would you like to continue the game? Say 'Yes' to continue the game, Or 'No' to start a new game. ";
+                this.emit(':ask', welcomeMsg, reprompt);
             }
-            var lastNode = this.attributes.lastNode.replace(/_/g, " ");
-
-            console.log(lastNode);
-            console.log(this.attributes.lastNode);
-            this.handler.state = RESUME_DECISION_MODE;
-            var welcomeMsg = "Welcome to One Piercing Note, RuneScape quest. A game has already started. Last scene you visited was " + lastNode
-                +  ". Would you like to continue the game?" + "Say 'Yes' to continue, or 'No' to start a new game. ";
-            var reprompt = "Would you like to continue the game? Say 'Yes' to continue the game, Or 'No' to start a new game. ";
-            this.emit(':ask', welcomeMsg, reprompt);
-        }
         else {
-            var game = new SugarCube(storyData, this.attributes, storyData.intro);
-            var dialog = game.resolve();
-            this.attributes.lastNode = game.currentNode.name;
-            dialog = dialog.replace(/\n/g, "<break time='250ms'/>");
-            this.handler.state = PLAY_MODE;
-            this.emit(':ask', dialog, buildReprompt(game));
-        }
+                var game = new SugarCube(storyData, this.attributes, storyData.intro);
+                var dialog = game.resolve();
+                this.attributes.lastNode = game.currentNode.name;
+                dialog = dialog.replace(/\n/g, "<break time='250ms'/>");
+                this.handler.state = PLAY_MODE;
+                this.emit(':ask', dialog, buildReprompt(game));
+            }
     },
 
     'AMAZON.HelpIntent': function () {
@@ -71,6 +74,10 @@ var newSessionHandlers = {
 };
 var stateHandlers = {
     resumeDecisionModeIntentHandlers: Alexa.CreateStateHandler(RESUME_DECISION_MODE, {
+        "NewSession" : function () {
+            console.log("new session in resume decision mode");
+            this.emit("NewSession");
+        },
         'AMAZON.YesIntent': function () {
             console.log("continue game");
             this.handler.state = PLAY_MODE;
@@ -123,6 +130,10 @@ var stateHandlers = {
     }),
 
     confirmModeIntentHandlers : Alexa.CreateStateHandler(CONFIRM_MODE, {
+        "NewSession" : function () {
+            console.log("new session in confirm mode");
+            this.emit("NewSession");
+        },
         'AMAZON.YesIntent': function () {
             this.handler.state = PLAY_MODE;
             console.log("confirm new game");
@@ -174,9 +185,15 @@ var stateHandlers = {
     }),
 
     playModeIntentHandlers: Alexa.CreateStateHandler(PLAY_MODE, {
+        'importVoucherCode': function () {
+            voucherReader.importVoucherCodes(()=>{
+                this.emit(':tell', "Good Bye");
+            });
+        },
         'NewSession': function () {
-            console.log("NewSession: ");
-            console.log("this in Play Mode" + JSON.stringify(this));
+            console.log("NewSession in play mode");
+            console.log("this" + JSON.stringify(this));
+            // this.emitWithState("importVoucherCode");
             this.emit("NewSession");
         },
         'AMAZON.HelpIntent': function () {
@@ -234,6 +251,7 @@ var stateHandlers = {
                     if (game.currentNode.action.type == 'end_game') {
                         if (node == "end") {
                             var cardTitle = 'Your RuneScape Offer';
+                            var code = "88888"
                             var cardContent = 'Description: Get your hands on £20 worth of content, including 25 days of membership, in-game currency, and keys to unlock prizes!\r\n' +
                                 'Download instructions \r\n' +
                                 "1.  Visit http://www.runescape.com/ and create your FREE Runescape account\r\n" +
@@ -253,7 +271,13 @@ var stateHandlers = {
                 }
             })
         },
+        'SessionEndedRequest': function () {
+            console.log("SessionEndedRequest");
+            console.log(JSON.stringify(this));
+            this.emit(':responseReady');
+        },
         'Unhandled': function () {
+            console.log("unhandled in play mode");
             var message = "Sorry, I didn't get that. Trying say 'help' to see what you can say.";
             var reprompt = "Trying say 'help' to get available options.";
             this.emit(':ask', message, reprompt);

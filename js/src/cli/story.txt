@@ -99,12 +99,20 @@ Would you like to go to Anna's cell or to the infirmary or talk to the sisters?
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc02_office_of_abbess_incorr.mp3" />
 <<choice [[the murder|ask_murder]]>> |\
 <<choice [[yes|ask_murder]]>> |\
+<<choice [[no|ask_why_is_she_sad_no]]>> |\
+<<choice [[help|ask_why_is_she_sad_help]]>> |\
+<<choice [[replay|ask_why_is_she_sad]]>>
+
+:: ask_why_is_she_sad_no
+Narrator:If you want to continue your quest, you should agree.
+<<choice [[the murder|ask_murder]]>> |\
+<<choice [[yes|ask_murder]]>> |\
 <<choice [[help|ask_why_is_she_sad_help]]>> |\
 <<choice [[replay|ask_why_is_she_sad]]>>
 
 :: ask_why_is_she_sad_help
 What do you ask next? You can ask about the murder.
-<<choice [[the details of the murder|ask_murder]]>> |\
+<<choice [[the murder|ask_murder]]>> |\
 <<choice [[help|ask_why_is_she_sad_help]]>> |\
 <<choice [[replay|ask_why_is_she_sad]]>>
 
@@ -143,6 +151,14 @@ You can go to Sister Anna’s cell OR talk to the sisters.
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc03_travel_to_infirmary_opt02.mp3" />
 <<choice [[go to sister anna's cell|sister_anna_cell]]>> |\
 <<choice [[yes|sister_anna_cell]]>> |\
+<<choice [[No|travel_to_infirmary_choice_two_no]]>> |\
+<<choice [[help|travel_to_infirmary_choice_two_help]]>> |\
+<<choice [[replay|travel_to_infirmary]]>>
+
+:: travel_to_infirmary_choice_two_no
+Narrator:If you want to continue your adventure, you should say yes.
+<<choice [[go to sister anna's cell|sister_anna_cell]]>> |\
+<<choice [[yes|sister_anna_cell]]>> |\
 <<choice [[help|travel_to_infirmary_choice_two_help]]>> |\
 <<choice [[replay|travel_to_infirmary]]>>
 
@@ -155,6 +171,14 @@ You can say: go to Sister Anna’s cell or yes.
 
 :: travel_to_infirmary_choice_three
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc03_travel_to_infirmary_opt03.mp3" />
+<<choice [[talk to the sisters|talk_to_sisters]]>> |\
+<<choice [[yes|talk_to_sisters]]>> |\
+<<choice [[No|travel_to_infirmary_choice_three_no]]>> |\
+<<choice [[help|travel_to_infirmary_choice_three_help]]>> |\
+<<choice [[replay|travel_to_infirmary]]>>
+
+:: travel_to_infirmary_choice_three_no
+Narrator: Consider saying yes.
 <<choice [[talk to the sisters|talk_to_sisters]]>> |\
 <<choice [[yes|talk_to_sisters]]>> |\
 <<choice [[help|travel_to_infirmary_choice_three_help]]>> |\
@@ -171,6 +195,14 @@ You can say talk to the sisters or yes.
 :: sister_anna_cell
 <<set $sisterAnnaCell = 1>>
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc04_sister_anna_cell.mp3" />
+<<choice [[check the bed|check_the_bed]]>> |\
+<<choice [[check the window|check_the_window]]>> |\
+<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[help|sister_anna_cell_help]]>> |\
+<<choice [[replay|sister_anna_cell]]>>
+
+:: sister_anna_cell_help
+You can check the bed, check the window or check the chest?
 <<choice [[check the bed|check_the_bed]]>> |\
 <<choice [[check the window|check_the_window]]>> |\
 <<choice [[check the chest|check_the_chest]]>> |\
@@ -218,6 +250,14 @@ Would you like to check the chest or the window?
 
 :: check_the_bed_choice_two
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op2.mp3" />
+<<choice [[check the window|check_the_window]]>> |\
+<<choice [[yes|check_the_window]]>> |\
+<<choice [[no|check_the_bed_choice_two_no]]>> |\
+<<choice [[help|check_the_bed_choice_two_help]]>> |\
+<<choice [[replay|check_the_bed]]>>
+
+:: check_the_bed_choice_two_no
+Narrator:  You should say 'yes' to continue your game
 <<choice [[check the window|check_the_window]]>> |\
 <<choice [[yes|check_the_window]]>> |\
 <<choice [[help|check_the_bed_choice_two_help]]>> |\
@@ -413,14 +453,14 @@ Would you like to check the chest now? 
 :: check_the_chest_choice_one
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op1.mp3" />
 <<choice [[check the bed|check_the_bed]]>> |\
-<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[check the window|check_the_window]]>> |\
 <<choice [[help|check_the_chest_choice_one_help]]>> |\
 <<choice [[replay|check_the_chest]]>>
 
 :: check_the_chest_choice_one_help
 Would you like to check the window or the bed?
 <<choice [[check the bed|check_the_bed]]>> |\
-<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[check the window|check_the_window]]>> |\
 <<choice [[help|check_the_chest_choice_one_help]]>> |\
 <<choice [[replay|check_the_chest]]>>
 
@@ -476,13 +516,13 @@ It doesn’t look like anything else here is out of place. Would you like to go 
 
 :: check_the_chest_choice_six
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op3.mp3" />
-<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[check the window|check_the_window]]>> |\
 <<choice [[help|check_the_chest_choice_six_help]]>> |\
 <<choice [[replay|check_the_chest]]>>  
 
 :: check_the_chest_choice_six_help
  Would you like to check the window now?
-<<choice [[check the chest|check_the_chest]]>> |\
+<<choice [[check the window|check_the_window]]>> |\
 <<choice [[help|check_the_chest_choice_six_help]]>> |\
 <<choice [[replay|check_the_chest]]>>  
 
@@ -539,6 +579,14 @@ You can ask about the manuscript or the applicant.
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_corr_op1.mp3" />
 <<choice [[talk to cecilia|talk_to_sister_cecilia]]>> |\
 <<choice [[yes|talk_to_sister_cecilia]]>> |\
+<<choice [[no|the_applicant_choice_one_no]]>> |\
+<<choice [[help|the_applicant_choice_one_help]]>> |\
+<<choice [[replay|the_applicant]]>>
+
+:: the_applicant_choice_one_no
+Narrator: You should say yes if you want to continue your quest.
+<<choice [[talk to cecilia|talk_to_sister_cecilia]]>> |\
+<<choice [[yes|talk_to_sister_cecilia]]>> |\
 <<choice [[help|the_applicant_choice_one_help]]>> |\
 <<choice [[replay|the_applicant]]>>
 
@@ -567,6 +615,14 @@ You can go to Sister Anna’s cell or go to the infirmary.
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_corr_op3.mp3" />
 <<choice [[go to anna's cell|sister_anna_cell]]>> |\
 <<choice [[yes|sister_anna_cell]]>> |\
+<<choice [[no|the_applicant_choice_three_no]]>> |\
+<<choice [[help|the_applicant_choice_three_help]]>> |\
+<<choice [[replay|the_applicant]]>>
+
+:: the_applicant_choice_three_no
+Narrator:If you want to continue your quest, you should agree.
+<<choice [[go to anna's cell|sister_anna_cell]]>> |\
+<<choice [[yes|sister_anna_cell]]>> |\
 <<choice [[help|the_applicant_choice_three_help]]>> |\
 <<choice [[replay|the_applicant]]>>
 
@@ -581,6 +637,14 @@ You can say "go to Sister Anna’s cell" or "yes".
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_corr_op4.mp3" />
 <<choice [[go to infirmary|travel_to_infirmary]]>> |\
 <<choice [[yes|travel_to_infirmary]]>> |\
+<<choice [[no|the_applicant_choice_four_no]]>> |\
+<<choice [[help|the_applicant_choice_four_help]]>> |\
+<<choice [[replay|the_applicant]]>>
+
+:: the_applicant_choice_four_no
+Narrator:If you want to continue your adventure, you should say yes.
+<<choice [[go to infirmary|travel_to_infirmary]]>> |\
+<<choice [[yes|travel_to_infirmary]]>> |\
 <<choice [[help|the_applicant_choice_four_help]]>> |\
 <<choice [[replay|the_applicant]]>>
 
@@ -593,6 +657,14 @@ You can say "go to the infirmary" or "yes".
 
 :: the_manuscript
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_incorr.mp3" />
+<<choice [[the applicant|the_applicant]]>> |\
+<<choice [[yes|the_applicant]]>> |\
+<<choice [[no|the_manuscript_no]]>> |\
+<<choice [[help|the_manuscript_help]]>> |\
+<<choice [[replay|the_manuscript]]>>
+
+:: the_manuscript_no
+Narrator:You should say yes if you want to continue.
 <<choice [[the applicant|the_applicant]]>> |\
 <<choice [[yes|the_applicant]]>> |\
 <<choice [[help|the_manuscript_help]]>> |\
@@ -641,6 +713,14 @@ What do you ask about? The story, or, the music?
 :: the_story_choice_one
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_talk_to_cecilia_corr_op1.mp3" />
 <<choice [[yes|talk_to_sister_catherina]]>> |\
+<<choice [[no|the_story_choice_one_no]]>> |\
+<<choice [[talk to catherina|talk_to_sister_catherina]]>> |\
+<<choice [[help|the_story_choice_one_help]]>> |\
+<<choice [[replay|the_story]]>>
+
+:: the_story_choice_one_no
+Narrator:Consider saying yes.
+<<choice [[yes|talk_to_sister_catherina]]>> |\
 <<choice [[talk to catherina|talk_to_sister_catherina]]>> |\
 <<choice [[help|the_story_choice_one_help]]>> |\
 <<choice [[replay|the_story]]>>
@@ -669,6 +749,14 @@ You can go to Sister Anna’s cell or go to the infirmary.
 :: the_story_choice_three
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_talk_to_cecilia_corr_op3.mp3" />
 <<choice [[yes|sister_anna_cell]]>> |\
+<<choice [[no|the_story_choice_three_no]]>> |\
+<<choice [[help|the_story_choice_three_help]]>> |\
+<<choice [[go to sister anna's cell|sister_anna_cell]]>> |\
+<<choice [[replay|the_story]]>>
+
+:: the_story_choice_three_no
+Narrator:If you want to continue your quest, you should agree.
+<<choice [[yes|sister_anna_cell]]>> |\
 <<choice [[help|the_story_choice_three_help]]>> |\
 <<choice [[go to sister anna's cell|sister_anna_cell]]>> |\
 <<choice [[replay|the_story]]>>
@@ -684,6 +772,14 @@ You can say "go to Sister Anna’s cell" or "yes".
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_talk_to_cecilia_corr_op4.mp3" />
 <<choice [[go to infirmary|travel_to_infirmary]]>> |\
 <<choice [[yes|travel_to_infirmary]]>> |\
+<<choice [[no|the_story_choice_four_no]]>> |\
+<<choice [[help|the_story_choice_four_help]]>> |\
+<<choice [[replay|the_story]]>>
+
+:: the_story_choice_four_no
+Narrator:If you want to continue your adventure, you should say yes.
+<<choice [[go to infirmary|travel_to_infirmary]]>> |\
+<<choice [[yes|travel_to_infirmary]]>> |\
 <<choice [[help|the_story_choice_four_help]]>> |\
 <<choice [[replay|the_story]]>>
 
@@ -696,6 +792,14 @@ You can say "go to the infirmary" or say "yes".
 
 :: the_musical_chords
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_talk_to_cecilia_incorr.mp3" />
+<<choice [[the story|the_story]]>> |\
+<<choice [[yes|the_story]]>> |\
+<<choice [[no|the_musical_chords_no]]]>> |\
+<<choice [[help|the_musical_chords_help]]>> |\
+<<choice [[replay|the_musical_chords]]>>
+
+:: the_musical_chords_no
+Narrator: You should say yes if you want to continue your quest.
 <<choice [[the story|the_story]]>> |\
 <<choice [[yes|the_story]]>> |\
 <<choice [[help|the_musical_chords_help]]>> |\
@@ -725,16 +829,14 @@ You can say "visit the camp" or "go to the applicant’s room".
 :: go_to_valerio
 <<set $talkToValerio = 1>>
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc13_talk_to_valerio.mp3" />
-<<choice [[reason for being here|why_he_is_here]]>> |\
-<<choice [[why is here|why_he_is_here]]>> |\
+<<choice [[why he is here|why_he_is_here]]>> |\
 <<choice [[what his life is like|what_is_life_like]]>> |\
 <<choice [[help|go_to_valerio_help]]>> |\
 <<choice [[replay|go_to_valerio]]>>
 
 :: go_to_valerio_help
 You can ask his reasons for being here or what his life is like.
-<<choice [[reason for being here|why_he_is_here]]>> |\
-<<choice [[why is here|why_he_is_here]]>> |\
+<<choice [[why he is here|why_he_is_here]]>> |\
 <<choice [[what his life is like|what_is_life_like]]>> |\
 <<choice [[help|go_to_valerio_help]]>> |\
 <<choice [[replay|go_to_valerio]]>>
@@ -750,6 +852,14 @@ You can ask his reasons for being here or what his life is like.
 :: why_he_is_here_choice_one
 ABBESS BENITA: Ah, Adventurer. Would you like to go to the applicant room now?
 <<choice [[yes|recruit_room]]>> |\
+<<choice [[no|why_he_is_here_choice_one_no]]>> |\
+<<choice [[go to applicant room|recruit_room]]>> |\
+<<choice [[help|why_he_is_here_choice_one_help]]>> |\
+<<choice [[replay|go_to_valerio]]>>
+
+:: why_he_is_here_choice_one_no
+Abbess: It's really the only option at this stage. Would you like to go to the Applicant's room?
+<<choice [[yes|recruit_room]]>> |\
 <<choice [[go to applicant room|recruit_room]]>> |\
 <<choice [[help|why_he_is_here_choice_one_help]]>> |\
 <<choice [[replay|go_to_valerio]]>>
@@ -763,6 +873,14 @@ You can say "go to the applicant's room" or "yes".
 
 :: why_he_is_here_choice_two
 ABBESS BENITA: Ah, Adventurer. Would you care to go to the clock tower?
+<<choice [[go to clock tower|clock_tower]]>> |\
+<<choice [[yes|clock_tower]]>> |\
+<<choice [[no|why_he_is_here_choice_two_no]]>> |\
+<<choice [[help|why_he_is_here_choice_two_help]]>> |\
+<<choice [[replay|go_to_valerio]]>>
+
+:: why_he_is_here_choice_two_no
+Abbess: It's really the only option at this stage. Would you like to go to the Clock Tower now?
 <<choice [[go to clock tower|clock_tower]]>> |\
 <<choice [[yes|clock_tower]]>> |\
 <<choice [[help|why_he_is_here_choice_two_help]]>> |\
@@ -788,6 +906,14 @@ You can say "go to the clock tower" or "yes".
 ABBESS BENITA: Would you like to visit the camp now?.
 <<choice [[visit the camp|go_to_valerio]]>> |\
 <<choice [[yes|go_to_valerio]]>> |\
+<<choice [[no|recruit_room_choice_one_no]]>> |\
+<<choice [[help|recruit_room_choice_one_help]]>> |\
+<<choice [[replay|recruit_room]]>>
+
+:: recruit_room_choice_one_no
+Abbess: I don't believe there's anything else to see. Would you like to visit the camp now?
+<<choice [[visit the camp|go_to_valerio]]>> |\
+<<choice [[yes|go_to_valerio]]>> |\
 <<choice [[help|recruit_room_choice_one_help]]>> |\
 <<choice [[replay|recruit_room]]>>
 
@@ -802,6 +928,14 @@ You can say "visit the camp" or "yes".
 ABBESS BENITA: Would you like to go to the clock tower?
 <<choice [[clock tower|clock_tower]]>> |\
 <<choice [[yes|clock_tower]]>> |\
+<<choice [[no|recruit_room_choice_two_no]]>> |\
+<<choice [[help|recruit_room_choice_two_help]]>> |\
+<<choice [[replay|recruit_room]]>>
+
+:: recruit_room_choice_two_no
+Abbess: It's really the only option at this stage. Would you like to go to the Clock Tower now?
+<<choice [[clock tower|clock_tower]]>> |\
+<<choice [[yes|clock_tower]]>> |\
 <<choice [[help|recruit_room_choice_two_help]]>> |\
 <<choice [[replay|recruit_room]]>>
 
@@ -814,7 +948,15 @@ You can say "go to the clock tower" or "yes".
 
 :: what_is_life_like
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc13_talk_to_valerio_incorr.mp3" />
-<<choice [[reason for being here|why_he_is_here]]>> |\
+<<choice [[why he is here|why_he_is_here]]>> |\
+<<choice [[yes|why_he_is_here]]>> |\
+<<choice [[no|what_is_life_like_no]]>> |\
+<<choice [[help|what_is_life_like_help]]>> |\
+<<choice [[replay|what_is_life_like]]>>
+
+:: what_is_life_like_no
+Narrator:"Yes" is a better answer to this.
+<<choice [[why he is here|why_he_is_here]]>> |\
 <<choice [[yes|why_he_is_here]]>> |\
 <<choice [[help|what_is_life_like_help]]>> |\
 <<choice [[replay|what_is_life_like]]>>
@@ -822,7 +964,7 @@ You can say "go to the clock tower" or "yes".
 :: what_is_life_like_help
 You can say "yes" to ask why he's here.
 <<choice [[yes|why_he_is_here]]>> |\
-<<choice [[reason for being here|why_he_is_here]]>> |\
+<<choice [[why he is here|why_he_is_here]]>> |\
 <<choice [[help|what_is_life_like_help]]>> |\
 <<choice [[replay|what_is_life_like]]>>
 
@@ -839,7 +981,6 @@ You can go to the clock tower or talk to Sister Elena.
 <<choice [[talk to sister elena|talk_to_sister_elena]]>> |\
 <<choice [[help|clock_tower_help]]>> |\
 <<choice [[replay|clock_tower]]>>
-
 
 :: talk_to_sister_elena
 <<set $talkToElena = 1>>
@@ -868,6 +1009,14 @@ You can ask about Sister Anna or how to make cabbage soup?
 ABBESS BENITA: Would you like to continue to the clock tower.
 <<choice [[continue the clock tower|continue_clock_tower]]>> |\
 <<choice [[yes|continue_clock_tower]]>> |\
+<<choice [[no|ask_sister_anna_choice_one_no]]>> |\
+<<choice [[help|ask_sister_anna_choice_one_help]]>> |\
+<<choice [[replay|ask_sister_anna]]>>
+
+:: ask_sister_anna_choice_one_no
+Abbess: It's really the only option at this stage. Would you like to go to the clock Tower now?
+<<choice [[continue the clock tower|continue_clock_tower]]>> |\
+<<choice [[yes|continue_clock_tower]]>> |\
 <<choice [[help|ask_sister_anna_choice_one_help]]>> |\
 <<choice [[replay|ask_sister_anna]]>>
 
@@ -883,6 +1032,14 @@ You can say yes to continue to the clock tower.
 <<choice [[ask about sister anna|ask_sister_anna]]>> |\
 <<choice [[help|make_cabbage_soup_help]]>> |\
 <<choice [[yes|ask_sister_anna]]>> |\
+<<choice [[no|make_cabbage_soup_no]]>> |\
+<<choice [[replay|make_cabbage_soup]]>>
+
+:: make_cabbage_soup_no
+Narrator:If you want to continue your quest, you should say yes.
+<<choice [[ask about sister anna|ask_sister_anna]]>> |\
+<<choice [[help|make_cabbage_soup_help]]>> |\
+<<choice [[yes|ask_sister_anna]]>> |\
 <<choice [[replay|make_cabbage_soup]]>>
 
 :: make_cabbage_soup_help
@@ -894,45 +1051,73 @@ You can say "yes" to ask about Sister Anna.
 :: continue_clock_tower
 <<set $continueClockTower = 1>>
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower.mp3" />
-<<choice [[use the lever|use_the_lever]]>> |\
-<<choice [[claim heard the sound|say_done]]>> |\
+<<choice [[use the lever|use_the_lever_incorrect]]>> |\
+<<choice [[say heard the sound|continue_clock_tower_say_done]]>> |\
 <<choice [[help|continue_clock_tower_help]]>> |\
 <<choice [[replay|continue_clock_tower]]>>
 
 :: continue_clock_tower_help
 You can use the lever or say you heard the sound?
-<<choice [[use the lever|use_the_lever]]>> |\
+<<choice [[use the lever|use_the_lever_incorrect]]>> |\
 <<choice [[say heard the sound|say_done]]>> |\
 <<choice [[help|continue_clock_tower_help]]>> |\
 <<choice [[replay|continue_clock_tower]]>>
 
+:: continue_clock_tower_say_done
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_not_done.mp3" />
+<<choice [[use the lever|use_the_lever_incorrect]]>> |\
+<<choice [[say heard the sound|continue_clock_tower_say_done]]>> |\
+<<choice [[help|continue_clock_tower_say_done_help]]>> |\
+<<choice [[replay|continue_clock_tower_say_done]]>>
+
+:: continue_clock_tower_say_done_help
+You can use the lever or say you heard the sound?
+<<choice [[use the lever|use_the_lever_incorrect]]>> |\
+<<choice [[say heard the sound|continue_clock_tower_say_done]]>> |\
+<<choice [[help|continue_clock_tower_say_done_help]]>> |\
+<<choice [[replay|continue_clock_tower_say_done]]>>
+
+:: use_the_lever_incorrect
+<audio src= "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_turn_lever_incorr.mp3" />
+<<choice [[use the lever|use_the_lever_correct]]>> |\
+<<choice [[say heard the sound|say_done]]>> |\
+<<choice [[help|use_the_lever_help]]>> |\
+<<choice [[replay|use_the_lever_incorrect]]>>
+
+:: use_the_lever_incorrect_help
+Do you use the lever or say you heard the sound?
+<<choice [[use the lever|use_the_lever_correct]]>> |\
+<<choice [[say heard the sound|say_done]]>> |\
+<<choice [[help|use_the_lever_help]]>> |\
+<<choice [[replay|use_the_lever_incorrect]]>>
+
+:: use_the_lever_correct
+<audio src= "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_turn_lever_corr.mp3"/>
+<<choice [[use the lever|use_the_lever_incorrect]]>> |\
+<<choice [[say heard the sound|talk_to_sister_debora]]>> |\
+<<choice [[help|use_the_lever_correct_help]]>> |\
+<<choice [[replay|use_the_lever_correct]]>>
+
+:: use_the_lever_correct_help
+Do you use the lever or say you heard the sound?
+<<choice [[use the lever|use_the_lever_incorrect]]>> |\
+<<choice [[say heard the sound|talk_to_sister_debora]]>> |\
+<<choice [[help|use_the_lever_correct_help]]>> |\
+<<choice [[replay|use_the_lever_correct]]>>
+
 :: say_done
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_not_done.mp3" />
-<<choice [[use the lever|use_the_lever]]>> |\
+<<choice [[use the lever|use_the_lever_correct]]>> |\
 <<choice [[say heard the sound|say_done]]>> |\
 <<choice [[help|say_done_help]]>> |\
 <<choice [[replay|say_done]]>>
 
 :: say_done_help
 You can use the lever or say you heard the sound?
-<<choice [[use the lever|use_the_lever]]>> |\
-<<choice [[claim heard the sound|say_done]]>> |\
+<<choice [[use the lever|use_the_lever_correct]]>> |\
+<<choice [[say heard the sound|say_done]]>> |\
 <<choice [[help|say_done_help]]>> |\
 <<choice [[replay|say_done]]>>
-
-:: use_the_lever
-Pulling the lever, the cogs suddenly start to turn… Do you use the lever or say you heard the sound?
-<<choice [[use the lever|use_the_lever]]>> |\
-<<choice [[claim heard the sound|talk_to_sister_debora]]>> |\
-<<choice [[help|use_the_lever_help]]>> |\
-<<choice [[replay|use_the_lever]]>>
-
-:: use_the_lever_help
-Do you use the lever or claim you heard the sound?
-<<choice [[use the lever|use_the_lever]]>> |\
-<<choice [[claim heard the sound|talk_to_sister_debora]]>> |\
-<<choice [[help|use_the_lever_help]]>> |\
-<<choice [[replay|use_the_lever]]>>
 
 :: talk_to_sister_debora
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc17_talk_to_debora.mp3" />
@@ -960,6 +1145,14 @@ You can ask about her cryptic response or her life before the abbey.
 ABBESS BENITA: Would you care to speak to Sister Elena.
 <<choice [[talk to sister elena|talk_to_sister_elena]]>> |\
 <<choice [[yes|talk_to_sister_elena]]>> |\
+<<choice [[no|her_cryptic_response_choice_one_no]]>> |\
+<<choice [[help|her_cryptic_response_choice_one_help]]>> |\
+<<choice [[replay|her_cryptic_response]]>>
+
+:: her_cryptic_response_choice_one_no
+Abbess: I suggest that speaking to Sister Elena is your only option now.
+<<choice [[talk to sister elena|talk_to_sister_elena]]>> |\
+<<choice [[yes|talk_to_sister_elena]]>> |\
 <<choice [[help|her_cryptic_response_choice_one_help]]>> |\
 <<choice [[replay|her_cryptic_response]]>>
 
@@ -972,6 +1165,14 @@ You can say "yes" to talk to Sister Elena.
 
 :: what_she_did_before_abbey
 <audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc17_talk_to_debora_incorr.mp3" />
+<<choice [[her cryptic response|her_cryptic_response]]>> |\
+<<choice [[yes|her_cryptic_response]]>> |\
+<<choice [[no|what_she_did_before_abbey_no]]>> |\
+<<choice [[help|what_she_did_before_abbey_help]]>> |\
+<<choice [[replay|what_she_did_before_abbey]]>>
+
+:: what_she_did_before_abbey_no
+Narrator:"Yes" is a good answer to this question.
 <<choice [[her cryptic response|her_cryptic_response]]>> |\
 <<choice [[yes|her_cryptic_response]]>> |\
 <<choice [[help|what_she_did_before_abbey_help]]>> |\
@@ -998,6 +1199,7 @@ Is it one of the sisters, Valerio or are you not sure?
 <<choice [[one of the sisters|one_of_the_sisters]]>> |\
 <<choice [[someone else|end]]>> |\
 <<choice [[i am not sure|end]]>> |\
+<<choice [[valerio|end]]>> |\
 <<choice [[help|meeting_with_the_abbess_help]]>> |\
 <<choice [[replay|meeting_with_the_abbess]]>>
 
@@ -1020,4 +1222,4 @@ Do you suspect Catherina, Cecilia, Debora or Elena?
 <<choice [[replay|one_of_the_sisters]]>>
 
 :: end
-<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc18_meet_with_abbess_reply_sisters.mp3" />
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc19_act1_finale.mp3" />

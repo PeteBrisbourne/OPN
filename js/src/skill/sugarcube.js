@@ -81,8 +81,8 @@ module.exports = function(storyData, session, currentNode) {
         var re = /<<([^>]*)>>/;
         var match;
         while(match = re.exec(input)) {
-            console.log("match" + match);
-            console.log("match" + JSON.stringify(match));
+            //console.log("match" + match);
+            //console.log("match" + JSON.stringify(match));
             if(match[1].indexOf('if') == 0) {
                 var head = input.substring(0, match.index);
                 var tail = input.substring(match.index + match[0].length);

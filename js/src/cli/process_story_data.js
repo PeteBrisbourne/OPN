@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-fs.readFile('story.txt', 'utf8', function(err, data) {
+fs.readFile('story_tts_version.txt', 'utf8', function(err, data) {
     if(err) {
         console.log(err);
     } else {

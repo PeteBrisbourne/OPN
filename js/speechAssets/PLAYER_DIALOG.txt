@@ -1,28 +1,24 @@
 start
+help
+replay
+yes
+no
 follow sister catherina
-catherina
-cecilia
-anna
-debora
-elena
-valerio
-murder
-cell
-ask about the applicant
-sister anna's cell
-applicant's room
-go to the applicant's room
-the details of the murder
+the murder
 why is she sad
 sister anna cell
 infirmary
 talk to sisters
 ask murder help
+the details of the murder
 go to sister anna's cell
 talk to the sisters
+check the bed
+check the window
+check the chest
 go to the infirmary
-talk to sister catherina
-talk to sister cecilia
+sister catherina
+sister cecilia
 the manuscript
 the applicant
 talk to cecilia
@@ -33,13 +29,14 @@ music
 talk to catherina
 the story
 visit the camp
-applicant room
+go to the applicant room
 reason for being here
-what is life like
+why is here
 what his life is like
 go to applicant room
 go to clock tower
 clock tower
+[help
 continue clock tower
 talk to sister elena
 sister anna
@@ -47,19 +44,12 @@ make cabbage soup
 continue the clock tower
 ask about sister anna
 use the lever
-claim heard the sound
+say heard the sound
 her cryptic response
 what she did before abbey
 one of the sisters
-sister cecilia
-sister catherina
-sister debora
-sister elena
 someone else
 i am not sure
-check the bed
-check the window
-check the chest
-bed
-chest
-window
+valerio
+sister deborah
+sister elena

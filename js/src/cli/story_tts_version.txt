@@ -840,7 +840,6 @@ You can go to the clock tower or talk to Sister Elena.
 <<choice [[help|clock_tower_help]]>> |\
 <<choice [[replay|clock_tower]]>>
 
-
 :: talk_to_sister_elena
 <<set $talkToElena = 1>>
 SISTER ELENA: Yes? What is it? NARRATOR: The abbess goes over to Sister Elena and explains that you have a few questions about her whereabouts yesterday evening, and about Sister Anna. She waits outside, leaving the two of you to talk. SISTER ELENA: I was here, in the kitchen making cabbage soup. Why, where should I have been? I went down to the cellar to get some supplies at one point, but the rest of the time I was here. Actually, I noticed something while I was down there. I think someone's been stealing food from the cellar. I bet it was Sister Catherina. I've seen her sneaking an extra cup of wine at meals, and I bet she’s just the sort to want to flirt with that rabble outside. As for Sister Anna...she's with Saradomin now. It doesn't matter what I thought of her, and it does no good to speak ill of the dead. Now. Is there something else you need? NARRATOR: Do you ask her about Sister Anna or how to make cabbage soup?
@@ -893,46 +892,74 @@ You can say "yes" to ask about Sister Anna.
 
 :: continue_clock_tower
 <<set $continueClockTower = 1>>
-NARRATOR: Climbing some wooden stairs, you head up into the stone clock tower which raises above the abbey. Stopping at a floor housing all the clock machinery, you notice two feet poking out from under a collection of large cogs. SISTER DEBORAH: Sister Catherina? Is that you? NARRATOR: The feet wriggle. SISTER DEBORAH: It's no good, Catherina, I just can't hear you. I'll be out of here in a minute, just need to get the, uh... Could you do me a favour, Catherina? That lever over there. Could you pull it until you hear the right sound? What was it now...oh yes, it'll be like two crunches followed by a CLUNK! Tell me when you've heard that please! NARRATOR: Do you use the lever or say you heard the sound?
-<<choice [[use the lever|use_the_lever]]>> |\
-<<choice [[claim heard the sound|say_done]]>> |\
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower.mp3" />
+<<choice [[use the lever|use_the_lever_incorrect]]>> |\
+<<choice [[say heard the sound|continue_clock_tower_say_done]]>> |\
 <<choice [[help|continue_clock_tower_help]]>> |\
 <<choice [[replay|continue_clock_tower]]>>
 
 :: continue_clock_tower_help
 You can use the lever or say you heard the sound?
-<<choice [[use the lever|use_the_lever]]>> |\
+<<choice [[use the lever|use_the_lever_incorrect]]>> |\
 <<choice [[say heard the sound|say_done]]>> |\
 <<choice [[help|continue_clock_tower_help]]>> |\
 <<choice [[replay|continue_clock_tower]]>>
 
+:: continue_clock_tower_say_done
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_not_done.mp3" />
+<<choice [[use the lever|use_the_lever_incorrect]]>> |\
+<<choice [[say heard the sound|continue_clock_tower_say_done]]>> |\
+<<choice [[help|continue_clock_tower_say_done_help]]>> |\
+<<choice [[replay|continue_clock_tower_say_done]]>>
+
+:: continue_clock_tower_say_done_help
+You can use the lever or say you heard the sound?
+<<choice [[use the lever|use_the_lever_incorrect]]>> |\
+<<choice [[say heard the sound|continue_clock_tower_say_done]]>> |\
+<<choice [[help|continue_clock_tower_say_done_help]]>> |\
+<<choice [[replay|continue_clock_tower_say_done]]>>
+
+:: use_the_lever_incorrect
+<audio src= "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_turn_lever_incorr.mp3" />
+<<choice [[use the lever|use_the_lever_correct]]>> |\
+<<choice [[say heard the sound|say_done]]>> |\
+<<choice [[help|use_the_lever_help]]>> |\
+<<choice [[replay|use_the_lever_incorrect]]>>
+
+:: use_the_lever_incorrect_help
+Do you use the lever or say you heard the sound?
+<<choice [[use the lever|use_the_lever_correct]]>> |\
+<<choice [[say heard the sound|say_done]]>> |\
+<<choice [[help|use_the_lever_help]]>> |\
+<<choice [[replay|use_the_lever_incorrect]]>>
+
+:: use_the_lever_correct
+<audio src= "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_turn_lever_corr.mp3"/>
+<<choice [[use the lever|use_the_lever_incorrect]]>> |\
+<<choice [[say heard the sound|talk_to_sister_debora]]>> |\
+<<choice [[help|use_the_lever_correct_help]]>> |\
+<<choice [[replay|use_the_lever_correct]]>>
+
+:: use_the_lever_correct_help
+Do you use the lever or say you heard the sound?
+<<choice [[use the lever|use_the_lever_incorrect]]>> |\
+<<choice [[say heard the sound|talk_to_sister_debora]]>> |\
+<<choice [[help|use_the_lever_correct_help]]>> |\
+<<choice [[replay|use_the_lever_correct]]>>
+
 :: say_done
-SISTER DEBORA: Nope. Nope that doesn't seem right. Pull the lever again would you. Remember, it should sound like two crunches followed by a CLUNK! NARRATOR: You can use the lever or say you heard the sound?
-<<choice [[use the lever|use_the_lever]]>> |\
+<audio src = "https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_not_done.mp3" />
+<<choice [[use the lever|use_the_lever_correct]]>> |\
 <<choice [[say heard the sound|say_done]]>> |\
 <<choice [[help|say_done_help]]>> |\
 <<choice [[replay|say_done]]>>
 
 :: say_done_help
 You can use the lever or say you heard the sound?
-<<choice [[use the lever|use_the_lever]]>> |\
-<<choice [[claim heard the sound|say_done]]>> |\
+<<choice [[use the lever|use_the_lever_correct]]>> |\
+<<choice [[say heard the sound|say_done]]>> |\
 <<choice [[help|say_done_help]]>> |\
 <<choice [[replay|say_done]]>>
-
-:: use_the_lever
-Pulling the lever, the cogs suddenly start to turn… Do you use the lever or say you heard the sound?
-<<choice [[use the lever|use_the_lever]]>> |\
-<<choice [[claim heard the sound|talk_to_sister_debora]]>> |\
-<<choice [[help|use_the_lever_help]]>> |\
-<<choice [[replay|use_the_lever]]>>
-
-:: use_the_lever_help
-Do you use the lever or claim you heard the sound?
-<<choice [[use the lever|use_the_lever]]>> |\
-<<choice [[claim heard the sound|talk_to_sister_debora]]>> |\
-<<choice [[help|use_the_lever_help]]>> |\
-<<choice [[replay|use_the_lever]]>>
 
 :: talk_to_sister_debora
 NARRATOR: Suddenly the cogs begin to whurr in unison, the inner workings of the clock tower coming alive around you in mechanical glory. SISTER DEBORA: Yep! That’s it! Let me just get out here… NARRATOR: The feet begin to wriggle towards you revealing an abbey robe, until an elderly woman with white hair and thick rimmed glasses, her eyes magnified, stands up in front of you. SISTER DEBORA: There! Oh. I'm terribly sorry. I thought you were Sister Catherina. She's normally the one who comes up here. Oh and Abbess Benita. What can I do for you? ABBESS BENITA: Ah Sister Debora. I assume you’re in the middle of fixing things? If you wouldn’t mind I’d appreciate if you could talk a little about Sister Anna. I know it might be hard. SISTER DEBORA: Sister Ban-ana? No no. You must mean Sister Anna. Well, a part breaks that you'd expected to hold for years...but that doesn't stop the whole mechanism, it just sets it in a different direction. Saradomin is a better clock-maker than us. As for yesterday I was here, repairing the clock. As you can see it’s been playing up a bit. NARRATOR: Do you ask Sister Debora about her cryptic response or her life before the abbey?
