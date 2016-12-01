@@ -10,13 +10,16 @@ sister anna cell
 infirmary
 talk to sisters
 ask murder help
-the details of the murder
 go to sister anna's cell
 talk to the sisters
+No
 check the bed
 check the window
 check the chest
 go to the infirmary
+yes|talk_to_sisters]]>> |\<<choice [[help
+yes|check_the_chest]]>> |\<<choice [[help
+yes|check_the_bed]]>> |\<<choice [[help
 sister catherina
 sister cecilia
 the manuscript
@@ -30,8 +33,7 @@ talk to catherina
 the story
 visit the camp
 go to the applicant room
-reason for being here
-why is here
+why he is here
 what his life is like
 go to applicant room
 go to clock tower
@@ -41,12 +43,14 @@ continue clock tower
 talk to sister elena
 sister anna
 make cabbage soup
+talk to abbess
 continue the clock tower
+continue to the clock tower
 ask about sister anna
-use the lever
+pull the lever
 say heard the sound
 her cryptic response
-what she did before abbey
+her life before abbey
 one of the sisters
 someone else
 i am not sure

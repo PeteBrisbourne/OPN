@@ -12,22 +12,31 @@ var voucherReader = function() {
             console.log("importVoucherCodes");
             var i = 0;
             var lineReader = require('readline').createInterface({
-                input: require('fs').createReadStream('voucher.csv')
+                input: require('fs').createReadStream('voucherCode3.csv')
             });
 
             lineReader.on('line', function (line) {
                 console.log(i);
                 i++;
                 console.log(line);
-                calls.push(function() {
-                    dynamoDbClient.putVoucherCode(line, ()=> {
-                        console.log('Line from file:', line);
-                    });
+                dynamoDbClient.putVoucherCode(line, ()=> {
+                    console.log('Line from file:', line);
                 });
             });
 
-            async.parallel(calls, function() {
-                callback();
+        },
+
+        scanVoucherCodes : function (callback) {
+            console.log("scanVoucherCodes");
+            dynamoDbClient.scanVoucherCode((items)=>{
+                callback(items);
+            });
+        },
+
+        updateVoucherCodes : function (selectedItem, userID, callback) {
+            console.log("updateVoucherCode");
+            dynamoDbClient.updateVoucherCode(selectedItem, userID, (err)=>{
+                callback(err);
             });
         }
     };

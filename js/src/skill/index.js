@@ -65,7 +65,7 @@ var newSessionHandlers = {
     },
 
     'Unhandled': function () {
-        console.log("this in NewSeesion Unhandle" + JSON.stringify(this));
+        console.log("this in NewSession Unhandle" + JSON.stringify(this));
         console.log("Unhandled:  Shouldn't have gotten here 1: " + JSON.stringify(this.event, null, 4));
         var message = "Sorry, I did not get that, say 'continue' to continue game or say 'new game' to start a new game";
         var reprompt = "Say 'continue' to continue game or say 'new game' to start a new game";
@@ -185,16 +185,12 @@ var stateHandlers = {
     }),
 
     playModeIntentHandlers: Alexa.CreateStateHandler(PLAY_MODE, {
-        'importVoucherCode': function () {
-            voucherReader.importVoucherCodes(()=>{
-                this.emit(':tell', "Good Bye");
-            });
-        },
         'NewSession': function () {
             console.log("NewSession in play mode");
             console.log("this" + JSON.stringify(this));
-            // this.emitWithState("importVoucherCode");
+            //this.emitWithState("importVoucherCode");
             this.emit("NewSession");
+            //this.emitWithState("scanVoucherCode");
         },
         'AMAZON.HelpIntent': function () {
             this.emitWithState('EverythingElseIntent', 'help');
@@ -240,7 +236,6 @@ var stateHandlers = {
                 } else {
                     if (DEBUG) console.log("EverythingElseIntent: selectedNode=" + JSON.stringify(node, null, 4));
                     console.log(JSON.stringify(node));
-                    // that.attributes.lastNode = node.name;
                     game.currentNode = node;
                     var dialog = game.resolve();
                     that.attributes.lastNode = game.currentNode.name;
@@ -249,20 +244,25 @@ var stateHandlers = {
                     dialog = dialog.replace(/\n/g, "<break time='250ms'/>");
 
                     if (game.currentNode.action.type == 'end_game') {
-                        if (node == "end") {
-                            var cardTitle = 'Your RuneScape Offer';
-                            var code = "88888"
-                            var cardContent = 'Description: Get your hands on £20 worth of content, including 25 days of membership, in-game currency, and keys to unlock prizes!\r\n' +
-                                'Download instructions \r\n' +
-                                "1.  Visit http://www.runescape.com/ and create your FREE Runescape account\r\n" +
-                                "2.  Hit ‘Play Now’ and follow the prompts to download – you now have access to the world of Gielinor! \r\n" +
-                                "3.  Next, visit https://secure.runescape.com/m=billing_core/voucherform.ws?ssl=1 and log in when prompted \r\n" +
-                                "4.  Enter your starter pack code in the box available then hit redeem to unlock your greatest adventure!\r\n";
-                            var imageObj = {
-                              "smallImageUrl" : "https://s3-eu-west-1.amazonaws.com/runescape/images/Runescape_Logo_small.png",
-                              "largeImageUrl" : "https://s3-eu-west-1.amazonaws.com/runescape/images/Runescape_Logo.png"
-                            };
-                            that.emit(':tellWithCard', dialog, cardTitle, cardContent, imageObj);
+                        if (node.name == "end") {
+                            scanVoucherCode.call(that,()=>{
+                                if (that.attributes.voucherCode != "undefined") {
+                                    var cardTitle = 'Your RuneScape Offer';
+                                    var code = that.attributes.voucherCode;
+                                    var cardContent = 'Get your hands on £20 worth of content, including 25 days of membership, in-game currency, and keys to unlock prizes! Your code is ' + code +'\r\n' +
+                                        'Download instructions \r\n' +
+                                        "1.  Visit http://www.runescape.com/ and create your FREE Runescape account\r\n" +
+                                        "2.  Hit ‘Play Now’ and follow the prompts to download – you now have access to the world of Gielinor! \r\n" +
+                                        "3.  Next, visit http://www.runescape.com/redeem and log in when prompted \r\n" +
+                                        "4.  Enter your starter pack code in the box available then hit redeem to unlock your greatest adventure!\r\n";
+                                    var imageObj = {
+                                        "smallImageUrl" : "https://s3-eu-west-1.amazonaws.com/runescape/images/Runescape_Logo_small.png",
+                                        "largeImageUrl" : "https://s3-eu-west-1.amazonaws.com/runescape/images/Runescape_Logo.png"
+                                    };
+                                    that.emit(':tellWithCard', dialog, cardTitle, cardContent, imageObj);
+                                }
+                                else that.emit(':tell', dialog);
+                            });
                         }
                         else that.emit(':tell', dialog);
                     } else {
@@ -310,3 +310,62 @@ function buildReprompt(game) {
     }
     return reprompt;
 }
+
+function importVoucherCode() {
+    voucherReader.importVoucherCodes(()=>{
+        this.emit(":tell","good bye");
+    });
+}
+
+function scanVoucherCode(callback) {
+    console.log("scanVoucherCode");
+    voucherReader.scanVoucherCodes((items)=>{
+        console.log(JSON.stringify(this));
+        console.log("finish scanVoucherCode");
+        console.log(items.length);
+        var userID = this.event.session.user.userId;
+        console.log(userID);
+        var selectedItems = [];
+        while (selectedItems.length < 3) {
+            var rand = items[Math.floor(Math.random() * items.length)];
+            if (selectedItems.indexOf(rand) == -1) {
+                selectedItems.push(rand);
+            }
+        }
+        console.log(selectedItems.length);
+        console.log(JSON.stringify(selectedItems));
+        updateVoucherCode.call(this, selectedItems, userID, ()=>{
+            callback();
+        });
+    });
+}
+
+function updateVoucherCode(items, userID, callback) {
+    console.log("updateVoucherCode");
+    //pick up one by random
+    //var selectedItem = items[Math.floor(Math.random() * items.length)];
+    //console.log(selectedItem);
+    //console.log(JSON.stringify(selectedItem));
+
+    voucherReader.updateVoucherCodes(items[0], userID, (err)=>{
+        if (err) {
+            console.log(error);
+            items.shift();
+            if (items.length > 0) {
+                updateVoucherCode.call(this, items, userID);
+            } else {
+                this.attributes.voucherCode = "undefined";
+            }
+        }
+        else {
+            console.log(JSON.stringify(this));
+            console.log(JSON.stringify(items[0]));
+            this.event.session.attributes.voucherCode = items[0].voucherCode;
+            console.log("finish updateVoucherCode");
+            callback();
+        }
+    });
+}
+
+
+

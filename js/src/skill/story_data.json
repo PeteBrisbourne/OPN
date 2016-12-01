@@ -18,7 +18,7 @@
         }
       ]
     },
-    "script": "<<set $sisterAnnaCell = 0>>\n<<set $talkToSisters = 0>>\n<<set $talkToCatherina = 0>>\n<<set $talkToCecilia = 0>>\n<<set $talkToElena = 0>>\n<<set $travelToInfirmary = 0>>\n<<set $talkToValerio = 0>>\n<<set $recruitRoom = 0>>\n<<set $continueClockTower = 0>>\n<<set $checkBed = 0>>\n<<set $checkChest = 0>>\n<<set $checkWindow = 0>>\nNARRATOR: Jagex proudly present; One Piercing Note: A RuneScape adventure. In this audio quest, you take the role of an investigator who has been tasked to help solve a mystery set in the medieval Abbey of St. Elspeth.\nAnytime you feel stuck during your adventure, just say 'help'.\nTo start a new game say 'Start'."
+    "script": "<<set $sisterAnnaCell = 0>>\n<<set $talkToSisters = 0>>\n<<set $talkToCatherina = 0>>\n<<set $talkToCecilia = 0>>\n<<set $talkToElena = 0>>\n<<set $travelToInfirmary = 0>>\n<<set $talkToValerio = 0>>\n<<set $recruitRoom = 0>>\n<<set $continueClockTower = 0>>\n<<set $checkBed = 0>>\n<<set $checkChest = 0>>\n<<set $checkWindow = 0>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01_intro.mp3\" />"
   },
   "intro_help": {
     "name": "intro_help",
@@ -64,7 +64,7 @@
         }
       ]
     },
-    "script": "The abbey stands in a sea of hazy hot desert, with its single clock tower jutting towards the blue sky like a lighthouse. The sun beats down relentlessly on its stone-white walls, and burns the back of your neck as you approach the front gate. You had overheard that the Abbey of St. Elspeth Citharede was looking for an adventurer. To what end you did not know, but the unusual request had been more than enough to capture your interest. Approaching the front gate, a person clothed in white robes shuffles to her feet. Perhaps this is one of the Abbey Sisters. SISTER CATHERINA: Thank Saradomin! You must be the adventurer the abbess prayed for! My name is Sister Catherina. Our abbess asked me to wait here for you to arrive. Will you help us Adventurer? Sister Catherine looks at you expectantly. What do you say; yes or no?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc01_outside_the_abbey.mp3\" />"
   },
   "outside_the_abbey_help": {
     "name": "outside_the_abbey_help",
@@ -114,7 +114,7 @@
         }
       ]
     },
-    "script": "SISTER CATHERINA: Saradomin be praised! Please, follow me. I will take you to our Abbess who will explain more. NARRATOR: Would you like to follow Sister Catherina?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc01_outside_the_abbey_corr.mp3\" />"
   },
   "will_help_help": {
     "name": "will_help_help",
@@ -155,6 +155,10 @@
           "nextNode": "office_of_abbess"
         },
         {
+          "utterance": "no",
+          "nextNode": "wont_help_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "wont_help_help"
         },
@@ -164,7 +168,36 @@
         }
       ]
     },
-    "script": "SISTER CATHERINA: Oh. I see... Are you...certain you can’t help us? Please say yes."
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01_sc01_outside_the_abbey_incorr.mp3\" />"
+  },
+  "wont_help_no": {
+    "name": "wont_help_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "yes",
+          "nextNode": "office_of_abbess"
+        },
+        {
+          "utterance": "follow sister catherina",
+          "nextNode": "office_of_abbess"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "wont_help_no"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "wont_help_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "wont_help"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc01NAR_no.mp3\" />"
   },
   "wont_help_help": {
     "name": "wont_help_help",
@@ -210,7 +243,7 @@
         }
       ]
     },
-    "script": "NARRATOR: Sister Catherina leads you through the ornate front gate of the abbey and into its paved courtyard where a flowing fountain stands in midst of the dry desert. The abbey certainly has a humble air about it, from its worn white walls to the lack of any fanciful decoration; the whole place is a testament to the simple and devoted lifestyle the Sisters must lead within and their dedication of worship to their god, Saradomin. Off to the side of the courtyard, Sister Catherina stops outside a dark wooden door. ABBESS BENITA: Come in. NARRATOR: You enter the room. A small room which appears to be more of an office than a place of worship. Behind a large desk sits an older woman, dressed in the same white robes as Sister Catherina. Her face has much more of a serious, authoritative, gaze, and wrinkled lines suggest a lifetime of devotion. ABBESS BENITA: Ah. You must be an adventurer who has heard our call. Thank Saradomin you’ve come. I’m the Abbess; Abbess Benita. I've called you here for a sensitive task - one that I would prefer to deal with quietly, without involving the Church authorities. Sister Catherina, please leave us. NARRATOR: The Abbess looks down at her desk, carefully replacing her ink quill. ABBESS BENITA: One of our sisters, Sister Anna, has been, I believe, murdered. Murdered quite brutally. I need you to investigate, for I fear the killer may still be in the abbey. I’m sure you must have some questions so please, ask them. NARRATOR: The Abbess waits for your question. Do you ask about the murder or why she's sad?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc02_office_of_abbess.mp3\" />"
   },
   "office_of_abbess_help": {
     "name": "office_of_abbess_help",
@@ -264,7 +297,7 @@
         }
       ]
     },
-    "script": "ABBESS BENITA: Sister Anna was one of our most devoted sisters, and, a trusted friend. She was exactly what we should aspire to be; humble and committed to our worship of Saradomin. I last saw her after the afternoon prayer service, but when she didn’t turn up for the evening service, I went to her cell and there found her body. It was…horrific. The injuries were so severe that I had to stop myself from screaming. It wouldn’t be right to scare the other Sisters so…I moved the body to the infirmary and cleaned and wrapped it myself. I’ve forbidden the other sisters from seeing it. NARRATOR: Despite the abbess’ stern composure, you notice she is trembling. ABBESS BENITA: Please. The abbey is open for you to investigate. I will accompany you so you don’t get lost. I don’t mean to tell you how to proceed. But what would you like to do next? Would you like to go to Anna's cell or to the infirmary or talk to the sisters?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc02_office_of_abbess_corr.mp3\" />"
   },
   "ask_murder_help": {
     "name": "ask_murder_help",
@@ -309,6 +342,10 @@
           "nextNode": "ask_murder"
         },
         {
+          "utterance": "no",
+          "nextNode": "ask_why_is_she_sad_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "ask_why_is_she_sad_help"
         },
@@ -318,7 +355,32 @@
         }
       ]
     },
-    "script": "NARRATOR: The Abbess flashes you a look of disbelief. ABBESS BENITA: Why am I SAD? I’ve just told you that one of my Sisters has been murdered. As abbess I am charged with the welfare of everyone in this abbey. Do you not think that may have something to do with it? NARRATOR: Do you ask about the murder now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc02_office_of_abbess_incorr.mp3\" />"
+  },
+  "ask_why_is_she_sad_no": {
+    "name": "ask_why_is_she_sad_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "the murder",
+          "nextNode": "ask_murder"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "ask_murder"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "ask_why_is_she_sad_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "ask_why_is_she_sad"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc02_NAR_no.mp3\" />"
   },
   "ask_why_is_she_sad_help": {
     "name": "ask_why_is_she_sad_help",
@@ -326,7 +388,7 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "the details of the murder",
+          "utterance": "the murder",
           "nextNode": "ask_murder"
         },
         {
@@ -346,7 +408,74 @@
     "action": {
       "type": "end_game"
     },
-    "script": "<<set $travelToInfirmary = 1>>\nNARRATOR: The Abbess leads you through the abbey towards the infirmary. Around you, the life of worship seems to be continuing unabated in spite of a lingering threat. Eventually the abbess stops at a wooden door. ABBESS BENITA: I shall wait here so as to ensure you’re not disturbed. Please, be respectful. NARRATOR: You enter the infirmary and approach the body, lifting the white sheet which covers it. Indeed, the body has been cleaned and put in burial robes. You take a look at the face; it has been horribly mutilated. The front of the skull has been bludgeoned in, and the skin of the face has been removed. On the back of the head you find a blunt force wound, as if she was hit by a heavy object. There is a row of three deep stab wounds in the victim's chest, one of them piercing her heart. The victim's feet have been heavily mutilated. Several toes have been cut off. Taking a moment to ensure you haven't missed anything you pull the sheet back over the body and return to the Abbess.\n<<if $sisterAnnaCell is 0 and $talkToSisters is 0>>\n[[travel_to_infirmary_choice_one]]\n<<endif>>\n<<if $sisterAnnaCell is 0 and $talkToSisters is 1>>\n[[travel_to_infirmary_choice_two]]\n<<endif>>\n<<if $sisterAnnaCell is 1 and $talkToSisters is 0>>\n[[travel_to_infirmary_choice_three]]\n<<endif>>\n<<if $sisterAnnaCell is 1 and $talkToSisters is 1>>\n[[summing_up]]"
+    "script": "<<set $travelToInfirmary = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc03_travel_to_infirmary.mp3\" />\n<<if $sisterAnnaCell is 0 and $talkToSisters is 0>>\n[[travel_to_infirmary_choice_one]]\n<<endif>>\n<<if $sisterAnnaCell is 0 and $talkToSisters is 1>>\n[[travel_to_infirmary_choice_two]]\n<<endif>>\n<<if $sisterAnnaCell is 1 and $talkToSisters is 0>>\n[[travel_to_infirmary_choice_three]]\n<<endif>>\n<<if $sisterAnnaCell is 1 and $talkToSisters is 1>>\n[[do_you_talk_to_abbess]]"
+  },
+  "do_you_talk_to_abbess": {
+    "name": "do_you_talk_to_abbess",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "yes",
+          "nextNode": "summing_up"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "do_you_talk_to_abbess_no"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "do_you_talk_to_abbess_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "do_you_talk_to_abbess"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op6.mp3\" />"
+  },
+  "do_you_talk_to_abbess_no": {
+    "name": "do_you_talk_to_abbess_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "yes",
+          "nextNode": "summing_up"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "do_you_talk_to_abbess_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "do_you_talk_to_abbess"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc03_NAR_no.mp3\" />"
+  },
+  "do_you_talk_to_abbess_help": {
+    "name": "do_you_talk_to_abbess_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "yes",
+          "nextNode": "summing_up"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "do_you_talk_to_abbess_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "do_you_talk_to_abbess"
+        }
+      ]
+    },
+    "script": "You can say \"Yes\"."
   },
   "travel_to_infirmary_choice_one": {
     "name": "travel_to_infirmary_choice_one",
@@ -371,7 +500,7 @@
         }
       ]
     },
-    "script": "ABBESS BENITA: Very well. Would you care to go to Anna's cell or talk to the Sisters?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc03_travel_to_infirmary_opt01.mp3\" />"
   },
   "travel_to_infirmary_choice_one_help": {
     "name": "travel_to_infirmary_choice_one_help",
@@ -412,6 +541,10 @@
           "nextNode": "sister_anna_cell"
         },
         {
+          "utterance": "No",
+          "nextNode": "travel_to_infirmary_choice_two_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "travel_to_infirmary_choice_two_help"
         },
@@ -421,7 +554,32 @@
         }
       ]
     },
-    "script": "ABBESS BENITA: Very well. Would you like to visit Sister Anna’s cell now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc03_travel_to_infirmary_opt02.mp3\" />"
+  },
+  "travel_to_infirmary_choice_two_no": {
+    "name": "travel_to_infirmary_choice_two_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to sister anna's cell",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "travel_to_infirmary_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "travel_to_infirmary"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc03_NAR_no.mp3\" />"
   },
   "travel_to_infirmary_choice_two_help": {
     "name": "travel_to_infirmary_choice_two_help",
@@ -462,6 +620,10 @@
           "nextNode": "talk_to_sisters"
         },
         {
+          "utterance": "No",
+          "nextNode": "travel_to_infirmary_choice_three_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "travel_to_infirmary_choice_three_help"
         },
@@ -471,7 +633,32 @@
         }
       ]
     },
-    "script": "ABBESS BENITA: Very well. Would you like to talk to the sisters now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc03_travel_to_infirmary_opt03.mp3\" />"
+  },
+  "travel_to_infirmary_choice_three_no": {
+    "name": "travel_to_infirmary_choice_three_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "travel_to_infirmary_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "travel_to_infirmary"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc03_NAR_no.mp3\" />"
   },
   "travel_to_infirmary_choice_three_help": {
     "name": "travel_to_infirmary_choice_three_help",
@@ -525,14 +712,43 @@
         }
       ]
     },
-    "script": "<<set $sisterAnnaCell = 1>>\nABBESS BENITA: Sister Anna’s cell is this way. Please follow me. NARRATOR: The two of you walk through the abbey into the residence wing. The abbess stops at a door with the name ‘Sister Anna’ painted across it. The room is small and sparse of furniture apart from an uncomfortable looking bed and at the foot of it, a chest. The bare stone walls are without decoration. A warm breeze hits you, drawing your attention to the one solitary window. ABBESS BENITA: I’ve kept the room locked since I found the body. Nobody has been in here since, not even to clean. NARRATOR: Would you like to check the bed, the chest or the window?"
+    "script": "<<set $sisterAnnaCell = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc04_sister_anna_cell.mp3\" />"
+  },
+  "sister_anna_cell_help": {
+    "name": "sister_anna_cell_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the bed",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "check the window",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "sister_anna_cell_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "sister_anna_cell"
+        }
+      ]
+    },
+    "script": "You can check the bed, check the window or check the chest?"
   },
   "check_the_bed": {
     "name": "check_the_bed",
     "action": {
       "type": "end_game"
     },
-    "script": "<<set $checkBed = 1>>\nNARRATOR: The bed is neatly made, though looks extremely uncomfortable. You lift the pillows and sheets but find nothing. Kneeling down you reach around underneath until…your fingers touch upon something soft. Pulling it out you reveal a piece of cloth. ABBESS BENITA: That looks like a piece of clothing, but it doesn't match any of the robes the Sisters wear. How strange.\n<<if $checkWindow is 0 and $checkChest is 0>>\n[[check_the_bed_choice_one]]\n<<endif>>\n<<if $checkWindow is 0 and $checkChest is 1>>\n[[check_the_bed_choice_two]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>>\n[[check_the_bed_choice_three]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>>\n[[check_the_bed_choice_four]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>>\n[[check_the_bed_choice_five]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 0>>\n[[check_the_bed_choice_six]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>>\n[[summing_up]]"
+    "script": "<<set $checkBed = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed.mp3\" />\n<<if $checkWindow is 0 and $checkChest is 0>>\n[[check_the_bed_choice_one]]\n<<endif>>\n<<if $checkWindow is 0 and $checkChest is 1>>\n[[check_the_bed_choice_two]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>>\n[[check_the_bed_choice_three]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>>\n[[check_the_bed_choice_four]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>>\n[[check_the_bed_choice_five]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 0>>\n[[check_the_bed_choice_six]]\n<<endif>>\n<<if $checkWindow is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>>\n[[do_you_talk_to_abbess]]"
   },
   "check_the_bed_choice_one": {
     "name": "check_the_bed_choice_one",
@@ -557,7 +773,7 @@
         }
       ]
     },
-    "script": "Would you like to check the chest or the window?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op1.mp3\" />"
   },
   "check_the_bed_choice_one_help": {
     "name": "check_the_bed_choice_one_help",
@@ -598,6 +814,10 @@
           "nextNode": "check_the_window"
         },
         {
+          "utterance": "no",
+          "nextNode": "check_the_bed_choice_two_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "check_the_bed_choice_two_help"
         },
@@ -607,7 +827,32 @@
         }
       ]
     },
-    "script": "Would you like to check the window now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op2.mp3\" />"
+  },
+  "check_the_bed_choice_two_no": {
+    "name": "check_the_bed_choice_two_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the window",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_NAR_no.mp3\" />"
   },
   "check_the_bed_choice_two_help": {
     "name": "check_the_bed_choice_two_help",
@@ -657,7 +902,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op3.mp3\" />"
   },
   "check_the_bed_choice_three_help": {
     "name": "check_the_bed_choice_three_help",
@@ -698,6 +943,10 @@
           "nextNode": "travel_to_infirmary"
         },
         {
+          "utterance": "no",
+          "nextNode": "check_the_bed_choice_four_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "check_the_bed_choice_four_help"
         },
@@ -707,7 +956,32 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op4.mp3\" />"
+  },
+  "check_the_bed_choice_four_no": {
+    "name": "check_the_bed_choice_four_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_NAR_no.mp3\" />"
   },
   "check_the_bed_choice_four_help": {
     "name": "check_the_bed_choice_four_help",
@@ -732,10 +1006,60 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now?"
+    "script": "You can go to the infirmary now."
   },
   "check_the_bed_choice_five": {
     "name": "check_the_bed_choice_five",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "check_the_bed_choice_five_no"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_bed_choice_five_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op5.mp3\" />"
+  },
+  "check_the_bed_choice_five_no": {
+    "name": "check_the_bed_choice_five_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "yes|talk_to_sisters]]>> |\\<<choice [[help",
+          "nextNode": "check_the_bed_choice_five_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "check_the_bed"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_NAR_no.mp3\" />"
+  },
+  "check_the_bed_choice_five_help": {
+    "name": "check_the_bed_choice_five_help",
     "action": {
       "type": "choice",
       "choices": [
@@ -757,32 +1081,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now?"
-  },
-  "check_the_bed_choice_five_help": {
-    "name": "check_the_bed_choice_five_help",
-    "action": {
-      "type": "choice",
-      "choices": [
-        {
-          "utterance": "talk to the sisters",
-          "nextNode": "talk_to_sisters"
-        },
-        {
-          "utterance": "go to the infirmary",
-          "nextNode": "travel_to_infirmary"
-        },
-        {
-          "utterance": "help",
-          "nextNode": "check_the_bed_choice_five_help"
-        },
-        {
-          "utterance": "replay",
-          "nextNode": "check_the_bed"
-        }
-      ]
-    },
-    "script": "Would you like to talk to the sisters or go to the infirmary?"
+    "script": "Would you like to talk to the sisters?"
   },
   "check_the_bed_choice_six": {
     "name": "check_the_bed_choice_six",
@@ -794,6 +1093,14 @@
           "nextNode": "check_the_chest"
         },
         {
+          "utterance": "yes",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "check_the_bed_choice_six_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "check_the_bed_choice_six_help"
         },
@@ -803,7 +1110,24 @@
         }
       ]
     },
-    "script": "Would you like to check the chest now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op7.mp3\" />"
+  },
+  "check_the_bed_choice_six_no": {
+    "name": "check_the_bed_choice_six_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the chest",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "yes|check_the_chest]]>> |\\<<choice [[help",
+          "nextNode": "check_the_bed_choice_six_help"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_NAR_no.mp3\" />"
   },
   "check_the_bed_choice_six_help": {
     "name": "check_the_bed_choice_six_help",
@@ -824,14 +1148,14 @@
         }
       ]
     },
-    "script": "Would you like to check the chest now?"
+    "script": "You can check the chest."
   },
   "check_the_window": {
     "name": "check_the_window",
     "action": {
       "type": "end_game"
     },
-    "script": "<<set $checkWindow = 1>>\n You walk to the small window you notice that it is smashed, however there appears to be no glass in the room itself.\n<<if $checkBed is 0 and $checkChest is 0>> \n[[check_the_window_choice_one]] \n<<endif>> \n<<if $checkBed is 0 and $checkChest is 1>> \n[[check_the_window_choice_two]] \n<<endif>>\n <<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>> \n[[check_the_window_choice_three]] \n<<endif>>\n <<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>> \n[[check_the_window_choice_four]] \n<<endif>> \n<<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>> \n[[check_the_window_choice_five]]\n <<endif>> \n<<if $checkBed is 1 and $checkChest is 0>> \n[[check_the_window_choice_six]] \n<<endif>> \n<<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>> \n[[summing_up]] "
+    "script": "<<set $checkWindow = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window.mp3\" />\n<<if $checkBed is 0 and $checkChest is 0>> \n[[check_the_window_choice_one]] \n<<endif>> \n<<if $checkBed is 0 and $checkChest is 1>> \n[[check_the_window_choice_two]] \n<<endif>>\n <<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>> \n[[check_the_window_choice_three]] \n<<endif>>\n <<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>> \n[[check_the_window_choice_four]] \n<<endif>> \n<<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>> \n[[check_the_window_choice_five]]\n <<endif>> \n<<if $checkBed is 1 and $checkChest is 0>> \n[[check_the_window_choice_six]] \n<<endif>> \n<<if $checkBed is 1 and $checkChest is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>> \n[[do_you_talk_to_abbess]] "
   },
   "check_the_window_choice_one": {
     "name": "check_the_window_choice_one",
@@ -856,7 +1180,7 @@
         }
       ]
     },
-    "script": " Would you like to check the chest or the bed? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op1.mp3\" />"
   },
   "check_the_window_choice_one_help": {
     "name": "check_the_window_choice_one_help",
@@ -893,6 +1217,14 @@
           "nextNode": "check_the_bed"
         },
         {
+          "utterance": "yes",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "check_the_window_choice_two_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "check_the_window_choice_two_help"
         },
@@ -902,7 +1234,24 @@
         }
       ]
     },
-    "script": "Would you like to check the bed now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op2.mp3\" />"
+  },
+  "check_the_window_choice_two_no": {
+    "name": "check_the_window_choice_two_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the bed",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "yes|check_the_bed]]>> |\\<<choice [[help",
+          "nextNode": "check_the_window_choice_two_help"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_NAR_no.mp3\" />"
   },
   "check_the_window_choice_two_help": {
     "name": "check_the_window_choice_two_help",
@@ -948,7 +1297,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op3.mp3\" />"
   },
   "check_the_window_choice_three_help": {
     "name": "check_the_window_choice_three_help",
@@ -973,7 +1322,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? "
+    "script": "You can talk to the sisters or go to the infirmary "
   },
   "check_the_window_choice_four": {
     "name": "check_the_window_choice_four",
@@ -985,6 +1334,14 @@
           "nextNode": "travel_to_infirmary"
         },
         {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "check_the_window_choice_four_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "check_the_window_choice_four_help"
         },
@@ -994,7 +1351,28 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op4.mp3\" />"
+  },
+  "check_the_window_choice_four_no": {
+    "name": "check_the_window_choice_four_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_window_choice_four_help"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_NAR_no.mp3\" />"
   },
   "check_the_window_choice_four_help": {
     "name": "check_the_window_choice_four_help",
@@ -1027,6 +1405,14 @@
           "nextNode": "talk_to_sisters"
         },
         {
+          "utterance": "yes",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "check_the_window_choice_five_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "check_the_window_choice_five_help"
         },
@@ -1036,7 +1422,28 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_sister_anna_cell_window_op5.mp3\" />"
+  },
+  "check_the_window_choice_five_no": {
+    "name": "check_the_window_choice_five_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to the sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_window_choice_five_help"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_NAR_no.mp3\" />"
   },
   "check_the_window_choice_five_help": {
     "name": "check_the_window_choice_five_help",
@@ -1069,6 +1476,14 @@
           "nextNode": "check_the_chest"
         },
         {
+          "utterance": "yes",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "check_the_window_choice_six_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "check_the_window_choice_six_help"
         },
@@ -1078,7 +1493,28 @@
         }
       ]
     },
-    "script": "Would you like to check the chest now? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc05_sister_anna_cell_bed_op7.mp3\" />"
+  },
+  "check_the_window_choice_six_no": {
+    "name": "check_the_window_choice_six_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "check_the_chest"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_window_choice_six_help"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc06_NAR_no.mp3\" />"
   },
   "check_the_window_choice_six_help": {
     "name": "check_the_window_choice_six_help",
@@ -1099,14 +1535,14 @@
         }
       ]
     },
-    "script": " Would you like to check the chest now?"
+    "script": "You can say \"check the chest\"."
   },
   "check_the_chest": {
     "name": "check_the_chest",
     "action": {
       "type": "end_game"
     },
-    "script": "<<set $checkChest = 1>>\nThe latch to the chest has no lock. You flip the metal catch then open the chest. Inside are a set of abbey robes. You lift them but discover nothing else.\n<<if $checkBed is 0 and $checkWindow is 0>> \n[[check_the_chest_choice_one]] \n<<endif>> \n<<if $checkBed is 0 and $checkWindow is 1>> \n[[check_the_chest_choice_two]] \n<<endif>>\n <<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>> \n[[check_the_chest_choice_three]] \n<<endif>>\n <<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>> \n[[check_the_chest_choice_four]] \n<<endif>> \n<<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>> \n[[check_the_chest_choice_five]]\n <<endif>> \n<<if $checkBed is 1 and $checkWindow is 0>> \n[[check_the_chest_choice_six]] \n<<endif>> \n<<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>> \n[[summing_up]] "
+    "script": "<<set $checkChest = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest.mp3\" />\n<<if $checkBed is 0 and $checkWindow is 0>> \n[[check_the_chest_choice_one]] \n<<endif>> \n<<if $checkBed is 0 and $checkWindow is 1>> \n[[check_the_chest_choice_two]] \n<<endif>>\n <<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 0 and $travelToInfirmary is 0>> \n[[check_the_chest_choice_three]] \n<<endif>>\n <<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 1 and $travelToInfirmary is 0>> \n[[check_the_chest_choice_four]] \n<<endif>> \n<<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 0 and $travelToInfirmary is 1>> \n[[check_the_chest_choice_five]]\n <<endif>> \n<<if $checkBed is 1 and $checkWindow is 0>> \n[[check_the_chest_choice_six]] \n<<endif>> \n<<if $checkBed is 1 and $checkWindow is 1 and $talkToSisters is 1 and $travelToInfirmary is 1>> \n[[do_you_talk_to_abbess]] "
   },
   "check_the_chest_choice_one": {
     "name": "check_the_chest_choice_one",
@@ -1118,8 +1554,8 @@
           "nextNode": "check_the_bed"
         },
         {
-          "utterance": "check the chest",
-          "nextNode": "check_the_chest"
+          "utterance": "check the window",
+          "nextNode": "check_the_window"
         },
         {
           "utterance": "help",
@@ -1131,7 +1567,7 @@
         }
       ]
     },
-    "script": " Would you like to check the window or the bed? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op1.mp3\" />"
   },
   "check_the_chest_choice_one_help": {
     "name": "check_the_chest_choice_one_help",
@@ -1143,8 +1579,8 @@
           "nextNode": "check_the_bed"
         },
         {
-          "utterance": "check the chest",
-          "nextNode": "check_the_chest"
+          "utterance": "check the window",
+          "nextNode": "check_the_window"
         },
         {
           "utterance": "help",
@@ -1168,6 +1604,14 @@
           "nextNode": "check_the_bed"
         },
         {
+          "utterance": "yes",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "check_the_chest_choice_two_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "check_the_chest_choice_two_help"
         },
@@ -1177,7 +1621,28 @@
         }
       ]
     },
-    "script": "Would you like to check the bed now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op2.mp3\" />"
+  },
+  "check_the_chest_choice_two_no": {
+    "name": "check_the_chest_choice_two_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the bed",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "check_the_bed"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_chest_choice_two_help"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_NAR_no.mp3\" />"
   },
   "check_the_chest_choice_two_help": {
     "name": "check_the_chest_choice_two_help",
@@ -1223,7 +1688,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters or go to the infirmary? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op4.mp3\" />"
   },
   "check_the_chest_choice_three_help": {
     "name": "check_the_chest_choice_three_help",
@@ -1264,12 +1729,41 @@
           "nextNode": "check_the_chest_choice_four_help"
         },
         {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "check_the_chest_choice_four_no"
+        },
+        {
           "utterance": "replay",
           "nextNode": "check_the_chest"
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op5.mp3\" />"
+  },
+  "check_the_chest_choice_four_no": {
+    "name": "check_the_chest_choice_four_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to the infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_chest_choice_four_help"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_NAR_no.mp3\" />"
   },
   "check_the_chest_choice_four_help": {
     "name": "check_the_chest_choice_four_help",
@@ -1290,7 +1784,7 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to go to the infirmary now? "
+    "script": "You can say go to the infirmary."
   },
   "check_the_chest_choice_five": {
     "name": "check_the_chest_choice_five",
@@ -1302,6 +1796,14 @@
           "nextNode": "talk_to_sisters"
         },
         {
+          "utterance": "yes",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "check_the_chest_choice_five_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "check_the_chest_choice_five_help"
         },
@@ -1311,7 +1813,28 @@
         }
       ]
     },
-    "script": "It doesn’t look like anything else here is out of place. Would you like to talk to the sisters now? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op6.mp3\" />"
+  },
+  "check_the_chest_choice_five_no": {
+    "name": "check_the_chest_choice_five_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to sisters",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "talk_to_sisters"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_chest_choice_five_help"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_NAR_no.mp3\" />"
   },
   "check_the_chest_choice_five_help": {
     "name": "check_the_chest_choice_five_help",
@@ -1332,7 +1855,7 @@
         }
       ]
     },
-    "script": " Would you like to talk to the sisters now?"
+    "script": "You can talk to the sisters."
   },
   "check_the_chest_choice_six": {
     "name": "check_the_chest_choice_six",
@@ -1340,8 +1863,16 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "check the chest",
-          "nextNode": "check_the_chest"
+          "utterance": "check the window",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "check_the_chest_choice_six_no"
         },
         {
           "utterance": "help",
@@ -1353,7 +1884,28 @@
         }
       ]
     },
-    "script": "Would you like to check the window now? "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_sister_anna_cell_chest_op3.mp3\" />"
+  },
+  "check_the_chest_choice_six_no": {
+    "name": "check_the_chest_choice_six_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "check the window",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "check_the_window"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "check_the_chest_choice_six_help"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc07_NAR_no.mp3\" />"
   },
   "check_the_chest_choice_six_help": {
     "name": "check_the_chest_choice_six_help",
@@ -1361,8 +1913,8 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "check the chest",
-          "nextNode": "check_the_chest"
+          "utterance": "check the window",
+          "nextNode": "check_the_window"
         },
         {
           "utterance": "help",
@@ -1374,7 +1926,7 @@
         }
       ]
     },
-    "script": " Would you like to check the window now?"
+    "script": "You can say \"check the window\"."
   },
   "talk_to_sisters": {
     "name": "talk_to_sisters",
@@ -1399,7 +1951,7 @@
         }
       ]
     },
-    "script": "<<set $talkToSisters = 1>>\nNARRATOR: The Abbess nods. ABBESS BENITA: There are two sisters I can take you to. Sister Catherina you’ve already met; she greeted you outside the abbey. The other, Sister Cecilia, is leading the choir in rehearsals. I’ve told them all about Sister Anna’s death of course, but, as I said, I haven’t mentioned the fact I believe it was murder. Would you like to speak to Sister Catherina or Sister Cecilia?"
+    "script": "<<set $talkToSisters = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc08_talk_to_the_sisters.mp3\" />"
   },
   "talk_to_sisters_help": {
     "name": "talk_to_sisters_help",
@@ -1424,7 +1976,7 @@
         }
       ]
     },
-    "script": "Who would you care to talk to first?\nYou may choose Sister Catherina or Sister Cecilia."
+    "script": "You can say Catherina or Cecilia."
   },
   "talk_to_sister_catherina": {
     "name": "talk_to_sister_catherina",
@@ -1449,7 +2001,7 @@
         }
       ]
     },
-    "script": "<<set $talkToCatherina = 1>>\nNARRATOR: Leading you through the Abbey, the Abbess approaches one of the sisters who is sat at a wooden desk writing. The abbess asks if she would be so kind as to answer some questions. The sister nods and gets up to walk towards you. You recognise her as Sister Catherina, who met you at the front gate. SISTER CATHERINA: Oh, adventurer. It is good to see you again. The Abbess says you would like to speak to me in regards to what I was doing before the evening service? NARRATOR: The Sister smiles politely. SISTER CATHERINA Well, I was in the scriptorium – in the basement - copying a manuscript from the Book of Saradomin. I’m going through the entire book, transcribing it all. There’s quite a lot, and, well, I think I’ve gotten quite good at it. It makes me feel somewhat proud, although I know that’s not a feeling I should indulge. Oh! But, uhm, I found it quite difficult though. What with the music and sounds of the party coming from outside the abbey. Do you know about that? It’s not that I disapprove of what they are doing, but I so used to love dancing before I joined here. It’s certainly tempting to join in.. NARRATOR: Sister Catherina shuffles, rubbing her arm. SISTER CATHERINA: I think, well...I know, Sister Anna wouldn’t be impressed by me saying that. She was quite strict and at first frightened me. I’m not surprised the applicant who was here yesterday left without a word. So...do you have any other questions for me? NARRATOR: It seems there is more that you could learn from Sister Catherina. Do you ask about the manuscript or the applicant?"
+    "script": "<<set $talkToCatherina = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina.mp3\" />"
   },
   "talk_to_sister_catherina_help": {
     "name": "talk_to_sister_catherina_help",
@@ -1474,17 +2026,46 @@
         }
       ]
     },
-    "script": "You can ask about the manuscript or the applicant."
+    "script": "You can say \"the manuscript\" or \"the applicant\"."
   },
   "the_applicant": {
     "name": "the_applicant",
     "action": {
       "type": "end_game"
     },
-    "script": "SISTER CATHERINA: Oh! You probably don't know. An applicant came to the abbey yesterday interested in joining. Her name was Isabella. I heard Sister Anna asked her to sing, but wasn’t impressed with her efforts. She disappeared yesterday noon. She probably went home. A lot of applicants realise the life here isn't for them and leave. If it’s ok, I should return to my writing. I hope I have helped you in some way adventurer. NARRATOR: Sister Catherina gives you a smile, then returns to her desk.\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 0>>\n[[the_applicant_choice_two]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 0>>\n[[the_applicant_choice_three]]\n<<endif>>\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 1>>\n[[the_applicant_choice_four]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 1 and $talkToCecilia is 1>>\n[[summing_up]]\n<<endif>>\n<<if $talkToCecilia is 0>> \n[[the_applicant_choice_one]] "
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_corr.mp3\" />\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 0>>\n[[the_applicant_choice_two]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 0>>\n[[the_applicant_choice_three]]\n<<endif>>\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 1>>\n[[the_applicant_choice_four]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 1 and $talkToCecilia is 1>>\n[[do_you_talk_to_abbess]]\n<<endif>>\n<<if $talkToCecilia is 0>> \n[[the_applicant_choice_one]] "
   },
   "the_applicant_choice_one": {
     "name": "the_applicant_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to cecilia",
+          "nextNode": "talk_to_sister_cecilia"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "talk_to_sister_cecilia"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "the_applicant_choice_one_no"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "the_applicant_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_applicant"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_corr_op1.mp3\" />"
+  },
+  "the_applicant_choice_one_no": {
+    "name": "the_applicant_choice_one_no",
     "action": {
       "type": "choice",
       "choices": [
@@ -1506,7 +2087,7 @@
         }
       ]
     },
-    "script": "Do you talk to Sister Cecilia now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_NAR_no.mp3\" />"
   },
   "the_applicant_choice_one_help": {
     "name": "the_applicant_choice_one_help",
@@ -1556,7 +2137,7 @@
         }
       ]
     },
-    "script": "Would you like to go to Sister Anna’s cell or the infirmary?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_corr_op2.mp3\" />"
   },
   "the_applicant_choice_two_help": {
     "name": "the_applicant_choice_two_help",
@@ -1581,10 +2162,39 @@
         }
       ]
     },
-    "script": "You can go to Sister Anna’s cell or go to the infirmary."
+    "script": "You can say \"Sister Anna’s cell\" or \"go to the infirmary\"."
   },
   "the_applicant_choice_three": {
     "name": "the_applicant_choice_three",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to anna's cell",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "the_applicant_choice_three_no"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "the_applicant_choice_three_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_applicant"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_corr_op3.mp3\" />"
+  },
+  "the_applicant_choice_three_no": {
+    "name": "the_applicant_choice_three_no",
     "action": {
       "type": "choice",
       "choices": [
@@ -1606,7 +2216,7 @@
         }
       ]
     },
-    "script": "Would you like to go to Sister Anna’s cell?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_NAR_no.mp3\" />"
   },
   "the_applicant_choice_three_help": {
     "name": "the_applicant_choice_three_help",
@@ -1647,6 +2257,10 @@
           "nextNode": "travel_to_infirmary"
         },
         {
+          "utterance": "no",
+          "nextNode": "the_applicant_choice_four_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_applicant_choice_four_help"
         },
@@ -1656,7 +2270,32 @@
         }
       ]
     },
-    "script": "Would you like to go to the infirmary now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_corr_op4.mp3\" />"
+  },
+  "the_applicant_choice_four_no": {
+    "name": "the_applicant_choice_four_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "the_applicant_choice_four_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_applicant"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_NAR_no.mp3\" />"
   },
   "the_applicant_choice_four_help": {
     "name": "the_applicant_choice_four_help",
@@ -1697,6 +2336,10 @@
           "nextNode": "the_applicant"
         },
         {
+          "utterance": "no",
+          "nextNode": "the_manuscript_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_manuscript_help"
         },
@@ -1706,7 +2349,32 @@
         }
       ]
     },
-    "script": "SISTER CATHERINA: Oh, well! It’s a little project of mine transcribing the Book of Saradomin. It’s a beautiful book which captures all that is holy and it’s nothing but an honour to study it. I’m really starting to get the hang of illuminating the text. There are so many pages, all beautifully scribed... NARRATOR: The information doesn’t seem to be that useful. Would you like to ask about the applicant?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_talk_to_catherina_incorr.mp3\" />"
+  },
+  "the_manuscript_no": {
+    "name": "the_manuscript_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "the applicant",
+          "nextNode": "the_applicant"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "the_applicant"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "the_manuscript_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_manuscript"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc09_NAR_no.mp3\" />"
   },
   "the_manuscript_help": {
     "name": "the_manuscript_help",
@@ -1731,7 +2399,7 @@
         }
       ]
     },
-    "script": "You can ask about the applicant or say \"yes\"."
+    "script": "You can say \"the applicant\" or \"yes\"."
   },
   "talk_to_sister_cecilia": {
     "name": "talk_to_sister_cecilia",
@@ -1756,7 +2424,7 @@
         }
       ]
     },
-    "script": "<<set $talkToCecilia = 1>>\nNARRATOR: You follow the Abbess up a white stone staircase and head into the chapel hall. Unlike the rest of the abbey, the large hall is finely decorated; coloured marble covering the floor and pillars that stretch up to the arched ceiling. The abbess walks over to a sister, who surrounded by sheets of musical notation, appears to be leading the choir, waving her arms and conducting. The abbess beckons her to talk with you. SISTER CECILIA: Look at me...look at me... Okay, that's good. Remember to look at me so you can keep in time. Oh! I'm sorry, I didn't, er...Ladies, keep rehearsing. I need to talk to someone. ABBESS BENITA: Adventurer, this is Sister Cecilia. She leads the choir here in the abbey. Sister, would you be so kind as to tell the adventurer where you were yesterday evening? SISTER CECILIA: I was here. Leading the choir in practice of a new hymn to Saint Elspeth. I wrote the music, and might I add it's better music than those…dancers outside the abbey. I have no idea why they are here, but I detest dancing. It’s so...unthoughtful. So unholy. Do you know the story of Saint Elspeth and the Ripper Demon? I’d be happy to tell you. It’s a very important story to all the sisters here. NARRATOR: Do you ask about the story or the music?"
+    "script": "<<set $talkToCecilia = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_talk_to_cecilia.mp3\" />"
   },
   "talk_to_sister_cecilia_help": {
     "name": "talk_to_sister_cecilia_help",
@@ -1781,17 +2449,46 @@
         }
       ]
     },
-    "script": "What do you ask about? The story, or, the music?"
+    "script": "You can say \"the story\" or \"the music\"."
   },
   "the_story": {
     "name": "the_story",
     "action": {
       "type": "end_game"
     },
-    "script": "SISTER CECILIA: So, the story is about The Ripper. An assassin demon. It would strike without warning and leave its victims horribly mutilated. Stab them through the heart with terrible claws, tear off their faces... Zamorak, the god of chaos, sent the Ripper to attack a village where Saint Elspeth was staying. But, it couldn't approach while she was singing. Her voice and singing was so holy. So it waited on the edge of the village. She sang for days, but eventually she was too weak to go on. She went out of the village to face the demon alone - she thought it might just kill her and spare the villagers. A noble sacrifice. She fought the demon and it mortally wounded her; but, as she was dying, Saradomin granted her the strength to sing one piercing note so perfect that it struck the demon dead. Her remains lay unburied until the present age. Then, seventy years ago, a group of holy women found them and built this abbey in her memory. That's why music is such an important part of our worship. Now if you’ll excuse me, I really must get back to helping the choir. NARRATOR: Sister Cecilia nods curtly and returns to conducting the choir, leaving you with the Abbess.\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 0>>\n[[the_story_choice_two]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 0>>\n[[the_story_choice_three]]\n<<endif>>\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 1>>\n[[the_story_choice_four]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 1 and $talkToCatherina is 1>>\n[[summing_up]]\n<<endif>>\n<<if $talkToCatherina is 0>>\n[[the_story_choice_one]]"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_talk_to_cecilia_corr.mp3\" />\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 0>>\n[[the_story_choice_two]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 0>>\n[[the_story_choice_three]]\n<<endif>>\n<<if $travelToInfirmary is 0 and $sisterAnnaCell is 1>>\n[[the_story_choice_four]]\n<<endif>>\n<<if $travelToInfirmary is 1 and $sisterAnnaCell is 1 and $talkToCatherina is 1>>\n[[do_you_talk_to_abbess]]\n<<endif>>\n<<if $talkToCatherina is 0>>\n[[the_story_choice_one]]"
   },
   "the_story_choice_one": {
     "name": "the_story_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "yes",
+          "nextNode": "talk_to_sister_catherina"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "the_story_choice_one_no"
+        },
+        {
+          "utterance": "talk to catherina",
+          "nextNode": "talk_to_sister_catherina"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "the_story_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_story"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_talk_to_cecilia_corr_op1.mp3\" />"
+  },
+  "the_story_choice_one_no": {
+    "name": "the_story_choice_one_no",
     "action": {
       "type": "choice",
       "choices": [
@@ -1813,7 +2510,7 @@
         }
       ]
     },
-    "script": "Would you like to talk to Sister Catherina now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_NAR_no.mp3\" />"
   },
   "the_story_choice_one_help": {
     "name": "the_story_choice_one_help",
@@ -1863,7 +2560,7 @@
         }
       ]
     },
-    "script": "Whould you like to go to Sister Anna’s cell or go to the infirmary."
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_talk_to_cecilia_corr_op2.mp3\" />"
   },
   "the_story_choice_two_help": {
     "name": "the_story_choice_two_help",
@@ -1888,10 +2585,39 @@
         }
       ]
     },
-    "script": "You can go to Sister Anna’s cell or go to the infirmary."
+    "script": "You can say \"Sister Anna’s cell\" or \"the infirmary\"."
   },
   "the_story_choice_three": {
     "name": "the_story_choice_three",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "yes",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "the_story_choice_three_no"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "the_story_choice_three_help"
+        },
+        {
+          "utterance": "go to sister anna's cell",
+          "nextNode": "sister_anna_cell"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_story"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_talk_to_cecilia_corr_op3.mp3\" />"
+  },
+  "the_story_choice_three_no": {
+    "name": "the_story_choice_three_no",
     "action": {
       "type": "choice",
       "choices": [
@@ -1913,7 +2639,7 @@
         }
       ]
     },
-    "script": "Would you like to go to Sister Anna’s cell now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_NAR_no.mp3\" />"
   },
   "the_story_choice_three_help": {
     "name": "the_story_choice_three_help",
@@ -1954,6 +2680,10 @@
           "nextNode": "travel_to_infirmary"
         },
         {
+          "utterance": "no",
+          "nextNode": "the_story_choice_four_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_story_choice_four_help"
         },
@@ -1963,7 +2693,32 @@
         }
       ]
     },
-    "script": "Would you like to go to the infirmary?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_talk_to_cecilia_corr_op4.mp3\" />"
+  },
+  "the_story_choice_four_no": {
+    "name": "the_story_choice_four_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to infirmary",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "travel_to_infirmary"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "the_story_choice_four_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_story"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_NAR_no.mp3\" />"
   },
   "the_story_choice_four_help": {
     "name": "the_story_choice_four_help",
@@ -2004,6 +2759,10 @@
           "nextNode": "the_story"
         },
         {
+          "utterance": "no",
+          "nextNode": "the_musical_chords_no]"
+        },
+        {
           "utterance": "help",
           "nextNode": "the_musical_chords_help"
         },
@@ -2013,7 +2772,32 @@
         }
       ]
     },
-    "script": "NARRATOR: Sister Cecilia looks surprised, expecting you to ask about the story. SISTER CECILIA: Oh, well, like I already said the I wrote the music. The choir have been practicing it for a few days now. NARRATOR: That question didn’t seem to be useful. Would you like to ask about the story?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc10_talk_to_cecilia_incorr.mp3\" />"
+  },
+  "the_musical_chords_no": {
+    "name": "the_musical_chords_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "the story",
+          "nextNode": "the_story"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "the_story"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "the_musical_chords_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "the_musical_chords"
+        }
+      ]
+    },
+    "script": "Narrator: You should say yes if you want to continue your quest."
   },
   "the_musical_chords_help": {
     "name": "the_musical_chords_help",
@@ -2063,7 +2847,7 @@
         }
       ]
     },
-    "script": "NARRATOR: You explain to the abbess that after investigating and talking to some of the Sisters that two new points of interest have come to your attention; a camp of musicians and dancers outside the abbey, and an applicant who was in the abbey yesterday. ABBESS BENITA: Hmmm. And you wish to investigate these further I assume? Very well. Would you care to visit the camp or go to the applicant’s room?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc11_sum_up.mp3\" />"
   },
   "summing_up_help": {
     "name": "summing_up_help",
@@ -2096,11 +2880,7 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "reason for being here",
-          "nextNode": "why_he_is_here"
-        },
-        {
-          "utterance": "why is here",
+          "utterance": "why he is here",
           "nextNode": "why_he_is_here"
         },
         {
@@ -2117,7 +2897,7 @@
         }
       ]
     },
-    "script": "<<set $talkToValerio = 1>>\nNARRATOR: The abbess' face flashes a look of disapproval, leading you towards the main gates of the abbey and points over to the troubadour and his camp. ABBESS BENITA: Very well. I don’t know why they are here outside the Abbey. He and his party seem to come and go quite often. It’s not that I don’t respect their choice of...lifestyle, but I don’t want the sisters being distracted at this time. NARRATOR: Leaving the Abbess at the gate, you walk over to the colourful tent where a number of people are dancing. Amongst them a brightly dressed man is playing a mandolin and singing. NARRATOR: From his wide hat, sun kissed skin and open waistcoat the man has a very carefree air about him. He ceases his singing as you near, greeting you with a broad smile. VALERIO: Greetings, traveller! The name’s Valerio. I do hope we’re not causing any trouble. We just thought we’d help liven the desert up a bit. Everyone should enjoy dancing once in awhile, especially if there is some coin to be made! NARRATOR: Do you ask why he's here or what his life is like?\""
+    "script": "<<set $talkToValerio = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc13_talk_to_valerio.mp3\" />"
   },
   "go_to_valerio_help": {
     "name": "go_to_valerio_help",
@@ -2125,11 +2905,7 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "reason for being here",
-          "nextNode": "why_he_is_here"
-        },
-        {
-          "utterance": "why is here",
+          "utterance": "why he is here",
           "nextNode": "why_he_is_here"
         },
         {
@@ -2153,10 +2929,39 @@
     "action": {
       "type": "end_game"
     },
-    "script": "NARRATOR: Valerio’s wide smile slowly disappears, the musician looking very forlorn. VALERIO: Ah. I guess, it is more than a little strange that we would be here, outside an abbey huh? Well, if you want the truth...one of the sisters here, Sister Anna, she passed away recently. I knew her before she joined the abbey, so I've come to pay my respects. I tried to talk her out of coming here, but when she made her mind up about something, there was nothing that could stop her. NARRATOR: Valerio falls silent for a moment, his gaze falling to the sand, as if recalling some distant memory before with a shake of his head he returns. VALERIO: That is the truth of why I’m here. Even a religious order isn't completely cut off from the world. Word gets around. Now, if you’ll excuse me I think some music is required to lift the mood. NARRATOR: You return to the Abbess who is waiting by the front gate. ABBESS BENITA: The bells shouldn’t be ringing at this time. What is Sister Debora up to…\n<<if $recruitRoom is 0>>\n[[why_he_is_here_choice_one]]\n<<else>>\n[[why_he_is_here_choice_two]]"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc13_talk_to_valerio_corr.mp3\" />\n<<if $recruitRoom is 0>>\n[[why_he_is_here_choice_one]]\n<<else>>\n[[why_he_is_here_choice_two]]"
   },
   "why_he_is_here_choice_one": {
     "name": "why_he_is_here_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "yes",
+          "nextNode": "recruit_room"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "why_he_is_here_choice_one_no"
+        },
+        {
+          "utterance": "go to applicant room",
+          "nextNode": "recruit_room"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "why_he_is_here_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "go_to_valerio"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc13_talk_to_valerio_corr_op1.mp3\" />"
+  },
+  "why_he_is_here_choice_one_no": {
+    "name": "why_he_is_here_choice_one_no",
     "action": {
       "type": "choice",
       "choices": [
@@ -2178,7 +2983,7 @@
         }
       ]
     },
-    "script": "ABBESS BENITA: Ah, Adventurer. Would you like to go to the applicant room now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc13_NAR_no.mp3\" />"
   },
   "why_he_is_here_choice_one_help": {
     "name": "why_he_is_here_choice_one_help",
@@ -2219,6 +3024,10 @@
           "nextNode": "clock_tower"
         },
         {
+          "utterance": "no",
+          "nextNode": "why_he_is_here_choice_two_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "why_he_is_here_choice_two_help"
         },
@@ -2228,7 +3037,32 @@
         }
       ]
     },
-    "script": "ABBESS BENITA: Ah, Adventurer. Would you care to go to the clock tower?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc13_talk_to_valerio_corr_op2.mp3\" />"
+  },
+  "why_he_is_here_choice_two_no": {
+    "name": "why_he_is_here_choice_two_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "go to clock tower",
+          "nextNode": "clock_tower"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "clock_tower"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "why_he_is_here_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "go_to_valerio"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc13_NAR_no.mp3\" />"
   },
   "why_he_is_here_choice_two_help": {
     "name": "why_he_is_here_choice_two_help",
@@ -2260,10 +3094,39 @@
     "action": {
       "type": "end_game"
     },
-    "script": "<<set $recruitRoom = 1>>\nNARRATOR: Leading the way, the abbess takes you through the abbey to a room near the front gate. ABBESS BENITA: I’m not sure what help this will be. The applicant who was here was being interviewed by Sister Anna but must have left yesterday. I didn’t see her leave though. Anyway, this is the room where all the applicants stay. NARRATOR: You walk into a room which has a couple of beds. Searching around there doesn't seem to be anything amiss but, as you turn to leave, you notice something just behind the door. Reaching round you retrieve a piece of cloth, the colour and feel of which is immediately familiar. ABBESS BENITA: A moment. Let me take a look at that. This is most peculiar. Again, not something the sisters of the Abbey would wear and it seems....it seems to match the one you found in Sister Anna's cell. I wonder if- What in the name of Saradomin... What is Sister Deborah doing up there? The bell shouldn’t be sounding at this time! Though, that does remind me. It wouldn’t hurt to go talk to her as well at some point.\n<<if $talkToValerio is 0>>\n[[recruit_room_choice_one]]\n<<else>>\n[[recruit_room_choice_two]]"
+    "script": "<<set $recruitRoom = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc12_applicant_room.mp3\" />\n<<if $talkToValerio is 0>>\n[[recruit_room_choice_one]]\n<<else>>\n[[recruit_room_choice_two]]"
   },
   "recruit_room_choice_one": {
     "name": "recruit_room_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "visit the camp",
+          "nextNode": "go_to_valerio"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "go_to_valerio"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "recruit_room_choice_one_no"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "recruit_room_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "recruit_room"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc12_applicant_room_op1.mp3\" />"
+  },
+  "recruit_room_choice_one_no": {
+    "name": "recruit_room_choice_one_no",
     "action": {
       "type": "choice",
       "choices": [
@@ -2285,7 +3148,7 @@
         }
       ]
     },
-    "script": "ABBESS BENITA: Would you like to visit the camp now?."
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc12_NAR_no.mp3\" />"
   },
   "recruit_room_choice_one_help": {
     "name": "recruit_room_choice_one_help",
@@ -2326,6 +3189,10 @@
           "nextNode": "clock_tower"
         },
         {
+          "utterance": "no",
+          "nextNode": "recruit_room_choice_two_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "recruit_room_choice_two_help"
         },
@@ -2335,7 +3202,32 @@
         }
       ]
     },
-    "script": "ABBESS BENITA: Would you like to go to the clock tower?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc12_applicant_room_op2.mp3\" />"
+  },
+  "recruit_room_choice_two_no": {
+    "name": "recruit_room_choice_two_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "clock tower",
+          "nextNode": "clock_tower"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "clock_tower"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "recruit_room_choice_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "recruit_room"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc12_NAR_no.mp3\" />"
   },
   "recruit_room_choice_two_help": {
     "name": "recruit_room_choice_two_help",
@@ -2368,7 +3260,36 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "reason for being here",
+          "utterance": "why he is here",
+          "nextNode": "why_he_is_here"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "why_he_is_here"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "what_is_life_like_no"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "what_is_life_like_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "what_is_life_like"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc13_talk_to_valerio_incorr.mp3\" />"
+  },
+  "what_is_life_like_no": {
+    "name": "what_is_life_like_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "why he is here",
           "nextNode": "why_he_is_here"
         },
         {
@@ -2385,7 +3306,7 @@
         }
       ]
     },
-    "script": "VALERIO: Ah, are you interested in a change of career perhaps? Is that it? My life is rarely boring. Always on the road. Town after town...I’ve seen a lot of this world and it’s made even nicer by the company I keep. Why, there aren’t many women I’ve met who don’t like to be serenaded by my mandolin. NARRATOR: The answer wasn’t particularly helpful. Do you ask why he's here?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc13_NAR_no.mp3\" />"
   },
   "what_is_life_like_help": {
     "name": "what_is_life_like_help",
@@ -2397,7 +3318,7 @@
           "nextNode": "why_he_is_here"
         },
         {
-          "utterance": "reason for being here",
+          "utterance": "why he is here",
           "nextNode": "why_he_is_here"
         },
         {
@@ -2410,7 +3331,7 @@
         }
       ]
     },
-    "script": "You can say \"yes\" to ask why he's here."
+    "script": "You can say \"yes\" to \"why is he here\"."
   },
   "clock_tower": {
     "name": "clock_tower",
@@ -2435,7 +3356,7 @@
         }
       ]
     },
-    "script": "NARRATOR: The abbess leads you deeper into the abbey, down it’s bare stone corridors towards the clock tower. As you pass an open doorway the potent smell of cabbages suddenly hits you. You peer back around and into what must be the abbey kitchens. There, a lady in abbey robes, red faced with   an apron bound severely around her midriff, is busily stirring various pots while steam billows up and slides around the ceiling. ABBESS BENITA: Ah, that’s Sister Elena. She’s in charge of the kitchens here. You may talk to her if you like. Would you like to go to the clock tower or talk to Sister Elena?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc14_travel_to_tower.mp3\" />"
   },
   "clock_tower_help": {
     "name": "clock_tower_help",
@@ -2460,7 +3381,7 @@
         }
       ]
     },
-    "script": "You can go to the clock tower or talk to Sister Elena."
+    "script": "You can say \"the clock tower\" or \"talk to Sister Elena\"."
   },
   "talk_to_sister_elena": {
     "name": "talk_to_sister_elena",
@@ -2485,7 +3406,7 @@
         }
       ]
     },
-    "script": "<<set $talkToElena = 1>>\nSISTER ELENA: Yes? What is it? NARRATOR: The abbess goes over to Sister Elena and explains that you have a few questions about her whereabouts yesterday evening, and about Sister Anna. She waits outside, leaving the two of you to talk. SISTER ELENA: I was here, in the kitchen making cabbage soup. Why, where should I have been? I went down to the cellar to get some supplies at one point, but the rest of the time I was here. Actually, I noticed something while I was down there. I think someone's been stealing food from the cellar. I bet it was Sister Catherina. I've seen her sneaking an extra cup of wine at meals, and I bet she’s just the sort to want to flirt with that rabble outside. As for Sister Anna...she's with Saradomin now. It doesn't matter what I thought of her, and it does no good to speak ill of the dead. Now. Is there something else you need? NARRATOR: Do you ask her about Sister Anna or how to make cabbage soup?"
+    "script": "<<set $talkToElena = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc15_talk_to_elena.mp3\" />"
   },
   "talk_to_sister_elena_help": {
     "name": "talk_to_sister_elena_help",
@@ -2510,14 +3431,93 @@
         }
       ]
     },
-    "script": "You can ask about Sister Anna or how to make cabbage soup?"
+    "script": "You can say \"Sister Anna\" or \"how to make cabbage soup\"."
   },
   "ask_sister_anna": {
     "name": "ask_sister_anna",
     "action": {
       "type": "end_game"
     },
-    "script": "SISTER ELENA: Now, I know what you might be thinking. I didn’t say I didn’t like her. But she did cause conflict. Most of the sisters didn't see it, but I did. She was always arguing with the abbess. Sister Anna thought Sister Benita was too lenient with the order's rules. Anna would have enforced silence outside of services. She'd have stopped Sister Cecilia composing - prescribed melodies only. Maybe it's Saradomin's will that Sister Anna never got to become abbess. Now. I need to head to the basement for some ingredients. Out with you! NARRATOR: You leave the kitchen by the threatening flick of a dishcloth at your back. ABBESS BENITA: You’ll have to excuse Sister Elena, she isn’t the most... accommodating when busy.\n<<if $continueClockTower is 0>>\n[[ask_sister_anna_choice_one]]\n<<else>>\n[[meeting_with_the_abbess]]"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc15_talk_to_elena_corr.mp3\" />\n<<if $continueClockTower is 0>>\n[[ask_sister_anna_choice_one]]\n<<else>>\n[[go_to_meeting_with_abbess]]"
+  },
+  "go_to_meeting_with_abbess": {
+    "name": "go_to_meeting_with_abbess",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to abbess",
+          "nextNode": "meeting_with_the_abbess"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "meeting_with_the_abbess"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "go_to_meeting_with_abbess_no"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "go_to_meeting_with_abbess_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "go_to_meeting_with_abbess"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc15_talk_to_elena_corr_op2.mp3\" />"
+  },
+  "go_to_meeting_with_abbess_no": {
+    "name": "go_to_meeting_with_abbess_no",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "yes",
+          "nextNode": "meeting_with_the_abbess"
+        },
+        {
+          "utterance": "talk to abbess",
+          "nextNode": "meeting_with_the_abbess"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "go_to_meeting_with_abbess_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "go_to_meeting_with_abbess"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc15_NAR_no.mp3\" />"
+  },
+  "go_to_meeting_with_abbess_help": {
+    "name": "go_to_meeting_with_abbess_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to abbess",
+          "nextNode": "meeting_with_the_abbess"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "meeting_with_abbess"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "do_you_talk_to_abbess_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "do_you_talk_to_abbess"
+        }
+      ]
+    },
+    "script": "You can say \"Yes\" or \"talk to abbess\"."
   },
   "ask_sister_anna_choice_one": {
     "name": "ask_sister_anna_choice_one",
@@ -2533,6 +3533,10 @@
           "nextNode": "continue_clock_tower"
         },
         {
+          "utterance": "no",
+          "nextNode": "ask_sister_anna_choice_one_no"
+        },
+        {
           "utterance": "help",
           "nextNode": "ask_sister_anna_choice_one_help"
         },
@@ -2542,10 +3546,10 @@
         }
       ]
     },
-    "script": "ABBESS BENITA: Would you like to continue to the clock tower."
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc15_talk_to_elena_corr_op1.mp3\" />"
   },
-  "ask_sister_anna_choice_one_help": {
-    "name": "ask_sister_anna_choice_one_help",
+  "ask_sister_anna_choice_one_no": {
+    "name": "ask_sister_anna_choice_one_no",
     "action": {
       "type": "choice",
       "choices": [
@@ -2567,10 +3571,64 @@
         }
       ]
     },
-    "script": "You can say yes to continue to the clock tower."
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc15_NAR_no.mp3\" />"
+  },
+  "ask_sister_anna_choice_one_help": {
+    "name": "ask_sister_anna_choice_one_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "continue to the clock tower",
+          "nextNode": "continue_clock_tower"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "continue_clock_tower"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "ask_sister_anna_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "ask_sister_anna"
+        }
+      ]
+    },
+    "script": "You can say \"yes\" or \"continue to the clock tower\"."
   },
   "make_cabbage_soup": {
     "name": "make_cabbage_soup",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "ask about sister anna",
+          "nextNode": "ask_sister_anna"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "make_cabbage_soup_help"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "ask_sister_anna"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "make_cabbage_soup_no"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "make_cabbage_soup"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc15_talk_to_elena_incorr.mp3\" />"
+  },
+  "make_cabbage_soup_no": {
+    "name": "make_cabbage_soup_no",
     "action": {
       "type": "choice",
       "choices": [
@@ -2592,7 +3650,7 @@
         }
       ]
     },
-    "script": "SISTER ELENA: You want to know how I make my cabbage soup? Well, let me tell you! First you need some onions and carrots, just to help take the edge off a bit. Slice and dice them, see? Then take your cabbage. We grow all our own you know. Right here in the abbey. Get rid of the outer leaves then cut the whole thing into bite sized pieces like this… ABBESS BENITA: Ah, uhm, Sister Elena? I don’t think- SISTER ELENA: Throw it all in a pot! Then you have to add the water. How much will depend on how many you’re cooking for. Cover it. Just like that, and then put it on a low heat. Low, did you hear me? People think they can cook food faster by just whacking it on the hottest thing they have. No no. We respect patience in this abbey and more so in this kitchen… NARRATOR: Unless you are particularly hungry, this doesn’t seem like the most useful question to have asked. Would you like to ask about Sister Anna now?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc15_NAR_no.mp3\" />"
   },
   "make_cabbage_soup_help": {
     "name": "make_cabbage_soup_help",
@@ -2613,7 +3671,7 @@
         }
       ]
     },
-    "script": "You can say \"yes\" to ask about Sister Anna."
+    "script": "You can say \"yes\" or \"ask about Sister Anna\"."
   },
   "continue_clock_tower": {
     "name": "continue_clock_tower",
@@ -2621,12 +3679,16 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "use the lever",
-          "nextNode": "use_the_lever_incorrect"
+          "utterance": "pull the lever",
+          "nextNode": "use_the_lever_incorrect_one"
         },
         {
-          "utterance": "say heard the sound",
-          "nextNode": "continue_clock_tower_say_done"
+          "utterance": "yes",
+          "nextNode": "use_the_lever_incorrect_one"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "continue_clock_tower_no"
         },
         {
           "utterance": "help",
@@ -2640,18 +3702,18 @@
     },
     "script": "<<set $continueClockTower = 1>>\n<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower.mp3\" />"
   },
-  "continue_clock_tower_help": {
-    "name": "continue_clock_tower_help",
+  "continue_clock_tower_no": {
+    "name": "continue_clock_tower_no",
     "action": {
       "type": "choice",
       "choices": [
         {
-          "utterance": "use the lever",
-          "nextNode": "use_the_lever_incorrect"
+          "utterance": "pull the lever",
+          "nextNode": "use_the_lever_incorrect_one"
         },
         {
-          "utterance": "say heard the sound",
-          "nextNode": "say_done"
+          "utterance": "yes",
+          "nextNode": "use_the_lever_incorrect_one"
         },
         {
           "utterance": "help",
@@ -2663,70 +3725,45 @@
         }
       ]
     },
-    "script": "You can use the lever or say you heard the sound?"
+    "script": "Consider saying yes"
   },
-  "continue_clock_tower_say_done": {
-    "name": "continue_clock_tower_say_done",
+  "continue_clock_tower_help": {
+    "name": "continue_clock_tower_help",
     "action": {
       "type": "choice",
       "choices": [
         {
-          "utterance": "use the lever",
-          "nextNode": "use_the_lever_incorrect"
+          "utterance": "pull the lever",
+          "nextNode": "use_the_lever_incorrect_one"
         },
         {
-          "utterance": "say heard the sound",
-          "nextNode": "continue_clock_tower_say_done"
+          "utterance": "yes",
+          "nextNode": "use_the_lever_incorrect_one"
         },
         {
           "utterance": "help",
-          "nextNode": "continue_clock_tower_say_done_help"
+          "nextNode": "continue_clock_tower_help"
         },
         {
           "utterance": "replay",
-          "nextNode": "continue_clock_tower_say_done"
+          "nextNode": "continue_clock_tower"
         }
       ]
     },
-    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_not_done.mp3\" />"
+    "script": "You can say 'yes' or 'pull the lever'"
   },
-  "continue_clock_tower_say_done_help": {
-    "name": "continue_clock_tower_say_done_help",
+  "use_the_lever_incorrect_one": {
+    "name": "use_the_lever_incorrect_one",
     "action": {
       "type": "choice",
       "choices": [
         {
-          "utterance": "use the lever",
-          "nextNode": "use_the_lever_incorrect"
+          "utterance": "pull the lever",
+          "nextNode": "use_the_lever_incorrect_two"
         },
         {
           "utterance": "say heard the sound",
-          "nextNode": "continue_clock_tower_say_done"
-        },
-        {
-          "utterance": "help",
-          "nextNode": "continue_clock_tower_say_done_help"
-        },
-        {
-          "utterance": "replay",
-          "nextNode": "continue_clock_tower_say_done"
-        }
-      ]
-    },
-    "script": "You can use the lever or say you heard the sound?"
-  },
-  "use_the_lever_incorrect": {
-    "name": "use_the_lever_incorrect",
-    "action": {
-      "type": "choice",
-      "choices": [
-        {
-          "utterance": "use the lever",
-          "nextNode": "use_the_lever_correct"
-        },
-        {
-          "utterance": "say heard the sound",
-          "nextNode": "say_done"
+          "nextNode": "say_done_one"
         },
         {
           "utterance": "help",
@@ -2734,36 +3771,86 @@
         },
         {
           "utterance": "replay",
-          "nextNode": "use_the_lever_incorrect"
+          "nextNode": "use_the_lever_incorrect_one"
         }
       ]
     },
-    "script": "<audio src= \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_turn_lever_incorr.mp3\" />"
+    "script": "<audio src= \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_turn_lever_incorr_1.mp3\" />"
   },
-  "use_the_lever_incorrect_help": {
-    "name": "use_the_lever_incorrect_help",
+  "use_the_lever_incorrect_one_help": {
+    "name": "use_the_lever_incorrect_one_help",
     "action": {
       "type": "choice",
       "choices": [
         {
-          "utterance": "use the lever",
+          "utterance": "pull the lever",
+          "nextNode": "use_the_lever_incorrect_two"
+        },
+        {
+          "utterance": "say heard the sound",
+          "nextNode": "say_done_one"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "use_the_lever_incorrect_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "use_the_lever_incorrect_one"
+        }
+      ]
+    },
+    "script": "Do you pull the lever or say you heard the sound?"
+  },
+  "use_the_lever_incorrect_two": {
+    "name": "use_the_lever_incorrect_two",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "pull the lever",
           "nextNode": "use_the_lever_correct"
         },
         {
           "utterance": "say heard the sound",
-          "nextNode": "say_done"
+          "nextNode": "say_done_two"
         },
         {
           "utterance": "help",
-          "nextNode": "use_the_lever_help"
+          "nextNode": "use_the_lever_incorrect_two_help"
         },
         {
           "utterance": "replay",
-          "nextNode": "use_the_lever_incorrect"
+          "nextNode": "use_the_lever_incorrect_two"
         }
       ]
     },
-    "script": "Do you use the lever or say you heard the sound?"
+    "script": "<audio src= \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_turn_lever_incorr_2.mp3\" />"
+  },
+  "use_the_lever_incorrect_two_help": {
+    "name": "use_the_lever_incorrect_two_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "pull the lever",
+          "nextNode": "use_the_lever_correct"
+        },
+        {
+          "utterance": "say heard the sound",
+          "nextNode": "say_done_two"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "use_the_lever_incorrect_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "use_the_lever_incorrect_two"
+        }
+      ]
+    },
+    "script": "Do you pull the lever or say you heard the sound?"
   },
   "use_the_lever_correct": {
     "name": "use_the_lever_correct",
@@ -2771,8 +3858,12 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "use the lever",
-          "nextNode": "use_the_lever_incorrect"
+          "utterance": "pull the lever",
+          "nextNode": "use_the_lever_incorrect_one"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "use_the_lever_incorrect_one"
         },
         {
           "utterance": "say heard the sound",
@@ -2796,8 +3887,8 @@
       "type": "choice",
       "choices": [
         {
-          "utterance": "use the lever",
-          "nextNode": "use_the_lever_incorrect"
+          "utterance": "pull the lever",
+          "nextNode": "use_the_lever_incorrect_one"
         },
         {
           "utterance": "say heard the sound",
@@ -2813,57 +3904,123 @@
         }
       ]
     },
-    "script": "Do you use the lever or say you heard the sound?"
+    "script": "Do you pull the lever or say you heard the sound?"
   },
-  "say_done": {
-    "name": "say_done",
+  "say_done_one": {
+    "name": "say_done_one",
     "action": {
       "type": "choice",
       "choices": [
         {
-          "utterance": "use the lever",
-          "nextNode": "use_the_lever_correct"
+          "utterance": "pull the lever",
+          "nextNode": "use_the_lever_incorrect_two"
         },
         {
           "utterance": "say heard the sound",
-          "nextNode": "say_done"
+          "nextNode": "say_done_one"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "use_the_lever_incorrect_two"
         },
         {
           "utterance": "help",
-          "nextNode": "say_done_help"
+          "nextNode": "say_done_one_help"
         },
         {
           "utterance": "replay",
-          "nextNode": "say_done"
+          "nextNode": "say_done_one"
         }
       ]
     },
     "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_not_done.mp3\" />"
   },
-  "say_done_help": {
-    "name": "say_done_help",
+  "say_done_one_help": {
+    "name": "say_done_one_help",
     "action": {
       "type": "choice",
       "choices": [
         {
-          "utterance": "use the lever",
+          "utterance": "pull the lever",
+          "nextNode": "use_the_lever_incorrect_two"
+        },
+        {
+          "utterance": "say heard the sound",
+          "nextNode": "say_done_one"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "use_the_lever_incorrect_two"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "say_done_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "say_done_one"
+        }
+      ]
+    },
+    "script": "You can say \"pull the lever\" or \"you heard the sound\"?"
+  },
+  "say_done_two": {
+    "name": "say_done_two",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "pull the lever",
           "nextNode": "use_the_lever_correct"
         },
         {
           "utterance": "say heard the sound",
-          "nextNode": "say_done"
+          "nextNode": "say_done_two"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "use_the_lever_correct"
         },
         {
           "utterance": "help",
-          "nextNode": "say_done_help"
+          "nextNode": "say_done_two_help"
         },
         {
           "utterance": "replay",
-          "nextNode": "say_done"
+          "nextNode": "say_done_two"
         }
       ]
     },
-    "script": "You can use the lever or say you heard the sound?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc16_clock_tower_not_done.mp3\" />"
+  },
+  "say_done_two_help": {
+    "name": "say_done_two_help",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "pull the lever",
+          "nextNode": "use_the_lever_correct"
+        },
+        {
+          "utterance": "say heard the sound",
+          "nextNode": "say_done_two"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "use_the_lever_correct"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "say_done_two_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "say_done_two"
+        }
+      ]
+    },
+    "script": "You can say \"pull the lever\" or \"you heard the sound\"?"
   },
   "talk_to_sister_debora": {
     "name": "talk_to_sister_debora",
@@ -2875,7 +4032,7 @@
           "nextNode": "her_cryptic_response"
         },
         {
-          "utterance": "what she did before abbey",
+          "utterance": "her life before abbey",
           "nextNode": "what_she_did_before_abbey"
         },
         {
@@ -2888,7 +4045,7 @@
         }
       ]
     },
-    "script": "NARRATOR: Suddenly the cogs begin to whurr in unison, the inner workings of the clock tower coming alive around you in mechanical glory. SISTER DEBORA: Yep! That’s it! Let me just get out here… NARRATOR: The feet begin to wriggle towards you revealing an abbey robe, until an elderly woman with white hair and thick rimmed glasses, her eyes magnified, stands up in front of you. SISTER DEBORA: There! Oh. I'm terribly sorry. I thought you were Sister Catherina. She's normally the one who comes up here. Oh and Abbess Benita. What can I do for you? ABBESS BENITA: Ah Sister Debora. I assume you’re in the middle of fixing things? If you wouldn’t mind I’d appreciate if you could talk a little about Sister Anna. I know it might be hard. SISTER DEBORA: Sister Ban-ana? No no. You must mean Sister Anna. Well, a part breaks that you'd expected to hold for years...but that doesn't stop the whole mechanism, it just sets it in a different direction. Saradomin is a better clock-maker than us. As for yesterday I was here, repairing the clock. As you can see it’s been playing up a bit. NARRATOR: Do you ask Sister Debora about her cryptic response or her life before the abbey?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc17_talk_to_debora.mp3\" />"
   },
   "talk_to_sister_debora_help": {
     "name": "talk_to_sister_debora_help",
@@ -2900,7 +4057,7 @@
           "nextNode": "her_cryptic_response"
         },
         {
-          "utterance": "what she did before abbey",
+          "utterance": "her life before abbey",
           "nextNode": "what_she_did_before_abbey"
         },
         {
@@ -2913,17 +4070,46 @@
         }
       ]
     },
-    "script": "You can ask about her cryptic response or her life before the abbey."
+    "script": "You can say \"cryptic response\" or \"her life before the abbey\"."
   },
   "her_cryptic_response": {
     "name": "her_cryptic_response",
     "action": {
       "type": "end_game"
     },
-    "script": "NARRATOR: Sister Debora’s eyes blink at you through her huge glasses. SISTER DEBORA: Sister Benita was planning to retire as abbess next year. Everyone expected Sister Anna to become the new abbess. But it seems that wasn't Saradomin's plan, so he's taken her away. The clock runs, just not as we'd expected. NARRATOR: The wall of sound hits you with such force it blacks out your vision for a moment, disorientating you. Sister Debora on the other hand stands there unaffected, like nothing has happened. SISTER DEBORA: Are you listening? I said, I need to get back to work. NARRATOR: Carefully descending down the wooden staircase you rejoin the Abbess.\n<<if $talkToElena is 0>>\n[[her_cryptic_response_choice_one]]\n<<else>>\n[[meeting_with_the_abbess]]"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc17_talk_to_debora_corr.mp3\" />\n<<if $talkToElena is 0>>\n[[her_cryptic_response_choice_one]]\n<<else>>\n[[go_to_meeting_with_abbess]]"
   },
   "her_cryptic_response_choice_one": {
     "name": "her_cryptic_response_choice_one",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "talk to sister elena",
+          "nextNode": "talk_to_sister_elena"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "talk_to_sister_elena"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "her_cryptic_response_choice_one_no"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "her_cryptic_response_choice_one_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "her_cryptic_response"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc17_talk_to_debora_corr_op1.mp3\" />"
+  },
+  "her_cryptic_response_choice_one_no": {
+    "name": "her_cryptic_response_choice_one_no",
     "action": {
       "type": "choice",
       "choices": [
@@ -2945,7 +4131,7 @@
         }
       ]
     },
-    "script": "ABBESS BENITA: Would you care to speak to Sister Elena."
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc17_NAR_no.mp3\" />"
   },
   "her_cryptic_response_choice_one_help": {
     "name": "her_cryptic_response_choice_one_help",
@@ -2970,10 +4156,39 @@
         }
       ]
     },
-    "script": "You can say \"yes\" to talk to Sister Elena."
+    "script": "You can say \"yes\" or \"talk to Sister Elena\"."
   },
   "what_she_did_before_abbey": {
     "name": "what_she_did_before_abbey",
+    "action": {
+      "type": "choice",
+      "choices": [
+        {
+          "utterance": "her cryptic response",
+          "nextNode": "her_cryptic_response"
+        },
+        {
+          "utterance": "yes",
+          "nextNode": "her_cryptic_response"
+        },
+        {
+          "utterance": "no",
+          "nextNode": "what_she_did_before_abbey_no"
+        },
+        {
+          "utterance": "help",
+          "nextNode": "what_she_did_before_abbey_help"
+        },
+        {
+          "utterance": "replay",
+          "nextNode": "what_she_did_before_abbey"
+        }
+      ]
+    },
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc17_talk_to_debora_incorr.mp3\" />"
+  },
+  "what_she_did_before_abbey_no": {
+    "name": "what_she_did_before_abbey_no",
     "action": {
       "type": "choice",
       "choices": [
@@ -2995,7 +4210,7 @@
         }
       ]
     },
-    "script": "SISTER DEBORA: I’ve always been a clockmaker. Before I came here I used to live in a city called Ardougne and worked for...what’s the name, you know, a man with the hat. Oh yes. The King. But then rumour began that there was a plague. So I left and joined the abbey, here. NARRATOR: This information doesn’t seem to be that useful. Do you ask about her cryptic response?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc17_NAR_no.mp3\" />"
   },
   "what_she_did_before_abbey_help": {
     "name": "what_she_did_before_abbey_help",
@@ -3020,7 +4235,7 @@
         }
       ]
     },
-    "script": "You can say \"yes\" to ask about her cryptic response."
+    "script": "You can say \"yes\" or \"her cryptic response\"."
   },
   "meeting_with_the_abbess": {
     "name": "meeting_with_the_abbess",
@@ -3053,13 +4268,29 @@
         }
       ]
     },
-    "script": "NARRATOR: You return to the office of the abbess. ABBESS BENITA: I have to ask; given what you’ve learnt so far, who do you think the murderer is?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc18_meet_with_abbess.mp3\" />"
   },
   "meeting_with_the_abbess_help": {
     "name": "meeting_with_the_abbess_help",
     "action": {
       "type": "choice",
       "choices": [
+        {
+          "utterance": "sister catherina",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "sister cecilia",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "sister deborah",
+          "nextNode": "end"
+        },
+        {
+          "utterance": "sister elena",
+          "nextNode": "end"
+        },
         {
           "utterance": "one of the sisters",
           "nextNode": "one_of_the_sisters"
@@ -3073,6 +4304,10 @@
           "nextNode": "end"
         },
         {
+          "utterance": "valerio",
+          "nextNode": "end"
+        },
+        {
           "utterance": "help",
           "nextNode": "meeting_with_the_abbess_help"
         },
@@ -3082,7 +4317,7 @@
         }
       ]
     },
-    "script": "Is it one of the sisters, Valerio or are you not sure?"
+    "script": "You can say \"one of the sisters\", \"Valerio\" or \"you're not sure\"."
   },
   "one_of_the_sisters": {
     "name": "one_of_the_sisters",
@@ -3115,7 +4350,7 @@
         }
       ]
     },
-    "script": "ABBESS BENITA: One of the sisters? Really? This is most disturbing.\nWhich do you suspect?"
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc18_meet_with_abbess_reply_sisters.mp3\" />"
   },
   "one_of_the_sisters_help": {
     "name": "one_of_the_sisters_help",
@@ -3155,6 +4390,6 @@
     "action": {
       "type": "end_game"
     },
-    "script": "ABBESS BENITA: Interesting. In that case, perhaps we - Did you hear that? Quick! Follow the sound of that scream! NARRATOR: Leaving the office, you and the Abbess both run in the direction of the scream. The desperate wails get louder and louder the deeper you go into the abbey. You come to a room where the wooden hatch to the basement is open. Thundering down the stairs you enter into the dim light of the basement. A body lays stretched out, blood pooling around it on the stone floor. The pristine white robes now soaked in crimson along with the apron tied around the front. The apron of Sister Elena. Sister Cecilia cowers in the corner, shaking. SISTER CECILIA: I saw it! It was the demon! It was the Ripper! NARRATOR: End of Act 1. The next part of One Piercing Note will be available soon. The full quest can also be experienced in RuneScape. Visit RuneScape.com to find out more."
+    "script": "<audio src = \"https://s3-eu-west-1.amazonaws.com/runescape/audioassets/a01sc19_act1_finale.mp3\" />"
   }
 }

@@ -6,47 +6,76 @@ var docClient = new AWS.DynamoDB.DocumentClient({region: "eu-west-1"});
 
 var dynamoDbClient = function() {
     return {
-  /*      getPhoneHasConfirmed : function (telephone, callback) {
+        scanVoucherCode : function (callback) {
+            var result = [];
             var params = {
-                Key: {
-                    telephone: telephone
-                },
-                TableName: constants.PHONE_NUMBERS_TABLE_NAME
-            };
-            docClient.get(params, function(err, data) {
-                if (err) {
-                    console.error("Unable to read data from dynamoDB. ");
-                    console.log("Error : " + JSON.stringify(err));
-                } else {
-                    console.log("Get data successfully!.");
-                    callback(data.Item.hasConfirmed);
+                TableName: "VoucherCode",
+                ProjectionExpression: "voucherCode, blocked, userID",
+                FilterExpression: "blocked = :isBlocked",
+                ExpressionAttributeValues: {
+                    ":isBlocked": false,
                 }
-            });
+            };
+
+            console.log("Scanning Movies table.");
+            docClient.scan(params, onScan);
+
+            function onScan(err, data) {
+                if (err) {
+                    console.error("Unable to scan the table. Error JSON:", JSON.stringify(err, null, 2));
+                } else {
+                    // print all the codes
+                    console.log("Scan succeeded.");
+                    console.log(data.Items.length);
+                    data.Items.forEach(function(item) {
+                        //console.log(
+                        //    code.voucherCode + ": ",
+                        //    code.blocked, "- userID:", code.userID);
+                        result.push(item);
+                    });
+
+                    // continue scanning if we have more movies, because
+                    // scan can retrieve a maximum of 1MB of data
+                    if (typeof data.LastEvaluatedKey != "undefined") {
+                        console.log("Scanning for more...");
+                        params.ExclusiveStartKey = data.LastEvaluatedKey;
+                        docClient.scan(params, onScan);
+                    }
+                    else {
+                        callback(result);
+                    }
+                }
+            }
         },
 
-        // Get user's data from dynamoDB.
-        savePhoneAttributes : function (telephone, title, link, imageUrl, hasConfirmed, hasPhoto, callback) {
+        // Update selected voucher code
+        updateVoucherCode : function (selectedCode, userID, callback) {
+            console.log("updateVoucherCode");
             var params = {
-                Item: {
-                    telephone: telephone,
-                    title: title,
-                    link: link,
-                    imageUrl: imageUrl,
-                    hasConfirmed : hasConfirmed,
-                    hasPhoto : hasPhoto
+                TableName: "VoucherCode",
+                Key:{
+                    "voucherCode": selectedCode.voucherCode,
                 },
-                TableName: constants.PHONE_NUMBERS_TABLE_NAME
+                UpdateExpression: "set blocked = :isBlocked, userID = :currentUserID",
+                ConditionExpression: "blocked = :notBlocked",
+                ExpressionAttributeValues:{
+                    ":isBlocked": true,
+                    ":notBlocked": false,
+                    ":currentUserID": userID
+                },
+                ReturnValues:"UPDATED_NEW"
             };
-            docClient.put(params, function(err, data) {
+
+            console.log("Attempting a conditional update...");
+            docClient.update(params, function(err, data) {
                 if (err) {
-                    console.error("Unable to put the state into dynamoDB.");
-                    console.log("Error : " + JSON.stringify(err));
+                    console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
                 } else {
-                    console.log("PutItem succeeded.");
-                    callback();
+                    console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
                 }
+                callback(err);
             });
-        },*/
+        },
 
         // Import all voucher codes into dynamoDB
         putVoucherCode : function (voucherCode, callback) {
@@ -55,6 +84,8 @@ var dynamoDbClient = function() {
                 TableName : "VoucherCode",
                 Item : {
                     "voucherCode" : voucherCode,
+                    "blocked" : false,
+                    "userID" : "xxx"
                 }
 
             };
